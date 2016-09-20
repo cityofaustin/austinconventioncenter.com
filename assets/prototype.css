@@ -1,0 +1,68 @@
+.usa-nav-primary a {
+  /*
+  fyi Alex I removed the global "nav" declaration here because
+  the Footer links are also treated as <nav> children, so we
+  needed a way to target only the primary navigation without
+  uppercasing the footer links 
+  - Matt
+  */
+  text-transform: uppercase !important;
+}
+
+.acc-logo {
+  max-height: 60px;
+}
+.hero {
+  background-color: #f3f3f3;
+  height: 250px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  position: relative;
+}
+
+.hero a {
+  position: absolute;
+  right: 20px;
+}
+.button_wrapper {
+  bottom: -80px;
+  position: relative;
+}
+  .hero .book-meeting-button {
+    font-size: 24px;
+  }
+  .rfp-button {
+    margin-top: 40px;
+    font-size: 12px;
+}
+
+
+
+.main-content .usa-width-one-third img {
+  margin-bottom: 40px;
+}
+
+/*
+  ==================
+  Floorplan Styles
+  ==================
+*/
+.floorplan-link {
+  position: absolute;
+  background: rgba(0, 0, 0, 0);
+}
+.floorplan-link span {
+  display: none;
+  width: 100%;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+}
+.floorplan-link:hover {
+  display: block;
+  background: rgba(0, 0, 0, .2);
+}
+.floorplan-link:hover span {
+  display: block;
+}
