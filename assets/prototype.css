@@ -5,6 +5,8 @@
   needed a way to target only the primary navigation without
   uppercasing the footer links 
   - Matt
+  thanks! wasn't looking at the footer at all. my bad!
+  - alex
   */
   text-transform: uppercase !important;
 }
@@ -41,6 +43,24 @@
 .main-content .usa-width-one-third img {
   margin-bottom: 40px;
 }
+
+
+
+.usa-width-three-fourths .usa-form {
+  max-width: 100%;
+}
+
+input[type="text"] {
+  max-width: 100%;
+}
+
+.checkbox-label-fix {
+  margin-top: 3rem;
+}
+.checkbox-label-fix label {
+  margin-top: 0;
+}
+
 
 /*
   ==================
