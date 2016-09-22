@@ -7,6 +7,47 @@ markdown: kramdown
 
 permalink: pretty
 
+
 exclude:
   - bin
   - vendor
+
+contentful:
+  spaces:
+    - 
+      acc:
+        space: ENV_CONTENTFUL_SPACE_ID
+        access_token: ENV_CONTENTFUL_ACCESS_TOKEN
+        cda_query:
+          limit: 1000
+    # - pec:
+    #     space: ENV_CONTENTFUL_PEC_SPACE_ID
+    #     access_token: ENV_CONTENTFUL_PEC_ACCESS_TOKEN
+    #     cda_query:
+    #       limit: 1000
+
+defaults:
+  -
+    values:
+      layout: "page"
+  -
+    scope: # Pages representing a section
+      type: sections
+    values:
+      layout: "section"
+      permalink: "/:slug/"
+  -
+    scope: # Pages without a section
+      type: orphans
+    values:
+      layout: "page"
+      permalink: "/:slug/"
+
+
+collections:
+  orphans:
+    output: true
+  sections:
+    output: true
+  custom:
+    output: false
