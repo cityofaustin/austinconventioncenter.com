@@ -1,6 +1,5 @@
 title: Austin Convention Center
-baseurl: "/austinconventioncenter.com" # the subpath of your site, e.g. /blog
-url: "https://cityofaustin.github.io" # the base hostname & protocol for your site
+url: "https://austin-convention-center.herokuapp.com" # the base hostname & protocol for your site
 
 # Build settings
 markdown: kramdown
@@ -10,11 +9,16 @@ permalink: pretty
 
 exclude:
   - bin
+  - config.ru
+  - Gemfile
+  - Gemfile.lock
+  - Procfile
+  - Rakefile
   - vendor
 
 contentful:
   spaces:
-    - 
+    -
       acc:
         space: ENV_CONTENTFUL_SPACE_ID
         access_token: ENV_CONTENTFUL_ACCESS_TOKEN
