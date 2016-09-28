@@ -1,3 +1,6 @@
+body, * {
+  font-family: "Source Sans Pro","Helvetica Neue","Helvetica","Roboto","Arial",sans-serif !important;
+}
 .usa-nav-primary a {
   /*
   fyi Alex I removed the global "nav" declaration here because
@@ -182,3 +185,23 @@ input[type="text"] {
   .info-box-gray h3 {
     margin-top: 0.5em
   }
+/*
+  ==================
+  
+  ==================
+*/
+.placeholder-img {
+  display: block;
+  width: 100%;
+  background-color:#eee;
+  text-align: center;
+  font-weight: bold;
+}
+/*
+.usa-button, input[type="submit"] {
+  background-color: #bbb !important;
+}
+.usa-button:hover, input[type="submit"]:hover {
+  background-color:#ccc !important;
+}
+*/
