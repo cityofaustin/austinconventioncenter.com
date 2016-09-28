@@ -4,18 +4,15 @@ layout: default
 <style type="text/css">
   .details {
     padding-left:80px;
-    background: url('{{site.baseurl}}/assets/images/doc.png') 0 15px no-repeat;
+    background: url('{{site.baseurl}}/assets/images/doc.png') 0 0 no-repeat;
+    width: 60%;
     textarea {
       max-width: 100%;
     }
   }
 </style>
 
-<div class="usa-grid" style="border-bottom: 1px solid #ccc; padding-bottom: 4rem; margin-bottom: 4rem;">
-  <h1>Talk to a sales representative</h1>
-  <div class="usa-width-one-half"><h2 style="margin: 0;">512-404-4244</h2></div>
-  <div class="usa-width-one-half"><a href="mailto:sales@austinconventioncenter.com" class="usa-button usa-button-big">sales@austinconventioncenter.com</a></div>
-</div>
+
 
 <div class="usa-grid">
   <div class="usa-width-two-thirds">
@@ -23,7 +20,21 @@ layout: default
     <p>
       Complete our online inquiry form and our <strong>Sales Team</strong> will be in touch to discuss your requirements.
     </p>
-    
+
+    <div class="details">
+      <p>
+        <small>
+          Do you already have a document that describes the details of your event?
+        </small>
+      </p>
+
+      <p>
+        Submit it to:
+        <br>
+        <small><a href="mailto:sales@austinconventioncenter.com">sales@austinconventioncenter.com</a></small>
+      </p>
+    </div>
+    <h2>RFP Form</h2>
     <form class="usa-form" style="max-width:100%;">
       <fieldset>
         
@@ -124,7 +135,7 @@ layout: default
       </fieldset>
       
       <fieldset>
-        <input type="submit" />
+        <a href="{{site.baseurl}}/contact/thank-you/" class="usa-button usa-button-big" style="float: right">Submit</a>
       </fieldset>
 
 
@@ -133,18 +144,30 @@ layout: default
 
 
 
-  <div class="usa-width-one-third details">
-    <p>
-      <small>
-        Do you already have a document that describes the details of your event?
-      </small>
-    </p>
+  <div class="usa-width-one-third">
+    <div class="info-box-gray">
+      <header>
+        <div class="usa-width-one-third">
+          <img src="{{site.baseurl}}/assets/images/chat-bubble.png" alt="">  
+        </div>
+        <div class="usa-width-two-thirds">
+          <h3>Contact,<br>Sales Team</h3>
+        </div>
+      </header>
 
-    <p>
-      Submit it to:
-      <br>
-      <small><a href="mailto:sales@austinconventioncenter.com">sales@austinconventioncenter.com</a></small>
-    </p>
+        <p>
+          <small>
+            <span class="sales-member-name">Jennifer Hinkle</span><br>
+            <span class="sales-member-title">Sales Administrative Specialist</span><br>
+            <span class="sales-member-email">
+              <a href="mailto:Jennifer.Hinkle@austintexas.gov">Jennifer.Hinkle@austintexas.gov</a>
+            </span><br>
+            <span class="sales-member-phone">512-404-4243</span>
+          </small>
+        </p>
+
+        <a class="usa-button" href="{{site.baseurl}}/contact/sales-team/">See the full Sales Team ></a>
+    </div>
   </div><!-- /usa-width-one-fourth -->
 
 </div><!-- /.usa-grid -->

@@ -40,6 +40,11 @@
 
 
 
+
+#main-content {
+  margin-top: 4em;
+}
+
 .main-content .usa-width-one-third img {
   margin-bottom: 40px;
 }
@@ -161,4 +166,19 @@ input[type="text"] {
   }
   .sales-member-gray img {
     float: left;
+  }
+
+
+.info-box-gray {
+  background-color: #ddd;
+  overflow: hidden;
+  padding: 10px;
+}
+
+  .info-box-gray header {
+    overflow: auto;
+  }
+
+  .info-box-gray h3 {
+    margin-top: 0.5em
   }
