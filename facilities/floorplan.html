@@ -43,37 +43,207 @@ layout: default
     width: 20%;
     text-align: right;
   }
+
+  .levels {
+    list-style: none;
+  }
+    .levels li {
+      line-height: 4;
+    }
+
+  .cf {
+    float: left;
+    overflow: auto;
+    width: 100%;
+  }
+
+  .capability {
+    display: inline-block;
+    float: left;
+    height: 80px;
+    margin-right: 10px;
+    width: 80px;
+  }
+    .wifi {
+      background: url({{site.baseurl}}/assets/images/icons_sprite.png) 0 0 no-repeat;
+    }
+    .data {
+      background: url({{site.baseurl}}/assets/images/icons_sprite.png) 0 -80px no-repeat;
+    }
+    .signage {
+      background: url({{site.baseurl}}/assets/images/icons_sprite.png) 0 -160px no-repeat;
+    }
+    .voice {
+      background: url({{site.baseurl}}/assets/images/icons_sprite.png) 0 -240px no-repeat;
+    }
+    .a-v {
+      background: url({{site.baseurl}}/assets/images/icons_sprite.png) 0 -320px no-repeat;
+    }
+    .catering {
+      background: url({{site.baseurl}}/assets/images/icons_sprite.png) 0 -400px no-repeat;
+    }
+
+  .capabilities {
+    margin-left: 90px;
+  }
+  .Capabilities li {
+    line-height: 1;
+  }
 </style>
 <div class="usa-grid">
   <h1>Floor Plan</h1>
 </div>
 <div class="usa-grid">
-  <div class="usa-width-one-whole">
-    <div class="fp-wrapper" style="position: relative;">
-      <img src="{{site.baseurl}}/assets/floorplans/overview.png" alt="Floorplan Overview" />
-      <div style="top:7%;">
-        Third Floor
-      </div>
-      <div style="top:40%;">
-        Second Floor
-      </div>
-      <div style="top:68%;">
-        First Floor
-      </div>
-      <a class="floorplan-link" id="level-one" href="{{site.baseurl}}/facilities/level_one">
-        <span>Explore Level 1</span>
-      </a>
-      <a class="floorplan-link" id="level-two" href="#">
-        <span>Explore Level 2</span>
-      </a>
-      <a class="floorplan-link" id="level-three" href="#">
-        <span>Explore Level 3</span>
-      </a>
-    </div>
+  <div class="usa-width-one-sixth">
+    <ul class="levels">
+      <li class="level-four">Level 4</li>
+      <li class="level-three">Level 3</li>
+      <li class="level-two">Level 2</li>
+      <li class="level-one">Level 1</li>
+    </ul>
   </div>
+  <div class="usa-width-one-half">
+    <img src="{{site.baseurl}}/assets/images/floor-plan.png" alt="">
+  </div>
+  <div class="usa-width-one-third">
+
+
+
+    <h3>Capabilities</h3>
+    <div class="cf">
+      <span class="capability wifi"></span>
+      <p>
+        Complimentary <br>Standard Wi-fi
+      </p>      
+    </div>
+
+    <div class="cf">
+      <span class="capability data"></span>
+        <p>
+          Data/Telecommunication <br>on every fixed wall or <br>floor pocket every 30'
+        </p>
+    </div>
+    
+
+    <div class="cf">
+      <span class="capability signage"></span>
+      <p>
+        Digital signage
+      </p>
+    </div>
+
+    <div class="cf">
+      <span class="capability voice"></span>
+      <p>
+        In-house <br>voice services
+      </p>
+    </div>
+
+
+  </div>
+
+
+
+
 </div>
 
+<hr>
 
+<div class="usa-grid">
+  <div class="usa-width-one-half">
+    <h3>Level 4</h3>
+    <img src="{{site.baseurl}}/assets/images/floor-plans/level-4.png" alt="">
+    
+    <h3>Level 3</h3>
+    <img src="{{site.baseurl}}/assets/images/floor-plans/level-3.png" alt="">
+
+    <h3>Level 2</h3>
+    <img src="{{site.baseurl}}/assets/images/floor-plans/level-2.png" alt="">
+
+    <h3>Level 1</h3>
+    <img src="{{site.baseurl}}/assets/images/floor-plans/level-1.png" alt="">
+
+
+  </div>
+
+  <div class="usa-width-one-half">
+    <h3>Capabilities</h3>
+
+    <div class="cf">
+      <span class="capability wifi"></span>
+      <ul class="capabilities">
+        <li>
+          Data/Telecommunications Services on every fixed wall and/or floor pocket every 30 feet
+        </li>
+        <li>
+          Wireless Network 802.11a/g/n/ac
+        </li>
+        <li>
+          600 CAT 6 Copper UTP ports
+        </li>
+        <li>
+          180 Multi-mode Fibre Optic ports
+        </li>
+        <li>
+          Single-mode Fiber Optic ports in select areas
+        </li>
+      </ul>
+        
+      
+    </div>
+
+    <div class="cf">
+      <span class="capability data"></span>
+      <ul class="capabilities">
+        <li>
+          2.4 Gbps of bandwidth running on a Cisco Enterprise redundant ethernet infrastructure consisting of a 10 Gigabit backbone
+        </li>
+        <li>
+          Limited complimentary Wireless Internet Access throughout entire facility
+        </li>
+        <li>
+          1268 registered Internet addresses
+        </li>
+        <li>
+          Ability to design and scale RFC-1918 private addresses to clients needs
+        </li>
+
+        <li>
+          In-house network engineer on staff to assist with networking design needs
+        </li>
+        <li>
+          In-house network administrators on staff to assist with networking needs during events
+        </li>
+        <li>
+          24/7 support available during events
+        </li>
+      </ul>
+    </div>
+
+    <div class="cf">
+      <span class="capability a-v"></span>
+      <ul class="capabilities">
+        <li>
+          Use of exclusive A/V equipment through Freeman Audio/Visual
+        </li>
+      </ul>
+    </div>
+
+    <div class="cf">
+      <span class="capability catering"></span>
+      <ul class="capabilities">
+        <li>
+          Exclusive catering available through Levy
+        </li>
+      </ul>
+    </div>
+
+
+
+    
+  </div>
+
+</div>
 
 
 
