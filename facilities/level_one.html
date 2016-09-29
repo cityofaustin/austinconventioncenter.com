@@ -3,66 +3,144 @@ layout: default
 ---
 
 <style type="text/css">
-  .floorplan-link {
-    position: absolute;
-    background: rgba(0, 0, 0, 0);
+  .hover-image {
+    position: relative;
+    top: -280px;
+    left: 0;
+    opacity: 0;
   }
-  .floorplan-link span {
-    display: none;
+  .hover-image:hover {
+    opacity: 1;
   }
-  .floorplan-link:hover {
-    display: block;
-    background: rgba(0, 0, 0, .2);
+  .cf {
+    float: left;
+    overflow: auto;
+    width: 100%;
   }
-  .floorplan-link:hover span {
-    display: block;
+
+  .capability {
+    display: inline-block;
+    float: left;
+    height: 80px;
+    margin-right: 10px;
+    width: 80px;
   }
-  #room-102 {
-    position:absolute;
-    top: 42%;
-    left: 40%;
-/*     border: 5px solid red; */
-    display:block;
-    width: auto;
-    height: 20px;
-    width: 140px;
+    .wifi {
+      background: url({{site.baseurl}}/assets/images/icons_sprite.png) 0 0 no-repeat;
+    }
+    .data {
+      background: url({{site.baseurl}}/assets/images/icons_sprite.png) 0 -80px no-repeat;
+    }
+    .signage {
+      background: url({{site.baseurl}}/assets/images/icons_sprite.png) 0 -160px no-repeat;
+    }
+    .voice {
+      background: url({{site.baseurl}}/assets/images/icons_sprite.png) 0 -240px no-repeat;
+    }
+    .a-v {
+      background: url({{site.baseurl}}/assets/images/icons_sprite.png) 0 -320px no-repeat;
+    }
+    .catering {
+      background: url({{site.baseurl}}/assets/images/icons_sprite.png) 0 -400px no-repeat;
+    }
+
+  .capabilities {
+    margin-left: 90px;
   }
-  #room-102 span {
-  }
-  #room-102:hover {
-  }
-  #room-102:hover span {
-    display: block;
+  .Capabilities li {
+    line-height: 1;
   }
 </style>
 <div class="usa-grid">
   <h1>Level One</h1>
 </div>
 <div class="usa-grid" style="position:relative;">
-  <div class="usa-width-one-fourth">
-    <ul>
-      <li><a href="javascript:void(0);">Hall A</a></li>
-      <li><a href="javascript:void(0);">Hall B</a></li>
-      <li><a href="javascript:void(0);">Hall C</a></li>
-      <li><a href="javascript:void(0);">Ballroom 1</a></li>
-      <li><a href="javascript:void(0);">Ballroom 2</a></li>
-      <li><a href="javascript:void(0);">Room 100</a></li>
-      <li><a href="javascript:void(0);">Room 101</a></li>
-      <li><a href="{{site.baseurl}}/facilities/room_102">Room 102</a></li>
-      <li><a href="javascript:void(0);">Room 103</a></li>
-  </div>
-  <div class="usa-width-three-fourths" style="position:relative;">
-    <a class="floorplan-link" id="room-102" href="{{site.baseurl}}/facilities/room_102">
-      <span>Room 102</span>
-    </a>
-    <img src="{{site.baseurl}}/assets/floorplans/floor_1.png" alt="First Floor Floorplan" />
-  </div>
+  <div class="usa-width-two-thirds">
+    <img src="{{site.baseurl}}/assets/floorplans/fp-level1.png" alt="First Floor Floorplan" />
+    <img src="{{site.baseurl}}/assets/floorplans/fp-level1-hover.png" class="hover-image" alt="First Floor Floorplan" />
+  </div><!-- /two-thirds -->
+
+
+
+  <div class="usa-width-one-third">
+    <h3>Capabilities</h3>
+    <div class="cf">
+      <span class="capability wifi"></span>
+      <p>
+        Complimentary <br>Standard Wi-fi
+      </p>      
+    </div>
+
+    <div class="cf">
+      <span class="capability data"></span>
+        <p>
+          Data/Telecommunication <br>on every fixed wall or <br>floor pocket every 30'
+        </p>
+    </div>
+    
+
+    <div class="cf">
+      <span class="capability signage"></span>
+      <p>
+        Digital signage
+      </p>
+    </div>
+
+    <div class="cf">
+      <span class="capability voice"></span>
+      <p>
+        In-house <br>voice services
+      </p>
+    </div>
+  </div><!-- /one-third -->
+
+
+
 </div>
 
+<hr>
+
+
+
+<div class="usa-grid">
+
+  <div class="usa-width-one-sixth">
+    <h3>Level 1</h3>
+  </div><!-- /one-sixth -->
+
+
+  <div class="usa-width-five-sixths">
+    <img src="{{site.baseurl}}/assets/floorplans/fp-level1-layout.png" alt="">
+    <img src="{{site.baseurl}}/assets/floorplans/fp-level1-desc.png" alt="">
+  </div><!-- /.five-sixths -->
+
+
+
+</div><!-- /usa-grid -->
 
 
 
 
+
+
+<div class="usa-footer-secondary usa-grid" style="background-color: #eee;padding: 1rem; margin-top: 2rem;">
+  <div class="usa-footer-logo usa-width-one-third">
+    <img class="usa-footer-slim-logo-img" src="{{site.baseurl}}/assets/images/chat-bubble.png" alt="Logo image">
+    <h3 class="usa-footer-slim-logo-heading" style="margin-top: 1rem">Contact<br>Event Services</h3>
+  </div>
+  <div class="usa-width-one-third">
+          <small>
+      Adrian Hernandez<br>
+      Event Coordinator Supervisor<br>
+      (512) 404-4206<br>
+      <strong><a href="mailto:Adrian.Hernandez@austintexas.gov">Adrian.Hernandez@austintexas.gov</a></strong>
+      </small>
+
+  </div>
+  <div class="usa-width-one-third" style="text-align: right;padding-top: 1rem;">
+    <a href="{{site.baseurl}}/contact/event-services" class="usa-button usa-button-big">See the Event Services team ></a>
+  </div>
+</div>
 
 
 

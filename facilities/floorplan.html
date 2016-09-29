@@ -51,6 +51,10 @@ layout: default
       line-height: 4;
     }
 
+    .level-one:hover {
+      font-weight: bold;
+    }
+
   .cf {
     float: left;
     overflow: auto;
@@ -94,20 +98,25 @@ layout: default
   <h1>Floor Plan</h1>
 </div>
 <div class="usa-grid">
+
   <div class="usa-width-one-sixth">
     <ul class="levels">
       <li class="level-four">Level 4</li>
       <li class="level-three">Level 3</li>
       <li class="level-two">Level 2</li>
-      <li class="level-one">Level 1</li>
+      <li class="level-one" onMouseOver="document.floorPlan.src='{{site.baseurl}}/assets/floorplans/floor-plan-hover.png';" onMouseOut="document.floorPlan.src='{{site.baseurl}}/assets/floorplans/floor-plan.png';">Level 1</li>
     </ul>
-  </div>
+  </div><!-- /one-sixth -->
+
+
+
   <div class="usa-width-one-half">
-    <img src="{{site.baseurl}}/assets/images/floor-plan.png" alt="">
-  </div>
+    <img src="{{site.baseurl}}/assets/floorplans/floor-plan.png" name="floorPlan" alt="">
+  </div><!-- /one-half -->
+
+
+
   <div class="usa-width-one-third">
-
-
 
     <h3>Capabilities</h3>
     <div class="cf">
@@ -140,7 +149,7 @@ layout: default
     </div>
 
 
-  </div>
+  </div><!-- /one-third -->
 
 
 
@@ -152,19 +161,19 @@ layout: default
 <div class="usa-grid">
   <div class="usa-width-one-half">
     <h3>Level 4</h3>
-    <img src="{{site.baseurl}}/assets/images/floor-plans/level-4.png" alt="">
+    <img src="{{site.baseurl}}/assets/floorplans/level-4.png" alt="">
     
     <h3>Level 3</h3>
-    <img src="{{site.baseurl}}/assets/images/floor-plans/level-3.png" alt="">
+    <img src="{{site.baseurl}}/assets/floorplans/level-3.png" alt="">
 
     <h3>Level 2</h3>
-    <img src="{{site.baseurl}}/assets/images/floor-plans/level-2.png" alt="">
+    <img src="{{site.baseurl}}/assets/floorplans/level-2.png" alt="">
 
     <h3>Level 1</h3>
-    <img src="{{site.baseurl}}/assets/images/floor-plans/level-1.png" alt="">
+    <img src="{{site.baseurl}}/assets/floorplans/level-1.png" alt="">
 
 
-  </div>
+  </div><!-- /usa-width-one-half -->
 
   <div class="usa-width-one-half">
     <h3>Capabilities</h3>
@@ -241,12 +250,30 @@ layout: default
 
 
     
+  </div><!-- /usa-width-one-half -->
+
+</div><!-- /.usa-grid -->
+
+
+
+<div class="usa-footer-secondary usa-grid" style="background-color: #eee;padding: 1rem; margin-top: 2rem;">
+  <div class="usa-footer-logo usa-width-one-third">
+    <img class="usa-footer-slim-logo-img" src="{{site.baseurl}}/assets/images/chat-bubble.png" alt="Logo image">
+    <h3 class="usa-footer-slim-logo-heading" style="margin-top: 1rem">Contact<br>Event Services</h3>
   </div>
+  <div class="usa-width-one-third">
+          <small>
+      Adrian Hernandez<br>
+      Event Coordinator Supervisor<br>
+      (512) 404-4206<br>
+      <strong><a href="mailto:Adrian.Hernandez@austintexas.gov">Adrian.Hernandez@austintexas.gov</a></strong>
+      </small>
 
+  </div>
+  <div class="usa-width-one-third" style="text-align: right;padding-top: 1rem;">
+    <a href="{{site.baseurl}}/contact/event-services" class="usa-button usa-button-big">See the Event Services team ></a>
+  </div>
 </div>
-
-
-
 
 
 
