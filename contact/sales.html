@@ -1,0 +1,151 @@
+---
+layout: default
+---
+<style type="text/css">
+  .details {
+    padding-left:80px;
+    background: url('{{site.baseurl}}/assets/images/doc.png') 0 15px no-repeat;
+    textarea {
+      max-width: 100%;
+    }
+  }
+</style>
+
+<div class="usa-grid" style="border-bottom: 1px solid #ccc; padding-bottom: 4rem; margin-bottom: 4rem;">
+  <h1>Talk to a sales representative</h1>
+  <div class="usa-width-one-half"><h2 style="margin: 0;">512-404-4244</h2></div>
+  <div class="usa-width-one-half"><a href="mailto:sales@austinconventioncenter.com" class="usa-button usa-button-big">sales@austinconventioncenter.com</a></div>
+</div>
+
+<div class="usa-grid">
+  <div class="usa-width-two-thirds">
+    <h1 style="margin-top: 0;">Submit RFP</h1>
+    <p>
+      Complete our online inquiry form and our <strong>Sales Team</strong> will be in touch to discuss your requirements.
+    </p>
+    
+    <form class="usa-form" style="max-width:100%;">
+      <fieldset>
+        
+        <legend>Contact Information</legend>
+        
+        <label for="organization">Organization</label>
+        <input class="usa-input-tiny" id="organization" name="organization" type="text">
+
+        <label for="contact-name">Contact Name</label>
+        <input id="contact-name" name="contact-name" type="text" required="" aria-required="true">
+
+        <label for="title">Title</label>
+        <input id="title" name="title" type="text">
+
+        <div class="usa-grid-full">
+          <div class="usa-width-one-third">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="text">  
+          </div>
+          <div class="usa-width-one-third">
+            <label for="fax">Fax</label>
+            <input id="fax" name="fax" type="text">  
+          </div>
+          <div class="usa-width-one-third">
+            <label for="mobile">Mobile</label>
+            <input id="mobile" name="mobile" type="text">          
+          </div>
+        </div>
+
+        <div class="usa-grid-full">
+          <div class="usa-width-one-half">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="text">
+          </div>
+          <div class="usa-width-one-half">
+            <label for="website">Website</label>
+            <input id="website" name="website" type="text">
+          </div>
+        </div>
+
+        <label for="address">Address</label>
+        <input id="address" name="address" type="text">
+      
+        <label for="profile">Organization Profile</label>
+        <input id="profile" name="profile" type="text">
+
+      </fieldset>
+
+
+
+      <fieldset style="margin-top: 4rem;">
+        
+        <legend>Event Information</legend>
+        
+        <label for="event-name">Event Name</label>
+        <input id="event-name" name="event-name" type="text">
+
+        <label for="event-description">Description of Event</label>
+        <textarea id="event-description" name="event-description" required="" aria-required="true"></textarea>
+
+        <label for="event-objectives">Objectives</label>
+        <textarea id="event-objectives" name="event-objectives" required="" aria-required="true"></textarea>
+
+        <label for="deciding-factors">Deciding Factors</label>
+        <textarea id="deciding-factors" name="deciding-factors" required="" aria-required="true"></textarea>
+
+        <div class="usa-grid-full">
+          <div class="usa-width-one-half">
+            <label for="event-startdate">Event Start Date</label>
+            <input id="event-startdate" name="event-startdate" type="text" required="" aria-required="true">
+          </div>
+
+          <div class="usa-width-one-half">
+            <label for="event-enddate">Event End Date</label>
+            <input id="event-enddate" name="event-enddate" type="text" required="" aria-required="true">
+          </div>
+        </div>
+
+        <div class="usa-grid-full">
+
+          <div class="usa-width-one-fourth checkbox-label-fix">
+            Dates Flexible?
+            <br>
+            <input id="date-flexible" type="checkbox" name="date-flexible" value="yes">
+            <label for="date-flexible">Yes</label>
+          </div>
+
+          <div class="usa-width-three-fourths">
+            <label for="alternate-dates">Alternate Dates</label>
+            <input id="alternate-dates" name="alternate-dates" type="text">
+          </div>
+          
+        </div>
+        
+        <label for="estimated-attendance">Estimated Attendance</label>
+        <input id="estimated-attendance" name="estimated-attendance" type="text">
+
+      </fieldset>
+      
+      <fieldset>
+        <input type="submit" />
+      </fieldset>
+
+
+    </form>
+  </div><!-- /usa-width-three-fourths -->
+
+
+
+  <div class="usa-width-one-third details">
+    <p>
+      <small>
+        Do you already have a document that describes the details of your event?
+      </small>
+    </p>
+
+    <p>
+      Submit it to:
+      <br>
+      <small><a href="mailto:sales@austinconventioncenter.com">sales@austinconventioncenter.com</a></small>
+    </p>
+  </div><!-- /usa-width-one-fourth -->
+
+</div><!-- /.usa-grid -->
+
