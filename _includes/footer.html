@@ -1,46 +1,40 @@
-<!-- Providing a little bit of padding at the bottom of the footer and grayscaling the footer links from blue to black -->
 <style type="text/css">
   .usa-footer-medium .usa-footer-primary-section { padding-bottom: 5rem; }
-  .usa-footer-primary-section a { color: #333; }
+  .usa-footer-primary-section .usa-unstyled-list a { color: #333; }
 </style>
-
 <footer class="usa-footer usa-footer-medium" role="contentinfo">
   <div class="usa-grid usa-footer-return-to-top">
     <a href="#">Return to top</a>
   </div>
-
-
   <div class="usa-footer-primary-section">
     <div class="usa-grid-full">
+      <div class="usa-width-one-third">
+        <p>
+          <a href="{{site.baseurl}}/contact/submit-rfp" class="usa-button usa-button-big">Submit RFP</a><br>
+          <a href="{{site.baseurl}}/contact/sales" class="usa-button usa-button-big">Contact</a>
+        </p>
+      </div>
       <nav class="usa-footer-nav usa-width-two-thirds">
-<!-- Left column -->
-        <ul class="usa-unstyled-list usa-width-one-fourth usa-footer-primary-content">
-          <li class="usa-footer-primary-link"><h4><a href="#">About</h4></li>
-          <li><a href="javascript:void(0);">Our Team</a></li>
-          <li><a href="javascript:void(0);">Careers</a></li>
-          <li><a href="javascript:void(0);">Press</a></li>
-          <li><a href="javascript:void(0);">Facebook</a></li>
-          <li><a href="javascript:void(0);">Instagram</a></li>
-          <li><a href="javascript:void(0);">Twitter</a></li>
-        </ul>
-<!-- Middle column -->
-        <ul class="usa-unstyled-list usa-width-one-fourth usa-footer-primary-content">
-          <li class="usa-footer-primary-link"><h4><a href="{{site.baseurl}}/contact">Contact</a></h4></li>
-          <li><a href="{{site.baseurl}}/contact">General</a></li>
-          <li><a href="{{site.baseurl}}/contact/sales">Sales</a></li>
-          <li><a href="{{site.baseurl}}/contact/sales">Submit RFP</a></li>
-        </ul>
-<!-- Right column -->
-        <ul class="usa-unstyled-list usa-width-one-fourth usa-footer-primary-content">
-          <li class="usa-footer-primary-link"><h4><a href="#">Mobility</h4></h4></li>
-          <li><a href="javascript:void(0);">Accessibility</a></li>
-          <li><a href="javascript:void(0);">Location</a></li>
-          <li><a href="javascript:void(0);">Getting Here</a></li>
-          <li></li>
-          <li class="usa-footer-primary-link"><h4><a href="#">Mission</a></h4></li>
-        </ul>
+        <div class="usa-grid-full">
+          <ul class="usa-unstyled-list usa-width-one-third usa-footer-primary-content">
+            <li><h4>About</h4></li>
+            <li><a href="javascript:void(0);">Our Team</a></li>
+            <li><a href="javascript:void(0);">Careers</a></li>
+            <li><a href="javascript:void(0);">Press</a></li>
+            <li><a href="javascript:void(0);">Facebook</a></li>
+            <li><a href="javascript:void(0);">Instagram</a></li>
+            <li><a href="javascript:void(0);">Twitter</a></li>
+          </ul>
+          <ul class="usa-unstyled-list usa-width-one-third usa-footer-primary-content">
+            <li><h4>Mobility</h4></li>
+            <li><a href="{{site.baseurl}}/contact">Accessibility</a></li>
+            <li><a href="{{site.baseurl}}/contact/sales">Location</a></li>
+            <li><a href="{{site.baseurl}}/contact/sales">Getting Here</a></li>
+            <li></li>
+            <li class="usa-footer-primary-link"><h4>Mission</h4></li>
+          </ul>
+        </div>
       </nav>
     </div>
   </div>
-
 </footer>

@@ -2,49 +2,67 @@
 layout: default
 ---
 <style type="text/css">
-  .tile img {
+  .tile a {
     display: block;
     width: 100%;
     background-color:#eee;
     text-align: center;
     font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  .tile a {
+    background-color: #eee;
+    padding-top: 80px;
+  }
+  .tile a:hover {
+    background-color: #eaeaea;
   }
   .tile .tall {
-    height: 500px;
+    height: 420px;
   }
   .tile .short {
-    height: 200px;
+    height: 204px;
   }
 </style>
 <div class="usa-grid">
   <div class="hero">
     <div class="button_wrapper">
-      <a class="usa-button-active book-meeting-button usa-button-big usa-button-primary" href="{{site.baseurl}}/contact/sales">Book a Meeting</a>
+      <a class="usa-button-active book-meeting-button usa-button-big usa-button-primary" href="{{site.baseurl}}/contact/sales">Plan a Meeting</a>
       <br>
-      <a href="{{site.baseurl}}/contact/sales" class="usa-button usa-button-gray rfp-button usa-button-secondary" >Contact us or submit an RFP</a>
+<!--       <a href="{{site.baseurl}}/contact/sales" class="usa-button usa-button-gray rfp-button usa-button-secondary" >Contact us or submit an RFP</a> -->
     </div>
   </div>
 </div>
-
-
 <div class="usa-grid">
   <div class="main-content">
     <div class="usa-width-one-third tile">
-      <a href="{{site.baseurl}}/facilities/floorplan"><img src="http://placehold.it/300x200?text=Floor%20Plans" alt="Floor Plans" class="short"></a>
-
-      <a href="javascript:void(0);"><img src="http://placehold.it/300x500?text=Parking%20+%20Mobility" alt="Parking and Mobility" class="tall"></a>
+      <a href="{{site.baseurl}}/facilities/floorplan" class="short">
+        Floor Plans
+      </a>
+      <a href="javascript:void(0);" class="tall">
+        Parking + Mobility
+      </a>
     </div>
-
     <div class="usa-width-one-third tile">
-      <a href="{{site.baseurl}}/contact"><img src="http://placehold.it/300x500?text=Contact" alt="Contact" class="tall"></a>
-
-      <a href="javascript:void(0);"><img src="http://placehold.it/300x200?text=AV%20&amp;%20Tech" alt="AV/Tech" class="short"></a>
+      <a href="{{site.baseurl}}/contact" class="tall">
+        Contact
+      </a>
+      <a href="{{site.baseurl}}/event_services" class="short">
+        Event Services
+      </a>
     </div>
-
     <div class="usa-width-one-third tile">
-      <a href="javascript:void(0);"><img src="http://placehold.it/300x200?text=Hotels" alt="Hotels" class="short"></a>
-
-      <a href="javascript:void(0);"><img src="http://placehold.it/300x500?text=About%20Austin" alt="About Austin" class="tall"></a>
+      <a href="javascript:void(0);" class="short">
+          Hotels
+      </a>
+      <a href="javascript:void(0);" class="short">
+        Media Gallery
+      </a>
+      <a href="javascript:void(0);" class="short">
+        Exhibitor Services
+      </a>
     </div>
   </div>
 </div>
+
+
