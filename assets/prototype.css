@@ -40,6 +40,11 @@
 
 
 
+
+#main-content {
+  margin-top: 4em;
+}
+
 .main-content .usa-width-one-third img {
   margin-bottom: 40px;
 }
@@ -86,3 +91,94 @@ input[type="text"] {
 .floorplan-link:hover span {
   display: block;
 }
+
+
+
+
+
+/*
+  ==================
+  Sales Team
+  ==================
+*/
+
+.avatar-left {
+  float: left;
+  margin-right: 10px;
+}
+.sales-member {
+  overflow: hidden;
+}
+
+  .sales-member-large img {
+    width: 100%;
+  }
+  .sales-member-small img {
+    float: right;
+    padding-top: 10%;
+    width: 60%;
+  }
+  
+  .sales-member-large .sales-member-details {
+    font-size: 120%;
+  }
+  .sales-member-details {
+    float: left;
+    font-size: 80%;
+  }
+
+  .sales-member-name {
+    font-size: inherit;
+    font-weight: normal;
+  }
+
+  .sales-member-title {
+    font-size: inherit;
+    font-weight: normal;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  .sales-member-email {
+    font-size: inherit;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .sales-member-phone {
+    margin: 0;
+  } 
+
+
+.sales-member-gray {
+  background-color: #ddd;
+  overflow: hidden;
+  padding: 10px;
+}
+  .sales-member-gray header {
+    margin-bottom: 20px;
+    overflow: auto;
+  }
+
+  .sales-member-gray .sales-member-name {
+    font-size: 16px;
+    
+  }
+  .sales-member-gray img {
+    float: left;
+  }
+
+
+.info-box-gray {
+  background-color: #ddd;
+  overflow: hidden;
+  padding: 10px;
+}
+
+  .info-box-gray header {
+    overflow: auto;
+  }
+
+  .info-box-gray h3 {
+    margin-top: 0.5em
+  }
