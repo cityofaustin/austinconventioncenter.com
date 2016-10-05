@@ -14,23 +14,15 @@
         <img src="/assets/img/close.svg" alt="close">
       </button>
       <ul class="usa-nav-primary usa-accordion">
-        <li>
-          <a class="usa-nav-link" href="{{site.baseurl}}/facilities">
-            <span>Facilities</span>
-          </a>
-        </li>
-        <li>
-          <a class="usa-nav-link" href="#">
-            <span>Services</span>
-          </a>
-        </li>
-        <li>
-          <a class="usa-nav-link" href="#">
-            <span>Visit</span>
-          </a>
-        </li>
+        {% assign menu = site.contentful.menu | where: "name", "Header" | first %}
+        {% for item in menu.items %}
+          <li>
+            <a class="usa-nav-link" href="{{site.baseurl}}/{{item.title|slugify}}">
+              <span>{{item.title}}</span>
+            </a>
+          </li>
+        {% endfor %}
       </ul>
-
     </nav>
   </div>
 </header>

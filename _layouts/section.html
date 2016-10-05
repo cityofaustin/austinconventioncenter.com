@@ -1,0 +1,11 @@
+---
+layout: default
+---
+
+<h1>{{page.contentful.title}}</h1>
+
+<ul>
+{% for page in page.docs %}
+  <li>{{ page.contentful.title }}</li>
+{% endfor %}
+</ul>
