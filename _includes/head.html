@@ -1,9 +1,8 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
+<!-- Meta Attributes -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 {% if page.title %}
   <title>{{ site.title }} | {{ page.title }}</title>
   <meta property="og:title" content="{{ site.title | xml_escape }} | {{ page.title | xml_escape }}" />
@@ -11,7 +10,6 @@
   <title>{{ site.title }}</title>
   <meta property="og:title" content="{{ site.title | xml_escape }} | {{ site.title | xml_escape }}" />
 {% endif %}
-
 {% if page.description %}
   <meta name="description" content="{{ page.description | xml_escape }}">
   <meta property="og:description" content="{{ page.description | xml_escape }}" />
@@ -19,9 +17,10 @@
   <meta name="description" content="{{ site.description | xml_escape }}">
   <meta property="og:description" content="{{ site.description | xml_escape }}" />
 {% endif %}
-
   <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
-
+<!-- Styles -->
   <link rel="stylesheet" href="{{site.baseurl}}/assets/vendor/uswds-0.12.1/css/uswds.min.css">
-  <link rel="stylesheet" href="{{site.baseurl}}/assets/prototype.css">
+  <link rel="stylesheet" href="{{site.baseurl}}/assets/css/styles.css">
+<!-- Custom Font -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700" rel="stylesheet">
 </head>
