@@ -1,5 +1,5 @@
 title: Austin Convention Center
-url: "https://austin-convention-center.herokuapp.com" # the base hostname & protocol for your site
+url: "https://alpha.austinconventioncenter.com.s3-website-us-east-1.amazonaws.com"
 
 # Build settings
 markdown: kramdown
@@ -14,9 +14,9 @@ exclude:
   - config.ru
   - Gemfile
   - Gemfile.lock
-  - Procfile
-  - Rakefile
+  - node_modules
   - README
+  - s3_website.yml
   - vendor
 
 contentful:
