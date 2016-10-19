@@ -1,6 +1,5 @@
 title: Austin Convention Center
-baseurl: "/austinconventioncenter.com" # the subpath of your site, e.g. /blog
-url: "https://cityofaustin.github.io" # the base hostname & protocol for your site
+url: "https://alpha.austinconventioncenter.com.s3-website-us-east-1.amazonaws.com"
 
 # Build settings
 markdown: kramdown
@@ -15,7 +14,9 @@ exclude:
   - config.ru
   - Gemfile
   - Gemfile.lock
+  - node_modules
   - README
+  - s3_website.yml
   - vendor
 
 contentful:

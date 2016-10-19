@@ -1,0 +1,16 @@
+general:
+  branches:
+    only:
+      - master
+
+test:
+  override:
+    - "jekyll contentful"
+    - "jekyll build"
+
+deployment:
+  s3:
+    branch:
+      - master
+    commands:
+      - "s3_website push"
