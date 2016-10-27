@@ -4,7 +4,7 @@ layout: default
 <style type="text/css">
   .details {
     padding-left:80px;
-    background: url('{{site.baseurl}}/assets/images/doc.png') 0 0 no-repeat;
+    background: url('{% asset_path doc.png %}') 0 0 no-repeat;
     width: 60%;
     textarea {
       max-width: 100%;
@@ -20,7 +20,7 @@ layout: default
 
     <div class="sales-member sales-member-large">
       <div class="avatar-left">
-        <img src="{{site.baseurl}}/assets/images/user.png" alt="">
+        <img src="{% asset_path user.png %}" alt="">
       </div>
 
       <div class="sales-member-details">
@@ -32,7 +32,7 @@ layout: default
       </div>
     </div>
 
-    
+
   </div><!-- /usa-width-one-whole -->
 
 </div><!-- /.usa-grid -->
@@ -40,7 +40,7 @@ layout: default
 
 <div class="usa-footer-secondary usa-grid" style="background-color: #eee;padding: 1rem; margin-top: 2rem;">
   <div class="usa-footer-logo usa-width-one-third">
-    <img class="usa-footer-slim-logo-img" src="{{site.baseurl}}/assets/images/camera.png" alt="Logo image">
+    <img class="usa-footer-slim-logo-img" src="{% asset_path camera.png %}" alt="Logo image">
     <h3 class="usa-footer-slim-logo-heading" style="margin-top: 0">Contact<br>Event Services</h3>
   </div>
   <div class="usa-width-one-third">
