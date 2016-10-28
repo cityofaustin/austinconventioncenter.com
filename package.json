@@ -1,0 +1,6 @@
+{
+  "name": "austinconventioncenter.com",
+  "dependencies": {
+    "uswds": "^0.13.1"
+  }
+}

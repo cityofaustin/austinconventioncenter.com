@@ -4,7 +4,7 @@ layout: default
 <style type="text/css">
   .details {
     padding-left:80px;
-    background: url('{{site.baseurl}}/assets/images/doc.png') 0 0 no-repeat;
+    background: url('{% asset_path doc.png %}') 0 0 no-repeat;
     width: 60%;
     textarea {
       max-width: 100%;
@@ -37,9 +37,9 @@ layout: default
     <h2>RFP Form</h2>
     <form class="usa-form" style="max-width:100%;">
       <fieldset>
-        
+
         <legend>Contact Information</legend>
-        
+
         <label for="organization">Organization</label>
         <input class="usa-input-tiny" id="organization" name="organization" type="text">
 
@@ -52,15 +52,15 @@ layout: default
         <div class="usa-grid-full">
           <div class="usa-width-one-third">
             <label for="phone">Phone</label>
-            <input id="phone" name="phone" type="text">  
+            <input id="phone" name="phone" type="text">
           </div>
           <div class="usa-width-one-third">
             <label for="fax">Fax</label>
-            <input id="fax" name="fax" type="text">  
+            <input id="fax" name="fax" type="text">
           </div>
           <div class="usa-width-one-third">
             <label for="mobile">Mobile</label>
-            <input id="mobile" name="mobile" type="text">          
+            <input id="mobile" name="mobile" type="text">
           </div>
         </div>
 
@@ -77,7 +77,7 @@ layout: default
 
         <label for="address">Address</label>
         <input id="address" name="address" type="text">
-      
+
         <label for="profile">Organization Profile</label>
         <input id="profile" name="profile" type="text">
 
@@ -86,9 +86,9 @@ layout: default
 
 
       <fieldset style="margin-top: 4rem;">
-        
+
         <legend>Event Information</legend>
-        
+
         <label for="event-name">Event Name</label>
         <input id="event-name" name="event-name" type="text">
 
@@ -126,14 +126,14 @@ layout: default
             <label for="alternate-dates">Alternate Dates</label>
             <input id="alternate-dates" name="alternate-dates" type="text">
           </div>
-          
+
         </div>
-        
+
         <label for="estimated-attendance">Estimated Attendance</label>
         <input id="estimated-attendance" name="estimated-attendance" type="text">
 
       </fieldset>
-      
+
       <fieldset>
         <a href="{{site.baseurl}}/contact/thank-you/" class="usa-button usa-button-big" style="float: right">Submit</a>
       </fieldset>
@@ -148,7 +148,7 @@ layout: default
     <div class="info-box-gray">
       <header>
         <div class="usa-width-one-third">
-          <img src="{{site.baseurl}}/assets/images/chat-bubble.png" alt="">  
+          <img src="{% asset_path chat-bubble.png %}" alt="">
         </div>
         <div class="usa-width-two-thirds">
           <h3>Contact<br>Sales Team</h3>
