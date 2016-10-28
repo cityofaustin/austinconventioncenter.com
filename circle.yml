@@ -5,13 +5,7 @@ general:
 
 dependencies:
   post:
-    - |
-      S3_WEBSITE_GEM="$(bundle show s3_website)" \
-      S3_WEBSITE_JAR="$S3_WEBSITE_GEM/s3_website-${S3_WEBSITE_GEM##*-}.jar"; \
-      if [ ! -f $S3_WEBSITE_JAR ]; then
-        wget --no-verbose --output-document $S3_WEBSITE_JAR \
-        "https://github.com/laurilehmijoki/s3_website/releases/download/v${S3_WEBSITE_GEM##*-}/s3_website.jar"
-      fi
+    - "bundle exec s3_website install"
 
 test:
   override:
