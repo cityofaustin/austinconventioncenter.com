@@ -56,10 +56,18 @@ defaults:
     values:
       layout: "page"
       permalink: "/:slug/"
+  -
+    scope:
+      type: rooms
+    values:
+      layout: room
+      permalink: "/rooms/:slug/"
 
 
 collections:
   orphans:
+    output: true
+  rooms:
     output: true
   sections:
     output: true

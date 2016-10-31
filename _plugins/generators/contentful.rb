@@ -25,6 +25,10 @@ module Jekyll
 
         generate_page(site, section, attributes)
       end
+
+      data["room"].each do |attributes|
+        generate_page(site, site.collections["rooms"], attributes)
+      end
     end
 
     private
