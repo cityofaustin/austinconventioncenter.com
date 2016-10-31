@@ -1,0 +1,43 @@
+---
+layout: default
+---
+
+<h2>{{ page.contentful.name }}</h2>
+
+<ul>
+  <li>Type: {{ page.contentful.type }}</li>
+  <li>Number/Letter: {{ page.contentful.numberOrLetter }}</li>
+</ul>
+
+{% if page.contentful.setups != empty %}
+<ul>
+  {% for setup in page.contentful.setups %}
+    <li>
+      <strong>{{setup.description}}</strong>
+      <ul>
+        <li>Capacity: {{setup.capacity}}</li>
+        <li>Capacity: {{setup.tableCount}}</li>
+        <li>Capacity: {{setup.tableSeats}}</li>
+        <li>Images:
+          {% if setup.photos != empty %}
+            <ul>
+              {% for photo in setup.photos %}
+                <li><p>{{photo.title}}</p><img src="{{photo.image.url}}" width="100"></li>
+
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </li>
+      </ul>
+    </li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+{% if page.contentful.photos != empty %}
+  <ul>
+    {% for photo in page.contentful.photos %}
+      <li><p>{{photo.title}}</p><img src="{{photo.image.url}}" width="200"></li>
+    {% endfor %}
+  </ul>
+{% endif %}
