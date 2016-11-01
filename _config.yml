@@ -34,6 +34,10 @@ contentful:
         access_token: ENV_CONTENTFUL_ACCESS_TOKEN
         cda_query:
           limit: 1000
+        content_types:
+          contentBlock: ContentBlockMapper
+          employee: ContentBlockMapper
+          galleryBlock: ContentBlockMapper
     # - pec:
     #     space: ENV_CONTENTFUL_PEC_SPACE_ID
     #     access_token: ENV_CONTENTFUL_PEC_ACCESS_TOKEN

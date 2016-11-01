@@ -1,0 +1,14 @@
+{% if include.blocks != empty %}
+  <div>
+    {% for block in include.blocks %}
+      {% case block.type %}
+        {% when "contentBlock" %}
+          {% include content_block_types/default.html block=block %}
+        {% when "galleryBlock" %}
+          {% include content_block_types/gallery.html block=block %}
+        {% when "employee" %}
+          {% include content_block_types/person.html block=block %}
+      {% endcase %}
+    {% endfor %}
+  </div>
+{% endif %}
