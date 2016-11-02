@@ -1,0 +1,38 @@
+.acc-logo {
+  height: 50px;
+  margin-top: 1rem
+}
+.acc-breadcrumbs {
+  color: $acc-color-green;
+  img {
+    fill: currentColor;
+    height: 1em;
+    color: red;
+    background-color: green;
+  }
+  img path {
+    fill: red;
+  }
+}
+.acc-logo {
+  height: 50px;
+}
+.usa-footer .acc-address {
+  font-size: $small-font-size;
+}
+.acc-breadcrumbs {
+  font-weight: bold;
+  text-transform: uppercase;
+  a {
+    text-decoration: none;
+  }
+}
+.acc-breadcrumbs.acc-facilities a {
+  color: $acc-color-red;
+}
+.acc-breadcrumbs.acc-event-services a {
+  color: $acc-color-orange;
+}
+.acc-breadcrumbs.acc-visit a {
+  color: $acc-color-green;
+}

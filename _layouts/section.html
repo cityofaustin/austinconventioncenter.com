@@ -2,10 +2,15 @@
 layout: default
 ---
 
-<h1>{{page.contentful.title}}</h1>
+{% include breadcrumbs.html %}
 
-<ul>
-{% for page in page.docs %}
-  <li>{{ page.contentful.title }}</li>
-{% endfor %}
-</ul>
+<div class="usa-grid">
+  <h1>{{page.contentful.title}}</h1>
+</div>
+<div class="usa-grid">
+    <ul>
+    {% for page in page.docs %}
+      <li>{{ page.contentful.title }}</li>
+    {% endfor %}
+  </ul>
+</div>

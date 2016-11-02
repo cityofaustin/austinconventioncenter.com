@@ -4,10 +4,54 @@
 	-webkit-margin-end: 0;
 	-webkit-margin-start: 0;
 }
+html {
+  font-family: $acc-font-primary;
+}
 body {
   color: $acc-base;
-  font-family: $acc-sans-serif;
+  font-size: 1.2rem;
 }
-h1 { 
-  font-family: $acc-serif;
+h1, h2, h3, h4, h5 {
+  font-family: $acc-font-secondary;
+  margin-top: .5em;
+}
+.usa-nav-primary {
+  li {
+    a {
+      text-transform: uppercase;
+    }
+    .usa-nav-link {
+        font-size: 2.4rem;
+        font-weight: normal;
+        border-color: currentColor;
+    }
+    .usa-nav-link:hover {
+      span {
+        border-color: currentColor;
+      }
+    }
+    .acc-facilities, .acc-facilities:hover {
+      color: $acc-color-red;
+    }
+    .acc-services, .acc-services:hover {
+      color: $acc-color-orange; 
+    }
+    .acc-visit, .acc-visit:hover {
+      color: $acc-color-green;
+    }
+    .acc-meet, .acc-meet:hover {
+      background-color: $acc-color-green-lighter;
+      color: $acc-color-green;
+      text-shadow: 1px 2px 1px white;
+      letter-spacing: .02em;
+      font-weight: bold;
+      span {
+        border: none;
+      }
+    }
+  }
+}
+.usa-logo img {
+  height: 60px;
+  margin-top: 20px;
 }
