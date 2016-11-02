@@ -1,0 +1,23 @@
+html {
+  font-family: $acc-font-primary;
+}
+body {
+  color: $acc-base;
+  font-size: 1.2rem;
+}
+h1, h2, h3, h4, h5 {
+  font-family: $acc-font-secondary;
+  margin-top: .5em;
+}
+h1 {
+  color: $acc-color-green;
+  font-size: 3.2rem;
+  font-weight: 100;
+}
+.acc-breadcrumbs {
+  font-weight: bold;
+  text-transform: uppercase;
+  a {
+    text-decoration: none;
+  }
+}

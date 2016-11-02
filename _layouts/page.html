@@ -2,17 +2,32 @@
 layout: default
 ---
 
-<h1>{{ page.contentful.title }}</h1>
-
-{{ page.contentful.content | markdownify }}
-
-<ul>
-{% if page.contentful.contentBlocks != empty %}
-  {% for contentBlock in page.contentful.contentBlocks %}
-    <li>
-      <strong>{{contentBlock.title}}</strong>
-      {{contentBlock.text | markdownify}}
-    </li>
-  {% endfor %}
+<div class="usa-grid">
+  {% if page.contentful.coverImage != nil %}
+    <img src="{{ page.contentful.coverImage.url }}" alt="Banner image" class="acc-banner-image" />
+  {% endif %}
+</div>
+{% if page.contentful.section != empty %}
+  {% include breadcrumbs.html %}
 {% endif %}
-</ul>
+<div class="usa-grid">
+  <h1>{{ page.contentful.title }}</h1>
+<div class="usa-grid">
+  <div class="usa-width-three-fourths">
+    <div>
+    {{ page.contentful.content | markdownify }}
+      {% if page.contentful.contentBlocks != empty %}
+        {% for contentBlock in page.contentful.contentBlocks %}
+          <article>
+            {{ contentBlock.text | markdownify }}
+          </article>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+  <div class="usa-width-one-fourth">
+    {% if page.contentful.primaryContact != empty %}
+      {% include widgets/primary_contact.html %}
+    {% endif %}
+  </div>
+</div>

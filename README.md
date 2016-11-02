@@ -22,7 +22,7 @@ The same source will produce the static sites for both austinconventioncenter.co
 
 ## Quick Start
 
-`git clone`, `bundle install`, `npm install`, `rake contentful`, `jekyll serve`
+`$ git clone`, `$ bundle install`, `$ npm install`, `$ rake contentful`, `$ jekyll serve`
 
 ## Contributing
 
@@ -38,11 +38,11 @@ Start with understanding the concepts outlined in [Contentful's developer docs](
 
 ### Importing content
 
-Contentful entries are made available to Jekyll using the official [jekyll-contentful-data-import][] gem, which provides the `jekyll contentful` command to download entries into [_data](_data).
+Contentful entries are made available to Jekyll using the official [jekyll-contentful-data-import][] gem, which provides the `$ jekyll contentful` command to download entries into [_data/](_data).
 
 <!-- TODO: Add option to download the latest data from GitHub w/o Contentful keys. -->
 
-To run `jekyll contentful`, you'll need to set the `CONTENTFUL_SPACE_ID` and `CONTENTFUL_ACCESS_TOKEN` environment variables from the API keys found in the Contentful editor. Do not commit those keys; we recommend using an environment switcher like [direnv][] and adding the dotfile (e.g. `.envrc`) to your **global** gitignore.
+To run `$ jekyll contentful`, you'll need to set the `CONTENTFUL_SPACE_ID` and `CONTENTFUL_ACCESS_TOKEN` environment variables from the API keys found in the Contentful editor. Do not commit those keys; we recommend using an environment switcher like [direnv][] and adding the dotfile (e.g. `.envrc`) to your **global** gitignore.
 
 Git ignores the imported YAML files by default; avoid committing them to topic branches and master.
 
@@ -51,7 +51,7 @@ Git ignores the imported YAML files by default; avoid committing them to topic b
 
 ### Rendering content
 
-A Jekyll generator in [_plugins](_plugins/generators/contentful.rb) creates [Collections and Documents][collections] from the Section and Page content types.
+A Jekyll generator in [_plugins/](_plugins/generators/contentful.rb) creates [Collections and Documents][collections] from the Section and Page content types.
 
 Templates and layouts render Contentful attributes using `page.contentful` in [Liquid][]. The [front matter defaults][] in [_config.yml](_config.yml) define the layouts used to render pages in a given collection and by default.
 
@@ -59,7 +59,7 @@ For each page, the generator also looks in [_custom](_custom) for a template wit
 
 To render specific content outside of a page (such as a particular menu), `site.contentful` exposes the contents of the entire data file, and plays nicely with [Jekyll's `where` filters][where]. See an example in [_includes/header.html](_includes/header.html).
 
-Use the `jekyll build` and `jekyll serve` commands as you would normally.
+Use the `$ jekyll build` and `$ jekyll serve` commands as you would normally.
 
 [collections]: https://jekyllrb.com/docs/collections/
 [liquid]: http://liquidmarkup.org
