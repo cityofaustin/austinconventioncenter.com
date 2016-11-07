@@ -1,20 +1,3 @@
-* {
-	-webkit-margin-after: 0;
-	-webkit-margin-before: 0;
-	-webkit-margin-end: 0;
-	-webkit-margin-start: 0;
-}
-html {
-  font-family: $acc-font-primary;
-}
-body {
-  color: $acc-base;
-  font-size: 1.2rem;
-}
-h1, h2, h3, h4, h5 {
-  font-family: $acc-font-secondary;
-  margin-top: .5em;
-}
 .usa-nav-primary {
   li {
     a {
@@ -34,7 +17,7 @@ h1, h2, h3, h4, h5 {
       color: $acc-color-red;
     }
     .acc-services, .acc-services:hover {
-      color: $acc-color-orange; 
+      color: $acc-color-orange;
     }
     .acc-visit, .acc-visit:hover {
       color: $acc-color-green;
@@ -54,4 +37,34 @@ h1, h2, h3, h4, h5 {
 .usa-logo img {
   height: 60px;
   margin-top: 20px;
+}
+
+.acc-breadcrumbs {
+  color: $acc-color-green;
+  img {
+    fill: currentColor;
+    height: 1em;
+    color: red;
+    background-color: green;
+  }
+  img path {
+    fill: red;
+  }
+}
+
+.acc-breadcrumbs {
+  font-weight: bold;
+  text-transform: uppercase;
+  a {
+    text-decoration: none;
+  }
+}
+.acc-breadcrumbs.acc-facilities a {
+  color: $acc-color-red;
+}
+.acc-breadcrumbs.acc-event-services a {
+  color: $acc-color-orange;
+}
+.acc-breadcrumbs.acc-visit a {
+  color: $acc-color-green;
 }

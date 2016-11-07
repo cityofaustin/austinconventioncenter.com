@@ -1,6 +1,9 @@
 //= require ./uswds
 
-@import "variables";
-@import "overrides";
-@import "typography";
-@import "acc";
+@import "variables/all";
+
+@import "elements/typography";
+
+@import "components/footer";
+@import "components/header";
+
