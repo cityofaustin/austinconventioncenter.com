@@ -9,15 +9,15 @@ module Jekyll
       # TODO Select space based on environment or build flag
       data = site.data["contentful"]["spaces"]["acc"]
 
-      sections = {}
+      @sections = {}
 
       data["section"].each do |attributes|
-        sections[attributes["sys"]["id"]] = generate_section(site, attributes)
+        find_or_generate_section(site, attributes)
       end
 
       data["page"].each do |attributes|
         # Pages within a section render within that section, like /:section/:page/
-        section = sections[attributes["section"]["sys"]["id"]] if attributes.key?("section")
+        section = @sections[attributes["section"]["sys"]["id"]] if attributes.key?("section")
 
         # Pages without a section go in "orphans" and render at the root level, like /:page/. The
         # orphans collection is defined by _config.yml.
@@ -33,18 +33,36 @@ module Jekyll
 
     private
 
-    def generate_section(site, attributes)
+    def find_or_generate_section(site, attributes)
+      return @sections[attributes["sys"]["id"]] if @sections.key?(attributes["sys"]["id"])
+
       label = Utils.slugify(attributes["slug"])
       section = Collection.new(site, label)
       section.metadata["output"] = true
+      section.metadata["permalink"] = "/#{label}/:slug/" # Child page URL template
 
       site.collections[label] = section
 
-      # Add a section "index" page to a collection defined by _config.yml
-      page = generate_page(site, site.collections["sections"], attributes)
+      if attributes.key?("parentSection")
+        parent = find_or_generate_section(site, attributes["parentSection"])
+
+        # Prepend parent path to this section's child page URL template
+        section.metadata["permalink"] = "/#{parent.label}" + section.metadata["permalink"]
+      else
+        # Add root-level section pages to default collection (defined in _config.yml)
+        parent = site.collections["sections"]
+      end
+
+      page = generate_page(site, parent, attributes)
       page.data["docs"] = section.docs
 
-      section
+      # Always inherit layout from default for root-level sections (defined in _config.yml)
+      page.data["layout"] = site.frontmatter_defaults.find(page.relative_path, "sections", "layout")
+
+      # Breadcrumbs inherited by child pages (includes parents of this section, if any)
+      section.metadata["breadcrumbs"] = page.data["breadcrumbs"]
+
+      @sections[attributes["sys"]["id"]] = section
     end
 
     def generate_page(site, section, attributes)
@@ -58,10 +76,13 @@ module Jekyll
       end
 
       doc.data["slug"] = slug
-      # Set permalink if it's not defined by the defaults in _config.yml
-      doc.data["permalink"] ||= "/:collection/:slug/"
-
       doc.data["contentful"] = attributes
+
+      # Inherit breadcrumbs from parent section(s)
+      doc.data["breadcrumbs"] = Array.new(section.metadata["breadcrumbs"] || []).push({
+        title: attributes["title"],
+        url: doc.url
+      })
 
       section.docs << doc
 
