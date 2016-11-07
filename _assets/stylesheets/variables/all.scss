@@ -17,10 +17,11 @@ $acc-color-green-light: #CBFBF2;
 $acc-color-green-lighter: #C2F6EC;
 
 // Typography
-$acc-font-primary: 'Poppins', sans-serif;
-$acc-font-secondary: 'Rubik', 'Lucida Grande', sans-serif;
-$acc-font-small: 0.8em;
+$acc-font-primary: "Poppins", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+$acc-font-secondary: "Rubik", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
 
-$acc-base: $acc-color-gray-dark;
+$acc-small-font-size: 0.8em;
 
-$small-font-size: .8em;
+$acc-color-base: $acc-color-gray-dark;
+
+@import "uswds";
