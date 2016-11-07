@@ -6,28 +6,18 @@ layout: default
   {% if page.contentful.coverImage != nil %}
     <img src="{{ page.contentful.coverImage.url }}" alt="Banner image" class="acc-banner-image" />
   {% endif %}
-</div>
-{% if page.contentful.section != empty %}
-  {% include breadcrumbs.html %}
-{% endif %}
-<div class="usa-grid">
   <h1>{{ page.contentful.title }}</h1>
+</div>
 <div class="usa-grid">
   <div class="usa-width-three-fourths">
     <div>
-    {{ page.contentful.content | markdownify }}
-      {% if page.contentful.contentBlocks != empty %}
-        {% for contentBlock in page.contentful.contentBlocks %}
-          <article>
-            {{ contentBlock.text | markdownify }}
-          </article>
-        {% endfor %}
-      {% endif %}
+      {{ page.contentful.content | markdownify }}
+      {% include components/content_blocks.html blocks=page.contentful.contentBlocks %}
     </div>
   </div>
-  <div class="usa-width-one-fourth">
-    {% if page.contentful.primaryContact != empty %}
-      {% include widgets/primary_contact.html %}
-    {% endif %}
-  </div>
+  {% if page.contentful.primaryContact %}
+    <div class="usa-width-one-fourth">
+      {% include components/sidebar/primary_contact.html contact=page.contentful.primaryContact %}
+    </div>
+  {% endif %}
 </div>

@@ -35,8 +35,8 @@ contentful:
         cda_query:
           limit: 1000
         content_types:
-          contentBlock: ContentBlockMapper
-          employee: ContentBlockMapper
+          textBlock: ContentBlockMapper
+          contactBlock: ContentBlockMapper
           galleryBlock: ContentBlockMapper
     # - pec:
     #     space: ENV_CONTENTFUL_PEC_SPACE_ID
