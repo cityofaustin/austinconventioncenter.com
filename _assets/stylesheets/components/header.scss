@@ -1,70 +1,41 @@
-.usa-nav-primary {
-  li {
-    a {
-      text-transform: uppercase;
-    }
-    .usa-nav-link {
-        font-size: 2.4rem;
-        font-weight: normal;
-        border-color: currentColor;
-    }
-    .usa-nav-link:hover {
-      span {
-        border-color: currentColor;
-      }
-    }
-    .acc-facilities, .acc-facilities:hover {
-      color: $acc-color-red;
-    }
-    .acc-services, .acc-services:hover {
-      color: $acc-color-orange;
-    }
-    .acc-visit, .acc-visit:hover {
-      color: $acc-color-green;
-    }
-    .acc-meet, .acc-meet:hover {
-      background-color: $acc-color-green-lighter;
-      color: $acc-color-green;
-      text-shadow: 1px 2px 1px white;
-      letter-spacing: .02em;
-      font-weight: bold;
-      span {
-        border: none;
-      }
-    }
-  }
-}
-.usa-logo img {
-  height: 60px;
-  margin-top: 20px;
+.acc-logo {
+  margin-top: 1rem;
 }
 
-.acc-breadcrumbs {
+.acc-logo a {
+  display: block;
+}
+
+.acc-logo img {
+  max-height: 8rem;
+}
+
+.acc-nav {
+  padding-top: 2.5rem;
+}
+
+.acc-nav-primary .acc-nav-link {
+  font-size: 2.4rem;
+  font-weight: normal;
+
+  &:hover span {
+    border: none;
+  }
+}
+
+@each $section, $color in $acc-section-colors {
+  .acc-nav-primary .acc-nav-link.#{$section} {
+    color: $color;
+  }
+}
+
+.acc-nav-primary .acc-nav-link.meet {
+  background-color: $acc-color-green-lighter;
   color: $acc-color-green;
-  img {
-    fill: currentColor;
-    height: 1em;
-    color: red;
-    background-color: green;
-  }
-  img path {
-    fill: red;
-  }
-}
-
-.acc-breadcrumbs {
+  text-shadow: 1px 2px 1px white;
+  letter-spacing: .02em;
   font-weight: bold;
-  text-transform: uppercase;
-  a {
-    text-decoration: none;
+  span {
+    border: none;
   }
-}
-.acc-breadcrumbs.acc-facilities a {
-  color: $acc-color-red;
-}
-.acc-breadcrumbs.acc-event-services a {
-  color: $acc-color-orange;
-}
-.acc-breadcrumbs.acc-visit a {
-  color: $acc-color-green;
 }
