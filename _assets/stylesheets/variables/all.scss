@@ -24,4 +24,10 @@ $acc-small-font-size: 0.8em;
 
 $acc-color-base: $acc-color-gray-dark;
 
+$acc-section-colors: (
+  'facilities': $acc-color-red,
+  'services': $acc-color-orange,
+  'visit': $acc-color-green
+);
+
 @import "uswds";

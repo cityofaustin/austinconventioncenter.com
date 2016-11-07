@@ -1,9 +1,8 @@
-<div class="usa-grid">
-  <div class="acc-breadcrumbs acc-{% if page.contentful.section != empty %}{{ page.contentful.section.title | slugify }}{% else %}{{ page.contentful.slug }}{% endif %}" style="padding: 1rem; background-color: #EEEEEE;">
-    {% if page.contentful.title == "Facilities" or page.contentful.title == "Services" or page.contentful.title == "Visit" %}
-      {{ page.contentful.title }} &raquo;
-    {% else %}
-      <a href="{{ page.contentful.doc.url }}">{{ page.contentful.section.title }}</a> &raquo; {{ page.contentful.title }}
-    {% endif %}
+<div class="acc-breadcrumbs {{ page.breadcrumbs[0].slug }}">
+  <div class="usa-nav-container acc-breadcrumbs-container">
+  <a href="{{ breadcrumb.url }}" class="acc-breadcrumb acc-breadcrumb-home">Home</a>
+  {% for breadcrumb in page.breadcrumbs %}
+    <a href="{{ breadcrumb.url }}" class="acc-breadcrumb">{{ breadcrumb.title }}</a>
+  {% endfor %}
   </div>
 </div>

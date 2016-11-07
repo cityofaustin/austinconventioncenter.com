@@ -80,8 +80,9 @@ module Jekyll
 
       # Inherit breadcrumbs from parent section(s)
       doc.data["breadcrumbs"] = Array.new(section.metadata["breadcrumbs"] || []).push({
-        title: attributes["title"],
-        url: doc.url
+        "title" => attributes["title"],
+        "slug" => slug,
+        "url" => doc.url
       })
 
       section.docs << doc
