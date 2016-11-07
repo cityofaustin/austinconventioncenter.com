@@ -1,0 +1,82 @@
+.acc-breadcrumbs {
+  background-color: #ccc;
+}
+
+.acc-breadcrumb {
+  background-color: transparent;
+  border-color: transparent;
+  color: white;
+  display: block;
+  float: left;
+  font-size: 2rem;
+  height: 3.5em;
+  line-height: 3.5em;
+  padding: 0 1.7em 0 2.5em;
+  position: relative;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+
+  &:active, &:hover, &:visited {
+    color: white;
+  }
+
+  &::after {
+    border-color: transparent;
+    border-left-color: inherit;
+    border-style: solid;
+    border-width: 1.75em 0 1.75em 0.9em;
+    content: '';
+    display: block;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    z-index: 1;
+  }
+}
+
+.acc-breadcrumb-home {
+  background-image: image_url('icons/globe.svg');
+  background-position: center left;
+  background-repeat: no-repeat;
+  background-size: 1.6em;
+  padding: 0;
+  text-indent: -9999px;
+  width: 2.4em;
+
+  &::before {
+    background-color: inherit;
+    content: '';
+    height: 100%;
+    width: 9999px;
+    position: absolute;
+    top: 0;
+    right: 100%;
+    z-index: 1;
+  }
+}
+
+@mixin breadcrumb-level($color, $index) {
+  .acc-breadcrumb:nth-last-of-type(#{$index}) {
+    $color: mix(#3c3c3c, $color, $index * 10%);
+    background-color: $color;
+    border-color: $color;
+  }
+}
+
+@mixin breadcrumb-color($color, $selector: '') {
+  .acc-breadcrumbs#{$selector} {
+    background-color: $color;
+
+    // Graduate the color of each previous breadcrumb
+    @for $i from 2 through 4 {
+      @include breadcrumb-level($color, $i);
+    }
+  }
+}
+
+@include breadcrumb-color($acc-color-gray); // Default
+
+@each $section, $color in $acc-section-colors {
+  @include breadcrumb-color($color, '.#{$section}');
+}
