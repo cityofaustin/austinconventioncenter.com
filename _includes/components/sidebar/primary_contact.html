@@ -1,0 +1,16 @@
+{% assign contact = include.contact %}
+
+<div class="acc-primary-contact">
+  <h3>Contact {{ contact.division }}</h3>
+  {{ contact.name }}<br>
+  {{ contact.title }}<br>
+  {% if contact.phone != nil %}
+    {{ contact.phone }}<br>
+  {% endif %}
+  <a href="mailto:{{ contact.email }}">{{ contact.email }}</a>
+  {% if contact.division != blank %}
+    <p>
+        <a class="usa-button usa-button-big acc-green-fade acc-button-arrow" href="{{ site.baseurl }}/contact/{{contact.division | slugify }}">See {{ contact.division }}</a>
+    </p>
+  {% endif %}
+</div>

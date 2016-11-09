@@ -1,0 +1,41 @@
+.acc-logo {
+  margin-top: 1rem;
+}
+
+.acc-logo a {
+  display: block;
+}
+
+.acc-logo img {
+  max-height: 8rem;
+}
+
+.acc-nav {
+  padding-top: 2.5rem;
+}
+
+.acc-nav-primary .acc-nav-link {
+  font-size: 2.4rem;
+  font-weight: normal;
+
+  &:hover span {
+    border: none;
+  }
+}
+
+@each $section, $color in $acc-section-colors {
+  .acc-nav-primary .acc-nav-link.#{$section} {
+    color: $color;
+  }
+}
+
+.acc-nav-primary .acc-nav-link.meet {
+  background-color: $acc-color-green-lighter;
+  color: $acc-color-green;
+  text-shadow: 1px 2px 1px white;
+  letter-spacing: .02em;
+  font-weight: bold;
+  span {
+    border: none;
+  }
+}

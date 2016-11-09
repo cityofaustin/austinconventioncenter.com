@@ -1,23 +1,12 @@
 <!DOCTYPE html>
 <!--[if lt IE 9]><html class="lt-ie9"><![endif]-->
 <!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
-
   {% include head.html %}
-
-  <body class="{{ page.title | slugify }}">
-
+  <body class="{{ page.slug }}">
     {% include header.html %}
-
-    
-    <div id="main-content">
-        {{ content }}
-    </div>
-
-
+    <main id="main-content">
+      {{ content }}
+    </main>
     {% include footer.html %}
-
-
-    <script src="{{site.baseurl}}/assets/vendor/uswds-0.12.1/js/uswds.min.js"></script>
   </body>
-
 </html>

@@ -18,8 +18,10 @@
   <meta property="og:description" content="{{ site.description | xml_escape }}" />
 {% endif %}
   <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+<!-- Custom Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700|Rubik:300,400,400i,700" rel="stylesheet">
 <!-- Styles -->
   {% stylesheet main %}
-<!-- Custom Font -->
-  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700" rel="stylesheet">
+<!-- Google Analytics -->
+  {% include analytics/google_analytics.html %}
 </head>

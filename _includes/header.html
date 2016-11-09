@@ -3,21 +3,21 @@
   <div class="usa-nav-container">
     <div class="usa-navbar">
       <button class="usa-menu-btn">Menu</button>
-      <div class="usa-logo" id="logo">
-        <em class="usa-logo-text">
-          <a href="{{site.baseurl}}/" accesskey="1" title="Home" aria-label="Home"><img src="{% asset_path acc-logo.jpg %}" class="acc-logo" /></a>
-        </em>
+      <div class="acc-logo">
+        <a href="{{site.baseurl}}/" accesskey="1" title="Home" aria-label="Home">
+          <img src="{% asset_path acc-logo.jpg %}" />
+        </a>
       </div>
     </div>
-    <nav role="navigation" class="usa-nav">
+    <nav role="navigation" class="usa-nav acc-nav" id="nav">
       <button class="usa-nav-close">
-        <img src="/assets/img/close.svg" alt="close">
+        <img src="{% asset_path uswds/src/img/close.svg %}" alt="close">
       </button>
-      <ul class="usa-nav-primary usa-accordion">
+      <ul class="usa-nav-primary acc-nav-primary">
         {% assign menu = site.contentful.menu | where: "name", "Header" | first %}
         {% for item in menu.items %}
           <li>
-            <a class="usa-nav-link" href="{{site.baseurl}}/{{item.title|slugify}}">
+            <a class="usa-nav-link acc-nav-link {{item.slug}}" href="/{{item.slug}}/">
               <span>{{item.title}}</span>
             </a>
           </li>
@@ -25,6 +25,6 @@
       </ul>
     </nav>
   </div>
+  {% include components/breadcrumbs.html %}
 </header>
 <div class="usa-overlay"></div>
-<main id="main-content"></main>

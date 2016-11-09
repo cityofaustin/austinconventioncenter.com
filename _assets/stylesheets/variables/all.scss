@@ -1,0 +1,33 @@
+// Colors
+$acc-color-gray: #5E5B60;
+$acc-color-gray-light: #EBEBEB;
+$acc-color-gray-dark: #444046;
+
+$acc-color-red: #d26d7c;
+$acc-color-red-light: #fed5e6;
+$acc-color-red-dark: #9e617a;
+
+$acc-color-orange: #f78d69;
+$acc-color-orange-light: #ffedd5;
+$acc-color-orange-dark: #b57d64;
+$acc-color-orange-alt: #c67562;
+
+$acc-color-green: #23928D;
+$acc-color-green-light: #CBFBF2;
+$acc-color-green-lighter: #C2F6EC;
+
+// Typography
+$acc-font-primary: "Poppins", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+$acc-font-secondary: "Rubik", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+
+$acc-small-font-size: 0.8em;
+
+$acc-color-base: $acc-color-gray-dark;
+
+$acc-section-colors: (
+  'facilities': $acc-color-red,
+  'services': $acc-color-orange,
+  'visit': $acc-color-green
+);
+
+@import "uswds";
