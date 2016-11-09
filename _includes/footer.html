@@ -27,7 +27,7 @@
             {% assign footer_links = site.contentful.menu | where: "name", "Footer" | first %}
             {% for item in footer_links.items %}
             <li>
-              <a href="{{site.baseurl}}/{{item.title|slugify}}">
+              <a href="{% url_for item %}">
                 <span>{{item.title}}</span>
               </a>
             </li>
