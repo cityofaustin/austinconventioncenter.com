@@ -78,6 +78,9 @@ module Jekyll
       doc.data["slug"] = slug
       doc.data["contentful"] = attributes
 
+      # Pass redirects from Contentful to jekyll-redirect-from
+      doc.data["redirect_from"] = attributes["redirectFrom"] if attributes["redirectFrom"]
+
       # Inherit breadcrumbs from parent section(s)
       doc.data["breadcrumbs"] = Array.new(section.metadata["breadcrumbs"] || []).push({
         "title" => attributes["title"],
