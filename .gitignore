@@ -3,4 +3,5 @@ _site
 .sass-cache
 .jekyll-metadata
 _data/contentful
+_data/socrata
 node_modules/

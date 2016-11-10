@@ -6,6 +6,7 @@ gem "jekyll"
 gem "jekyll-assets"
 gem "rake"
 gem "s3_website"
+gem "soda-ruby"
 
 group :jekyll_plugins do
   gem "jekyll-contentful-data-import"
