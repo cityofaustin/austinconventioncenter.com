@@ -1,5 +1,10 @@
+require_relative "helpers"
+
 module Jekyll
   class ContentfulGenerator < Generator
+    include Helpers
+
+    priority :high # Execute first
     safe true
 
     # Generates Jekyll::Collections and Documents from the YAML file written by Contentful's Jekyll
@@ -56,8 +61,10 @@ module Jekyll
       page = generate_page(site, parent, attributes)
       page.data["docs"] = section.docs
 
-      # Always inherit layout from default for root-level sections (defined in _config.yml)
-      page.data["layout"] = site.frontmatter_defaults.find(page.relative_path, "sections", "layout")
+      # Inherit section layout from default defined in _config.yml
+      unless page.relative_path =~ /^_custom/
+        page.data["layout"] = site.frontmatter_defaults.find(page.relative_path, "sections", "layout")
+      end
 
       # Breadcrumbs inherited by child pages (includes parents of this section, if any)
       section.metadata["breadcrumbs"] = page.data["breadcrumbs"]
@@ -75,18 +82,14 @@ module Jekyll
         doc = Document.new(path, site: site, collection: section)
       end
 
+      doc.data["title"] = attributes["title"]
       doc.data["slug"] = slug
       doc.data["contentful"] = attributes
 
       # Pass redirects from Contentful to jekyll-redirect-from
       doc.data["redirect_from"] = attributes["redirectFrom"] if attributes["redirectFrom"]
 
-      # Inherit breadcrumbs from parent section(s)
-      doc.data["breadcrumbs"] = Array.new(section.metadata["breadcrumbs"] || []).push({
-        "title" => attributes["title"],
-        "slug" => slug,
-        "url" => doc.url
-      })
+      set_breadcrumbs(doc, section)
 
       section.docs << doc
 

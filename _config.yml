@@ -65,6 +65,11 @@ defaults:
     values:
       layout: "page"
       permalink: "/:slug/"
+  - scope:
+      type: calendar
+    values:
+      layout: month
+      permalink: "/calendar/:year/:month/"
   -
     scope:
       type: rooms
