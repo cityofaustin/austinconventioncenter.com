@@ -17,8 +17,8 @@
         {% assign menu = site.contentful.menu | where: "name", "Header" | first %}
         {% for item in menu.items %}
           <li>
-            <a class="usa-nav-link acc-nav-link {{item.slug}}" href="/{{item.slug}}/">
-              <span>{{item.title}}</span>
+            <a class="usa-nav-link acc-nav-link {{item.slug}}" href="{% url_for item %}">
+              {{item.title}}
             </a>
           </li>
         {% endfor %}

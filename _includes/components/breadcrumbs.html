@@ -1,6 +1,6 @@
 <div class="acc-breadcrumbs {{ page.breadcrumbs[0].slug }}">
   <div class="usa-nav-container acc-breadcrumbs-container">
-  <a href="{{ breadcrumb.url }}" class="acc-breadcrumb acc-breadcrumb-home">Home</a>
+  <a href="{{ site.baseurl }}/" class="acc-breadcrumb acc-breadcrumb-home">Home</a>
   {% for breadcrumb in page.breadcrumbs %}
     <a href="{{ breadcrumb.url }}" class="acc-breadcrumb">{{ breadcrumb.title }}</a>
   {% endfor %}
