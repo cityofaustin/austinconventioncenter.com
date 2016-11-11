@@ -8,6 +8,7 @@ permalink: pretty
 
 gems:
   - jekyll-assets
+  - jekyll-redirect-from
 
 assets:
   sources:
