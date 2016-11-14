@@ -22,7 +22,7 @@ The same source will produce the static sites for both austinconventioncenter.co
 
 ## Quick Start
 
-`$ git clone`, `$ bundle install`, `$ npm install`, `$ rake contentful`, `$ jekyll serve`
+`$ git clone`, `$ bundle install`, `$ npm install`, `$ rake contentful`, `$ rake calendar`, `$ jekyll serve`
 
 ## Contributing
 
