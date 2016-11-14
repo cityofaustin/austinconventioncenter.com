@@ -9,7 +9,7 @@ dependencies:
 
 test:
   override:
-    - "bundle exec jekyll contentful"
+    - "bundle exec rake import"
     - "bundle exec jekyll build"
 
 deployment:
