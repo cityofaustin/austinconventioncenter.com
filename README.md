@@ -28,7 +28,7 @@ The same source will produce the static sites for both austinconventioncenter.co
 
 Refer to the [Developer Guide][], particularly the Git workflow.
 
-[Developer Guide]: https://github.com/cityofaustin/developer-guide
+[Developer Guide]: http://pages.austintexas.io/guides/developer-guide/
 
 ## Working with Contentful
 
@@ -38,11 +38,11 @@ Start with understanding the concepts outlined in [Contentful's developer docs](
 
 ### Importing content
 
-Contentful entries are made available to Jekyll using the official [jekyll-contentful-data-import][] gem, which provides the `$ jekyll contentful` command to download entries into [_data/](_data).
+Contentful entries are made available to Jekyll using the official [jekyll-contentful-data-import][] gem, which is used by `$ rake contentful` command to download entries into [_data/](_data).
 
 <!-- TODO: Add option to download the latest data from GitHub w/o Contentful keys. -->
 
-To run `$ jekyll contentful`, you'll need to set the `CONTENTFUL_SPACE_ID` and `CONTENTFUL_ACCESS_TOKEN` environment variables from the API keys found in the Contentful editor. Do not commit those keys; we recommend using an environment switcher like [direnv][] and adding the dotfile (e.g. `.envrc`) to your **global** gitignore.
+To run `$ rake contentful`, you'll need to set the `CONTENTFUL_SPACE_ID` and `CONTENTFUL_ACCESS_TOKEN` environment variables from the API keys found in the Contentful editor. Do not commit those keys; we recommend using an environment switcher like [direnv][] and adding the dotfile (e.g. `.envrc`) to your **global** gitignore.
 
 Git ignores the imported YAML files by default; avoid committing them to topic branches and master.
 
