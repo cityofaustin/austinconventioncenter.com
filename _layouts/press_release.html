@@ -1,0 +1,11 @@
+---
+layout: default
+---
+
+<div class="usa-grid">
+  <h2>{{ page.contentful.title }}</h2>
+
+  <h5>{{ page.contentful.byline }} on {{ page.contentful.date }}</h5>
+
+  {{ page.contentful.body | markdownify }}
+</div>

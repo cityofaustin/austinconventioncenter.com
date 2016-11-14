@@ -1,0 +1,12 @@
+---
+layout: default
+contentful_id: 4S1U5bQghaQAaKQsqOKywe
+---
+
+<div class="usa-grid">
+  <ul>
+    {% for press_release in site.press-releases %}
+      <li><a href="{{press_release.url}}">{{ press_release.title }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
