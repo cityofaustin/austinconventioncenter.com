@@ -19,10 +19,14 @@ sass:
 
 exclude:
   - bin
+  - circle.yml
   - config.ru
   - Gemfile
   - Gemfile.lock
+  - lib
   - node_modules
+  - package.json
+  - Rakefile
   - README
   - s3_website.yml
   - vendor
@@ -61,6 +65,11 @@ defaults:
     values:
       layout: "page"
       permalink: "/:slug/"
+  - scope:
+      type: calendar
+    values:
+      layout: month
+      permalink: "/calendar/:year/:month/"
   -
     scope:
       type: rooms

@@ -1,0 +1,12 @@
+---
+layout: default
+contentful_id: 1tykcTcQEAGOKIAugYouyY
+---
+
+<div class="usa-grid">
+  <ul>
+    {% for month in site.calendar %}
+      <li><a href="{{month.url}}">{{ month.title }}</a> ({{ month.events | size }} events)</li>
+    {% endfor %}
+  </ul>
+</div>
