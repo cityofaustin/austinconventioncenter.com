@@ -31,6 +31,11 @@ module Jekyll
         generate_page(site, section, attributes)
       end
 
+      data["pressRelease"].each do |attributes|
+        attributes["date"] = attributes["date"].utc # Undo implicit time zone conversion
+        generate_page(site, site.collections["press-releases"], attributes)
+      end
+
       data["room"].each do |attributes|
         generate_page(site, site.collections["rooms"], attributes)
       end
@@ -84,6 +89,7 @@ module Jekyll
 
       doc.data["title"] = attributes["title"]
       doc.data["slug"] = slug
+      doc.data["date"] = attributes["date"] if attributes.key?("date")
       doc.data["contentful"] = attributes
 
       # Pass redirects from Contentful to jekyll-redirect-from

@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+<div class="usa-grid">
+  <h2>{{ page.contentful.title }}</h2>
+
+  <h5>{{ page.contentful.byline }} on {{ page.contentful.date }}</h5>
+
+  {{ page.contentful.body | markdownify }}
+</div>
+
+{% if page.contentful.contact %}
+{% assign contact = page.contentful.contact %}
+  <div class="usa-grid">
+    <div class="usa-width-one-whole">
+      For more information, contact:<br>
+      {{ contact.name }}, {{ contact.title }}, Austin Convention Center Department<br>
+      {{ contact.phone | format_phone }} or <a href="mailto:{{ contact.email }}">{{ contact.email }}</a>
+    </div>
+  </div>
+{% endif %}
