@@ -10,11 +10,12 @@ module Jekyll
     DATE_KEYS = %w(arrive depart).freeze
 
     def generate(site)
-      return unless section = site.collections["calendar"]
+      section = site.collections["calendar"]
+      events = site.data.dig("socrata", "calendar", "events")
 
-      events = site.data["socrata"]["calendar"]["events"]
+      return if section.nil? || events.nil?
+
       events = filter_events(events)
-
       months = group_events_by_month(events)
       first, last = months.keys.sort.values_at(0, -1)
 
