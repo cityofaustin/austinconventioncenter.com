@@ -15,7 +15,7 @@
 }
 
 .acc-nav-primary .acc-nav-link {
-  font-size: 2.4rem;
+  font-size: 3rem;
   font-weight: normal;
 
   &:hover span {
@@ -38,4 +38,9 @@
   span {
     border: none;
   }
+}
+
+.acc-header {
+  border-bottom: none;
+  margin-bottom: 4.8rem;
 }

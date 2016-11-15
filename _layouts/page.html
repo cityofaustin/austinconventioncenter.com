@@ -9,15 +9,15 @@ layout: default
   <h1>{{ page.contentful.title }}</h1>
 </div>
 <div class="usa-grid">
-  <div class="usa-width-three-fourths">
+  <div class="usa-width-two-thirds">
     <div>
       {{ page.contentful.content | markdownify }}
       {% include components/content_blocks.html blocks=page.contentful.contentBlocks %}
     </div>
   </div>
-  {% if page.contentful.primaryContact %}
-    <div class="usa-width-one-fourth">
+  <aside class="usa-width-one-third">
+    {% if page.contentful.primaryContact %}
       {% include components/sidebar/primary_contact.html contact=page.contentful.primaryContact %}
-    </div>
-  {% endif %}
+    {% endif %}
+  </aside>
 </div>
