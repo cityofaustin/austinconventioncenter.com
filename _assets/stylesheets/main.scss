@@ -2,8 +2,11 @@
 
 @import "variables/all";
 
+@import "elements/mixins";
 @import "elements/typography";
+@import "elements/buttons";
 
 @import "components/breadcrumbs";
 @import "components/footer";
 @import "components/header";
+@import "components/sidebar";

@@ -1,0 +1,53 @@
+.acc-button {
+  background-repeat: no-repeat;
+  background-size: 1.6em;
+  border-radius: $border-radius;
+  display: block;
+  padding: 1em;
+  text-align: center;
+  text-decoration: none;
+  @include background-color-transition;
+}
+
+.acc-button-dark {
+  background-color: $acc-color-gray-dark;
+  color: $acc-color-white;
+  display: block;
+  
+  &:hover {
+    background-color: $acc-color-gray;
+    color: $acc-color-white;
+    @include background-color-transition;
+  }
+  
+  &:visited, &:active {
+    color: $acc-color-white;
+  }
+
+}
+
+.acc-button-primary {
+  background-image: image_url('icons/arrow.svg');
+  background-position: 95% center;
+  font-size: 2.2rem;
+  margin-bottom: .5em;
+  padding: 1em;
+  text-align: left;
+}
+
+.acc-button-pdf {
+  background-image: image_url('icons/document.svg');
+  background-position: 1em center;
+  border-radius: $border-radius;
+  color: $acc-color-green;
+  border: 2px solid $acc-color-green-light;
+  display: inline-block;
+  padding-left: 3em;
+  font-size: 1.6rem;
+  transition: border-color .5s;
+  &:hover {
+    color: $acc-color-green;
+    border-color: $acc-color-green;
+    transition: border-color .5s;
+  }
+}
