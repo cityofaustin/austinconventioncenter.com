@@ -2,12 +2,14 @@
   <div class="content-block-list">
     {% for block in include.blocks %}
       {% case block.type %}
-        {% when "textBlock" %}
-          {% include components/content_blocks/text.html block=block %}
-        {% when "galleryBlock" %}
-          {% include components/content_blocks/gallery.html block=block %}
+        {% when "accordionBlock" %}
+          {% include components/content_blocks/accordion.html block=block %}
         {% when "contactBlock" %}
           {% include components/content_blocks/contact.html block=block %}
+        {% when "galleryBlock" %}
+          {% include components/content_blocks/gallery.html block=block %}
+        {% when "textBlock" %}
+          {% include components/content_blocks/text.html block=block %}
       {% endcase %}
     {% endfor %}
   </div>
