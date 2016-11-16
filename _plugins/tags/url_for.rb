@@ -17,9 +17,11 @@ class UrlFor < Liquid::Tag
     if object.respond_to?(:key?) && object.key?("sys")
       id = object["sys"]["id"]
 
-      site.docs_to_write.each do |doc|
-        return doc.url if doc.data["contentful"] && doc.data["contentful"]["sys"]["id"] == id
+      doc = site.docs_to_write.find do |doc|
+        doc.data["contentful_ids"] && doc.data["contentful_ids"].include?(id)
       end
+
+      doc.url if doc
     end
   end
 
