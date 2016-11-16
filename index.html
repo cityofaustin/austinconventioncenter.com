@@ -1,3 +1,29 @@
 ---
 layout: default
 ---
+<style type="text/css">
+  .acc-breadcrumbs { display: none; }
+</style>
+<div class="acc-homepage-banner">
+  <div class="usa-grid">
+    <span>Welcome to the</span>
+    <h1><strong>Austin</strong><br>Convention Center</h1>
+  </div>
+</div>
+<div class="acc-homepage-tiles">
+  {% assign tiles = site.contentful.menu | where: "name", "HomepageTiles" | first %}
+  <div class="usa-grid">
+    {% for tile in tiles.items limit:3 %}
+      <div class="usa-width-one-third">
+        <a href="{% url_for tile %}">{{ tile.title }}</a>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="usa-grid">
+    {% for tile in tiles.items limit:3 offset:3 %}
+      <div class="usa-width-one-third">
+        <a href="{% url_for tile %}">{{ tile.title }}</a>
+      </div>
+    {% endfor %}
+  </div>
+<div>
