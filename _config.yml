@@ -76,20 +76,11 @@ defaults:
     values:
       layout: press_release
       permalink: "/press-releases/:year/:month/:day/:title/"
-  -
-    scope:
-      type: rooms
-    values:
-      layout: room
-      permalink: "/rooms/:slug/"
-
 
 collections:
   orphans:
     output: true
-  rooms:
-    output: true
   sections:
     output: true
-  custom:
+  templates:
     output: false
