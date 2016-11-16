@@ -35,10 +35,6 @@ module Jekyll
         attributes["date"] = attributes["date"].utc # Undo implicit time zone conversion
         generate_page(site, site.collections["press-releases"], attributes)
       end
-
-      data["room"].each do |attributes|
-        generate_page(site, site.collections["rooms"], attributes)
-      end
     end
 
     private
@@ -57,7 +53,7 @@ module Jekyll
         parent = find_or_generate_section(site, attributes["parentSection"])
 
         # Prepend parent path to this section's child page URL template
-        section.metadata["permalink"] = "/#{parent.label}" + section.metadata["permalink"]
+        section.metadata["permalink"] = parent.metadata["permalink"].sub(":slug", "#{label}/:slug")
       else
         # Add root-level section pages to default collection (defined in _config.yml)
         parent = site.collections["sections"]
@@ -67,7 +63,7 @@ module Jekyll
       page.data["docs"] = section.docs
 
       # Inherit section layout from default defined in _config.yml
-      unless page.relative_path =~ /^_custom/
+      unless page.relative_path =~ /^_templates/
         page.data["layout"] = site.frontmatter_defaults.find(page.relative_path, "sections", "layout")
       end
 
@@ -79,12 +75,16 @@ module Jekyll
 
     def generate_page(site, section, attributes)
       slug = Utils.slugify(attributes["slug"])
-      path = section.collection_dir("#{slug}.markdown")
+      path = section.collection_dir("#{slug}.html")
 
-      if doc = find_custom_doc_by_id(site, attributes["sys"]["id"])
-        doc.instance_variable_set(:@collection, section)
+      doc = Document.new(path, site: site, collection: section)
+
+      # A Page with the same URL as a Section extends the existing section doc
+      if existing_doc = section.docs.find { |existing| existing.url == doc.url }
+        doc = existing_doc
       else
-        doc = Document.new(path, site: site, collection: section)
+        doc = match_optional_custom_template(section, doc)
+        section.docs << doc
       end
 
       doc.data["title"] = attributes["title"]
@@ -97,16 +97,19 @@ module Jekyll
 
       set_breadcrumbs(doc, section)
 
-      section.docs << doc
-
       doc
     end
 
-    # Checks the _custom folder for a Section- or Page-specific template that contains a matching
-    # contentful_id in its frontmatter. If found, we render it instead of the standard layout.
-    def find_custom_doc_by_id(site, id)
-      docs = site.collections["custom"].docs
-      docs.detect { |doc| doc.data["contentful_id"] == id }
+    # If _templates contains a file with the same URL (i.e. path, by default) as the Page, we render
+    # that file instead of the default layout.
+    def match_optional_custom_template(section, doc)
+      templates = section.site.collections["templates"].docs
+
+      if template = templates.find { |template| template.url.sub("/templates", "") == doc.url }
+        template.instance_variable_set(:@collection, section)
+      end
+
+      template || doc
     end
 
   end

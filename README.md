@@ -55,7 +55,7 @@ A Jekyll generator in [_plugins/](_plugins/generators/contentful.rb) creates [Co
 
 Templates and layouts render Contentful attributes using `page.contentful` in [Liquid][]. The [front matter defaults][] in [_config.yml](_config.yml) define the layouts used to render pages in a given collection and by default.
 
-For each page, the generator also looks in [_custom](_custom) for a template with a matching `contentful_id` in its front matter. If a match is found, the generator renders the page with template instead of the default layout.
+For each page, the generator also looks in [_templates](_templates) for a file with the same URL (i.e. path, by default), and renders that file, if found, instead of the default layout. A custom template for a page with the URL /example/ would be _templates/example.html.
 
 To render specific content outside of a page (such as a particular menu), `site.contentful` exposes the contents of the entire data file, and plays nicely with [Jekyll's `where` filters][where]. See an example in [_includes/header.html](_includes/header.html).
 
