@@ -14,9 +14,5 @@ layout: default
       {% include components/content_blocks.html blocks=page.contentful.contentBlocks %}
     </div>
   </div>
-  <aside class="usa-width-one-third">
-    {% if page.contentful.primaryContact %}
-      {% include components/sidebar/primary_contact.html contact=page.contentful.primaryContact %}
-    {% endif %}
-  </aside>
+  {% include sidebar.html %}
 </div>

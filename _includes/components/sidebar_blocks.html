@@ -1,0 +1,12 @@
+{% if include.blocks != empty %}
+  <div>
+    {% for block in include.blocks %}
+      {% case block.type %}
+        {% when "textBlock" %}
+          {% include components/sidebar_blocks/text.html block=block %}
+        {% when "contactBlock" %}
+          {% include components/sidebar_blocks/contact.html block=block %}
+      {% endcase %}
+    {% endfor %}
+  </div>
+{% endif %}
