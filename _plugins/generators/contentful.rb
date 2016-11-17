@@ -80,7 +80,7 @@ module Jekyll
       doc = Document.new(path, site: site, collection: section)
 
       # A Page with the same URL as a Section extends the existing section doc
-      if existing_doc = section.docs.find { |existing| existing.url == doc.url }
+      if existing_doc = site.docs_to_write.find { |existing| existing.url == doc.url }
         doc = existing_doc
         doc.data["contentful_ids"] << attributes["sys"]["id"]
       else

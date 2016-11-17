@@ -43,6 +43,7 @@ contentful:
           accordionBlock: ContentBlockMapper
           contactBlock: ContentBlockMapper
           galleryBlock: ContentBlockMapper
+          menu: ContentBlockMapper
           textBlock: ContentBlockMapper
     # - pec:
     #     space: ENV_CONTENTFUL_PEC_SPACE_ID

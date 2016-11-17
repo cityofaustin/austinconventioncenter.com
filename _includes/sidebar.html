@@ -1,3 +1,8 @@
 <aside class="usa-width-one-third">
   {% include components/sidebar_blocks.html blocks=page.contentful.sidebarBlocks %}
+  {% if page.contentful.files %}
+    {% for file in page.contentful.files %}
+      <a href="{{ file.url }}" target="_blank">{{ file.title }}</a>
+    {% endfor %}
+  {% endif %}
 </aside>
