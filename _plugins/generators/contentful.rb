@@ -61,11 +61,7 @@ module Jekyll
 
       page = generate_page(site, parent, attributes)
       page.data["docs"] = section.docs
-
-      # Inherit section layout from default defined in _config.yml
-      unless page.relative_path =~ /^_templates/
-        page.data["layout"] = site.frontmatter_defaults.find(page.relative_path, "sections", "layout")
-      end
+      page.data["layout"] = "section" if page.data["layout"] == "page"
 
       # Breadcrumbs inherited by child pages (includes parents of this section, if any)
       section.metadata["breadcrumbs"] = page.data["breadcrumbs"]
@@ -108,10 +104,11 @@ module Jekyll
       templates = section.site.collections["templates"].docs
 
       if template = templates.find { |template| template.url.sub("/templates", "") == doc.url }
-        template.instance_variable_set(:@collection, section)
+        doc.instance_variable_set(:@path, template.path)
+        doc.read
       end
 
-      template || doc
+      doc
     end
 
   end

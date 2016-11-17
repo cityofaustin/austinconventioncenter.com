@@ -78,6 +78,21 @@ defaults:
     values:
       layout: press_release
       permalink: "/press-releases/:year/:month/:day/:title/"
+  -
+    scope:
+      type: "plans"
+    values:
+      layout: floor_plan
+  -
+    scope:
+      type: "ballrooms"
+    values:
+      layout: floor_plan
+  -
+    scope:
+      type: "exhibit-halls"
+    values:
+      layout: floor_plan
 
 collections:
   orphans:
