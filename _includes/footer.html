@@ -1,40 +1,114 @@
-<footer class="usa-footer usa-footer-medium" role="contentinfo">
+<footer class="usa-footer usa-footer-medium acc-footer" role="contentinfo">
   <div class="usa-grid usa-footer-return-to-top">
     <a href="#">Return to top</a>
   </div>
-  <div class="usa-footer-primary-section">
-    <div class="usa-grid-full">
-      <div class="usa-width-one-third">
-        <p>
-          <a href="{{site.baseurl}}/contact/submit-rfp" class="usa-button usa-button-big acc-button">Submit RFP</a><br>
-          <a href="{{site.baseurl}}/contact/sales" class="usa-button usa-button-big acc-button">Contact</a>
-        </p>
-        <div itemscope itemtype="http://schema.org/LocalBusiness"  class="acc-footer-address">
-          <span itemprop="name">Austin Convention Center</span><br>
-          <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-            <span itemprop="streetAddress">500 E. Cesar Chavez St</span><br>
-            <span itemprop="addressLocality">Austin</span>,
-            <span itemprop="addressRegion">TX</span>
-            <span itemprop="postalCode">78701</span><br>
-            Phone: <span itemprop="telephone">(512) 404-4000</span>
-          </div>
-        </div>
+  <div class="acc-footer-promotion">
+    <div class="usa-grid">
+      <div class="usa-width-one-fourth">
+        <a href="http://sxsw.com"  target="_blank">
+          {% img badges/sxsw.png "South by Southwest" %}
+        </a>
       </div>
-      <nav class="usa-footer-nav usa-width-two-thirds">
-        <div class="usa-grid-full">
-          <ul class="usa-unstyled-list usa-width-one-third usa-footer-primary-content">
-            <li><h4>About</h4></li>
-            {% assign footer_links = site.contentful.menu | where: "name", "Footer" | first %}
-            {% for item in footer_links.items %}
-            <li>
-              <a href="{% url_for item %}">
-                <span>{{item.title}}</span>
-              </a>
-            </li>
-            {% endfor %}
-          </ul>
+      <div class="usa-width-one-fourth">
+        <a href="http://conveningleaders.org/" target="_blank">
+          {% img badges/pcma.png "PCMA" %}
+        </a>
+      </div>
+      <div class="usa-width-one-fourth">
+        <a href="http://www.tsae.org/"  target="_blank">
+          {% img badges/tsae.png "Texas Society of Association Executives" %}
+        </a>
+      </div>
+      <div class="usa-width-one-fourth">
+        <a href="{{site.baseurl}}/facilities/sustainability">
+          {% img badges/leed.png "LEED Certified" %}
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="usa-footer-primary-section acc-footer-primary">
+    <div class="usa-grid-full">
+      <nav class="usa-footer-nav">
+        <div class="usa-width-one-third">
+            <a class="usa-footer-primary-link acc-footer-primary-link" href="{{ site.baseurl }}/contact">Contact</a>
+        </div>
+        <div class="usa-width-one-third">
+            <a class="usa-footer-primary-link acc-footer-primary-link" href="{{ site.baseurl }}/submit-rfp">Submit RFP</a>
+        </div>
+        <div class="usa-width-one-third">
+            <a class="usa-footer-primary-link acc-footer-primary-link" href="{{ site.baseurl }}/meet">Plan a Meeting</a>
         </div>
       </nav>
     </div>
   </div>
+  <div class="usa-footer-secondary-section acc-footer-secondary">
+    <div class="usa-grid-full acc-footer-secondary-wrapper">
+      <div class="usa-width-one-third">
+        <a class="usa-footer-primary-link getting-here acc-footer-primary-link" href="{{ site.baseurl }}/getting-here">Location &amp; Directions</a>
+      </div>
+      <div class="usa-width-one-third">
+        <a class="usa-footer-primary-link media-gallery acc-footer-primary-link" href="{{ site.baseurl }}/media-gallery">Media Gallery</a>
+      </div>
+      <div class="usa-width-one-third">
+        
+      </div>
+    </div>
+  </div>
+  <div class="usa-footer-primary-section acc-footer-secondary">
+    <div class="usa-grid-full">
+      <nav class="usa-footer-nav acc-footer-nav usa-width-one-third">
+        <ul class="usa-unstyled-list usa-width-one-third usa-footer-primary-content">
+          <li><h4 class="acc-footer-link-header">About Us</h4></li>
+          {% assign footer_links = site.contentful.menu | where: "name", "AboutFooter" | first %}
+          {% for item in footer_links.items %}
+          <li>
+            <a href="{% url_for item %}" class="acc-footer-list-link">
+              <span>{{item.title}}</span>
+            </a>
+          </li>
+          {% endfor %}
+          {% assign careers_url = site.contentful.textBlock | where: "name", "CareersURL" | first %}
+          <li>
+            <a href="{{ careers_url.text | strip_html }}" target="_blank" class="acc-footer-list-link">
+              <span>Careers</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <nav class="usa-footer-nav usa-width-two-thirds acc-footer-nav">
+        <ul class="usa-unstyled-list usa-width-one-whole usa-footer-primary-content">
+          <li><h4 class="acc-footer-link-header">Partners</h4></li>
+          <li>
+            <a href="http://www.austintexas.org" target="_blank" class="acc-footer-list-link">
+              <span>Austin Convention & Visitor's Bureau</span>
+            </a>
+          </li>
+          <li>
+            <a href="http://www.palmereventscenter.com" class="acc-footer-list-link">
+              <span>Palmer Events Center</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="acc-footer-address">
+      <div itemscope itemtype="http://schema.org/LocalBusiness"  class="usa-grid-full">
+        <span itemprop="name">Austin Convention Center Department</span> | 
+        <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+          <span itemprop="streetAddress">500 E. Cesar Chavez St</span> | 
+          <span itemprop="addressLocality">Austin</span>, 
+          <span itemprop="addressRegion">TX</span> 
+          <span itemprop="postalCode">78701</span> | 
+          <span itemprop="telephone">(512) 404-4000</span>
+        </span>
+      </div>
+      <div itemscope itemtype="https://schema.org/copyrightHolder" class="usa-grid-full">
+        &copy; Copyright 
+        <span itemprop="copyrightYear">2010</span> 
+        <span itemprop="organization">Austin Convention Center Department</span>. 
+        All Rights Reserved.
+      </div>
+      </div>
+    </div>
+  </div>  
 </footer>

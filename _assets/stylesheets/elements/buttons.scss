@@ -44,10 +44,12 @@
   display: inline-block;
   padding-left: 3em;
   font-size: 1.6rem;
-  transition: border-color .5s;
+  transition: border-color $transition-time;
+
   &:hover {
     color: $acc-color-green;
     border-color: $acc-color-green;
-    transition: border-color .5s;
+    transition: border-color $transition-time;
   }
+
 }
