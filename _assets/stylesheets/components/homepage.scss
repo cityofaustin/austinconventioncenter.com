@@ -1,0 +1,91 @@
+.acc-homepage-banner {
+  background-image: image_url('acc-homepage-banner.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center center;
+  padding-top: 11rem;
+  padding-bottom: 5rem;
+  text-shadow: 0 2px 2px $acc-color-gray;
+  margin-top: -4.8rem;
+  
+  span {
+    color: $acc-color-white;
+    font-size: 18px;
+  }
+
+  h1 {
+    color: $acc-color-white;
+    font-size: 5.6rem;
+    font-weight: normal;
+    line-height: 5.2rem;
+    font-family: $acc-font-primary;
+    margin-top: 0;
+    
+    strong {
+      font-weight: bold;
+    }
+
+  }
+  
+  span {
+    font-family: $acc-font-primary;
+    font-size: 1.8rem;
+    margin-bottom: 0;
+  }
+
+}
+
+.acc-homepage-tiles {
+  padding: 3rem 0;
+  background-color: $acc-color-gray-dark;
+  
+  .usa-grid {
+    margin-bottom: 1em !important;
+    
+    div {
+      overflow:hidden;
+    }
+    
+  }
+
+  a {
+    background-color: $acc-color-gray;
+    border-color: transparent;
+    color: white;
+    display: block;
+    font-size: 2rem;
+    height: 9rem;
+    line-height: 3.5em;
+    padding: 1em 1.7em 0 3em;
+    position: relative;
+    text-decoration: none;
+    width: 100%;
+    -webkit-font-smoothing: antialiased;
+
+    &::before {
+      border-color: $acc-color-violet-light;
+//       border-left-color: #ccc;
+      border-style: solid;
+      border-width: 1.75em 0 1.75em 0.9em;
+      content: '';
+      display: block;
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      left: 0%;
+      z-index: 1;
+    }
+
+    color: $acc-color-white;
+    display: block;         
+    font-size: 3rem;
+    line-height: 1em;
+    padding: 1em;
+
+    &:hover, &:active, &:visited {
+      color: $acc-color-white;
+    }
+
+  }
+
+}
