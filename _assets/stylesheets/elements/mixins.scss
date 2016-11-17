@@ -1,3 +1,10 @@
 @mixin background-color-transition {
-  transition: background-color .5s;
+  transition: background-color $transition-time;
+}
+
+@mixin link-color-states($color) {
+  &:hover, &:active, &:visited {
+    color: $color;
+    text-decoration: none;
+  }
 }

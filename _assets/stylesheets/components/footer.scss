@@ -1,3 +1,78 @@
+.acc-footer .acc-footer-promotion {
+  background-color: $acc-color-white;
+  border-top: 1px solid $acc-color-gray-light;
+  padding: 2rem;
+  text-align: center;
+}
+
+.acc-footer-primary {
+  background-color: $acc-color-gray;
+}
+
+.acc-footer .acc-footer-primary .acc-footer-primary-link {
+  color: $acc-color-white;
+  font-size: 2.4rem;
+  font-weight: 400;
+  text-decoration: none;
+  @include link-color-states($acc-color-white);
+}
+
+.acc-footer .acc-footer-primary-link {
+  color: $acc-color-white;
+  @include link-color-states($acc-color-white);
+}
+
+.acc-footer .acc-footer-list-link {
+  color: $acc-color-white;
+  @include link-color-states($acc-color-white);
+}
+
+.acc-footer-secondary-wrapper {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+} 
+
+.acc-footer-secondary {
+  background-color: $acc-color-gray-dark;
+  border-bottom: 1px solid $acc-color-gray;
+  font-size: 1.6rem;
+}
+
+.acc-footer-nav {
+  padding-bottom: 2em;
+}
+
+.acc-footer-link-header {
+  color: $acc-color-gray-light;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.acc-footer-secondary .acc-footer-primary-link {
+  background-size: 1.6em;
+  background-position: 0 center;
+  background-repeat: no-repeat;
+  font-size: 1.6rem;
+  font-weight: 400;
+  padding-left: 2em;
+}
+
+.acc-footer .getting-here {
+  background-image: image_url('icons/info-white.svg');
+}
+
+.acc-footer .media-gallery {
+  background-image: image_url('icons/info-white.svg');
+}
+
+.acc-footer .acc-footer-list-link {
+  text-decoration: none;
+  font-weight: 300;
+}
+
 .acc-footer-address {
-  font-size: $small-font-size;
+  border-top: 1px solid $acc-color-gray;
+  color: $acc-color-gray-light;
+  font-size: 1.2rem;
+  padding-top: 1em;
 }

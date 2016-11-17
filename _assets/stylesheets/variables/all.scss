@@ -25,8 +25,6 @@ $acc-font-secondary: "Rubik", "Helvetica Neue", "Helvetica", "Roboto", "Arial", 
 
 $acc-border-color: #E8E6ED;
 
-$acc-small-font-size: 0.8em;
-
 $acc-color-base: $acc-color-gray-dark;
 
 $acc-section-colors: (
@@ -34,5 +32,7 @@ $acc-section-colors: (
   'services': $acc-color-orange,
   'visit': $acc-color-green
 );
+
+$transition-time: .5s;
 
 @import "uswds";
