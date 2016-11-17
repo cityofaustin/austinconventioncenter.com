@@ -82,8 +82,10 @@ module Jekyll
       # A Page with the same URL as a Section extends the existing section doc
       if existing_doc = section.docs.find { |existing| existing.url == doc.url }
         doc = existing_doc
+        doc.data["contentful_ids"] << attributes["sys"]["id"]
       else
         doc = match_optional_custom_template(section, doc)
+        doc.data["contentful_ids"] = [attributes["sys"]["id"]]
         section.docs << doc
       end
 
