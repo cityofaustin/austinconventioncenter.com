@@ -1,0 +1,5 @@
+{% assign menu = include.block %}
+
+{% for item in menu.items %}
+  <a href="{% url_for item %}">{{ item.title }}</a>
+{% endfor %}

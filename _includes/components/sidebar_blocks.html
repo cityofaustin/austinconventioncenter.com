@@ -6,6 +6,8 @@
           {% include components/sidebar_blocks/text.html block=block %}
         {% when "contactBlock" %}
           {% include components/sidebar_blocks/contact.html block=block %}
+        {% when "menu" %}
+          {% include components/sidebar_blocks/menu.html block=block %}
       {% endcase %}
     {% endfor %}
   </div>
