@@ -69,7 +69,7 @@
     background-color: $color;
 
     // Graduate the color of each previous breadcrumb
-    @for $i from 2 through 4 {
+    @for $i from 2 through 5 {
       @include breadcrumb-level($color, $i);
     }
   }
