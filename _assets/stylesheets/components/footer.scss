@@ -1,10 +1,3 @@
-.acc-footer .acc-footer-promotion {
-  background-color: $acc-color-white;
-  border-top: 1px solid $acc-color-gray-light;
-  padding: 2rem;
-  text-align: center;
-}
-
 .acc-footer-primary {
   background-color: $acc-color-gray;
 }
@@ -25,6 +18,11 @@
 .acc-footer .acc-footer-list-link {
   color: $acc-color-white;
   @include link-color-states($acc-color-white);
+  
+  &:hover {
+    text-decoration: underline;
+  }
+
 }
 
 .acc-footer-secondary-wrapper {
@@ -32,14 +30,20 @@
   padding-right: 2.5rem;
 } 
 
-.acc-footer-secondary {
+.acc-footer .acc-footer-secondary {
   background-color: $acc-color-gray-dark;
   border-bottom: 1px solid $acc-color-gray;
   font-size: 1.6rem;
+  padding-bottom: 0;
 }
 
 .acc-footer-nav {
   padding-bottom: 2em;
+}
+
+.acc-footer-secondary .acc-footer-nav .acc-footer-list {
+  width: auto;
+  border: none;
 }
 
 .acc-footer-link-header {
@@ -70,9 +74,31 @@
   font-weight: 300;
 }
 
+.acc-footer .acc-footer-promotion {
+  background-color: $acc-color-white;
+  border-top: 1px solid $acc-color-gray-light;
+  padding: 3rem 0 0 0;
+  text-align: center;
+  
+  img {
+    filter: grayscale(100%);
+    height: 5rem;
+    width: auto;
+  }
+
+}
+
 .acc-footer-address {
-  border-top: 1px solid $acc-color-gray;
-  color: $acc-color-gray-light;
-  font-size: 1.2rem;
-  padding-top: 1em;
+  background-color: white;
+  font-size: 1.1rem;
+  line-height: 1.5em;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  text-align: center;
+}
+.acc-footer h4 {
+  border-bottom: 1px solid $acc-color-gray;
+  color: $acc-color-gray-light; 
+  letter-spacing: .05em;
+  padding-bottom: .5em;
 }

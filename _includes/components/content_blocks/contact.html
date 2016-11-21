@@ -1,28 +1,30 @@
 {% assign contact = include.block %}
 
-<div class="contact-block vcard">
+<div class="acc-contact-block vcard">
   {{ contact.sys.fields }}
   <dl>
-    <dt>Name</dt>
-    <dd class="fn">{{ contact.name }}</dd>
-    <dt>Email</dt>
-    <dd class="email">{{ contact.email }}</dd>
-    {% if contact.phone %}
-      <dt>Phone</dt>
-      <dd class="tel">{{ contact.phone | format_phone }}</dd>
-    {% endif %}
+    <dt class="fn acc-contact-name">
+      {{ contact.name }}
+    </dt>
     {% if contact.title %}
-      <dt>Title</dt>
-      <dd class="title">{{ contact.title }}</dd>
+      <dd class="title">
+        {{ contact.title }}
+      </dd>
     {% endif %}
     {% if contact.region %}
-      <dt>Region</dt>
-      <dd>{{ contact.region }}</dd>
+      <dd>
+        {{ contact.region }}
+      </dd>
     {% endif %}
-    {% if contact.photo %}
-      <dt>Photo</dt>
-      <dd class="photo">{{ contact.photo }}</dd>
+    {% if contact.email %}
+      <dd class="email">
+        <a href="mailto:{{ contact.email }}">{{ contact.email }}</a>
+      </dd>
+    {% endif %}
+    {% if contact.phone %}
+      <dd class="tel">
+        {{ contact.phone | format_phone }}
+      </dd>
     {% endif %}
   </dl>
 </div>
-<hr>

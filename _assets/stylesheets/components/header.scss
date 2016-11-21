@@ -1,5 +1,5 @@
 .acc-logo {
-  margin-top: 1rem;
+  margin-top: 2.5rem;
 }
 
 .acc-logo a {
@@ -7,7 +7,7 @@
 }
 
 .acc-logo img {
-  max-height: 8rem;
+  height: 5rem;
 }
 
 .acc-nav {
@@ -15,32 +15,50 @@
 }
 
 .acc-nav-primary .acc-nav-link {
-  font-size: 3rem;
-  font-weight: normal;
+  @include link-color-states($acc-color-gray-dark);
+  color: $acc-color-gray-dark;
+  font-size: 1.5rem;
+  font-weight: $acc-weight-bold;
+  transition: color $transition-time;
+  
+  span {
+    border-bottom: .3rem solid $acc-color-white;
+    border-width: .3rem;
+    padding-bottom: .25rem;
+    transition: border-bottom $transition-time;
+  }
 
   &:hover span {
-    border: none;
+    border-bottom: .3rem solid $acc-color-teal;
+    transition: border-bottom $transition-time;
   }
-}
-
-@each $section, $color in $acc-section-colors {
-  .acc-nav-primary .acc-nav-link.#{$section} {
-    color: $color;
-  }
-}
-
-.acc-nav-primary .acc-nav-link.meet {
-  background-color: $acc-color-green-lighter;
-  color: $acc-color-green;
-  text-shadow: 1px 2px 1px white;
-  letter-spacing: .02em;
-  font-weight: bold;
-  span {
-    border: none;
+  
+  &:hover {
+    color: $acc-color-teal;
+    transition: color $transition-time;
   }
 }
 
 .acc-header {
   margin-bottom: 4.8rem;
   border-bottom: none;
+}
+
+.acc-disclaimer {
+  background-color: $acc-color-red;
+  padding: .25em;
+  color: white;
+  font-size: 1.2rem;
+  
+  a {
+    @include link-color-states(white);
+    color: white;
+    text-decoration: underline;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+
+  }
+
 }

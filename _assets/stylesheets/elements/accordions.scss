@@ -1,0 +1,9 @@
+.acc-accordion-button {
+  @include background-color-transition;
+  background-color: $acc-color-gray-lightest;
+}
+
+.acc-accordion-button:hover {
+  @include background-color-transition;
+  background-color: $acc-color-gray-light;
+}

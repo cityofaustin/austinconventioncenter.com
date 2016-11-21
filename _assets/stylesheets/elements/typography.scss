@@ -1,27 +1,50 @@
 body {
   color: $acc-color-gray;
   font-family: $acc-font-primary;
-  font-size: 1.4rem;
+  font-size: $acc-base-font-size;
   font-weight: normal;
 }
-h1, h3 {
-color: $acc-color-gray-dark;
-padding-bottom: .25em;
-}
+
 h1 {
-  font-family: $acc-font-secondary;
-  font-size: 4.8rem;
-  font-weight: 100;
-  letter-spacing: .5rem;
-  margin-top: 1em;
+  color: $acc-color-gray;
+  font-weight: $acc-weight-light;
+  padding-bottom: .5em;
 }
+
 h2 {
-  font-family: $acc-font-secondary;
-  font-size: 2.2rem;
-  font-weight: 100;
-  line-height: 2.7rem;
+  color: $acc-color-gray;
+  font-weight: $acc-weight-light;
+  margin-top: 0;
 }
+
 h3 {
-  font-size: 1.8rem;
-  font-weight: 400;
+  color: $acc-color-gray;
+  font-weight: $acc-weight-bold;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+p {
+  margin-top: .5em;
+}
+
+a {
+  color: $acc-link-color;
+  transition: color $transition-time;
+  
+  &:active, &:visited {
+    color: $acc-link-color;
+  }
+  
+  &:hover {
+    color: $acc-link-hover-color;
+    transition: color $transition-time;
+  }
+
+}
+
+.acc-content-block-list ul {
+  margin-top: 0;
 }

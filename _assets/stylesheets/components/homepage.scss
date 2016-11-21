@@ -45,15 +45,16 @@
 }
 
 .acc-tile-link {
+  @include link-color-states($acc-color-white);
   background-color: $acc-color-gray;
   border-color: transparent;
   box-shadow: 0 0 12px #000;
-  color: white;
+  color: $acc-color-white;
   display: block;
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 400;
   height: 9rem;
-  line-height: 3.5em;
+  line-height: 1em;
   padding: 1em 0em 0 1.5em;
   position: relative;
   text-decoration: none;
@@ -62,8 +63,6 @@
   @include background-color-transition;
 
   &::before {
-    border-color: $acc-color-violet-light;
-//       border-left-color: #ccc;
     border-style: solid;
     border-width: 1.75em 0 1.75em 0.9em;
     content: '';
@@ -76,15 +75,9 @@
     transition: border-color $transition-time;
   }
 
-  color: $acc-color-white;
-  display: block;         
-  font-size: 3rem;
-  line-height: 1em;
-  @include link-color-states($acc-color-white);
-
   &:hover {
-    background-color: $acc-color-gray-dark;
     @include background-color-transition;
+    background-color: $acc-color-gray-dark;
 
     &::before {
       border-color: $acc-color-gray;

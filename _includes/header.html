@@ -18,7 +18,7 @@
         {% for item in menu.items %}
           <li>
             <a class="usa-nav-link acc-nav-link {{item.slug}}" href="{% url_for item %}">
-              {{item.title}}
+              <span>{{item.title}}</span>
             </a>
           </li>
         {% endfor %}

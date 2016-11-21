@@ -1,18 +1,23 @@
 {% assign contact = include.block %}
 
 <div class="acc-primary-contact">
-  <h2>Contact {{ contact.division }}</h2>
+  <h3>Contact {{ contact.division }}</h3>
   <p>
-    {{ contact.name }}<br>
-    {{ contact.title }}<br>
-    {% if contact.phone != nil %}
-      {{ contact.phone | format_phone }}<br>
-    {% endif %}
-    <a href="mailto:{{ contact.email }}">{{ contact.email }}</a>
-    {% if contact.division != blank %}
-  </p>
+    {{ contact.name }}
   <p>
-      <a class="acc-button acc-button-dark" href="{{ site.baseurl }}/contact/{{contact.division | slugify }}">See {{ contact.division }}</a>
+    {{ contact.title }}
   </p>
+  {% if contact.phone != nil %}
+    <p>
+      {{ contact.phone | format_phone }}
+    </p>
+  {% endif %}
+    <p class="acc-email-link">
+      <a href="mailto:{{ contact.email }}" class="acc-sidebar-email-link">{{ contact.email }}</a>
+    </p>
+  {% if contact.division != blank %}
+    <p>
+        <a class="acc-button acc-button-dark" href="{{ site.baseurl }}/contact/{{contact.division | slugify }}">{{ contact.division }} Team</a>
+    </p>
   {% endif %}
 </div>

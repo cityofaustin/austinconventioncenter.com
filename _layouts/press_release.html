@@ -2,21 +2,34 @@
 layout: default
 ---
 
+<style type="text/css">
+  .acc-breadcrumb:last-child {
+    display: none;
+  }
+</style>
+
 <div class="usa-grid">
-  <h2>{{ page.contentful.title }}</h2>
-
-  <h5>{{ page.contentful.byline }} on {{ page.contentful.date }}</h5>
-
-  {{ page.contentful.body | markdownify }}
+  <div class="usa-width-three-fourths">
+    <h1 class="acc-press-headline">{{ page.contentful.title }}</h1>
+    <h4 class="acc-press-byline">{{ page.contentful.byline }}</h4>
+    <small>{{ page.contentful.date | date: "%B %-d, %Y" }}</small>
+    {{ page.contentful.content | markdownify }}
+  </div>
+  <aside class="usa-width-one-fourth">
+    <ul class="usa-unstyled-list acc-press-release-list">
+      {% for press_release in site.press-releases limit:12 %}
+        <li><a href="{{press_release.url}}">{{ press_release.date | date: "%B %-d, %Y" }}</a></li>
+      {% endfor %}
+    </ul>
+  </aside>
 </div>
-
-{% if page.contentful.contact %}
-{% assign contact = page.contentful.contact %}
-  <div class="usa-grid">
-    <div class="usa-width-one-whole">
+<div class="usa-grid acc-press-contact">
+  <div class="usa-width-one-whole">
+    {% if page.contentful.contact %}
+    {% assign contact = page.contentful.contact %}
       For more information, contact:<br>
       {{ contact.name }}, {{ contact.title }}, Austin Convention Center Department<br>
       {{ contact.phone | format_phone }} or <a href="mailto:{{ contact.email }}">{{ contact.email }}</a>
-    </div>
+    {% endif %}
   </div>
-{% endif %}
+</div>

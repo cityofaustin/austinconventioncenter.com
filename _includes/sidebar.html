@@ -2,7 +2,7 @@
   {% include components/sidebar_blocks.html blocks=page.contentful.sidebarBlocks %}
   {% if page.contentful.files %}
     {% for file in page.contentful.files %}
-      <a href="{{ file.url }}" target="_blank">{{ file.title }}</a>
+      <a href="{{ file.url }}" target="_blank" class="acc-button acc-button-secondary acc-button-pdf">Download {{ file.title }}</a>
     {% endfor %}
   {% endif %}
 </aside>

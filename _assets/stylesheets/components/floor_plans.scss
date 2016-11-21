@@ -1,0 +1,62 @@
+.acc-room-configuration {
+  background-size: 2em;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  margin-bottom: 1em;
+  padding-left: 3em;
+}
+
+.acc-room-configuration {
+  
+  dt {
+    color: $acc-color-red;
+    padding-bottom: .5em;
+    text-transform: uppercase;
+  }
+  
+  dd {
+    color: $acc-color-gray;
+  }
+
+}
+
+.acc-room-configuration.acc-banquet {
+  background-image: image_url('icons/gallery.svg');
+}
+
+.acc-room-configuration.acc-theater {
+  background-image: image_url('icons/gallery.svg');
+}
+
+.acc-room-configuration.acc-classroom {
+  background-image: image_url('icons/gallery.svg');
+}
+
+.acc-room-configuration.acc-booths {
+  background-image: image_url('icons/gallery.svg');
+}
+
+.acc-room-specifications {
+  color: $acc-color-gray;
+
+  dt {
+    font-weight: bold;
+  }
+  
+  dd {
+    color: $acc-color-gray;
+  }
+
+}
+
+.acc-room-header {
+    background-color: $acc-color-gray-light;
+    font-size: 1.6rem;
+    font-weight: bold;
+    padding: .5em 1em;
+
+}
+
+.acc-room-specification-list {
+  border-right: 1px solid $acc-color-gray-light;
+}
