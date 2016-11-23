@@ -1,0 +1,18 @@
+//= link_directory ../../../node_modules/photoswipe/dist/default-skin
+
+$pswp__assets-path: 'photoswipe/dist/default-skin/';
+
+@import "photoswipe/src/css/main";
+@import "photoswipe/src/css/default-skin/default-skin";
+
+.pswp {
+  z-index: 9999;
+}
+
+.pswp__button {
+  border-radius: 0;
+
+  &:hover {
+    background-color: inherit;
+  }
+}

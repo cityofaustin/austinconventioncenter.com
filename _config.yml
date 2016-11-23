@@ -42,7 +42,7 @@ contentful:
         content_types:
           accordionBlock: ContentBlockMapper
           contactBlock: ContentBlockMapper
-          galleryBlock: ContentBlockMapper
+          galleryBlock: GalleryBlockMapper
           menu: ContentBlockMapper
           textBlock: ContentBlockMapper
     # - pec:

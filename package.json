@@ -1,6 +1,7 @@
 {
   "name": "austinconventioncenter.com",
   "dependencies": {
+    "photoswipe": "^4.1.1",
     "uswds": "^0.13.1"
   }
 }
