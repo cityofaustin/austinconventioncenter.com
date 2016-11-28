@@ -35,13 +35,8 @@
   }
 }
 
-.acc-breadcrumb-home {
-  background-position: center left;
-  background-repeat: no-repeat;
-  background-size: 1.6em;
-  padding: 0;
-  text-indent: -9999px;
-  cursor: default;
+.acc-breadcrumb:first-child {
+  padding-left: 0;
 
   &::before {
     background-color: inherit;
@@ -68,8 +63,8 @@
   .acc-breadcrumbs#{$selector} {
     background-color: $color;
 
-    // Graduate the color of each previous breadcrumb
-    @for $i from 2 through 5 {
+    // Graduate the color of each breadcrumb
+    @for $i from 1 through 4 {
       @include breadcrumb-level($color, $i);
     }
   }
