@@ -1,7 +1,7 @@
 require 'bundler/setup'
 require 'jekyll'
 require 'jekyll-contentful-data-import'
-require './_plugins/mappers/content_block_mapper'
+Dir.glob('./_plugins/mappers/*.rb', &method(:require))
 require './lib/accd/calendar'
 
 desc "Import Contentful data with custom mappers"

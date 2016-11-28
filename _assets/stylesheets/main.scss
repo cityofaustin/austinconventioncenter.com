@@ -1,4 +1,6 @@
 //= require ./uswds
+//= require ./vendor/photoswipe
+
 @import "variables/all";
 
 @import "elements/mixins";
@@ -7,6 +9,7 @@
 
 @import "components/breadcrumbs";
 @import "components/footer";
+@import "components/gallery";
 @import "components/header";
 @import "components/sidebar";
 @import "components/homepage";

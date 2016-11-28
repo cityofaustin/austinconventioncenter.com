@@ -7,10 +7,12 @@
         {% when "contactBlock" %}
           {% include components/content_blocks/contact.html block=block %}
         {% when "galleryBlock" %}
+          {% assign photoswipe = true %}
           {% include components/content_blocks/gallery.html block=block %}
         {% when "textBlock" %}
           {% include components/content_blocks/text.html block=block %}
       {% endcase %}
     {% endfor %}
   </div>
+  {% if photoswipe %}{% include components/photoswipe.html %}{% endif %}
 {% endif %}
