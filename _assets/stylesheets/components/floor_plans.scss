@@ -7,13 +7,13 @@
 }
 
 .acc-room-configuration {
-  
+
   dt {
     color: $acc-color-red;
     padding-bottom: .5em;
     text-transform: uppercase;
   }
-  
+
   dd {
     color: $acc-color-gray;
   }
@@ -42,19 +42,17 @@
   dt {
     font-weight: bold;
   }
-  
+
   dd {
     color: $acc-color-gray;
   }
-
 }
 
-.acc-room-header {
+.acc-floor-plan .acc-content-block-header {
     background-color: $acc-color-gray-light;
     font-size: 1.6rem;
     font-weight: bold;
     padding: .5em 1em;
-
 }
 
 .acc-room-specification-list {
