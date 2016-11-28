@@ -3,9 +3,25 @@ layout: default
 ---
 
 <div class="usa-grid">
-  <ul>
-    {% for month in site.calendar %}
-      <li><a href="{{month.url}}">{{ month.title }}</a> ({{ month.events | size }} events)</li>
-    {% endfor %}
-  </ul>
+  {% for month in site.calendar offset:10 %}
+    <h1>{{ month.title }}</h3>
+    {% assign events = month.events %}
+    <ul class="usa-unstyled-list">
+      {% for event in events %}
+        <li class="acc-calendar-event">
+          <h4 class="acc-calendar-event-date">{{ event.arrive_date | date: "%B %-d" }} - {{ event.depart_date | date: "%B %-d" }}</h4>
+          <h2 class="acc-calendar-event-title">
+            {% if event.website %}
+              <a href="{{event.website}}">{{ event.event_name }}</a>
+            {% else %}
+              {{ event.event_name }}
+            {% endif %}
+          </h2>
+          {% if event.attendance %}
+            Expected Attendance: {{ event.attendance }}
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endfor %}
 </div>

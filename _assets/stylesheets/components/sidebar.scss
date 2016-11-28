@@ -1,16 +1,39 @@
-.acc-primary-contact {
-  background-color: $acc-color-gray-light;
-  padding-bottom: 1rem;
+aside {
+  font-size: 1.5rem;
 }
 
-.acc-primary-contact h2 {
-  border-bottom: 2px solid $acc-border-color;
-  font-size: 3rem;
-  line-height: 1.2em;
-  margin-top: 0;
-  padding: 2rem;
+aside h3 {
+  font-weight: $acc-weight-normal;
+  padding: 2rem 2rem .5rem 2rem;
+  margin: 0;
+}
+
+.acc-primary-contact {
+  background-color: $acc-color-gray-lightest;
+  padding-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .acc-primary-contact p {
-  padding: 1rem 2rem;
+  line-height: 1em;
+  padding: .5rem 2rem 0 2rem;
+  margin: 0;
+}
+
+.acc-primary-contact .acc-email-link {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.acc-primary-contact .acc-button {
+  margin-top: 2em;
+}
+
+.acc-sidebar-email-link {
+  font-weight: $acc-weight-bold;
+}
+
+.acc-sidebar-links {
+  margin-bottom: 1rem;
 }

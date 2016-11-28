@@ -2,65 +2,26 @@
   <div class="usa-grid usa-footer-return-to-top">
     <a href="#">Return to top</a>
   </div>
-  <div class="acc-footer-promotion">
-    <div class="usa-grid">
-      <div class="usa-width-one-fourth">
-        <a href="http://sxsw.com"  target="_blank">
-          {% img badges/sxsw.png "South by Southwest" %}
-        </a>
-      </div>
-      <div class="usa-width-one-fourth">
-        <a href="http://conveningleaders.org/" target="_blank">
-          {% img badges/pcma.png "PCMA" %}
-        </a>
-      </div>
-      <div class="usa-width-one-fourth">
-        <a href="http://www.tsae.org/"  target="_blank">
-          {% img badges/tsae.png "Texas Society of Association Executives" %}
-        </a>
-      </div>
-      <div class="usa-width-one-fourth">
-        <a href="{{site.baseurl}}/facilities/sustainability">
-          {% img badges/leed.png "LEED Certified" %}
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="usa-footer-primary-section acc-footer-primary">
-    <div class="usa-grid-full">
-      <nav class="usa-footer-nav">
-        <div class="usa-width-one-third">
-            <a class="usa-footer-primary-link acc-footer-primary-link" href="{{ site.baseurl }}/contact">Contact</a>
-        </div>
-        <div class="usa-width-one-third">
-            <a class="usa-footer-primary-link acc-footer-primary-link" href="{{ site.baseurl }}/submit-rfp">Submit RFP</a>
-        </div>
-        <div class="usa-width-one-third">
-            <a class="usa-footer-primary-link acc-footer-primary-link" href="{{ site.baseurl }}/meet">Plan a Meeting</a>
-        </div>
-      </nav>
-    </div>
-  </div>
-  <div class="usa-footer-secondary-section acc-footer-secondary">
-    <div class="usa-grid-full acc-footer-secondary-wrapper">
-      <div class="usa-width-one-third">
-        <a class="usa-footer-primary-link getting-here acc-footer-primary-link" href="{{ site.baseurl }}/getting-here">Location &amp; Directions</a>
-      </div>
-      <div class="usa-width-one-third">
-        <a class="usa-footer-primary-link media-gallery acc-footer-primary-link" href="{{ site.baseurl }}/media-gallery">Media Gallery</a>
-      </div>
-      <div class="usa-width-one-third">
-        
-      </div>
-    </div>
-  </div>
   <div class="usa-footer-primary-section acc-footer-secondary">
     <div class="usa-grid-full">
-      <nav class="usa-footer-nav acc-footer-nav usa-width-one-third">
-        <ul class="usa-unstyled-list usa-width-one-third usa-footer-primary-content">
+      <nav class="usa-footer-nav acc-footer-nav usa-width-one-fourth">
+        <ul class="usa-unstyled-list usa-footer-primary-content acc-footer-list">
+          <li><h4 class="acc-footer-link-header">Quick Links</h4></li>
+          {% assign primary_footer = site.contentful.menu | where: "name", "PrimaryFooter" | first %}
+          {% for item in primary_footer.items %}
+            <li>
+              <a href="{% url_for item %}" class="acc-footer-list-link">
+                <span>{{item.title}}</span>
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+     <nav class="usa-footer-nav acc-footer-nav usa-width-one-fourth">
+        <ul class="usa-unstyled-list usa-footer-primary-content acc-footer-list">
           <li><h4 class="acc-footer-link-header">About Us</h4></li>
-          {% assign footer_links = site.contentful.menu | where: "name", "AboutFooter" | first %}
-          {% for item in footer_links.items %}
+          {% assign about_links = site.contentful.menu | where: "name", "AboutFooter" | first %}
+          {% for item in about_links.items %}
           <li>
             <a href="{% url_for item %}" class="acc-footer-list-link">
               <span>{{item.title}}</span>
@@ -75,12 +36,12 @@
           </li>
         </ul>
       </nav>
-      <nav class="usa-footer-nav usa-width-two-thirds acc-footer-nav">
-        <ul class="usa-unstyled-list usa-width-one-whole usa-footer-primary-content">
+      <nav class="usa-footer-nav usa-width-one-fourth acc-footer-nav">
+        <ul class="usa-unstyled-list usa-footer-primary-content acc-footer-list">
           <li><h4 class="acc-footer-link-header">Partners</h4></li>
           <li>
             <a href="http://www.austintexas.org" target="_blank" class="acc-footer-list-link">
-              <span>Austin Convention & Visitor's Bureau</span>
+              <span>Austin Convention & Visitors Bureau</span>
             </a>
           </li>
           <li>
@@ -90,6 +51,46 @@
           </li>
         </ul>
       </nav>
+      <nav class="usa-footer-nav usa-width-one-fourth acc-footer-nav">
+        <ul class="usa-unstyled-list usa-footer-primary-content acc-footer-list">
+          <li><h4 class="acc-footer-link-header">Social</h4></li>
+          <li>
+            <a href="http://www.instagram.com/accdtx?ref=badge" target="_blank" class="acc-footer-list-link acc-instagram">
+              <span>Instagram</span>
+            </a>
+          </li>
+          <li>
+            <a href="http://www.facebook.com/AustinConventionCenter" class="acc-footer-list-link acc-facebook">
+              <span>Facebook</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    
+    <div class="acc-footer-promotion">
+      <div class="usa-grid">
+        <div class="usa-width-one-fourth">
+          <a href="http://sxsw.com"  target="_blank">
+            {% img badges/sxsw.png "South by Southwest" %}
+          </a>
+        </div>
+        <div class="usa-width-one-fourth">
+          <a href="http://conveningleaders.org/" target="_blank">
+            {% img badges/pcma.png "PCMA" %}
+          </a>
+        </div>
+        <div class="usa-width-one-fourth">
+          <a href="http://www.tsae.org/"  target="_blank">
+            {% img badges/tsae.png "Texas Society of Association Executives" %}
+          </a>
+        </div>
+        <div class="usa-width-one-fourth">
+          <a href="{{site.baseurl}}/facilities/sustainability">
+            {% img badges/leed.png "LEED Certified" %}
+          </a>
+        </div>
+      </div>
     </div>
     <div class="acc-footer-address">
       <div itemscope itemtype="http://schema.org/LocalBusiness"  class="usa-grid-full">

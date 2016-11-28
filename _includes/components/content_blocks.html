@@ -1,17 +1,19 @@
 {% if include.blocks != empty %}
-  <div class="content-block-list">
+  <div class="acc-content-block-list">
     {% for block in include.blocks %}
-      {% case block.type %}
-        {% when "accordionBlock" %}
-          {% include components/content_blocks/accordion.html block=block %}
-        {% when "contactBlock" %}
-          {% include components/content_blocks/contact.html block=block %}
-        {% when "galleryBlock" %}
-          {% assign photoswipe = true %}
-          {% include components/content_blocks/gallery.html block=block %}
-        {% when "textBlock" %}
-          {% include components/content_blocks/text.html block=block %}
-      {% endcase %}
+      <div class="acc-content-block">
+        {% case block.type %}
+          {% when "accordionBlock" %}
+            {% include components/content_blocks/accordion.html block=block %}
+          {% when "contactBlock" %}
+            {% include components/content_blocks/contact.html block=block %}
+          {% when "galleryBlock" %}
+            {% assign photoswipe = true %}
+            {% include components/content_blocks/gallery.html block=block %}
+          {% when "textBlock" %}
+            {% include components/content_blocks/text.html block=block %}
+        {% endcase %}
+      </div>
     {% endfor %}
   </div>
   {% if photoswipe %}{% include components/photoswipe.html %}{% endif %}

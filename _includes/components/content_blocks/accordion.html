@@ -1,10 +1,10 @@
 {% assign accordion = include.block %}
-<ul class="usa-accordion">
+<ul class="usa-accordion acc-accordion">
   {% for block in accordion.contentBlocks %}
     {% if block.type != "textBlock" %}{% continue %}{% endif %}
     {% assign id = block.title | slugify %}
     <li>
-      <button class="usa-accordion-button" aria-controls="{{ id }}-{{ forloop.index }}">
+      <button class="usa-accordion-button acc-accordion-button" aria-controls="{{ id }}-{{ forloop.index }}">
         {{ block.title }}
       </button>
       <div id="{{ id }}-{{ forloop.index }}" class="usa-accordion-content">

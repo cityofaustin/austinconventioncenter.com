@@ -1,55 +1,75 @@
 .acc-button {
+  @include background-color-transition;
   background-repeat: no-repeat;
   background-size: 1.6em;
-  border-radius: $border-radius;
+  border-radius: $acc-border-radius;
   display: block;
+  font-size: 1.5rem;
+  font-weight: $acc-weight-bold;
   padding: 1em;
   text-align: center;
   text-decoration: none;
-  @include background-color-transition;
+  
+  &:hover {
+    @include background-color-transition;
+  }
+
 }
 
 .acc-button-dark {
-  background-color: $acc-color-gray-dark;
+  @include background-color-transition;
+  @include link-color-states($acc-color-white);
+  background-color: $acc-color-teal;
   color: $acc-color-white;
-  display: block;
   
   &:hover {
-    background-color: $acc-color-gray;
-    color: $acc-color-white;
     @include background-color-transition;
-  }
-  
-  &:visited, &:active {
-    color: $acc-color-white;
+    background-color: $acc-color-teal-dark;
   }
 
 }
 
 .acc-button-primary {
-  background-image: image_url('icons/arrow.svg');
+  @include background-color-transition;
+  background-color: $acc-color-gray-lightest;
+  background-image: image_url('icons/arrow-teal.svg');
   background-position: 95% center;
-  font-size: 2.2rem;
-  margin-bottom: .5em;
+  background-size: .4em;
+  border-bottom: 2px solid white;
+  border-radius: 0;
+  font-size: $h2-font-size;
+  font-weight: $acc-weight-light;
   padding: 1em;
+  text-align:left;
+  
+  &:hover {
+    @include background-color-transition;
+    background-color: $acc-color-teal-light;
+  }
+
+}
+
+.acc-button-secondary {
+  @include link-color-states($acc-color-gray);
+  background-color: $acc-color-white;
+  background-position: 95% center;
+  background-repeat: no-repeat;
+  border: 2px solid $acc-border-color;
+  color: $acc-color-gray;
+  margin-bottom: 1rem;
+  padding-right: 3em;
   text-align: left;
+  
+  &:hover {
+    background-color: $acc-color-gray-lightest;
+  }
+
+}
+
+.acc-button-info {
+  background-image: image_url('icons/info.svg');
 }
 
 .acc-button-pdf {
   background-image: image_url('icons/document.svg');
-  background-position: 1em center;
-  border-radius: $border-radius;
-  color: $acc-color-green;
-  border: 2px solid $acc-color-green-light;
-  display: inline-block;
-  padding-left: 3em;
-  font-size: 1.6rem;
-  transition: border-color $transition-time;
-
-  &:hover {
-    color: $acc-color-green;
-    border-color: $acc-color-green;
-    transition: border-color $transition-time;
-  }
-
 }

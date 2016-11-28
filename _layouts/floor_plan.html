@@ -6,11 +6,11 @@ layout: default
   <h1>Floor Plans</h1>
 </div>
 
-<div class="usa-grid">
+<div class="usa-grid acc-floor-plan">
   <aside class="usa-width-one-fourth">
 
     <ul class="usa-sidenav-list">
-      <li><a href="/facilities/plans/"{% if page.url == "/facilities/plans/" %} class="usa-current"{% endif %}>All Levels</a></li>
+      <li><a href="/facilities/plans/"{% if page.url == "/facilities/plans/" %} class="usa-current"{% endif %}>Center Overview</a></li>
 
       {% assign levels = site.plans | where_exp: "page", "page.slug contains 'level'" | sort: "slug" %}
 

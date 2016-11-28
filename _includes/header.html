@@ -1,4 +1,13 @@
 <a class="usa-skipnav" href="#main-content">Skip to main content</a>
+<div class="usa-banner">
+  <div class="usa-accordion">
+    <header class="usa-banner-header">
+      <div class="usa-grid usa-banner-inner">
+        <p>This preview of the Austin Convention Center's new website may include incorrect information. For current info, please visit <a href="http://www.austinconventioncenter.com">www.austinconventioncenter.com</a>.</p>
+      </div>
+    </header>
+  </div>
+</div>
 <header class="usa-header acc-header" role="banner">
   <div class="usa-nav-container">
     <div class="usa-navbar">
@@ -18,7 +27,7 @@
         {% for item in menu.items %}
           <li>
             <a class="usa-nav-link acc-nav-link {{item.slug}}" href="{% url_for item %}">
-              {{item.title}}
+              <span>{{item.title}}</span>
             </a>
           </li>
         {% endfor %}

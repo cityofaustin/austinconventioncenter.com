@@ -7,15 +7,14 @@ layout: default
 </div>
 <div class="usa-grid">
   <div class="usa-width-two-thirds">
-    {% for doc in page.docs %}
-      <a href="{{doc.url}}" class="acc-button acc-button-dark acc-button-primary">
-        {{ doc.contentful.title }}
-      </a>
-    {% endfor %}
-
     {% if page.contentful.contentBlocks %}
       {% include components/content_blocks.html blocks=page.contentful.contentBlocks %}
     {% endif %}
+    {% for doc in page.docs %}
+      <a href="{{doc.url}}" class="acc-button acc-button-primary">
+        {{ doc.contentful.title }}
+      </a>
+    {% endfor %}
   </div>
   {% include sidebar.html %}
 </div>
