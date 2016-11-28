@@ -15,13 +15,13 @@ module Jekyll
 
       return if section.nil? || events.nil?
 
-      events = filter_events(events)
+      events = filter_events_by_venue(events)
       months = group_events_by_month(events)
-      first, last = months.keys.sort.values_at(0, -1)
+      latest = months.keys.max
 
       # Uses `while` instead of `each` to generate a page even for 'empty' months
-      date = first
-      while date <= last
+      date = Date.today.beginning_of_month
+      while date <= latest
         section.docs << generate_month_page(site, section, date, months[date])
         date = date.next_month
       end
@@ -29,7 +29,7 @@ module Jekyll
 
     private
 
-    def filter_events(events)
+    def filter_events_by_venue(events)
       # TODO Select location based on environment or build flag
       events.select { |event| event["location"] == "Austin Convention Center" }
     end
