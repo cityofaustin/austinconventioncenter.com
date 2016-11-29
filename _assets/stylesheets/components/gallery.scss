@@ -4,6 +4,14 @@
   flex-wrap: wrap;
 }
 
+.acc-floor-plan  .acc-content-block-header.acc-gallery-block-header {
+  padding-left: 3em;
+  background-image: image_url('icons/gallery.svg');
+  background-repeat: no-repeat;
+  background-size: 1.6em;
+  background-position: .5em center;
+}
+
 .acc-gallery-photo {
   width: 50%;
   margin: 0;
