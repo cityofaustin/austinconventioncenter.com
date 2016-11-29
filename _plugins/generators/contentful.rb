@@ -33,7 +33,8 @@ module Jekyll
 
       data["pressRelease"].each do |attributes|
         attributes["date"] = attributes["date"].utc # Undo implicit time zone conversion
-        generate_page(site, site.collections["press-releases"], attributes)
+        page = generate_page(site, site.collections["press-releases"], attributes)
+        page.data["breadcrumbs"][-1]["title"] = attributes["date"].strftime("%B %-d, %Y")
       end
     end
 
