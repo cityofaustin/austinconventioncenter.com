@@ -1,6 +1,3 @@
-title: Austin Convention Center
-url: "https://alpha.austinconventioncenter.com.s3-website-us-east-1.amazonaws.com"
-
 # Build settings
 markdown: kramdown
 
@@ -13,9 +10,6 @@ gems:
 assets:
   sources:
     - node_modules
-
-sass:
-  sass_dir: ./assets/css
 
 exclude:
   - bin
@@ -31,25 +25,26 @@ exclude:
   - s3_website.yml
   - vendor
 
+
+contentful_options: &contentful_options
+  cda_query:
+    limit: 1000
+  all_entries: true
+  content_types:
+    accordionBlock: Mappers::ContentBlockMapper
+    contactBlock: Mappers::ContentBlockMapper
+    galleryBlock: Mappers::GalleryBlockMapper
+    menu: Mappers::ContentBlockMapper
+    textBlock: Mappers::ContentBlockMapper
+
 contentful:
   spaces:
     -
       acc:
-        space: ENV_CONTENTFUL_SPACE_ID
-        access_token: ENV_CONTENTFUL_ACCESS_TOKEN
-        cda_query:
-          limit: 1000
-        content_types:
-          accordionBlock: ContentBlockMapper
-          contactBlock: ContentBlockMapper
-          galleryBlock: GalleryBlockMapper
-          menu: ContentBlockMapper
-          textBlock: ContentBlockMapper
-    # - pec:
-    #     space: ENV_CONTENTFUL_PEC_SPACE_ID
-    #     access_token: ENV_CONTENTFUL_PEC_ACCESS_TOKEN
-    #     cda_query:
-    #       limit: 1000
+        <<: *contentful_options
+    -
+      pec:
+        <<: *contentful_options
 
 defaults:
   -

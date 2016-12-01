@@ -10,19 +10,48 @@ We're using [sprints], and you're welcome to check out [our Trello board][trello
 
 ## Architecture
 
-This project implements a decoupled CMS, which you can read about in [our Medium post][medium]. It uses [Contentful][], "a developer-friendly, API-first CMS," as the content editor, and [Jekyll][] as the static site generator.
+This project implements a decoupled CMS, which you can read about in [our Medium post][medium]. It uses [Contentful][] as the content editor and [Jekyll][] as the static site generator.
 
-The same source will produce the static sites for both austinconventioncenter.com and palmereventscenter.com, using a separate Contentful space for each.
+The same source builds both austinconventioncenter.com and palmereventscenter.com using content from separate Contentful spaces. Site-specific files in [_config/](_config) extend the base configuration found in [_config.yml](_config.yml).
 
-<!-- TODO: Detail Continuous Deployment and AWS -->
+We continuously deploy the static sites to Amazon S3 by using [s3_website][] on CircleCI. The [Rakefile](Rakefile) includes CI-specific build and deploy commands.
 
 [medium]: https://medium.com/city-of-austin-design-technology-innovation/how-were-thinking-about-content-management-for-city-government-88f563497096
 [contentful]: https://www.contentful.com
 [jekyll]: https://jekyllrb.com
+[s3_website]: https://github.com/laurilehmijoki/s3_website
 
-## Quick Start
+## Getting Started
 
-`$ git clone`, `$ bundle install`, `$ npm install`, `$ rake contentful`, `$ rake calendar`, `$ jekyll serve`
+1. Clone the repo:
+
+        $ git clone https://github.com/cityofaustin/austinconventioncenter.com.git
+
+2. Install deps (repeat when the Gemfile or package.json changes):
+
+        $ bundle install
+        $ npm install
+
+3. Import Contentful data:
+
+    Using the values found in Contentful's APIs tab, set these variables in your local checkout using a tool like [direnv][] (add `.envrc` to your **global** gitignore):
+
+            export CONTENTFUL_ACC_SPACE_ID='TBD'
+            export CONTENTFUL_ACC_ACCESS_TOKEN='TBD'
+            export CONTENTFUL_PEC_SPACE_ID='TBD'
+            export CONTENTFUL_PEC_ACCESS_TOKEN='TBD'
+
+    Then run `rake contentful` (or `rake contentful:acc` and `rake contentful:pec`).
+
+4. Import calendar data (from data.austintexas.gov's Socrata API):
+
+        $ rake calendar
+
+5. Serve the Jekyll site(s):
+
+    `$ foreman run acc`, `$ foreman run pec`, or just `$ foreman run` for both.
+
+[direnv]: http://direnv.net
 
 ## Contributing
 
@@ -34,20 +63,11 @@ Refer to the [Developer Guide][], particularly the Git workflow.
 
 Start with understanding the concepts outlined in [Contentful's developer docs](https://www.contentful.com/developers/docs/).
 
-<!-- TODO: Commit content model/type JSON to repo for bootstrap. -->
-
 ### Importing content
 
-Contentful entries are made available to Jekyll using the official [jekyll-contentful-data-import][] gem, which is used by `$ rake contentful` command to download entries into [_data/](_data).
-
-<!-- TODO: Add option to download the latest data from GitHub w/o Contentful keys. -->
-
-To run `$ rake contentful`, you'll need to set the `CONTENTFUL_SPACE_ID` and `CONTENTFUL_ACCESS_TOKEN` environment variables from the API keys found in the Contentful editor. Do not commit those keys; we recommend using an environment switcher like [direnv][] and adding the dotfile (e.g. `.envrc`) to your **global** gitignore.
-
-Git ignores the imported YAML files by default; avoid committing them to topic branches and master.
+Contentful entries are made available to Jekyll using the official [jekyll-contentful-data-import][] gem, which is used by `$ rake contentful` commands to download entries into [_data/](_data).
 
 [jekyll-contentful-data-import]: https://github.com/contentful/jekyll-contentful-data-import
-[direnv]: http://direnv.net
 
 ### Rendering content
 
@@ -59,14 +79,29 @@ For each page, the generator also looks in [_templates](_templates) for a file w
 
 To render specific content outside of a page (such as a particular menu), `site.contentful` exposes the contents of the entire data file, and plays nicely with [Jekyll's `where` filters][where]. See an example in [_includes/header.html](_includes/header.html).
 
-Use the `$ jekyll build` and `$ jekyll serve` commands as you would normally.
-
 [collections]: https://jekyllrb.com/docs/collections/
 [liquid]: http://liquidmarkup.org
 [front matter defaults]: https://jekyllrb.com/docs/configuration/#front-matter-defaults
 [where]: https://jekyllrb.com/docs/templates/
 
-<!-- ## Deploying (TODO) -->
+### Syncing the content model from ACC to PEC
+
+Edit the content model in the ACC space **only**, and then use Contentful's [Space Sync tool][space-sync] to sync it to the Palmer space. Example command (requires `CONTENTFUL_MANAGEMENT_ACCESS_TOKEN` to be set in your local env):
+
+```
+contentful-space-sync --content-model-only \
+  --source-space=$CONTENTFUL_ACC_SPACE_ID \
+  --destination-space=$CONTENTFUL_PEC_SPACE_ID \
+  --source-delivery-token=$CONTENTFUL_ACC_ACCESS_TOKEN \
+  --destination-delivery-token=$CONTENTFUL_PEC_ACCESS_TOKEN \
+  --management-token=$CONTENTFUL_MANAGEMENT_ACCESS_TOKEN
+```
+
+[space-sync]: https://github.com/contentful/contentful-space-sync
+
+## Deploying
+
+Each site deploys automatically when new commits are added to master or when data in their respective Contentful spaces is updated. Deploy progress and output can be viewed in CircleCI.
 
 ## Credits
 

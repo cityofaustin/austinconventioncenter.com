@@ -1,0 +1,13 @@
+id: acc
+title: Austin Convention Center
+url: "http://alpha.austinconventioncenter.com"
+
+calendar:
+  location: "Austin Convention Center" # Socrata event data location value
+
+google_analytics_id: UA-87703455-1
+
+# Build settings
+destination: _site/acc
+assets:
+  cache: .asset-cache/acc

@@ -1,3 +1,11 @@
+$site: config_value("id");
+
+@if $site == acc {
+  // do something
+} @else if $site == pec {
+  // do something else
+}
+
 // Colors
 $acc-color-gray: #5E5B60;
 $acc-color-gray-light: #D8D3DD;
