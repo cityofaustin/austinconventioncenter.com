@@ -18,16 +18,14 @@ sass:
   sass_dir: ./assets/css
 
 exclude:
-  - bin
   - circle.yml
-  - config.ru
   - Gemfile
   - Gemfile.lock
   - lib
   - node_modules
   - package.json
   - Rakefile
-  - README
+  - README.md
   - s3_website.yml
   - vendor
 
