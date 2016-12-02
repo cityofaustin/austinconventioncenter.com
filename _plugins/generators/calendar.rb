@@ -15,7 +15,7 @@ module Jekyll
 
       return if section.nil? || events.nil?
 
-      events = filter_events_by_venue(events)
+      events = filter_events_by_venue(events, site.config["calendar"]["location"])
       months = group_events_by_month(events)
       latest = months.keys.max
 
@@ -29,9 +29,8 @@ module Jekyll
 
     private
 
-    def filter_events_by_venue(events)
-      # TODO Select location based on environment or build flag
-      events.select { |event| event["location"] == "Austin Convention Center" }
+    def filter_events_by_venue(events, location)
+      events.select { |event| event["location"].strip == location }
     end
 
     def group_events_by_month(events)

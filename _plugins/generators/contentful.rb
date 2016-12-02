@@ -11,16 +11,16 @@ module Jekyll
     # plugin. Documents are similar to Pages in Jekyll, but work better for data-driven use case,
     # e.g. by automatically parsing Collection-level frontmatter defaults from _config.yml.
     def generate(site)
-      # TODO Select space based on environment or build flag
-      data = site.data["contentful"]["spaces"]["acc"]
+      # Select space using id defined in _config/ file
+      data = site.data["contentful"]["spaces"][site.config["id"]]
 
       @sections = {}
 
-      data["section"].each do |attributes|
+      data.fetch("section", []).each do |attributes|
         find_or_generate_section(site, attributes)
       end
 
-      data["page"].each do |attributes|
+      data.fetch("page", []).each do |attributes|
         # Pages within a section render within that section, like /:section/:page/
         section = @sections[attributes["section"]["sys"]["id"]] if attributes.key?("section")
 
@@ -31,7 +31,7 @@ module Jekyll
         generate_page(site, section, attributes)
       end
 
-      data["pressRelease"].each do |attributes|
+      data.fetch("pressRelease", []).each do |attributes|
         attributes["date"] = attributes["date"].utc # Undo implicit time zone conversion
         page = generate_page(site, site.collections["press-releases"], attributes)
         page.data["breadcrumbs"][-1]["title"] = attributes["date"].strftime("%B %-d, %Y")

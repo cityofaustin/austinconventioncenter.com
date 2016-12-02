@@ -2,8 +2,8 @@ require 'soda/client'
 require 'fileutils'
 require 'yaml'
 
-module ACCD
-  class Calendar
+module Calendar
+  class Import
 
     class << self
       def import(config)

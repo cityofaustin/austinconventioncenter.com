@@ -32,6 +32,8 @@ GEM
     fastimage (2.0.0)
       addressable (~> 2)
     ffi (1.9.14)
+    foreman (0.82.0)
+      thor (~> 0.19.1)
     forwardable-extended (2.6.0)
     hashie (3.4.6)
     http (1.0.4)
@@ -119,6 +121,7 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
+  foreman
   jekyll
   jekyll-assets
   jekyll-contentful-data-import

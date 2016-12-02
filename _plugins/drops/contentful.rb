@@ -4,7 +4,7 @@ module Jekyll
 
       # Exposes Contentful data (parsed from YAML) as site.contentful
       def contentful
-        data["contentful"]["spaces"]["acc"]
+        data["contentful"]["spaces"][@obj.config["id"]]
       end
 
     end

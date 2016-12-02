@@ -1,20 +1,15 @@
-general:
-  branches:
-    only:
-      - master
-
 dependencies:
   post:
     - "bundle exec s3_website install"
 
 test:
   override:
-    - "bundle exec rake import"
-    - "bundle exec jekyll build"
+    - "bundle exec rake ci:import"
+    - "bundle exec rake ci:build"
 
 deployment:
-  s3:
+  merge:
     branch:
       - master
     commands:
-      - "bundle exec s3_website push"
+      - "bundle exec rake ci:deploy"
