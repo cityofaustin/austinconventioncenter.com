@@ -1,5 +1,5 @@
 .acc-breadcrumbs {
-  background-color: #ccc;
+  background-color: $acc-color-violet;
 }
 
 .acc-breadcrumb {
@@ -70,7 +70,7 @@
   }
 }
 
-@include breadcrumb-color($acc-color-gray); // Default
+@include breadcrumb-color($acc-color-violet); // Default
 
 @each $section, $color in $acc-section-colors {
   @include breadcrumb-color($color, '.#{$section}');
