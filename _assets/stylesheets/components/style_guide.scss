@@ -1,0 +1,31 @@
+.acc-style-guide-header {
+  background-color: yellow;
+  border-top: 1px dashed $acc-color-gray;
+  margin-top: 1em;
+  padding: 1em;
+  text-align: center;
+  font-style: italic;
+}
+
+.acc-style-guide-pending {
+  background-color: #fff1d2;
+  border-width: 1px 0;
+  border-style: solid;
+  border-color: red;
+  margin-top: 0;
+  text-align: center;
+  font-weight: normal;
+  padding: .5em;
+}
+code {
+  padding: 1em;
+  line-height: 1.8em;
+  display: block;
+  border: 1px solid $acc-color-gray-light;
+}
+.acc-style-guide-separator {
+  margin-bottom: 1em;
+  border-width: 1px 0 0 0;
+  border-style: dashed;
+  border-color: red;
+}
