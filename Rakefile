@@ -66,7 +66,7 @@ multitask :import => [:contentful, :calendar]
 
 namespace :deploy do
   task :acc do
-    exec "S3_BUCKET=alpha.austinconventioncenter.com s3_website push --site=_site/acc"
+    exec "S3_BUCKET=beta.austinconventioncenter.com s3_website push --site=_site/acc"
   end
 
   task :pec do

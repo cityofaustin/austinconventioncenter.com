@@ -1,6 +1,6 @@
 id: acc
 title: Austin Convention Center
-url: "http://alpha.austinconventioncenter.com"
+url: "http://beta.austinconventioncenter.com"
 
 calendar:
   location: "Austin Convention Center" # Socrata event data location value
