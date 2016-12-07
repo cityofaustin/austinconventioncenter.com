@@ -57,3 +57,26 @@
 .acc-room-specification-list {
   border-right: 1px solid $acc-color-gray-light;
 }
+
+.acc-floor-plan-map-clickable {
+  cursor: pointer;
+  transition: fill 0.2s ease;
+
+  &:hover {
+    fill: #9E6079 !important;
+  }
+}
+
+.acc-floor-plan-map-current {
+  fill: #444046 !important;
+
+  &:hover {
+    fill: #444046 !important;
+  }
+}
+
+.tooltip-element.acc-floor-plan-map-tooltip .tooltip-content {
+  font-family: $acc-font-primary;
+  font-size: $acc-base-font-size;
+  padding: 7px 10px;
+}
