@@ -49,7 +49,7 @@ We continuously deploy the static sites to Amazon S3 by using [s3_website][] on 
 
 5. Serve the Jekyll site(s):
 
-    `$ foreman run acc`, `$ foreman run pec`, or just `$ foreman run` for both.
+    `$ foreman start acc`, `$ foreman start pec`, or just `$ foreman start` for both.
 
 [direnv]: http://direnv.net
 

@@ -12,7 +12,7 @@ layout: default
           <h4 class="acc-calendar-event-date">{{ event.arrive_date | date: "%B %-d" }} - {{ event.depart_date | date: "%B %-d" }}</h4>
           <h2 class="acc-calendar-event-title">
             {% if event.website %}
-              <a href="{{event.website}}">{{ event.event_name }}</a>
+              <a href="http://{{event.website}}" target="_blank">{{ event.event_name }}</a>
             {% else %}
               {{ event.event_name }}
             {% endif %}
