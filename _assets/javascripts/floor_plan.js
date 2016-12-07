@@ -23,7 +23,10 @@
 
     if (!svg || !nav) return;
 
-    Array.prototype.forEach.call(svg.children, function (element) {
+    // Include possibly nested clickables with all first-level children
+    var children = svg.querySelectorAll("svg > *, [id^='clickable']");
+
+    Array.prototype.forEach.call(children, function (element) {
       if (clickableRegex.test(element.id)) {
         var name = element.id.substr(10).split("_").join(" "),
             slug = name.split(" ").join("-").toLowerCase();
@@ -43,7 +46,7 @@
 
           navItems[element.id] = navItem; // Cache for the click handler
         }
-      } else {
+      } else if (element.id != "clickables") {
         // Prevent mouseover on room names from hiding tooltips
         element.style.pointerEvents = "none";
       }

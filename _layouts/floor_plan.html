@@ -41,6 +41,7 @@ layout: default
 
   <div class="usa-width-three-fourths">
     <h3>{{ page.contentful.title }}</h3>
+    {{ content }}
     {% include components/content_blocks.html blocks=page.contentful.contentBlocks %}
   </div>
 </div>
