@@ -1,7 +1,9 @@
 {
   "name": "austinconventioncenter.com",
   "dependencies": {
+    "element-closest": "^2.0.2",
     "photoswipe": "^4.1.1",
+    "tether-tooltip": "^1.2.0",
     "uswds": "^0.13.1"
   }
 }

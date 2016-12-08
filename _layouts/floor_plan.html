@@ -9,25 +9,25 @@ layout: default
 <div class="usa-grid acc-floor-plan">
   {% if site.plans %}
     <aside class="usa-width-one-fourth">
-      <ul class="usa-sidenav-list">
+      <ul class="usa-sidenav-list" id="acc-floor-plan-nav">
         <li><a href="/facilities/plans/"{% if page.url == "/facilities/plans/" %} class="usa-current"{% endif %}>Center Overview</a></li>
 
         {% assign levels = site.plans | where_exp: "page", "page.slug contains 'level'" | sort: "slug" %}
 
         {% for level in levels %}
-          <li><a href="{{ level.url }}"{% if page.url == level.url %} class="usa-current"{% endif %}>{{ level.title }}</a></li>
+          <li><a href="{{ level.url }}"{% if page.url == level.url %} class="usa-current"{% endif %} data-slug="{{ level.slug }}" title="{{ level.title }}">{{ level.title }}</a></li>
         {% endfor %}
 
         {% for doc in site.plans %}
           {% unless doc.slug contains 'level' %}
             <li>
-              <a href="{{ doc.url }}"{% if page.url == doc.url %} class="usa-current"{% endif %}>{{ doc.title }}</a>
+              <a href="{{ doc.url }}"{% if page.url == doc.url %} class="usa-current"{% endif %} data-slug="{{ doc.slug }}" title="{{ doc.title }}">{{ doc.title }}</a>
 
               {% if doc.docs %}
                 <ul class="usa-sidenav-sub_list">
                   {% assign child_docs = doc.docs | sort: "title" %}
                   {% for child_doc in child_docs %}
-                    <a href="{{ child_doc.url }}"{% if page.url == child_doc.url %} class="usa-current"{% endif %}>{{ child_doc.title }}</a>
+                    <a href="{{ child_doc.url }}"{% if page.url == child_doc.url %} class="usa-current"{% endif %} data-slug="{{ child_doc.slug }}" title="{{ child_doc.title }}">{{ child_doc.title }}</a>
                   {% endfor %}
                 </ul>
               {% endif %}
@@ -41,6 +41,9 @@ layout: default
 
   <div class="usa-width-three-fourths">
     <h3>{{ page.contentful.title }}</h3>
+    {{ content }}
     {% include components/content_blocks.html blocks=page.contentful.contentBlocks %}
   </div>
 </div>
+
+{% javascript floor_plan %}
