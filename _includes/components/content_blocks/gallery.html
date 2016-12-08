@@ -1,6 +1,6 @@
 {% assign block = include.block %}
 
-<h3 class="acc-content-block-header acc-gallery-block-header">{{ block.title }}</h3>
+{% if block.title %}<h3 class="acc-content-block-header acc-gallery-block-header">{{ block.title }}</h3>{% endif %}
 
 <div itemscope itemtype="http://schema.org/ImageGallery" data-gid="{{ block.sys.id }}" class="acc-gallery">
   {% for image in block.images %}
