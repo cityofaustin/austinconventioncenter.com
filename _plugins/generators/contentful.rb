@@ -88,6 +88,7 @@ module Jekyll
 
       doc.data["title"] = attributes["title"]
       doc.data["slug"] = slug
+      doc.data["priority"] = attributes["priority"] if attributes.key?("priority")
       doc.data["date"] = attributes["date"] if attributes.key?("date")
       doc.data["contentful"] = attributes
 
