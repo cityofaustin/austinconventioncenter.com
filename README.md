@@ -27,7 +27,7 @@ We continuously deploy the static sites to Amazon S3 by using [s3_website][] on 
 
         $ git clone https://github.com/cityofaustin/austinconventioncenter.com.git
 
-2. Install deps (repeat when the Gemfile or package.json changes):
+2. Install deps (requires npm version 3.x; repeat when the Gemfile or package.json changes):
 
         $ bundle install
         $ npm install

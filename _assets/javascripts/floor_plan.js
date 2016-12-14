@@ -1,6 +1,6 @@
 //= require element-closest/element-closest.js
-//= require tether-tooltip/node_modules/tether/dist/js/tether.js
-//= require tether-tooltip/node_modules/tether-drop/dist/js/drop.js
+//= require tether/dist/js/tether.js
+//= require tether-drop/dist/js/drop.js
 //= require tether-tooltip/dist/js/tooltip.js
 
 (function() {
