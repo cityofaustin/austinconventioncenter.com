@@ -1,3 +1,9 @@
+.acc-floor-plan > div,
+.acc-floor-plan > aside {
+  border-top: 4px solid $acc-color-gray-lightest;
+  padding-top: 1em;
+}
+
 .acc-floor-plan-setups {
   display: flex;
   flex-direction: row;

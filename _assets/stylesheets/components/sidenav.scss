@@ -1,0 +1,62 @@
+.acc-sidenav-list,
+.acc-sidenav-sub_list {
+  list-style: none;
+  padding: 0;
+}
+
+.acc-sidenav-sub_list {
+  margin: 0;
+}
+
+.acc-sidenav-list li,
+.acc-sidenav-sub_list li {
+  display: block;
+  margin-bottom: 0;
+}
+
+.acc-sidenav-list a {
+  color: $acc-color-gray-dark;
+  line-height: 2.8em;
+  display: block;
+  padding-left: 2rem;
+  position: relative;
+  text-decoration: none;
+
+  &.acc-current {
+    background-color: $acc-color-gray-lightest;
+    font-weight: 600;
+  }
+}
+
+.acc-sidenav-sub_list a {
+  padding-left: 4rem;
+}
+
+.acc-sidenav-list .acc-folder-control {
+  background-image: image_url("icons/expand.svg");
+  background-position: left center;
+  background-size: 1.2rem;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border-radius: 0;
+  height: 2rem;
+  width: 2rem;
+  padding: 0;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -1rem;
+
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+.acc-sidenav-list .acc-folder-control[aria-expanded="true"] {
+  background-position: bottom center;
+  transform: rotate(90deg);
+}
+
+.acc-sidenav-list .acc-folder-control + span {
+  font-weight: 600;
+}
