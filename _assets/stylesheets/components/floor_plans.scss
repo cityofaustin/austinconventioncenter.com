@@ -1,42 +1,53 @@
-.acc-room-configuration {
+.acc-floor-plan-setups {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+}
+
+.acc-floor-plan-setups li {
   background-size: 2em;
   background-position: 0 0;
   background-repeat: no-repeat;
+  color: $acc-color-gray;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 100%;
   margin-bottom: 1em;
   padding-left: 3em;
 }
 
-.acc-room-configuration {
-
-  dt {
-    color: $acc-color-red;
-    padding-bottom: .5em;
-    text-transform: uppercase;
+@media screen and (min-width: $medium-screen) {
+  .acc-floor-plan-setups li {
+    flex-basis: 50%;
   }
-
-  dd {
-    color: $acc-color-gray;
-  }
-
 }
 
-.acc-room-configuration.acc-banquet {
+.acc-floor-plan-setups li h4 {
+  color: $acc-color-red;
+  margin-top: 0.5em;
+  padding-bottom: 0.5em;
+  text-transform: uppercase;
+}
+
+.acc-floor-plan-setups li.acc-banquet {
   background-image: image_url('icons/gallery.svg');
 }
 
-.acc-room-configuration.acc-theater {
+.acc-floor-plan-setups li.acc-theater {
   background-image: image_url('icons/gallery.svg');
 }
 
-.acc-room-configuration.acc-classroom {
+.acc-floor-plan-setups li.acc-classroom {
   background-image: image_url('icons/gallery.svg');
 }
 
-.acc-room-configuration.acc-booths {
+.acc-floor-plan-setups li.acc-booths {
   background-image: image_url('icons/gallery.svg');
 }
 
-.acc-room-specifications {
+.acc-floor-plan-specifications {
   color: $acc-color-gray;
 
   dt {
@@ -50,11 +61,10 @@
 
 .acc-floor-plan .acc-content-block-header {
     background-color: $acc-color-gray-lightest;
-//     font-size: 1.6rem;
     padding: .5em 1em;
 }
 
-.acc-room-specification-list {
+.acc-floor-plan-specification-list {
   border-right: 1px solid $acc-color-gray-light;
 }
 
