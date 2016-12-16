@@ -8,6 +8,7 @@ gem "jekyll-redirect-from"
 gem "rake"
 gem "s3_website"
 gem "soda-ruby"
+gem "sprockets-commoner"
 
 group :jekyll_plugins do
   gem "jekyll-contentful-data-import"

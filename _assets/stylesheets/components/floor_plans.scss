@@ -1,7 +1,9 @@
 .acc-floor-plan > div,
 .acc-floor-plan > aside {
-  border-top: 4px solid $acc-color-gray-lightest;
-  padding-top: 1em;
+  @media screen and (min-width: $large-screen) {
+    border-top: 4px solid $acc-color-gray-lightest;
+    padding-top: 1em;
+  }
 }
 
 .acc-floor-plan-setups {
