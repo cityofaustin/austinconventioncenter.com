@@ -62,3 +62,16 @@
   }
 
 }
+
+// ACC Custom Nav bar height adjustment 
+.acc-header .usa-navbar {
+    height: 6rem;
+}
+// Mobile menu buttom adjustments
+.acc-header .usa-menu-btn {
+    margin: 0 20px 0 0;
+}
+// Breadcrumb background fix for mobile
+.usa-nav-container.acc-breadcrumbs-container {
+    display: table;
+}
