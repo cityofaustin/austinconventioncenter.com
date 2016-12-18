@@ -6,6 +6,19 @@ $site: config_value("id");
   // do something else
 }
 
+// ACC Custom Nav bar height adjustment 
+.acc-header .usa-navbar {
+    height: 6rem;
+}
+// Mobile menu buttom adjustments
+.acc-header .usa-menu-btn {
+    margin: 0 20px 0 0;
+}
+// Breadcrumb background fix for mobile
+.usa-nav-container.acc-breadcrumbs-container {
+    display: table;
+}
+
 // Colors
 $acc-color-gray: #5E5B60;
 $acc-color-gray-light: #D8D3DD;
