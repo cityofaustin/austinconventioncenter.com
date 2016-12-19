@@ -75,3 +75,9 @@
 @each $section, $color in $acc-section-colors {
   @include breadcrumb-color($color, '.#{$section}');
 }
+
+.usa-nav-container.acc-breadcrumbs-container::after {
+    display: block;
+    content: "";
+    clear: both;
+}
