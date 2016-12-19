@@ -33,6 +33,17 @@
     left: 100%;
     z-index: 1;
   }
+
+
+  @media screen and (max-width: $medium-screen) {
+    .acc-breadcrumb {
+      display:none;
+    }
+    .acc-breadcrumb:nth-last-child(2), .acc-breadcrumb:last-child {
+      display: block;
+    }
+  }
+
 }
 
 .acc-breadcrumb:first-child {
