@@ -46,7 +46,7 @@
 
 .acc-tile-link {
   @include link-color-states($acc-color-white);
-  background-color: $acc-color-gray-lightest;
+  background-color: $acc-color-gray-dark;
   border-color: transparent;
   box-shadow: 0 0 12px #000;
   color: $acc-color-white;
@@ -73,6 +73,7 @@
     left: 0%;
     z-index: 1;
     transition: border-color $transition-time;
+    background-color: $acc-color-purple;
   }
 
   &:hover {
@@ -80,7 +81,7 @@
     background-color: $acc-color-purple;
 
     &::before {
-      border-color: $acc-color-gray;
+      border-color: $acc-color-gray-lighter;
       transition: border-color $transition-time;
     }
 
