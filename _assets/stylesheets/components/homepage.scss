@@ -78,7 +78,7 @@
 
   &:hover {
     @include background-color-transition;
-    background-color: $acc-color-purple;
+    border-color: $acc-color-purple;
 
     &::before {
       border-color: $acc-color-gray-lighter;
