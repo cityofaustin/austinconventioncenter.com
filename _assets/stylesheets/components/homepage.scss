@@ -75,7 +75,7 @@
     left: 0%;
     z-index: 1;
     transition: border-color $transition-time;
-    background-color: $acc-color-purple;
+    border-color: $acc-color-purple;
   }
 
   &:hover {
