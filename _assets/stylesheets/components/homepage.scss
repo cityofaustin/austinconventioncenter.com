@@ -37,7 +37,8 @@
 }
 
 .acc-tiles-container {
-  margin-bottom: 1em !important;
+
+  margin: 0 auto;
   
   div {
     overflow:hidden;
@@ -93,4 +94,8 @@
 
 .acc-tiles-container:nth-child(2) .usa-width-one-third:first-child .acc-tile-link {
     padding: .5em 0em 0 1.5em;
+}
+
+.acc-tiles-container .usa-width-one-third {
+    margin-bottom: 15px;
 }
