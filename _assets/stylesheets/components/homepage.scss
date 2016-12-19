@@ -80,7 +80,7 @@
 
   &:hover {
     @include background-color-transition;
-    border-color: $acc-color-purple;
+    background-color: $acc-color-purple;
 
     &::before {
       border-color: $acc-color-gray-lighter;
