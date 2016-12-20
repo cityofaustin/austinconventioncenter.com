@@ -28,6 +28,10 @@
   }
 }
 
+.acc-sidenav > h4:first-of-type {
+  margin-top: 0;
+}
+
 .acc-sidenav-button,
 .acc-sidenav-close {
   height: $hit-area;

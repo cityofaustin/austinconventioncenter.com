@@ -15,7 +15,7 @@ module Jekyll
 
       return if section.nil? || events.nil?
 
-      events = filter_events_by_venue(events, site.config["calendar"]["location"])
+      events = filter_events_by_venue(events, site.config["calendar_location"])
       months = group_events_by_month(events)
       latest = months.keys.max
 
@@ -60,6 +60,7 @@ module Jekyll
 
       doc.data["title"] = date.strftime("%B %Y")
       doc.data["date"] = date
+      doc.data["year"] = date.year
       doc.data["events"] = events || []
 
       set_breadcrumbs(doc, section)
