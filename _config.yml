@@ -63,7 +63,7 @@ defaults:
   - scope:
       type: calendar
     values:
-      layout: month
+      layout: calendar
       permalink: "/calendar/:year/:month/"
   -
     scope:

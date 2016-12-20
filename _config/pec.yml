@@ -2,8 +2,7 @@ id: pec
 title: Palmer Events Center
 url: "http://beta.palmereventscenter.com"
 
-calendar:
-  location: "Palmer Events Center" # Socrata event data location value
+calendar_location: "Palmer Events Center" # Socrata event data location value
 
 google_analytics_id: TBD
 

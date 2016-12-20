@@ -1,0 +1,66 @@
+---
+layout: default
+---
+
+<div class="usa-grid">
+  <div class="usa-width-one-whole">
+    <header>
+      <h1>Calendar</h1>
+    </header>
+  </div>
+  {% if site.calendar and site.calendar != empty %}
+    <aside class="usa-width-one-fourth">
+      <nav role="navigation" class="acc-sidenav" id="sidenav">
+        <button class="usa-button-unstyled acc-sidenav-close">
+          <img src="{% asset_path uswds/src/img/close.svg %}" alt="close">
+        </button>
+        {% assign years = site.calendar | group_by: "year" %}
+        {% for year in years %}
+          <h4>{{ year.name }}</h4>
+          <ul class="usa-unstyled-list acc-sidenav-list">
+            {% for doc in year.items %}
+              <li>
+                <a href="{{ doc.url }}"{% if page.url == doc.url %} class="acc-current"{% endif %} data-slug="{{ doc.slug }}" title="{{ doc.title }}">{{ doc.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endfor %}
+      </nav>
+    </aside>
+    <div class="usa-width-three-fourths">
+      <h3 class="acc-sidenav-header">
+        <button class="usa-button-unstyled acc-sidenav-button">
+          {% asset_source icons/arrow.svg %}
+        </button>
+
+        {{ page.title }}
+      </h3>
+      {% if page.events %}
+        {% assign events = page.events | sort: "arrive_date" %}
+        <ul class="usa-unstyled-list">
+          {% for event in events %}
+            <li class="acc-calendar-event">
+              <h4 class="acc-calendar-event-date">{{ event.arrive_date | date: "%B %-d" }} - {{ event.depart_date | date: "%B %-d" }}</h4>
+              <h2 class="acc-calendar-event-title">
+                {% if event.website %}
+                  <a href="http://{{event.website}}" target="_blank">{{ event.event_name }}</a>
+                {% else %}
+                  {{ event.event_name | default: "Private Event" }}
+                {% endif %}
+              </h2>
+              {% if event.attendance %}
+                Expected Attendance: {{ event.attendance }}
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        {% comment %} Redirect /calendar/ to current month {% endcomment %}
+        {% assign current_month = site.calendar | first %}
+        <script type="text/javascript">
+          window.location = "{{ current_month.url | absolute_url }}";
+        </script>
+      {% endif %}
+    </div>
+  {% endif %}
+</div>
