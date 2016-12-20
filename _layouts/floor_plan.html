@@ -1,12 +1,12 @@
 ---
 layout: default
 ---
-
-<div class="usa-grid">
-  <h1>Floor Plans</h1>
-</div>
-
 <div class="usa-grid acc-floor-plan">
+  <div class="usa-width-one-whole">
+    <header>
+      <h1>{{ page.contentful.title }}</h1>
+    </header>
+  </div>
   {% if site.plans %}
     <aside class="usa-width-one-fourth">
       <nav role="navigation" class="acc-sidenav" id="sidenav">

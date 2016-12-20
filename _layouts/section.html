@@ -3,9 +3,11 @@ layout: default
 ---
 
 <div class="usa-grid">
-  <h1>{{page.contentful.title}}</h1>
-</div>
-<div class="usa-grid">
+  <div class="usa-width-one-whole">
+    <header>
+      <h1>{{ page.contentful.title }}</h1>
+    </header>
+  </div>
   <div class="usa-width-two-thirds">
     {% if page.contentful.contentBlocks %}
       {% include components/content_blocks.html blocks=page.contentful.contentBlocks %}

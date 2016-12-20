@@ -2,14 +2,14 @@
   @include background-color-transition;
   background-repeat: no-repeat;
   background-size: 1.6em;
-  border-radius: $acc-border-radius;
+  border-radius: 1rem;
   display: block;
   font-size: 1.5rem;
-  font-weight: $acc-weight-bold;
+  font-weight: 600;
   padding: 1em;
   text-align: center;
   text-decoration: none;
-  
+
   &:hover {
     @include background-color-transition;
   }
@@ -21,7 +21,7 @@
   @include link-color-states($acc-color-white);
   background-color: $acc-color-teal;
   color: $acc-color-white;
-  
+
   &:hover {
     @include background-color-transition;
     background-color: $acc-color-teal-dark;
@@ -38,10 +38,10 @@
   border-bottom: 2px solid white;
   border-radius: 0;
   font-size: $h2-font-size;
-  font-weight: $acc-weight-light;
+  font-weight: 300;
   padding: 1em 2em 1em 1em;
   text-align:left;
-  
+
   &:hover {
     @include background-color-transition;
     background-color: $acc-color-teal-light;
@@ -54,12 +54,12 @@
   background-color: $acc-color-white;
   background-position: 95% center;
   background-repeat: no-repeat;
-  border: 2px solid $acc-border-color;
+  border: 2px solid $acc-color-gray-light;
   color: $acc-color-gray;
   margin-bottom: 1rem;
   padding-right: 3em;
   text-align: left;
-  
+
   &:hover {
     background-color: $acc-color-gray-lightest;
   }

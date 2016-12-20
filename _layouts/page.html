@@ -3,12 +3,11 @@ layout: default
 ---
 
 <div class="usa-grid">
-  {% if page.contentful.coverImage != nil %}
-    <img src="{{ page.contentful.coverImage.url }}" alt="Banner image" class="acc-banner-image" />
-  {% endif %}
-  <h1>{{ page.contentful.title }}</h1>
-</div>
-<div class="usa-grid">
+  <div class="usa-width-one-whole">
+    <header>
+      <h1>{{ page.contentful.title }}</h1>
+    </header>
+  </div>
   <div class="usa-width-two-thirds">
     <div>
       {% include components/content_blocks.html blocks=page.contentful.contentBlocks %}
