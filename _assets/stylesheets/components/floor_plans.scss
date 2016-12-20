@@ -1,3 +1,11 @@
+.acc-floor-plan > div,
+.acc-floor-plan > aside {
+  @media screen and (min-width: $large-screen) {
+    border-top: 4px solid $acc-color-gray-lightest;
+    padding-top: 1em;
+  }
+}
+
 .acc-floor-plan-setups {
   display: flex;
   flex-direction: row;

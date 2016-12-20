@@ -1,0 +1,152 @@
+.acc-sidenav {
+  $sliding-panel-width: 26rem;
+  background-color: #fff;
+  box-shadow: 3px 0px 15px 0px rgba(0,0,0,0.2);
+  padding: 5rem 2rem 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  width: $sliding-panel-width;
+  height: 100%;
+  transform: translateX(-$sliding-panel-width);
+  z-index: 9200;
+
+  @media screen and (min-width: $large-screen) {
+    box-shadow: none;
+    padding: 0;
+    position: relative;
+    overflow-y: visible;
+    width: auto;
+    transform: translateX(0);
+    z-index: auto;
+  }
+
+  &.is-visible {
+    transform: translateX(0);
+    transition: transform 0.3s ease-in-out;
+  }
+}
+
+.acc-sidenav-button,
+.acc-sidenav-close {
+  height: $hit-area;
+  width: $hit-area;
+  text-align: center;
+
+  @media screen and (min-width: $large-screen) {
+    display: none;
+  }
+
+  svg, img {
+    width: 1.3rem;
+  }
+
+  &:active {
+    background-color: transparent;
+  }
+}
+
+.acc-sidenav-button svg {
+  fill: $acc-color-gray;
+  transform: rotate(180deg);
+}
+
+.acc-sidenav-close {
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.acc-sidenav-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+
+  @media screen and (min-width: $large-screen) {
+    display: block;
+  }
+}
+
+.acc-sidenav-list,
+.acc-sidenav-sub_list {
+  list-style: none;
+  padding: 0;
+}
+
+.acc-sidenav-sub_list {
+  margin: 0;
+}
+
+.acc-sidenav-list li,
+.acc-sidenav-sub_list li {
+  display: block;
+  margin-bottom: 0;
+}
+
+.acc-sidenav-list a {
+  color: $acc-color-gray-dark;
+  line-height: 2.8em;
+  display: block;
+  padding-left: 2rem;
+  position: relative;
+  text-decoration: none;
+
+  &.acc-current {
+    background-color: $acc-color-gray-lightest;
+    font-weight: 600;
+  }
+}
+
+.acc-sidenav-sub_list a {
+  padding-left: 4rem;
+}
+
+.acc-sidenav-list .acc-folder-control {
+  background-image: image_url("icons/expand.svg");
+  background-position: left center;
+  background-size: 1.2rem;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border-radius: 0;
+  height: 2rem;
+  width: 2rem;
+  padding: 0;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -1rem;
+
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+.acc-sidenav-list .acc-folder-control[aria-expanded="true"] {
+  background-position: bottom center;
+  transform: rotate(90deg);
+}
+
+.acc-sidenav-list .acc-folder-control + span {
+  font-weight: 600;
+}
+
+.acc-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #000000;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+  visibility: hidden;
+  z-index: 9100;
+
+  &.is-visible {
+    opacity: 0.1;
+    visibility: visible;
+  }
+}

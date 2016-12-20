@@ -9,38 +9,44 @@ layout: default
 <div class="usa-grid acc-floor-plan">
   {% if site.plans %}
     <aside class="usa-width-one-fourth">
-      <ul class="usa-sidenav-list" id="acc-floor-plan-nav">
-        <li><a href="/facilities/plans/"{% if page.url == "/facilities/plans/" %} class="usa-current"{% endif %}>Center Overview</a></li>
-
-        {% assign levels = site.plans | where_exp: "page", "page.slug contains 'level'" | sort: "slug" %}
-
-        {% for level in levels %}
-          <li><a href="{{ level.url }}"{% if page.url == level.url %} class="usa-current"{% endif %} data-slug="{{ level.slug }}" title="{{ level.title }}">{{ level.title }}</a></li>
-        {% endfor %}
-
-        {% for doc in site.plans %}
-          {% unless doc.slug contains 'level' %}
-            <li>
-              <a href="{{ doc.url }}"{% if page.url == doc.url %} class="usa-current"{% endif %} data-slug="{{ doc.slug }}" title="{{ doc.title }}">{{ doc.title }}</a>
-
-              {% if doc.docs %}
-                <ul class="usa-sidenav-sub_list">
-                  {% assign child_docs = doc.docs | sort: "title" %}
-                  {% for child_doc in child_docs %}
-                    <a href="{{ child_doc.url }}"{% if page.url == child_doc.url %} class="usa-current"{% endif %} data-slug="{{ child_doc.slug }}" title="{{ child_doc.title }}">{{ child_doc.title }}</a>
-                  {% endfor %}
-                </ul>
+      <nav role="navigation" class="acc-sidenav" id="sidenav">
+        <button class="usa-button-unstyled acc-sidenav-close">
+          <img src="{% asset_path uswds/src/img/close.svg %}" alt="close">
+        </button>
+        <ul class="usa-unstyled-list acc-sidenav-list" id="acc-floor-plan-nav">
+          <li><a href="/facilities/plans/"{% if page.url == "/facilities/plans/" %} class="acc-current"{% endif %}>Center Overview</a></li>
+          {% assign docs = site.plans | sort: "title" | sort: "priority", "last"  %}
+          {% for doc in docs %}
+              {% if doc.docs and doc.docs != empty %}
+                <li>
+                  {% capture expanded %}{% if page.url contains doc.url %}true{% else %}false{% endif %}{% endcapture %}
+                  <a href="{{ doc.url }}"{% if page.url == doc.url %} class="acc-current"{% endif %} data-slug="{{ doc.slug }}" title="{{ doc.title }}"><button class="acc-folder-control" aria-expanded="{{ expanded }}" aria-controls="{{ doc.slug }}-nav"></button> <span>{{ doc.title }}</span></a>
+                  <ul class="usa-unstyled-list acc-folder-content acc-sidenav-sub_list" id="{{ doc.slug }}-nav"{% if expanded == "true" %} aria-hidden="false"{% endif %}>
+                    {% assign child_docs = doc.docs | sort: "title" %}
+                    {% for child_doc in child_docs %}
+                      <li><a href="{{ child_doc.url }}"{% if page.url == child_doc.url %} class="acc-current"{% endif %} data-slug="{{ child_doc.slug }}" title="{{ child_doc.title }}">{{ child_doc.title }}</a></li>
+                    {% endfor %}
+                  </ul>
+                </li>
+              {% else %}
+                <li>
+                  <a href="{{ doc.url }}"{% if page.url == doc.url %} class="acc-current"{% endif %} data-slug="{{ doc.slug }}" title="{{ doc.title }}">{{ doc.title }}</a>
+                </li>
               {% endif %}
-
-            </li>
-          {% endunless %}
-        {% endfor %}
-      </ul>
+          {% endfor %}
+        </ul>
+      </nav>
     </aside>
   {% endif %}
 
   <div class="usa-width-three-fourths">
-    <h3>{{ page.contentful.title }}</h3>
+    <h3 class="acc-sidenav-header">
+      <button class="usa-button-unstyled acc-sidenav-button">
+        {% asset_source icons/arrow.svg %}
+      </button>
+
+      {{ page.contentful.title }}
+    </h3>
     {{ content }}
     {% include components/content_blocks.html blocks=page.contentful.contentBlocks %}
   </div>
