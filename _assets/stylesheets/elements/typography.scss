@@ -1,54 +1,42 @@
 body {
   color: $acc-color-gray;
-  font-family: $acc-font-primary;
-  font-size: $acc-base-font-size;
-  font-weight: normal;
 }
 
-h1, h2, h3 {
-  color: $acc-color-gray;
-  font-family: $acc-font-primary;
-
+h1, h2, h3, h4, h5, h6 {
+  color: $acc-color-gray-dark;
 }
+
 h1 {
-  font-weight: $acc-weight-light;
-  padding-bottom: .5em;
+  font-weight: 400;
 }
 
 h2 {
-  font-weight: $acc-weight-light;
-  margin-top: 0;
+  font-weight: 300;
 }
 
 h3 {
-  font-weight: $acc-weight-bold;
+  font-weight: 600;
+  margin-top: 3em;
 }
 
 h4 {
-  font-size: 1.5rem;
-  font-weight: $acc-weight-bold;
+  font-weight: 600;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
-  color: $acc-color-gray-light;
-  font-family: $acc-font-primary;
 }
 
 p {
-  margin-top: .5em;
+  margin-top: 0.5em;
 }
 
 a {
-  color: $acc-link-color;
+  color: $acc-color-teal;
+  text-decoration: underline;
   transition: color $transition-time;
-  
-  &:active, &:visited {
-    color: $acc-link-color;
-  }
-  
-  &:hover {
-    color: $acc-link-hover-color;
-    transition: color $transition-time;
-  }
 
+  &:hover {
+    color: $acc-color-teal-dark;
+  }
 }
 
 .acc-content-block-list ul {

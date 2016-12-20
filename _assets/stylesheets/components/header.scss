@@ -18,9 +18,9 @@
   @include link-color-states($acc-color-gray-dark);
   color: $acc-color-gray-dark;
   font-size: 1.5rem;
-  font-weight: $acc-weight-bold;
+  font-weight: 600;
   transition: color $transition-time;
-  
+
   span {
     border-bottom: .3rem solid $acc-color-white;
     border-width: .3rem;
@@ -32,7 +32,7 @@
     border-bottom: .3rem solid $acc-color-teal;
     transition: border-bottom $transition-time;
   }
-  
+
   &:hover {
     color: $acc-color-teal;
     transition: color $transition-time;
@@ -40,7 +40,6 @@
 }
 
 .acc-header {
-  margin-bottom: 4.8rem;
   border-bottom: none;
 }
 
@@ -49,12 +48,12 @@
   padding: .25em;
   color: white;
   font-size: 1.2rem;
-  
+
   a {
     @include link-color-states(white);
     color: white;
     text-decoration: underline;
-    
+
     &:hover {
       text-decoration: underline;
     }
