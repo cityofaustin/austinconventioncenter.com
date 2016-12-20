@@ -37,8 +37,12 @@
   padding-bottom: 0;
 }
 
+
 .acc-footer-nav {
-  padding-bottom: 2em;
+    padding-bottom: 2em;
+    display: inline-block;
+    vertical-align: top;
+    max-width: 400px;
 }
 
 .acc-footer-secondary .acc-footer-nav .acc-footer-list {
@@ -101,4 +105,12 @@
   color: $acc-color-gray-light; 
   letter-spacing: .05em;
   padding-bottom: .5em;
+}
+
+.usa-unstyled-list.usa-footer-primary-content.acc-footer-list {
+    display: table;
+}
+
+.acc-footer {
+    margin-top: 30px;
 }
