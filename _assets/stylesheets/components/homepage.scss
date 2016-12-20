@@ -33,10 +33,13 @@
 .acc-homepage-tiles {
   padding: 3rem 0;
   background-color: $acc-color-gray-dark;
+  margin-bottom: -30px;
 }
 
+//Tile margin fix
 .acc-tiles-container {
-  margin-bottom: 1em !important;
+
+  margin: 0 auto;
   
   div {
     overflow:hidden;
@@ -44,6 +47,7 @@
 
 }
 
+//Button color changes to match the banner picture purple
 .acc-tile-link {
   @include link-color-states($acc-color-white);
   background-color: $acc-color-gray;
@@ -73,17 +77,28 @@
     left: 0%;
     z-index: 1;
     transition: border-color $transition-time;
+    border-color: $acc-color-purple;
   }
 
   &:hover {
     @include background-color-transition;
-    background-color: $acc-color-gray-dark;
+    background-color: $acc-color-purple;
 
     &::before {
-      border-color: $acc-color-gray;
+      border-color: $acc-color-gray-lighter;
       transition: border-color $transition-time;
     }
 
   }
 
+}
+
+//Tile padding fix, looks nicer in mobile
+.acc-tiles-container:nth-child(2) .usa-width-one-third:first-child .acc-tile-link {
+    padding: .5em 0em 0 1.5em;
+}
+
+//Adds a mobile fix so they aren't stacked directly on top of each other
+.acc-tiles-container .usa-width-one-third {
+    margin-bottom: 15px;
 }

@@ -33,6 +33,17 @@
     left: 100%;
     z-index: 1;
   }
+
+}
+
+@media screen and (max-width: $medium-screen) {
+    .acc-breadcrumb {
+      display:none;
+    }
+    .acc-breadcrumb:nth-last-child(2), .acc-breadcrumb:last-child {
+      display: block;
+      font-size: 16px;
+    }
 }
 
 .acc-breadcrumb:first-child {
@@ -74,4 +85,10 @@
 
 @each $section, $color in $acc-section-colors {
   @include breadcrumb-color($color, '.#{$section}');
+}
+
+.usa-nav-container.acc-breadcrumbs-container::after {
+    display: block;
+    content: "";
+    clear: both;
 }
