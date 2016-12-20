@@ -36,6 +36,7 @@
   margin-bottom: -30px;
 }
 
+//Tile margin fix
 .acc-tiles-container {
 
   margin: 0 auto;
@@ -46,7 +47,7 @@
 
 }
 
-
+//Button color changes to match the banner picture purple
 .acc-tile-link {
   @include link-color-states($acc-color-white);
   background-color: $acc-color-gray;
@@ -92,10 +93,12 @@
 
 }
 
+//Tile padding fix, looks nicer in mobile
 .acc-tiles-container:nth-child(2) .usa-width-one-third:first-child .acc-tile-link {
     padding: .5em 0em 0 1.5em;
 }
 
+//Adds a mobile fix so they aren't stacked directly on top of each other
 .acc-tiles-container .usa-width-one-third {
     margin-bottom: 15px;
 }
