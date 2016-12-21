@@ -38,7 +38,17 @@
 }
 
 .acc-footer-nav {
+<<<<<<< HEAD
   padding-bottom: 2em;
+  display: inline-block;
+  vertical-align: top;
+  max-width: 400px;
+=======
+    padding-bottom: 2em;
+    display: inline-block;
+    vertical-align: top;
+    max-width: 400px;
+>>>>>>> ec9c300... Footer Nav list alignment
 }
 
 .acc-footer-secondary .acc-footer-nav .acc-footer-list {
@@ -101,4 +111,18 @@
   color: $acc-color-gray-light; 
   letter-spacing: .05em;
   padding-bottom: .5em;
+}
+<<<<<<< HEAD
+.acc-footer {
+    margin-top: 30px;
+}
+=======
+
+>>>>>>> ec9c300... Footer Nav list alignment
+.usa-unstyled-list.usa-footer-primary-content.acc-footer-list {
+    display: table;
+}
+
+.acc-footer {
+    margin-top: 30px;
 }
