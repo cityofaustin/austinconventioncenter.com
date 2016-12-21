@@ -38,10 +38,6 @@
 
 //Tile margin fix
 .acc-tiles-container {
-<<<<<<< HEAD
-=======
-
->>>>>>> 6dd1acb... Home Tile CSS
   margin: 0 auto;
   
   div {
@@ -80,15 +76,7 @@
     left: 0%;
     z-index: 1;
     transition: border-color $transition-time;
-<<<<<<< HEAD
-<<<<<<< HEAD
     border-color: $acc-color-purple;
-=======
-    background-color: $acc-color-purple;
->>>>>>> a373e60... Homepage Tile CSS
-=======
-    border-color: $acc-color-purple;
->>>>>>> 5c631e8... Homepage CSS Changes
   }
 
   &:hover {
@@ -108,15 +96,7 @@
 .acc-tiles-container:nth-child(2) .usa-width-one-third:first-child .acc-tile-link {
     padding: .5em 0em 0 1.5em;
 }
-
-<<<<<<< HEAD
-<<<<<<< HEAD
 //Adds a mobile fix so they aren't stacked directly on top of each other
-=======
->>>>>>> 6dd1acb... Home Tile CSS
-=======
-//Adds a mobile fix so they aren't stacked directly on top of each other
->>>>>>> d95cb7a... Home page tile clean up and responsive fixes
 .acc-tiles-container .usa-width-one-third {
     margin-bottom: 15px;
 }

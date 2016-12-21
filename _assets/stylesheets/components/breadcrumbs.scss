@@ -87,7 +87,6 @@
   @include breadcrumb-color($color, '.#{$section}');
 }
 
-<<<<<<< HEAD
 @media screen and (max-width: $medium-screen) {
     .acc-breadcrumb {
       display:none;
@@ -98,8 +97,6 @@
     }
 }
 
-=======
->>>>>>> 948296c... Breadcrumb fixes
 .usa-nav-container.acc-breadcrumbs-container::after {
     display: block;
     content: "";
