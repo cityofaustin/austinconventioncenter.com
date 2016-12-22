@@ -1,69 +1,81 @@
 .acc-button {
-  @include background-color-transition;
-  background-repeat: no-repeat;
-  background-size: 1.6em;
-  border-radius: 1rem;
+  background-color: $acc-color-gray-lightest;
+  border-radius: 0.5rem;
+  color: $acc-color-gray;
   display: block;
-  font-size: 1.5rem;
-  font-weight: 600;
-  padding: 1em;
-  text-align: center;
+  margin-bottom: 1em;
+  padding: 1rem;
+  text-align: left;
   text-decoration: none;
 
-  &:hover {
-    @include background-color-transition;
+  &:active, &:visited, &:hover {
+    color: $acc-color-gray;
   }
-
-}
-
-.acc-button-dark {
-  @include background-color-transition;
-  @include link-color-states($acc-color-white);
-  background-color: $acc-color-teal;
-  color: $acc-color-white;
-
-  &:hover {
-    @include background-color-transition;
-    background-color: $acc-color-teal-dark;
-  }
-
 }
 
 .acc-button-primary {
-  @include background-color-transition;
-  background-color: $acc-color-gray-lightest;
-  background-image: image_url('icons/arrow-teal.svg');
-  background-position: 95% center;
-  background-size: .4em;
-  border-bottom: 2px solid white;
-  border-radius: 0;
-  font-size: $h2-font-size;
-  font-weight: 300;
-  padding: 1em 2em 1em 1em;
-  text-align:left;
+  padding: 3rem 2.5rem;
+}
 
-  &:hover {
-    @include background-color-transition;
-    background-color: $acc-color-teal-light;
+.acc-button-primary h3 {
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  min-height: 5rem;
+  padding-right: 6.5rem;
+
+  &::after {
+    background-color: #fff;
+    background-image: image_url('icons/arrow-teal.svg');
+    background-size: 1rem;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 2.5rem;
+    content: '';
+    width: 5rem;
+    height: 5rem;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -2.5rem;
+  }
+}
+
+.acc-button-primary .acc-button-description {
+  display: block;
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+
+  > p:first-child {
+    margin-top: 0;
   }
 
+  > p:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .acc-button-secondary {
-  @include link-color-states($acc-color-gray);
   background-color: $acc-color-white;
   background-position: 95% center;
   background-repeat: no-repeat;
+  background-size: 1.6em;
   border: 2px solid $acc-color-gray-light;
-  color: $acc-color-gray;
-  margin-bottom: 1rem;
   padding-right: 3em;
-  text-align: left;
 
   &:hover {
     background-color: $acc-color-gray-lightest;
   }
+}
 
+.acc-button-tertiary {
+  background-color: $acc-color-teal-light;
+  color: $acc-color-gray-dark;
+  display: inline-block;
+  font-weight: 600;
+  text-align: center;
 }
 
 .acc-button-info {
@@ -72,4 +84,33 @@
 
 .acc-button-pdf {
   background-image: image_url('icons/document.svg');
+}
+
+.acc-button-grid,
+.acc-button-grid-wide {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.acc-button-grid > * {
+  width: 100%;
+
+  @media screen and (min-width: $large-screen) {
+    width: calc(50% - 1em);
+    margin-right: 1em;
+  }
+}
+
+.acc-button-grid-wide > * {
+  width: 100%;
+
+  @media screen and (min-width: $medium-screen) {
+    width: calc(50% - 1em);
+    margin-right: 1em;
+  }
+
+   @media screen and (min-width: $large-screen) {
+    width: calc(33% - 1em);
+  }
 }
