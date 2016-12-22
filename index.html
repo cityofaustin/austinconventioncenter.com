@@ -10,20 +10,22 @@ layout: default
     <h1 class="acc-homepage-headline"><strong>Austin</strong><br>Convention Center</h1>
   </div>
 </div>
-<div class="acc-homepage-tiles">
-  {% assign tiles = site.contentful.menu | where: "name", "HomepageTiles" | first %}
-  <div class="usa-grid acc-tiles-container">
-    {% for tile in tiles.items limit:3 %}
-      <div class="usa-width-one-third">
-        <a href="{% url_for tile %}" class="acc-tile-link">{{ tile.title }}</a>
-      </div>
-    {% endfor %}
+
+<div class="usa-grid">
+  <div class="usa-width-one-whole">
+    {% assign tiles = site.contentful.menu | where: "name", "HomepageTiles" | first %}
+    <div class="acc-button-grid-wide">
+      {% for tile in tiles.items %}
+        <a href="{% url_for tile %}" class="acc-button acc-button-primary">
+          <h3>{{ tile.title }}</h3>
+          {% if doc.description %}
+            <div class="acc-button-description">
+              {{ doc.description | markdownify }}
+            </div>
+          {% endif %}
+        </a>
+      {% endfor %}
+    </div>
   </div>
-  <div class="usa-grid acc-tiles-container">
-    {% for tile in tiles.items limit:3 offset:3 %}
-      <div class="usa-width-one-third">
-        <a href="{% url_for tile %}" class="acc-tile-link">{{ tile.title }}</a>
-      </div>
-    {% endfor %}
-  </div>
-<div>
+</div>
+
