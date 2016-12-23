@@ -1,0 +1,41 @@
+.acc-hero {
+  background-image: image_url('acc-building.jpg');
+  background-position: center;
+  background-size: cover;
+
+  padding: 5rem 0;
+
+  @media screen and (min-width: $large-screen) {
+    padding: 18rem 0;
+  }
+
+  .acc-button {
+    color: $color-white;
+  }
+}
+
+.acc-hero-tagline {
+  background-color: rgba($acc-color-gray-dark, 0.95);
+  padding: 1.5rem;
+
+  @media screen and (min-width: $small-screen) {
+    padding: 3.5rem;
+    max-width: 33rem;
+  }
+
+  h2 {
+    color: $acc-color-white;
+    font-weight: 300;
+    margin: 0;
+    line-height: 1.4em;
+  }
+}
+
+.acc-intro > *:first-child {
+  text-align: center;
+  @media screen and (min-width: $small-screen) {
+    width: 66.666%;
+    margin: 7.5rem auto;
+  }
+}
+
