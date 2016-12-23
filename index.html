@@ -4,15 +4,21 @@ layout: default
 <style type="text/css">
   .acc-breadcrumbs { display: none; }
 </style>
-<div class="acc-homepage-banner">
-  <div class="usa-grid">
-    <span class="acc-homepage-welcome">Welcome to the</span>
-    <h1 class="acc-homepage-headline"><strong>Austin</strong><br>Convention Center</h1>
+
+<section class="acc-hero">
+  <div class="usa-grid-full">
+    <div class="acc-hero-tagline">
+      <h2>Six city blocks of innovative meeting space in the heart of downtown Austin.</h2>
+    </div>
   </div>
-</div>
+</section>
 
 <div class="usa-grid">
   <div class="usa-width-one-whole">
+    <header class="acc-intro">
+      <h2>Welcome message that helps introduce the options that are shown below.</h2>
+    </header>
+
     {% assign tiles = site.contentful.menu | where: "name", "HomepageTiles" | first %}
     <div class="acc-button-grid-wide">
       {% for tile in tiles.items %}

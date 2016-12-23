@@ -35,6 +35,10 @@ a {
   }
 }
 
+.acc-content-block > *:first-child {
+  margin-top: 0;
+}
+
 .acc-content-block-list ul {
   margin-top: 0;
 }

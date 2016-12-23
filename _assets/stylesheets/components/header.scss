@@ -1,17 +1,14 @@
 .acc-logo {
-  margin-top: 2.5rem;
-}
+  float: left;
+  margin: 3rem 0;
 
-.acc-logo a {
-  display: block;
-}
+  a {
+    display: block;
+  }
 
-.acc-logo img {
-  height: 5rem;
-}
-
-.acc-nav {
-  padding-top: 2.5rem;
+  img {
+    height: 5rem;
+  }
 }
 
 .acc-nav-primary .acc-nav-link {
@@ -39,9 +36,6 @@
   }
 }
 
-.acc-header {
-  border-bottom: none;
-}
 
 .acc-disclaimer {
   background-color: $acc-color-red;
@@ -57,7 +51,5 @@
     &:hover {
       text-decoration: underline;
     }
-
   }
-
 }
