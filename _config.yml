@@ -8,6 +8,10 @@ gems:
   - jekyll-redirect-from
 
 assets:
+  autoprefixer:
+    browsers:
+      - "last 2 versions"
+      - "IE > 9"
   sources:
     - node_modules
 
