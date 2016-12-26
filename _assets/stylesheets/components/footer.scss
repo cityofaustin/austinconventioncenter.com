@@ -1,104 +1,79 @@
-.acc-footer-primary {
-  background-color: $acc-color-gray;
+.acc-footer {
+  background-color: $acc-color-gray-dark;
+  color: $acc-color-white;
+  font-weight: 300;
+  margin-top: 7rem;
+  padding-top: 2.5rem;
 }
 
-.acc-footer .acc-footer-primary .acc-footer-primary-link {
+.acc-footer-section {
+  padding-bottom: 1.5em;
+}
+
+.acc-footer a {
   color: $acc-color-white;
-  font-size: 2.4rem;
-  font-weight: 400;
+  display: inline-block;
   text-decoration: none;
-  @include link-color-states($acc-color-white);
-}
 
-.acc-footer .acc-footer-primary-link {
-  color: $acc-color-white;
-  @include link-color-states($acc-color-white);
-}
-
-.acc-footer .acc-footer-list-link {
-  color: $acc-color-white;
-  @include link-color-states($acc-color-white);
-  
-  &:hover {
-    text-decoration: underline;
+  &:visited, &:active {
+    color: $acc-color-white;
   }
 
+  &:hover {
+    color: $acc-color-white;
+    text-decoration: underline;
+  }
 }
 
-.acc-footer-secondary-wrapper {
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
-} 
-
-.acc-footer .acc-footer-secondary {
-  background-color: $acc-color-gray-dark;
-  border-bottom: 1px solid $acc-color-gray;
-  font-size: 1.6rem;
-  padding-bottom: 0;
+.acc-footer h4 {
+  color: $acc-color-gray-lightest;
 }
 
-.acc-footer-nav {
-  padding-bottom: 2em;
-}
-
-.acc-footer-secondary .acc-footer-nav .acc-footer-list {
-  width: auto;
-  border: none;
-}
-
-.acc-footer-link-header {
-  color: $acc-color-gray-light;
-  text-transform: uppercase;
-  font-weight: 400;
-}
-
-.acc-footer-secondary .acc-footer-primary-link {
-  background-size: 1.6em;
-  background-position: 0 center;
-  background-repeat: no-repeat;
-  font-size: 1.6rem;
-  font-weight: 400;
-  padding-left: 2em;
-}
-
-.acc-footer .getting-here {
-  background-image: image_url('icons/info-white.svg');
-}
-
-.acc-footer .media-gallery {
-  background-image: image_url('icons/info-white.svg');
-}
-
-.acc-footer .acc-footer-list-link {
-  text-decoration: none;
-  font-weight: 300;
-}
-
-.acc-footer .acc-footer-promotion {
+.acc-footer-badges {
   background-color: $acc-color-white;
-  border-top: 1px solid $acc-color-gray-light;
-  padding: 3rem 0 0 0;
+  padding-bottom: 3rem;
   text-align: center;
-  
+}
+
+.acc-footer-badge {
+  padding-top: 3rem;
+
   img {
     filter: grayscale(100%);
     height: 5rem;
     width: auto;
   }
+}
 
+.acc-footer-info {
+  text-align: center;
+
+  @media screen and (min-width: $medium-screen) {
+    text-align: left;
+  }
 }
 
 .acc-footer-address {
-  background-color: white;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   line-height: 1.5em;
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
-  text-align: center;
 }
-.acc-footer h4 {
-  border-bottom: 1px solid $acc-color-gray;
-  color: $acc-color-gray-light; 
-  letter-spacing: .05em;
-  padding-bottom: .5em;
+
+.acc-social-links {
+  text-align: center;
+
+  @media screen and (min-width: $medium-screen) {
+    text-align: right;
+  }
+
+  a {
+    margin-left: 1em;
+
+    &:first-of-type {
+      margin-left: 0;
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
