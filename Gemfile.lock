@@ -7,6 +7,8 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     addressable (2.4.0)
+    autoprefixer-rails (6.6.0)
+      execjs
     aws-sdk (2.6.14)
       aws-sdk-resources (= 2.6.14)
     aws-sdk-core (2.6.14)
@@ -27,6 +29,7 @@ GEM
     domain_name (0.5.20161021)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (1.0.2)
+    execjs (2.7.0)
     extras (0.1.0)
       forwardable-extended (~> 2.5)
     fastimage (2.0.0)
@@ -125,6 +128,7 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
+  autoprefixer-rails
   foreman
   jekyll
   jekyll-assets
