@@ -1,5 +1,5 @@
 <div class="acc-breadcrumbs {{ page.breadcrumbs[0].slug }}">
-  <div class="usa-grid">
+  <div class="usa-grid acc-breadcrumb-container">
     {% for breadcrumb in page.breadcrumbs %}
       {% capture breadcrumb_class %}acc-breadcrumb{% if forloop.length == 1 or forloop.rindex == 2 %} acc-breadcrumb-mobile{% endif %}{% endcapture %}
 
