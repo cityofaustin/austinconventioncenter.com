@@ -3,6 +3,7 @@ ruby "2.3.1"
 
 gem "activesupport"
 gem "autoprefixer-rails"
+gem "font-awesome-sass"
 gem "jekyll"
 gem "jekyll-assets"
 gem "jekyll-redirect-from"
