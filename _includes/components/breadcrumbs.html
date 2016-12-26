@@ -1,7 +1,13 @@
 <div class="acc-breadcrumbs {{ page.breadcrumbs[0].slug }}">
-  <div class="usa-nav-container acc-breadcrumbs-container">
+  <div class="usa-grid">
     {% for breadcrumb in page.breadcrumbs %}
-      <a href="{{ breadcrumb.url }}" class="acc-breadcrumb">{{ breadcrumb.title }}</a>
+      {% capture breadcrumb_class %}acc-breadcrumb{% if forloop.length == 1 or forloop.rindex == 2 %} acc-breadcrumb-mobile{% endif %}{% endcapture %}
+
+      {% if breadcrumb.url == page.url %}
+        <span class="{{ breadcrumb_class }}">{{ breadcrumb.title }}</span>
+      {% else %}
+        <a href="{{ breadcrumb.url }}" class="{{ breadcrumb_class }}">{{ breadcrumb.title }}</a>
+      {% endif %}
     {% endfor %}
   </div>
 </div>
