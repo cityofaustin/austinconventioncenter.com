@@ -39,18 +39,37 @@ layout: default
         {% assign events = page.events | sort: "arrive_date" %}
         <ul class="usa-unstyled-list">
           {% for event in events %}
-            <li class="acc-calendar-event">
-              <h4 class="acc-calendar-event-date">{{ event.arrive_date | date: "%B %-d" }} - {{ event.depart_date | date: "%B %-d" }}</h4>
-              <h2 class="acc-calendar-event-title">
-                {% if event.website %}
-                  <a href="http://{{event.website}}" target="_blank">{{ event.event_name }}</a>
-                {% else %}
-                  {{ event.event_name | default: "Private Event" }}
-                {% endif %}
-              </h2>
-              {% if event.attendance %}
-                Expected Attendance: {{ event.attendance }}
-              {% endif %}
+            <li>
+              <a href="{% if event.website %}http://{{event.website}}{% else %}#{% endif %}" class="acc-calendar-event{% if event.website %} acc-calendar-event-link{% endif %}"{% if event.website %} target="_blank"{% endif %}>
+                {% assign arrive_month = event.arrive_date | date: "%B" %}
+                {% assign depart_month = event.depart_date | date: "%B" %}
+
+                <div class="acc-calendar-event-date">
+                  <h4 class="acc-calendar-event-month">
+                    {% if arrive_month == depart_month %}
+                      {{ arrive_month }}
+                    {% else %}
+                      {{ event.arrive_date | date: "%b" }} / {{ event.depart_date | date: "%b" }}
+                    {% endif %}
+                  </h4>
+                  <h1 class="acc-calendar-event-day">
+                    {% if event.arrive_date == event.depart_date %}
+                      {{ event.arrive_date | date: "%d" }}
+                    {% else %}
+                      {{ event.arrive_date | date: "%d" }}-{{ event.depart_date | date: "%d" }}
+                    {% endif %}
+                  </h1>
+                </div>
+                <div class="acc-calendar-event-details">
+                  <h3 class="acc-calendar-event-title">
+                    {{ event.event_name | default: "Private Event" }}
+                  </h3>
+                  {% if event.attendance %}
+                    <h4>Expected Attendance</h4>
+                    {{ event.attendance }}
+                  {% endif %}
+                </div>
+              </a>
             </li>
           {% endfor %}
         </ul>

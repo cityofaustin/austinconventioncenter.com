@@ -1,4 +1,4 @@
-.acc-button {
+@mixin acc-button-base {
   background-color: $acc-color-gray-lightest;
   border-radius: 0.5rem;
   color: $acc-color-gray;
@@ -13,6 +13,10 @@
   }
 }
 
+.acc-button {
+  @include acc-button-base;
+}
+
 .acc-button-primary {
   padding: 3rem 2.5rem;
 }
@@ -25,22 +29,26 @@
   position: relative;
   min-height: 5rem;
   padding-right: 6.5rem;
+}
 
-  &::after {
-    background-color: #fff;
-    background-image: image_url('icons/arrow-teal.svg');
-    background-size: 1rem;
-    background-position: center center;
-    background-repeat: no-repeat;
-    border-radius: 2.5rem;
-    content: '';
-    width: 5rem;
-    height: 5rem;
-    position: absolute;
-    right: 0;
-    top: 50%;
-    margin-top: -2.5rem;
-  }
+@mixin acc-button-icon {
+  background-color: #fff;
+  background-image: image_url('icons/arrow-teal.svg');
+  background-size: 1rem;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-radius: 2.5rem;
+  content: '';
+  width: 5rem;
+  height: 5rem;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: -2.5rem;
+}
+
+.acc-button-primary h3::after {
+  @include acc-button-icon;
 }
 
 .acc-button-primary .acc-button-description {
