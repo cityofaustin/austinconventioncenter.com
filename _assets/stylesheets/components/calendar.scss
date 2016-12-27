@@ -2,14 +2,18 @@
   @include acc-button-base;
   padding: 0;
   display: flex;
-  flex-direction: row;
-  min-height: 19rem;
+  flex-direction: column;
   overflow: hidden;
+
+  @media screen and (min-width: $small-screen) {
+    flex-direction: row;
+    min-height: 19rem;
+  }
 }
 
-.acc-calendar-event-link {
+.acc-calendar-event-link .acc-calendar-event-details {
   position: relative;
-  padding-right: 6.5rem;
+  padding-right: 8rem;
 
   &::after {
     @include acc-button-icon;
@@ -35,16 +39,20 @@
 
 .acc-calendar-event-date {
   background-color: $acc-color-gray;
-  width: 18rem;
   flex: 0 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
 
   h1, h4 {
     color: $acc-color-white;
     margin: 0;
+  }
+
+  @media screen and (min-width: $small-screen) {
+    width: 18rem;
   }
 }
 
