@@ -5,6 +5,7 @@
   display: block;
   margin-bottom: 1em;
   padding: 1rem;
+  position: relative;
   text-align: left;
   text-decoration: none;
 
@@ -33,7 +34,7 @@
 
 @mixin acc-button-icon {
   background-color: #fff;
-  background-image: image_url('icons/arrow-teal.svg');
+  background-image: image_url('icons/arrow-right-teal.svg');
   background-size: 1rem;
   background-position: center center;
   background-repeat: no-repeat;
@@ -67,11 +68,7 @@
 
 .acc-button-secondary {
   background-color: $acc-color-white;
-  background-position: 95% center;
-  background-repeat: no-repeat;
-  background-size: 1.6em;
   border: 2px solid $acc-color-gray-light;
-  padding-right: 3em;
 
   &:hover {
     background-color: $acc-color-gray-lightest;
@@ -86,12 +83,32 @@
   text-align: center;
 }
 
+@mixin acc-button-font-icon($size, $icon) {
+  padding-right: 3 * $size;
+
+  &::after {
+    content: $icon;
+    font-family: FontAwesome;
+    font-size: $size;
+    line-height: $size;
+    width: $size;
+    height: $size;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    margin-top: $size / -2;
+  }
+}
+
 .acc-button-info {
-  background-image: image_url('icons/info.svg');
+  @include acc-button-font-icon(1.3em, "\f08e");
+  &::after {
+    line-height: unset;
+  }
 }
 
 .acc-button-pdf {
-  background-image: image_url('icons/document.svg');
+  @include acc-button-font-icon(1.3em, "\f016");
 }
 
 .acc-button-grid,
