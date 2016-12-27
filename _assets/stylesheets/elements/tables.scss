@@ -1,0 +1,56 @@
+table {
+  color: $acc-color-gray;
+  font-size: 1.4rem;
+
+  thead {
+    th,
+    td {
+      background-color: transparent;
+      color: $acc-color-gray-dark;
+      border-top: 0;
+    }
+  }
+
+  th,
+  td {
+    background-color: transparent;
+    border-color: $acc-color-gray-lightest;
+    border-left: 0;
+    border-right: 0;
+    padding: 1rem;
+  }
+}
+
+//
+// Indicate scrollable content with shadows
+// Based on http://dbushell.com/2016/03/04/css-only-responsive-tables/
+//
+
+.acc-content-block table {
+  background: radial-gradient(ellipse at left, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 75%) 0 center,
+              radial-gradient(ellipse at right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 75%) 100% center;
+  background-size: 10px 100%, 10px 100%;
+  background-attachment: scroll, scroll;
+  background-repeat: no-repeat;
+  display: inline-block;
+  min-width: unset;
+  max-width: 100%;
+  overflow-x: auto;
+  vertical-align: top;
+  -webkit-overflow-scrolling: touch;
+}
+
+.acc-content-block table td:first-child,
+.acc-content-block table th:first-child {
+  background-image: linear-gradient(to right, $acc-color-white 50%, rgba(255, 255, 255, 0) 100%);
+  background-repeat: no-repeat;
+  background-size: 20px 100%;
+}
+
+.acc-content-block table td:last-child,
+.acc-content-block table th:last-child {
+  background-image: linear-gradient(to left, $acc-color-white 50%, rgba(255, 255, 255, 0) 100%);
+  background-repeat: no-repeat;
+  background-position: 100% 0;
+  background-size: 20px 100%;
+}
