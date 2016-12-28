@@ -1,41 +1,118 @@
+.acc-header-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  position: relative;
+  height: 9rem;
+
+  @media screen and (min-width: $nav-width) {
+    height: 11rem;
+  }
+}
+
+.acc-nav-button {
+  width: auto;
+
+  &:active {
+    background-color: transparent;
+  }
+
+  @media screen and (min-width: $nav-width) {
+    display: none;
+  }
+}
+
+.acc-nav {
+  background-color: $acc-color-white;
+  box-shadow: 0 2px 1px rgba(#000, 0.3);
+  width: 100%;
+  max-height: 0;
+  overflow-y: hidden;
+  position: absolute;
+  top: 9rem;
+  left: 0;
+  transition: max-height 0.25s ease-out;
+  z-index: 100;
+
+  &.is-visible {
+    max-height: 31rem; // ~ 6 items
+    overflow-y: auto;
+    transition: max-height 0.25s ease-in;
+  }
+
+  @media screen and (min-width: $nav-width) {
+    box-shadow: none;
+    max-height: unset;
+    overflow-y: visible;
+    position: unset;
+    width: auto;
+  }
+}
+
+.acc-nav-list {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+
+  @media screen and (min-width: $nav-width) {
+    flex-direction: row;
+  }
+}
+
+.acc-nav-link {
+  display: block;
+  font-size: $h4-font-size;
+  font-weight: 600;
+  color: $acc-color-gray-dark;
+  padding: 1.3rem $site-margins-mobile 1.7rem;
+  text-decoration: none;
+
+  @media screen and (min-width: $medium-screen) and (max-width: $nav-width) {
+    padding-left: $site-margins;
+    padding-right: $site-margins;
+  }
+
+  span {
+    border-left: 3px solid transparent;
+    padding: 0.25rem 0 0.25rem 1rem;
+    margin-left: calc(-1rem - 3px);
+    transition: border-color 0.15s;
+  }
+
+  @media screen and (min-width: $nav-width) {
+    span {
+      margin-left: 0;
+      padding: 0 0 0.25rem 0;
+      border-left: none;
+      border-bottom: 3px solid transparent;
+    }
+  }
+
+  &:visited, &:active {
+    color: $acc-color-gray-dark;
+  }
+
+  &:hover {
+    color: $acc-color-teal;
+
+    span {
+      border-color: $acc-color-teal;
+    }
+  }
+}
+
 .acc-logo {
-  float: left;
-  margin: 3rem 0;
+  flex: 1 0 auto;
 
   a {
-    display: block;
+    display: inline-block;
   }
 
   img {
     height: 5rem;
   }
 }
-
-.acc-nav-primary .acc-nav-link {
-  @include link-color-states($acc-color-gray-dark);
-  color: $acc-color-gray-dark;
-  font-size: 1.5rem;
-  font-weight: 600;
-  transition: color $transition-time;
-
-  span {
-    border-bottom: .3rem solid $acc-color-white;
-    border-width: .3rem;
-    padding-bottom: .25rem;
-    transition: border-bottom $transition-time;
-  }
-
-  &:hover span {
-    border-bottom: .3rem solid $acc-color-teal;
-    transition: border-bottom $transition-time;
-  }
-
-  &:hover {
-    color: $acc-color-teal;
-    transition: color $transition-time;
-  }
-}
-
 
 .acc-disclaimer {
   background-color: $acc-color-red;

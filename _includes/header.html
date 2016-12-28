@@ -7,24 +7,24 @@
   </header>
 </div>
 <header class="acc-header" role="banner">
-  <div class="usa-grid">
-    <button class="usa-menu-btn">Menu</button>
+  <div class="usa-grid acc-header-content">
+    <!-- <button class="usa-menu-btn">Menu</button> -->
     <div class="acc-logo">
       <a href="{{site.baseurl}}/" accesskey="1" title="Home" aria-label="Home">
         <img src="{% asset_path acc-logo.svg %}" />
       </a>
     </div>
-    <nav role="navigation" class="usa-nav acc-nav" id="nav">
-      <button class="usa-nav-close">
-        <img src="{% asset_path uswds/src/img/close.svg %}" alt="close">
-      </button>
-      <ul class="usa-nav-primary acc-nav-primary">
+    <button class="usa-button-unstyled acc-nav-button hamburger hamburger--slider" type="button">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+    <nav role="navigation" class="acc-nav" id="nav">
+      <ul class="usa-unstyled-list acc-nav-list">
         {% assign menu = site.contentful.menu | where: "name", "Header" | first %}
         {% for item in menu.items %}
           <li>
-            <a class="usa-nav-link acc-nav-link {{item.slug}}" href="{% url_for item %}">
-              <span>{{item.title}}</span>
-            </a>
+            <a class="acc-nav-link" href="{% url_for item %}"><span>{{item.title}}</span></a>
           </li>
         {% endfor %}
       </ul>
