@@ -9,7 +9,7 @@ dependencies:
 test:
   override:
     - "bundle exec rake ci:import"
-    - "bundle exec rake ci:build"
+    - "JEKYLL_ENV=production bundle exec rake ci:build"
 
 deployment:
   merge:
