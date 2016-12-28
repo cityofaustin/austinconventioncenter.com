@@ -20,14 +20,8 @@
       </span>
     </button>
     <nav role="navigation" class="acc-nav" id="nav">
-      <ul class="usa-unstyled-list acc-nav-list">
-        {% assign menu = site.contentful.menu | where: "name", "Header" | first %}
-        {% for item in menu.items %}
-          <li>
-            <a class="acc-nav-link" href="{% url_for item %}"><span>{{item.title}}</span></a>
-          </li>
-        {% endfor %}
-      </ul>
+      {% assign menu = site.contentful.menu | where: "name", "Header" | first %}
+      {% include components/menu.html items=menu.items list_classes="acc-nav-list" item_classes="acc-nav-link" %}
     </nav>
   </div>
   {% include components/breadcrumbs.html %}

@@ -13,17 +13,19 @@ layout: default
       {% include components/content_blocks.html blocks=page.contentful.contentBlocks %}
     {% endif %}
     {% if page.docs and page.docs != empty %}
-      <div class="acc-button-grid">
+      <ul class="usa-unstyled-list acc-button-grid">
         {% assign docs = page.docs | sort: "priority", "last" %}
         {% for doc in docs %}
-          <a href="{{doc.url}}" class="acc-button acc-button-primary">
-            <h3>{{ doc.contentful.title }}</h3>
-            {% if doc.contentful.description %}
-              <div class="acc-button-description">
-                {{ doc.contentful.description | markdownify }}
-              </div>
-            {% endif %}
-          </a>
+          <li>
+            <a href="{{doc.url}}" class="acc-button acc-button-primary">
+              <h3>{{ doc.contentful.title }}</h3>
+              {% if doc.contentful.description %}
+                <div class="acc-button-description">
+                  {{ doc.contentful.description | markdownify }}
+                </div>
+              {% endif %}
+            </a>
+          </li>
         {% endfor %}
       </div>
     {% endif %}

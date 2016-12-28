@@ -1,0 +1,24 @@
+<ul class="usa-unstyled-list {{ include.list_classes }}">
+  {% for item in include.items %}
+    {% assign doc = item | find_document %}
+    {% assign url = item.url | default: doc.url %}
+
+    {% if url %}
+      {% assign protocol = url | slice: 0, 4 %}
+      <li>
+        <a href="{{ url }}" class="{% if include.item_classes %}{{ include.item_classes }}{% endif %}{% if protocol == "http" %} acc-external-link{% endif %}"{% if protocol == "http" %} target="_blank"{% endif %}>
+          {% if include.show_description %}
+            <h3>{{ item.title }}</h3>
+            {% if doc.contentful.description %}
+              <div class="acc-button-description">
+                {{ doc.contentful.description | markdownify }}
+              </div>
+            {% endif %}
+          {% else %}
+            {{ item.title }}
+          {% endif %}
+        </a>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>

@@ -7,7 +7,7 @@
         {% when "contactBlock" %}
           {% include components/sidebar_blocks/contact.html block=block %}
         {% when "menu" %}
-          {% include components/sidebar_blocks/menu.html block=block %}
+          {% include components/menu.html items=block.items list_classes="acc-sidebar-links" item_classes="acc-button acc-button-secondary" %}
       {% endcase %}
     {% endfor %}
   </div>

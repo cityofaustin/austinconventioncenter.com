@@ -19,19 +19,8 @@ layout: default
       <h2>Welcome message that helps introduce the options that are shown below.</h2>
     </header>
 
-    {% assign links = site.contentful.menu | where_exp: "menu", "menu.name == 'Homepage'" | first %}
-    <div class="acc-button-grid-wide">
-      {% for link in links.items %}
-        <a href="{% url_for link %}" class="acc-button acc-button-primary">
-          <h3>{{ link.title }}</h3>
-          {% if doc.description %}
-            <div class="acc-button-description">
-              {{ doc.description | markdownify }}
-            </div>
-          {% endif %}
-        </a>
-      {% endfor %}
-    </div>
+    {% assign menu = site.contentful.menu | where_exp: "menu", "menu.name == 'Homepage'" | first %}
+    {% include components/menu.html items=menu.items list_classes="acc-button-grid-wide" item_classes="acc-button acc-button-primary" show_description=true %}
   </div>
 </div>
 
