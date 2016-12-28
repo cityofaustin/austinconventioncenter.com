@@ -5,7 +5,7 @@
         <div class="usa-width-one-third">
           <h4>Quick Links</h4>
           <ul class="usa-unstyled-list">
-            {% assign primary_footer = site.contentful.menu | where: "name", "PrimaryFooter" | first %}
+            {% assign primary_footer = site.contentful.menu | where_exp: "menu", "menu.name == 'Footer - Quick Links'" | first %}
             {% for item in primary_footer.items %}
               <li>
                 <a href="{% url_for item %}">
@@ -18,7 +18,7 @@
         <div class="usa-width-one-third">
           <h4>About Us</h4>
           <ul class="usa-unstyled-list">
-            {% assign about_links = site.contentful.menu | where: "name", "AboutFooter" | first %}
+            {% assign about_links = site.contentful.menu | where_exp: "menu", "menu.name == 'Footer - About Us'" | first %}
             {% for item in about_links.items %}
             <li>
               <a href="{% url_for item %}">
