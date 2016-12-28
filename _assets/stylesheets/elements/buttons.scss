@@ -82,6 +82,7 @@
   display: inline-block;
   font-weight: 600;
   text-align: center;
+  width: auto;
 }
 
 @mixin acc-button-font-icon($size, $icon) {
