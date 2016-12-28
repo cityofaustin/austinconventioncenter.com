@@ -1,6 +1,0 @@
-{% assign menu = include.block %}
-<div class="acc-sidebar-links">
-{% for item in menu.items %}
-  <a href="{% url_for item %}" class="acc-button acc-button-secondary acc-button-info">{{ item.title }}</a>
-{% endfor %}
-</div>

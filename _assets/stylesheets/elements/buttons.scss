@@ -8,6 +8,7 @@
   position: relative;
   text-align: left;
   text-decoration: none;
+  width: 100%;
 
   &:active, &:visited, &:hover {
     color: $acc-color-gray;
@@ -100,7 +101,7 @@
   }
 }
 
-.acc-button-info {
+.acc-button.acc-external-link {
   @include acc-button-font-icon(1.3em, "\f08e");
   &::after {
     line-height: unset;
@@ -118,9 +119,13 @@
   flex-wrap: wrap;
 }
 
-.acc-button-grid > * {
+.acc-button-grid > *,
+.acc-button-grid-wide > * {
+  display: flex;
   width: 100%;
+}
 
+.acc-button-grid > * {
   @media screen and (min-width: $large-screen) {
     width: calc(50% - 1em);
     margin-right: 1em;
@@ -128,8 +133,6 @@
 }
 
 .acc-button-grid-wide > * {
-  width: 100%;
-
   @media screen and (min-width: $medium-screen) {
     width: calc(50% - 1em);
     margin-right: 1em;
