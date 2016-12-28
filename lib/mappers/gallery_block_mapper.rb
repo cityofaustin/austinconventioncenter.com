@@ -7,6 +7,7 @@ module Mappers
     def map_asset(asset)
       result = super
       result["sys"] = { "id" => asset.sys[:id] }
+      result["description"] = asset.description
 
       if asset.file.details.key?("image")
         result.merge!(asset.file.details["image"])
