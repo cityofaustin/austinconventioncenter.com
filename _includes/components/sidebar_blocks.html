@@ -1,14 +1,16 @@
 {% if include.blocks != empty %}
-  <div>
+  <div class="acc-sidebar-block-list">
     {% for block in include.blocks %}
-      {% case block.type %}
-        {% when "textBlock" %}
-          {% include components/sidebar_blocks/text.html block=block %}
-        {% when "contactBlock" %}
-          {% include components/sidebar_blocks/contact.html block=block %}
-        {% when "menu" %}
-          {% include components/menu.html items=block.items list_classes="acc-sidebar-links" item_classes="acc-button acc-button-secondary" %}
-      {% endcase %}
+      <div class="acc-sidebar-block">
+        {% case block.type %}
+          {% when "textBlock" %}
+            {% include components/sidebar_blocks/text.html block=block %}
+          {% when "contactBlock" %}
+            {% include components/sidebar_blocks/contact.html block=block %}
+          {% when "menu" %}
+            {% include components/menu.html items=block.items list_classes="acc-sidebar-links" item_classes="acc-button acc-button-secondary" %}
+        {% endcase %}
+      </div>
     {% endfor %}
   </div>
 {% endif %}

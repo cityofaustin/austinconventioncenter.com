@@ -6,3 +6,10 @@
   color: $acc-color-gray;
   margin-bottom: 1em;
 }
+
+.acc-mailto {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 600;
+}
