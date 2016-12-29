@@ -4,7 +4,7 @@ layout: default
 <div class="usa-grid acc-floor-plan">
   <div class="usa-width-one-whole">
     <header>
-      <h1>Floor Plan</h1>
+      <h1>Floor Plans</h1>
     </header>
   </div>
   {% if site.plans %}
@@ -45,10 +45,32 @@ layout: default
         {% asset_source icons/arrow.svg %}
       </button>
 
-      {{ page.contentful.title }}
+      {% if page.title == "Floor Plans" %}
+        Center Overview
+      {% else %}
+        {{ page.contentful.title }}
+      {% endif %}
     </h3>
-    {{ content }}
-    {% include components/content_blocks.html blocks=page.contentful.contentBlocks %}
+
+    {% assign contentBlocks = page.contentful.contentBlocks %}
+    {% assign map = contentBlocks | first %}
+
+    {% if map.title contains '.svg' %}
+      {% assign contentBlocks = contentBlocks | shift %}
+      <div id="acc-floor-plan-map" class="acc-floor-plan-map">
+        {% asset_source "floor-plans/{{site.id}}/{{map.title}}" %}
+      </div>
+    {% endif %}
+
+    {% if page.contentful.files %}
+      <ul class="usa-unstyled-list acc-button-grid acc-floor-plan-files">
+        {% for file in page.contentful.files %}
+          <li><a href="{{ file.url }}" target="_blank" class="acc-button acc-button-secondary acc-button-pdf">{{ file.title }}</a></li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    {% include components/content_blocks.html blocks=contentBlocks %}
   </div>
 </div>
 
