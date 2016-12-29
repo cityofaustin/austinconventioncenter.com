@@ -35,7 +35,7 @@ a {
   }
 }
 
-.acc-content-block > *:first-child {
+.acc-content-block:first-child .acc-content-block-header {
   margin-top: 0;
 }
 
