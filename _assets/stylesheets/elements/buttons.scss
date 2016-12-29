@@ -113,6 +113,10 @@
   @include acc-button-font-icon(1.3em, "\f016");
 }
 
+.acc-button-contact {
+  @include acc-button-font-icon(1.3em, "\f2ba");
+}
+
 .acc-button-grid,
 .acc-button-grid-wide {
   display: flex;

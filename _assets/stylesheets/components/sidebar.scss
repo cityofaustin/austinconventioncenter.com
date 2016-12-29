@@ -2,37 +2,6 @@ aside {
   font-size: 1.5rem;
 }
 
-aside h3 {
-  padding: 2rem 2rem .5rem 2rem;
-  margin: 0;
-}
-
-.acc-primary-contact {
-  background-color: $acc-color-gray-lightest;
-  padding-bottom: 2rem;
-  margin-bottom: 3rem;
-}
-
-.acc-primary-contact p {
-  line-height: 1em;
-  padding: .5rem 2rem 0 2rem;
-  margin: 0;
-}
-
-.acc-primary-contact .acc-email-link {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.acc-primary-contact .acc-button {
-  margin-top: 2em;
-}
-
-.acc-sidebar-email-link {
-  font-weight: 600;
-}
-
-.acc-sidebar-links {
-  margin-bottom: 1rem;
+.acc-sidebar-block {
+  margin-bottom: 2em;
 }
