@@ -6,11 +6,13 @@
 (function() {
 
   function createTooltip (target, text) {
+    var verticalPosition = target.id.match(/Level/) ? "middle" : "top";
+
     return new Tooltip({
       target: target,
-      position: "top center",
+      position: verticalPosition + " center",
       content: text,
-      hoverOpenDelay: 50,
+      hoverCloseDelay: 0,
       classes: "tooltip-theme-twipsy acc-floor-plan-map-tooltip"
     });
   }
@@ -23,10 +25,9 @@
 
     if (!svg || !nav) return;
 
-    // Include possibly nested clickables with all first-level children
-    var children = svg.querySelectorAll("svg > *, [id^='clickable']");
+    var elements = svg.querySelectorAll("[id^='clickable'], text");
 
-    Array.prototype.forEach.call(children, function (element) {
+    Array.prototype.forEach.call(elements, function (element) {
       if (clickableRegex.test(element.id)) {
         var name = element.id.substr(10).split("_").join(" "),
             slug = name.split(" ").join("-").toLowerCase();
