@@ -66,6 +66,8 @@
 
 .acc-floor-plan-setups li,
 .acc-floor-plan-specifications li {
+  width: 100%;
+
   @media screen and (min-width: $medium-screen) {
     width: 50%;
   }
