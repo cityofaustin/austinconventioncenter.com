@@ -18,10 +18,18 @@
 .acc-floor-plan-map-current {
   &[id*="ballroom" i] {
     fill: #FFC037 !important;
+
+    &:hover {
+      fill: #FFC037 !important;
+    }
   }
 
   &[id*="exhibit_hall" i] {
     fill: #9FBE4F !important;
+
+    &:hover {
+      fill: #9FBE4F !important;
+    }
   }
 }
 
