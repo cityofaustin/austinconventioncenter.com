@@ -76,7 +76,7 @@
   }
 }
 
-.acc-button-tertiary {
+.acc-button-tertiary, .acc-button-tertiary:hover {
   background-color: $acc-color-teal-light;
   color: $acc-color-gray-dark;
   display: inline-block;

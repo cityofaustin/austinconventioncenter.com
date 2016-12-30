@@ -40,16 +40,13 @@ layout: default
   {% endif %}
 
   <div class="usa-width-three-fourths">
-    <h3 class="acc-sidenav-header">
-      <button class="usa-button-unstyled acc-sidenav-button">
-        {% asset_source icons/arrow.svg %}
-      </button>
-
+    <h3>
       {% if page.title == "Floor Plans" %}
         Center Overview
       {% else %}
         {{ page.contentful.title }}
       {% endif %}
+      <a href="#" class="acc-sidenav-button">Change View</a>
     </h3>
 
     {% assign contentBlocks = page.contentful.contentBlocks %}

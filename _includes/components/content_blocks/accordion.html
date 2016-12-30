@@ -7,7 +7,7 @@
       <button class="usa-accordion-button acc-accordion-button" aria-controls="{{ id }}-{{ forloop.index }}">
         {{ block.title }}
       </button>
-      <div id="{{ id }}-{{ forloop.index }}" class="usa-accordion-content">
+      <div id="{{ id }}-{{ forloop.index }}" class="usa-accordion-content acc-accordion-content">
         {{ block.text | markdownify }}
       </div>
     </li>
