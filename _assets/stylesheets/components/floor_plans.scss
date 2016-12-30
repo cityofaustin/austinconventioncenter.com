@@ -2,33 +2,26 @@
   margin: 2.5em 0;
 }
 
+// room-type: (hover-color, current-color)
+$acc-floor-plan-map-colors: (
+  "ballroom": (#ffc955, #ffb618),
+  "exhibit_hall": (#acc767, #91b041)
+);
+
 .acc-floor-plan-map-clickable {
   cursor: pointer;
   transition: fill 200ms ease;
 
-  &[id*="ballroom" i]:hover {
-    fill: #FFDD93 !important;
-  }
-
-  &[id*="exhibit_hall" i]:hover {
-    fill: #C4D792 !important;
-  }
-}
-
-.acc-floor-plan-map-current {
-  &[id*="ballroom" i] {
-    fill: #FFC037 !important;
-
-    &:hover {
-      fill: #FFC037 !important;
+  @each $type, $colors in $acc-floor-plan-map-colors {
+    &[id*="#{$type}" i]:hover {
+      fill: nth($colors, 1) !important;
     }
-  }
 
-  &[id*="exhibit_hall" i] {
-    fill: #9FBE4F !important;
-
-    &:hover {
-      fill: #9FBE4F !important;
+    &.acc-floor-plan-map-current[id*="#{$type}" i] {
+      fill: nth($colors, 2) !important;
+      &:hover {
+        fill: nth($colors, 2) !important;
+      }
     }
   }
 }
