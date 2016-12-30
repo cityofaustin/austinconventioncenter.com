@@ -14,39 +14,29 @@
         </div>
         <div class="usa-width-one-third">
           <h4>Partners</h4>
-          <ul class="usa-unstyled-list">
-            <li>
-              <a href="http://www.austintexas.org" target="_blank">
-                <span>Austin Convention & Visitors Bureau</span>
-              </a>
-            </li>
-            <li>
-              <a href="http://www.palmereventscenter.com">
-                <span>Palmer Events Center</span>
-              </a>
-            </li>
-          </ul>
+          {% assign partners = site.contentful.menu | where_exp: "menu", "menu.name == 'Footer - Partners'" | first %}
+          {% include components/menu.html items=partners.items %}
         </div>
       </nav>
       <div class="usa-width-one-whole acc-footer-info">
         <section class="usa-width-two-thirds acc-footer-address">
           <div itemscope itemtype="http://schema.org/LocalBusiness">
-            <span itemprop="name">Austin Convention Center Department</span><br/>
+            <span itemprop="name">{{ site.title }}</span><br/>
             <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-              <span itemprop="streetAddress">500 E. Cesar Chavez St.</span>
+              <span itemprop="streetAddress">{{ site.footer_address.street }}</span>
               <span itemprop="addressLocality">Austin</span>,
               <span itemprop="addressRegion">TX</span>
-              <span itemprop="postalCode">78701</span>
-              <span itemprop="telephone">(512) 404-4000</span>
+              <span itemprop="postalCode">{{ site.footer_address.zip_code }}</span>
+              <span itemprop="telephone">{{ site.footer_address.phone }}</span>
             </span>
           </div>
 
         </section>
         <section class="usa-width-one-third acc-footer-social-links">
-          <a href="http://www.instagram.com/accdtx?ref=badge" target="_blank" title="Visit the Austin Convention Center on Instagram">
+          <a href="{{ site.instagram_url }}" target="_blank" title="Visit the {{site.title}} on Instagram">
             <i class="fa fa-instagram" aria-hidden="true"></i>
           </a>
-          <a href="http://www.facebook.com/AustinConventionCenter" target="_blank" title="Visit the Austin Convention Center on Facebook">
+          <a href="{{ site.facebook_url }}" target="_blank" title="Visit the {{site.title}} on Facebook">
             <i class="fa fa-facebook-official" aria-hidden="true"></i>
           </a>
         </section>

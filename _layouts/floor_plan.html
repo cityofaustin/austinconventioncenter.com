@@ -55,7 +55,10 @@ layout: default
     {% if map.title contains '.svg' %}
       {% assign contentBlocks = contentBlocks | shift %}
       <div id="acc-floor-plan-map" class="acc-floor-plan-map">
-        {% asset_source "floor-plans/{{site.id}}/{{map.title}}" %}
+        {% capture path %}floor-plans/{{map.title}}{% endcapture %}
+        {% if assets[path] %}
+          {% asset_source "{{path}}" %}
+        {% endif %}
       </div>
     {% endif %}
 

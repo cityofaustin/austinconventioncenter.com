@@ -4,7 +4,14 @@ url: "http://beta.austinconventioncenter.com"
 
 calendar_location: "Austin Convention Center" # Socrata event data location value
 
+footer_address:
+  street: 500 E. Cesar Chavez St.
+  zip_code: 78701
+  phone: (512) 404-4000
+
 google_analytics_id: UA-87703455-1
+facebook_url: http://www.facebook.com/AustinConventionCenter/
+instagram_url: http://www.instagram.com/accdtx/
 
 # Build settings
 destination: _site/acc
