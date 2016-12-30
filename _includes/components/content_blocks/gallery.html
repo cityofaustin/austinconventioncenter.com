@@ -2,17 +2,23 @@
 
 {% if block.title %}<h3 class="acc-content-block-header">{{ block.title }}</h3>{% endif %}
 
-<div itemscope itemtype="http://schema.org/ImageGallery" data-gid="{{ block.sys.id }}" class="acc-gallery">
+<div itemscope itemtype="http://schema.org/ImageGallery" data-gid="{{ block.sys.id }}" class="acc-gallery {% unless block.showThumbnails == false %}acc-gallery-thumbnails{% endunless %}">
   {% for image in block.images %}
     {% if image.url %}
       <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" data-index="{{ forloop.index0 }}" data-pid="{{ image.sys.id }}" class="acc-gallery-photo">
-        <a href="{{ image.url }}?w=1800" itemprop="contentUrl" data-width="{{ image.width }}" data-height="{{ image.height }}" data-url="{{ image.url }}">
-          <img src="{{ image.url }}?w=330&h=220&fit=thumb"
-            srcset="{{ image.url }}?w=990&h=660&fit=thumb 3x,
-                    {{ image.url }}?w=660&h=440&fit=thumb 2x,
-                    {{ image.url }}?w=330&h=220&fit=thumb"
-            itemprop="thumbnail" alt="{{ image.title }}" />
-        </a>
+        {% if block.showThumbnails == false %}
+          <img src="{{ image.url }}?w=960"
+            srcset="{{ image.url }}?w=1920 2x,
+                    {{ image.url }}?w=960" alt="{{ image.title }}" />
+        {% else %}
+          <a href="{{ image.url }}?w=1800" itemprop="contentUrl" data-width="{{ image.width }}" data-height="{{ image.height }}" data-url="{{ image.url }}">
+            <img src="{{ image.url }}?w=330&h=220&fit=thumb"
+              srcset="{{ image.url }}?w=990&h=660&fit=thumb 3x,
+                      {{ image.url }}?w=660&h=440&fit=thumb 2x,
+                      {{ image.url }}?w=330&h=220&fit=thumb"
+              itemprop="thumbnail" alt="{{ image.title }}" />
+          </a>
+        {% endif %}
         {% if image.description %}
           <figcaption class="sr-only" itemprop="caption description">{{ image.description }}</figcaption>
         {% endif %}

@@ -96,7 +96,7 @@
   }
 
   function initPhotoSwipeFromDOM() {
-    var galleryElements = document.querySelectorAll(".acc-gallery");
+    var galleryElements = document.querySelectorAll(".acc-gallery-thumbnails");
 
     Array.prototype.forEach.call(galleryElements, function (gallery, i) {
       gallery.addEventListener("click", handleThumbnailClick);
