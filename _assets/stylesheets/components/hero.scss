@@ -3,10 +3,10 @@
   background-position: center;
   background-size: cover;
 
-  padding: 5rem 0;
+  height: 30rem;
 
   @media screen and (min-width: $large-screen) {
-    padding: 18rem 0;
+    height: 50rem;
   }
 
   .acc-button {
@@ -32,6 +32,7 @@
 }
 
 .acc-intro > *:first-child {
+  margin: 5rem 0;
   text-align: center;
   @media screen and (min-width: $small-screen) {
     width: 66.666%;
