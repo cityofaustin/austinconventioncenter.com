@@ -26,12 +26,12 @@ p {
 }
 
 a {
-  color: $acc-color-teal;
+  color: $acc-color-primary;
   text-decoration: underline;
   transition: color $transition-time;
 
   &:hover {
-    color: $acc-color-teal-dark;
+    color: $acc-color-primary-dark;
   }
 }
 

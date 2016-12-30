@@ -2,7 +2,8 @@
 <div class="usa-banner">
   <header class="usa-banner-header">
     <div class="usa-grid usa-banner-inner">
-      <p>This preview of the Austin Convention Center's new website may include incorrect information. For current info, please visit <a href="http://www.austinconventioncenter.com">www.austinconventioncenter.com</a>.</p>
+      {% assign disclaimer_url = site.url | replace: "beta", "www" %}
+      <p>This preview of the {{site.title}}'s new website may include incorrect information. For current info, please visit <a href="{{ disclaimer_url }}">{{ disclaimer_url | remove: "http://" }}</a>.</p>
     </div>
   </header>
 </div>
@@ -11,7 +12,7 @@
     <!-- <button class="usa-menu-btn">Menu</button> -->
     <div class="acc-logo">
       <a href="{{site.baseurl}}/" accesskey="1" title="Home" aria-label="Home">
-        <img src="{% asset_path acc-logo.svg %}" />
+        <img src="{% asset_path "{{site.id}}-logo.svg" %}" />
       </a>
     </div>
     <button class="usa-button-unstyled acc-nav-button hamburger hamburger--squeeze" type="button">

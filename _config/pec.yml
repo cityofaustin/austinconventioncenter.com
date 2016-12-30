@@ -4,7 +4,14 @@ url: "http://beta.palmereventscenter.com"
 
 calendar_location: "Palmer Events Center" # Socrata event data location value
 
+footer_address:
+  street: 900 Barton Springs Road
+  zip_code: 78704
+  phone: (512) 404-4500
+
 google_analytics_id: TBD
+facebook_url: https://www.facebook.com/PalmerEventsCenter/
+instagram_url: https://www.instagram.com/pectx/
 
 # Build settings
 destination: _site/pec

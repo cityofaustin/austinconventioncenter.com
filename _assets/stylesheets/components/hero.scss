@@ -1,12 +1,12 @@
 .acc-hero {
-  background-image: image_url('acc-building.jpg');
+  background-image: image_url("#{$site}-hero.jpg");
   background-position: center;
   background-size: cover;
 
   height: 30rem;
 
   @media screen and (min-width: $large-screen) {
-    height: 50rem;
+    height: 60rem;
   }
 
   .acc-button {
