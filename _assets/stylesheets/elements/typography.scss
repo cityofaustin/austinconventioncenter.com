@@ -42,8 +42,14 @@ a {
   }
 }
 
-.acc-content-block-list ul {
-  margin-top: 0;
+.acc-content-block {
+  p {
+    max-width: $text-max-width;
+  }
 }
 
-
+.acc-content-block ul:not(.acc-accordion),
+.acc-accordion-content ul {
+  margin-top: 0;
+  max-width: $text-max-width;
+}
