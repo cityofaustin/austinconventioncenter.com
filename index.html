@@ -1,22 +1,18 @@
 ---
 layout: default
 ---
-<style type="text/css">
-  .acc-breadcrumbs { display: none; }
-</style>
 
-<section class="acc-hero">
+{% assign contentful = site.contentful.page | where: "slug", "home" | first %}
+
+<section class="acc-hero" style="background-image: url({{ contentful.files.first.url }});">
   <div class="usa-grid-full">
-    <div class="acc-hero-tagline">
-      <h2>Six city blocks of innovative meeting space in the heart of downtown Austin.</h2>
-    </div>
   </div>
 </section>
 
 <div class="usa-grid">
   <div class="usa-width-one-whole">
     <header class="acc-intro">
-      <h2>Welcome message that helps introduce the options that are shown below.</h2>
+      <h2>{{ contentful.description }}</h2>
     </header>
 
     {% assign menu = site.contentful.menu | where_exp: "menu", "menu.name == 'Homepage'" | first %}
