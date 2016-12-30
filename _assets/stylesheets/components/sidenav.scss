@@ -32,7 +32,15 @@
   margin-top: 0;
 }
 
-.acc-sidenav-button,
+.acc-sidenav-button {
+  font-size: $base-font-size;
+  margin-left: 0.5em;
+
+  @media screen and (min-width: $large-screen) {
+    display: none;
+  }
+}
+
 .acc-sidenav-close {
   height: $hit-area;
   width: $hit-area;
@@ -51,27 +59,11 @@
   }
 }
 
-.acc-sidenav-button svg {
-  fill: $acc-color-gray;
-  transform: rotate(180deg);
-}
-
 .acc-sidenav-close {
   background-color: transparent;
   position: absolute;
   top: 0;
   right: 0;
-}
-
-.acc-sidenav-header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-
-
-  @media screen and (min-width: $large-screen) {
-    display: block;
-  }
 }
 
 .acc-sidenav-list,

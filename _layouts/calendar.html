@@ -29,11 +29,8 @@ layout: default
     </aside>
     <div class="usa-width-three-fourths">
       <h3 class="acc-sidenav-header">
-        <button class="usa-button-unstyled acc-sidenav-button">
-          {% asset_source icons/arrow.svg %}
-        </button>
-
         {{ page.title }}
+        <a href="#" class="acc-sidenav-button">Change Month</a>
       </h3>
       {% if page.events %}
         {% assign events = page.events | sort: "arrive_date" %}
