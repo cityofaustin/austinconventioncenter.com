@@ -1,5 +1,5 @@
 .acc-breadcrumbs {
-  background-color: $acc-color-orange;
+  background-color: $acc-breadcrumb-color;
 }
 
 .acc-breadcrumb-container {
@@ -64,7 +64,7 @@
 }
 
 @for $i from 1 through 4 {
-  @include breadcrumb-level($acc-color-orange, $i);
+  @include breadcrumb-level($acc-breadcrumb-color, $i);
 }
 
 .acc-breadcrumb:first-child {
