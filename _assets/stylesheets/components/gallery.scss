@@ -5,10 +5,15 @@
 }
 
 .acc-gallery-photo {
-  width: calc((100% - 0.5em)/2); // 0.5em gutter
+  flex-basis: calc((100% - 0.5em)/2); // 0.5em gutter
   margin: 0;
   margin-right: 0.5em;
   margin-bottom: 0.5em;
+}
+
+.acc-gallery:not(.acc-gallery-thumbnails) .acc-gallery-photo {
+  flex-grow: 1;
+  flex-shrink: 0;
 }
 
 .acc-gallery-photo:nth-of-type(2n) {
@@ -17,7 +22,7 @@
 
 @media screen and (min-width: $medium-screen) {
   .acc-gallery-photo {
-    width: calc((100% - 1em)/3); // 0.5em gutter x 2
+    flex-basis: calc((100% - 1em)/3); // 0.5em gutter x 2
   }
 
   .acc-gallery-photo:nth-of-type(2n) {
