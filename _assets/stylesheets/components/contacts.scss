@@ -1,15 +1,17 @@
-.acc-contact-name {
+.acc-contact-title {
+  color: $acc-color-gray-dark;
   font-size: $h3-font-size;
+  font-weight: bold;
 }
 
 .acc-contact-block {
   color: $acc-color-gray;
-  margin-bottom: 1em;
+  margin-bottom: 4rem;
 }
 
 .acc-mailto {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-weight: 600;
+  font-weight: bold;
 }

@@ -3,19 +3,17 @@
 <div class="acc-contact-block vcard">
   {{ contact.sys.fields }}
   <dl>
-    <dt class="fn acc-contact-name">
-      {{ contact.name }}
-    </dt>
     {% if contact.title %}
-      <dd class="title">
-        {{ contact.title }}
-      </dd>
+      <dt class="acc-contact-title">
+        {{ contact.title }} 
+        {% if contact.region %}
+          - {{ contact.region }}
+        {% endif %}
+      </dt>
     {% endif %}
-    {% if contact.region %}
-      <dd>
-        {{ contact.region }}
-      </dd>
-    {% endif %}
+    <dd class="fn acc-contact-name">
+      {{ contact.name }}
+    </dd>
     {% if contact.email %}
       <dd class="email">
         <a href="mailto:{{ contact.email }}" class="acc-mailto">{{ contact.email }}</a>
