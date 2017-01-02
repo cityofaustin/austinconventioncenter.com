@@ -17,12 +17,26 @@
     });
   }
 
+  // By default, IE <= 11 renders the map SVG as ~150px tall regardless of its width.
+  function setHeight(parent, svg) {
+    var bbox = svg.getBBox();
+
+    // Heuristic comparison to target IE's problem w/o affecting other browsers; expects the SVG's
+    // viewBox to exceed IE's default height.
+    if (parent.offsetHeight < bbox.height) {
+      svg.style.height = ((bbox.height / bbox.width) * parent.offsetWidth) + "px";
+    }
+  }
+
   function initClickableFloorPlan () {
-    var svg = document.querySelector("#acc-floor-plan-map > svg"),
+    var map = document.getElementById("acc-floor-plan-map"),
+        svg = map.getElementsByTagName("svg")[0],
         nav = document.getElementById("acc-floor-plan-nav"),
         navItems = {};
 
     if (!svg || !nav) return;
+
+    setHeight(map, svg); // IE fix
 
     var elements = svg.querySelectorAll("[id^='clickable-']");
 
