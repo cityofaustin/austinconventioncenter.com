@@ -6,7 +6,7 @@
     {% if url %}
       {% assign protocol = url | slice: 0, 4 %}
       <li>
-        <a href="{{ url }}" class="{% if include.item_classes %}{{ include.item_classes }}{% endif %}{% if protocol == "http" %} acc-external-link{% endif %}"{% if protocol == "http" %} target="_blank"{% endif %}>
+        <a href="{{ url }}" class="{% if include.item_classes %}{{ include.item_classes }}{% endif %}{% if protocol == "http" %} acc-external-link{% endif %}">
           {% if include.show_description %}
             <h3>{{ item.title }}</h3>
             {% if doc.contentful.description %}

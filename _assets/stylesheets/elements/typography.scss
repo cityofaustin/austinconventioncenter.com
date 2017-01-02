@@ -35,8 +35,8 @@ a {
   }
 }
 
-.acc-content-block:first-child .acc-content-block-header,
-.acc-sidebar-block:first-child .acc-sidebar-block-header {
+.acc-content-block:first-child > *:first-child,
+.acc-sidebar-block:first-child > *:first-child {
   @media screen and (min-width: $medium-screen) {
     margin-top: 0;
   }

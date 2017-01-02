@@ -37,7 +37,7 @@ layout: default
         <ul class="usa-unstyled-list">
           {% for event in events %}
             <li>
-              <a href="{% if event.website %}http://{{event.website}}{% else %}#{% endif %}" class="acc-calendar-event{% if event.website %} acc-calendar-event-link{% endif %}"{% if event.website %} target="_blank"{% endif %}>
+              <a href="{% if event.website %}http://{{event.website}}{% else %}#{% endif %}" class="acc-calendar-event{% if event.website %} acc-calendar-event-link{% endif %}">
                 {% assign arrive_month = event.arrive_date | date: "%B" %}
                 {% assign depart_month = event.depart_date | date: "%B" %}
 
