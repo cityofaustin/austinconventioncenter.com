@@ -10,8 +10,8 @@
 
 // room-type: (hover-color, current-color)
 $acc-floor-plan-map-colors: (
-  "ballroom": (#ffc955, #ffb618),
-  "exhibit_hall": (#acc767, #91b041)
+  "Ballroom": (#ffc955, #ffb618),
+  "Exhibit_Hall": (#acc767, #91b041)
 );
 
 .acc-floor-plan-map-clickable {
@@ -19,11 +19,11 @@ $acc-floor-plan-map-colors: (
   transition: fill 200ms ease;
 
   @each $type, $colors in $acc-floor-plan-map-colors {
-    &[id*="#{$type}" i]:hover {
+    &[id*="#{$type}"]:hover {
       fill: nth($colors, 1) !important;
     }
 
-    &.acc-floor-plan-map-current[id*="#{$type}" i] {
+    &.acc-floor-plan-map-current[id*="#{$type}"] {
       fill: nth($colors, 2) !important;
       &:hover {
         fill: nth($colors, 2) !important;
