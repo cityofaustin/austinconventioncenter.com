@@ -20,36 +20,30 @@
   function initClickableFloorPlan () {
     var svg = document.querySelector("#acc-floor-plan-map > svg"),
         nav = document.getElementById("acc-floor-plan-nav"),
-        navItems = {},
-        clickableRegex = /^clickable-/;
+        navItems = {};
 
     if (!svg || !nav) return;
 
-    var elements = svg.querySelectorAll("[id^='clickable'], text");
+    var elements = svg.querySelectorAll("[id^='clickable-']");
 
     Array.prototype.forEach.call(elements, function (element) {
-      if (clickableRegex.test(element.id)) {
-        var name = element.id.substr(10).split("_").join(" "),
-            slug = name.split(" ").join("-").toLowerCase();
+      var name = element.id.substr(10).split("_").join(" "),
+          slug = name.split(" ").join("-").toLowerCase();
 
-        var tooltip = createTooltip(element, name); // Default tooltip to layer name
+      var tooltip = createTooltip(element, name); // Default tooltip to layer name
 
-        var navItem = nav.querySelector("a[data-slug='" + slug + "']");
+      var navItem = nav.querySelector("a[data-slug='" + slug + "']");
 
-        if (navItem) {
-          tooltip.content = navItem.title; // Update tooltip to match nav, if found
+      if (navItem) {
+        tooltip.content = navItem.title; // Update tooltip to match nav, if found
 
-          element.classList.add("acc-floor-plan-map-clickable");
+        element.classList.add("acc-floor-plan-map-clickable");
 
-          if (location.pathname == navItem.getAttribute("href")) {
-            element.classList.add("acc-floor-plan-map-current");
-          }
-
-          navItems[element.id] = navItem; // Cache for the click handler
+        if (location.pathname == navItem.getAttribute("href")) {
+          element.classList.add("acc-floor-plan-map-current");
         }
-      } else if (element.id != "clickables") {
-        // Prevent mouseover on room names from hiding tooltips
-        element.style.pointerEvents = "none";
+
+        navItems[element.id] = navItem; // Cache for the click handler
       }
     });
 

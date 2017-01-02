@@ -1,5 +1,11 @@
 .acc-floor-plan-map {
   margin: 2.5em 0;
+
+  svg text {
+    font-family: inherit !important;
+    font-weight: 600 !important;
+    pointer-events: none;
+  }
 }
 
 // room-type: (hover-color, current-color)
