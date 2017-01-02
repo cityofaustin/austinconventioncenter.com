@@ -4,6 +4,11 @@ contentful_id: 4S1U5bQghaQAaKQsqOKywe
 ---
 
 <div class="usa-grid">
+  <div class="usa-width-one-whole">
+    <header>
+      <h1>{{ page.contentful.title }}</h1>
+    </header>
+  </div>
   <div class="usa-width-two-thirds">
     <ul class="usa-unstyled-list acc-press-release-list">
       {% for press_release in site.press-releases %}
