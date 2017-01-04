@@ -14,7 +14,7 @@ layout: default
           <img src="{% asset_path uswds/src/img/close.svg %}" alt="close">
         </button>
         <ul class="usa-unstyled-list acc-sidenav-list" id="acc-floor-plan-nav">
-          <li><a href="/facilities/plans/"{% if page.url == "/facilities/plans/" %} class="acc-current"{% endif %}>Center Overview</a></li>
+          <li><a href="/facility/plans/"{% if page.url == "/facility/plans/" %} class="acc-current"{% endif %}>Center Overview</a></li>
           {% assign docs = site.plans | sort: "title" | sort: "priority", "last"  %}
           {% for doc in docs %}
               {% if doc.docs and doc.docs != empty %}
