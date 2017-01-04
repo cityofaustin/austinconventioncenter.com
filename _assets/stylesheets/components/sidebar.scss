@@ -5,3 +5,8 @@ aside {
 .acc-sidebar-block {
   margin-bottom: 2em;
 }
+
+.acc-sidebar-block:first-child .acc-sidebar-contact-block-header {
+  border-top: 2px solid $acc-color-gray-lightest;
+  padding-top: 2em;
+}
