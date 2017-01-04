@@ -8,12 +8,13 @@
 }
 
 .acc-breadcrumb {
-  $height: 4rem;
+  $height: 2em;
   background-color: transparent;
   border-color: transparent;
   color: white;
   display: block;
-  font-size: 2rem;
+  font-size: 1.5rem;
+  font-weight: 600;
   height: $height;
   line-height: $height;
   position: relative;
@@ -41,7 +42,7 @@
   }
 
   @media screen and (min-width: $nav-width) {
-    $height: 6rem;
+    $height: 3em;
     height: $height;
     line-height: $height;
     padding: 0 1.5em 0 2em;
