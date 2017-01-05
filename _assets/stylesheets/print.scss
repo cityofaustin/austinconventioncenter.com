@@ -1,0 +1,71 @@
+@import "variables/all";
+
+body > *:not(#main-content) {
+  display: none;
+}
+
+#main-content::before {
+  content: "Please consider the environment when printing (try saving to PDF instead!)";
+}
+
+.acc-content-header h1 {
+  font-size: $h2-font-size;
+
+  &::before {
+    $title: config_value("title");
+    content: "#{$title}: ";
+  }
+}
+
+.usa-grid {
+  padding: 0;
+}
+
+.acc-content-block {
+  p {
+    max-width: none !important;
+  }
+}
+
+.acc-content-block ul,
+.acc-accordion-content ul {
+  max-width: none !important;
+}
+
+.usa-accordion li {
+  background: transparent;
+}
+
+.acc-accordion-button {
+  background: transparent;
+  font-size: $h3-font-size;
+  margin: 1em auto;
+  padding: 0;
+  pointer-events: none;
+
+  &::after {
+    content: "" !important;
+  }
+}
+
+.acc-accordion-content {
+  display: block !important;
+  padding: 0;
+}
+
+.acc-button,
+.acc-calendar-event,
+.acc-calendar-event-date {
+  background: transparent !important;
+  page-break-inside: avoid;
+}
+
+.acc-calendar-event-date {
+  h1, h4 {
+    color: $acc-color-gray-dark;
+  }
+}
+
+.acc-sidenav {
+  box-shadow: none;
+}
