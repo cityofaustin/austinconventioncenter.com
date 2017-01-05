@@ -62,6 +62,25 @@
   }
 }
 
+.acc-nav-list li:last-child {
+  @media screen and (min-width: $nav-width) {
+    position: relative;
+    margin-left: 1.5rem;
+    padding-left: 1.7rem;
+
+    &::before {
+      background-color: $acc-color-gray-lightest;
+      content: '';
+      width: 2px;
+      height: 3rem;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      margin-top: -1.5rem;
+    }
+  }
+}
+
 .acc-nav-link {
   display: block;
   font-size: $h4-font-size;

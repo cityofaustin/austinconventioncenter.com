@@ -48,7 +48,7 @@ a {
   }
 }
 
-.acc-content-block ul:not(.acc-accordion),
+.acc-content-block ul:not(.acc-floor-plan-setups):not(.acc-floor-plan-specifications),
 .acc-accordion-content ul {
   margin-top: 0;
   max-width: $text-max-width;
