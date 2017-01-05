@@ -5,7 +5,7 @@
   flex-direction: column;
   overflow: hidden;
 
-  @media screen and (min-width: $small-screen) {
+  @media all and (min-width: $small-screen) {
     flex-direction: row;
     min-height: 19rem;
   }
@@ -51,7 +51,7 @@
     margin: 0;
   }
 
-  @media screen and (min-width: $small-screen) {
+  @media all and (min-width: $small-screen) {
     width: 18rem;
   }
 }
