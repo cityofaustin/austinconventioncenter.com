@@ -12,6 +12,9 @@ layout: page
     <label for="email" class="usa-input-required">Your email</label>
     <input id="email" name="_replyto" type="email" required="" aria-required="true" placeholder="first.last@example.com">
 
+    <label for="phone" class="usa-input-required">Your phone</label>
+    <input id="email" name="phone" type="text" required="" aria-required="true" placeholder="(512) 555-1234">
+
     <label for="organization">Organization name</label>
     <input id="organization" name="organization" type="text">
 
@@ -27,16 +30,11 @@ layout: page
     <input id="dates-flexible" type="checkbox" name="dates-flexible" value="dates-flexible">
     <label for="dates-flexible">These dates are flexible.</label>
 
-    <label for="options">Budget</label>
-    <select name="options" id="options">
-      <option value="Less than $10,000">Less than $10,000</option>
-      <option value="$10,000 to $25,000">$10,000 to $25,000</option>
-      <option value="$25,000 to $100,000">$25,000 to $100,000</option>
-      <option value="More than $100,000">More than $100,000</option>
-    </select>
+    <label for="budget">Total Budget</label>
+    <input id="budget" name="budget" type="text">
 
     <label for="additional-information">Additional information</label>
-    <textarea id="additional-information" name="additional-information"></textarea>
+    <textarea id="additional-information" name="additional-information" placeholder="Space requirements, food and beverage needs, etc..."></textarea>
 
     <input type="hidden" name="_next" value="{{ "/thank-you/" | absolute_url }}" />
     <input type="text" name="_gotcha" style="display:none" />
