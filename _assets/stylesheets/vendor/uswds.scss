@@ -1,2 +1,6 @@
+//= link_tree ../../../node_modules/uswds/src/img
+
+$image-path: "uswds/src/img";
+
 @import "variables/all";
 @import "uswds/src/stylesheets/all";

@@ -13,6 +13,9 @@ google_analytics_id: TBD
 facebook_url: https://www.facebook.com/PalmerEventsCenter/
 instagram_url: https://www.instagram.com/pectx/
 
+contact_sales_form:
+  formspree_email: PalmerSales@austintexas.gov
+
 # Build settings
 destination: _site/pec
 assets:
