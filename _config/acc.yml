@@ -13,6 +13,9 @@ google_analytics_id: UA-87703455-1
 facebook_url: http://www.facebook.com/AustinConventionCenter/
 instagram_url: http://www.instagram.com/accdtx/
 
+contact_sales_form:
+  formspree_email: ConventionSales@austintexas.gov
+
 # Build settings
 destination: _site/acc
 assets:

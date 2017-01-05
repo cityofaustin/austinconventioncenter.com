@@ -1,0 +1,16 @@
+.acc-form {
+  margin-top: 6rem;
+
+  legend h3 {
+    margin-top: 0;
+  }
+}
+
+.acc-form .acc-button[type="submit"] {
+  display: block;
+  width: 100%;
+
+  @media screen and (min-width: $medium-screen) {
+    width: auto;
+  }
+}
