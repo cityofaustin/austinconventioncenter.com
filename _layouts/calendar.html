@@ -74,7 +74,7 @@ layout: default
         {% comment %} Redirect /calendar/ to current month {% endcomment %}
         {% assign current_month = site.calendar | first %}
         <script type="text/javascript">
-          window.location = "{{ current_month.url | absolute_url }}";
+          window.location = "{{ current_month.url }}";
         </script>
       {% endif %}
     </div>
