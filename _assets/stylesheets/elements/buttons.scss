@@ -35,9 +35,8 @@
 
 @mixin acc-button-icon {
   background-color: #fff;
-  background-image: image_url('icons/arrow-right-teal.svg');
-  background-size: 1rem;
-  background-position: center center;
+  background-image: image_url("icons/button-primary-#{$site}.png");
+  background-size: contain;
   background-repeat: no-repeat;
   border-radius: 2.5rem;
   content: '';
