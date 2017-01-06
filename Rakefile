@@ -95,4 +95,20 @@ namespace :ci do
     task = ENV["SITE"] ? "deploy:#{ENV["SITE"]}" : "deploy"
     Rake::Task[task].invoke
   end
+
+  # Nightly task run by Heroku Scheduler to rebuild the site (rebuilding nightly ensures the
+  # calendar is always up-to-date).
+  task :scheduler do
+    require 'faraday'
+
+    connection = Faraday.new("https://circleci.com") do |faraday|
+      faraday.request  :url_encoded
+      faraday.response :logger
+      faraday.adapter Faraday.default_adapter
+    end
+
+    connection.post("/api/v1/project/cityofaustin/austinconventioncenter.com/tree/master") do |request|
+      request.params["circle-token"] = ENV["CIRCLE_TOKEN"]
+    end
+  end
 end

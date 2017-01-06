@@ -14,7 +14,7 @@ This project implements a decoupled CMS, which you can read about in [our Medium
 
 The same source builds both austinconventioncenter.com and palmereventscenter.com using content from separate Contentful spaces. Site-specific files in [_config/](_config) extend the base configuration found in [_config.yml](_config.yml).
 
-We continuously deploy the static sites to Amazon S3 by using [s3_website][] on CircleCI. The [Rakefile](Rakefile) includes CI-specific build and deploy commands.
+We continuously deploy the static sites to Amazon S3 by using [s3_website][] on CircleCI. The [Rakefile](Rakefile) includes CI-specific build and deploy commands. We also use Heroku Scheduler to trigger nightly CI builds that ensure imported calendar events are kept current.
 
 [medium]: https://medium.com/city-of-austin-design-technology-innovation/how-were-thinking-about-content-management-for-city-government-88f563497096
 [contentful]: https://www.contentful.com

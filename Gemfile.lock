@@ -34,6 +34,8 @@ GEM
     execjs (2.7.0)
     extras (0.1.0)
       forwardable-extended (~> 2.5)
+    faraday (0.10.1)
+      multipart-post (>= 1.2, < 3)
     fastimage (2.0.0)
       addressable (~> 2)
     ffi (1.9.14)
@@ -135,6 +137,7 @@ PLATFORMS
 DEPENDENCIES
   activesupport
   autoprefixer-rails
+  faraday
   font-awesome-sass
   foreman
   jekyll
