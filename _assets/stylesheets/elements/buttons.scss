@@ -106,7 +106,7 @@
 .acc-button.acc-external-link {
   @include acc-button-font-icon(1.3em, "\f08e");
   &::after {
-    line-height: unset;
+    line-height: normal;
   }
 }
 
