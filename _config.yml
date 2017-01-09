@@ -23,6 +23,7 @@ exclude:
   - lib
   - node_modules
   - package.json
+  - Procfile
   - Rakefile
   - README.md
   - s3_website.yml
