@@ -1,6 +1,7 @@
 function toggleFolder (event) {
   var folder = event.target;
   folder.getAttribute("aria-expanded") === "true" ? hideFolder(folder) : showFolder(folder);
+  event.preventDefault();
 }
 
 function showFolder (folder) {
