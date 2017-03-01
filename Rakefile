@@ -70,7 +70,7 @@ namespace :deploy do
   end
 
   task :pec do
-    exec "SITE=pec S3_BUCKET=beta.palmereventscenter.com s3_website push --site=_site/pec"
+    exec "SITE=pec S3_BUCKET=www.palmereventscenter.com s3_website push --site=_site/pec"
   end
 end
 
