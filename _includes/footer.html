@@ -19,20 +19,24 @@
         </div>
       </nav>
       <div class="usa-width-one-whole acc-footer-info">
-        <section class="usa-width-two-thirds acc-footer-address">
+        <section class="acc-footer-logo">
+          <a href="http://www.austintexas.gov">
+            {% img coa-stamp.png "City of Austin" height="75px" width="75px" %}
+          </a>
+        </section>
+        <section class="acc-footer-address">
           <div itemscope itemtype="http://schema.org/LocalBusiness">
             <span itemprop="name">{{ site.title }}</span><br/>
             <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
               <span itemprop="streetAddress">{{ site.footer_address.street }}</span>
               <span itemprop="addressLocality">Austin</span>,
               <span itemprop="addressRegion">TX</span>
-              <span itemprop="postalCode">{{ site.footer_address.zip_code }}</span>
+              <span itemprop="postalCode">{{ site.footer_address.zip_code }}</span><br/>
               <span itemprop="telephone">{{ site.footer_address.phone }}</span>
             </span>
           </div>
-
         </section>
-        <section class="usa-width-one-third acc-footer-social-links">
+        <section class="acc-footer-social-links">
           <a href="{{ site.instagram_url }}" title="Visit the {{site.title}} on Instagram">
             <i class="fa fa-instagram" aria-hidden="true"></i>
           </a>

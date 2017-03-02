@@ -37,24 +37,34 @@
 }
 
 .acc-footer-info {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 
-  @media screen and (min-width: $medium-screen) {
-    text-align: left;
-  }
+.acc-footer-logo {
+  flex: 0 0 auto;
+  margin-right: 2rem;
 }
 
 .acc-footer-address {
   font-size: 1.3rem;
   line-height: 1.5em;
+
+  @media screen and (min-width: $medium-screen) {
+    flex: 1 0 auto;
+  }
 }
 
 .acc-footer-social-links {
   font-size: 2em;
   text-align: center;
+  width: 100%;
 
   @media screen and (min-width: $medium-screen) {
     text-align: right;
+    width: auto;
   }
 
   a {
