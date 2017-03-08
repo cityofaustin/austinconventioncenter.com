@@ -31,10 +31,12 @@ module Jekyll
         generate_page(site, section, attributes)
       end
 
-      data.fetch("pressRelease", []).each do |attributes|
-        attributes["date"] = attributes["date"].utc # Undo implicit time zone conversion
-        page = generate_page(site, site.collections["press-releases"], attributes)
-        page.data["breadcrumbs"][-1]["title"] = attributes["date"].strftime("%B %-d, %Y")
+      if press_releases_section = site.collections["press-room"]
+        data.fetch("pressRelease", []).each do |attributes|
+          attributes["date"] = attributes["date"].utc # Undo implicit time zone conversion
+          page = generate_page(site, press_releases_section, attributes)
+          page.data["breadcrumbs"][-1]["title"] = attributes["date"].strftime("%B %-d, %Y")
+        end
       end
     end
 

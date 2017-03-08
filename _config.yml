@@ -73,10 +73,10 @@ defaults:
       permalink: "/calendar/:year/:month/"
   -
     scope:
-      type: press-releases
+      type: press-room
     values:
       layout: press_release
-      permalink: "/press-releases/:year/:month/:day/:title/"
+      permalink: "/press-room/:year/:month/:day/:title/"
   -
     scope:
       type: "plans"

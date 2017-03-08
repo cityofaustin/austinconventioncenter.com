@@ -11,7 +11,7 @@ contentful_id: 4S1U5bQghaQAaKQsqOKywe
   </div>
   <div class="usa-width-two-thirds">
     <ul class="usa-unstyled-list acc-press-release-list">
-      {% assign press_releases = site.press-releases | sort: "date" | reverse %}
+      {% assign press_releases = site.press-room | sort: "date" | reverse %}
       {% for press_release in press_releases %}
         <li>
           <strong class="acc-press-release-date">{{ press_release.date | date: "%B %-d, %Y" }}</strong><br>
