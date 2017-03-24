@@ -89,6 +89,10 @@
 .acc-footer-badge {
   padding-top: 3rem;
 
+  a {
+    display: inline-block;
+  }
+
   img {
     filter: grayscale(100%);
     height: 5rem;
