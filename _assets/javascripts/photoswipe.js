@@ -4,18 +4,20 @@
 (function() {
 
   function handleThumbnailClick(event) {
-    event.preventDefault();
-
     if (event.target !== event.currentTarget) {
       var item = event.target;
 
-      while (item.tagName && item.tagName.toLowerCase() !== "figure") {
-        item = item.parentNode;
-      }
+      if (item.tagName && item.tagName.toLowerCase() == "img") {
+        event.preventDefault();
 
-      if (item.getAttribute) {
-        var index = parseInt(item.getAttribute("data-index"), 10);
-        openPhotoSwipe(event.currentTarget, index);
+        while (item.tagName && item.tagName.toLowerCase() !== "figure") {
+          item = item.parentNode;
+        }
+
+        if (item.getAttribute) {
+          var index = parseInt(item.getAttribute("data-index"), 10);
+          openPhotoSwipe(event.currentTarget, index);
+        }
       }
     }
   }

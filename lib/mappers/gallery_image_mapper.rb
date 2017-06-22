@@ -1,7 +1,7 @@
 require_relative "content_block_mapper"
 
 module Mappers
-  class GalleryBlockMapper < ContentBlockMapper
+  class GalleryImageMapper < ContentBlockMapper
 
     # Add ID and image dimensions to gallery block images
     def map_asset(asset)

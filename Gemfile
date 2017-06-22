@@ -20,4 +20,5 @@ end
 
 group :development do
   gem "foreman"
+  gem "contentful-management"
 end
