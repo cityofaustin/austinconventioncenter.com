@@ -1,12 +1,8 @@
 ## About
 
-This is the new website of the Austin Convention Center Department, currently under active development. The project is being led by a team in the City's [Design, Technology, and Innovation Fellows program][dti].
-
-We're using [sprints], and you're welcome to check out [our Trello board][trello].
+This is the website of the Austin Convention Center Department, which was created by a team in the City's [Design, Technology, and Innovation Fellows program][dti].
 
 [dti]: http://cityofaustin.github.io/innovation-fellows/
-[sprints]: https://en.wikipedia.org/wiki/Scrum_(software_development)
-[trello]: https://trello.com/b/6c52YDzi/acc-pec
 
 ## Architecture
 
@@ -84,20 +80,77 @@ To render specific content outside of a page (such as a particular menu), `site.
 [front matter defaults]: https://jekyllrb.com/docs/configuration/#front-matter-defaults
 [where]: https://jekyllrb.com/docs/templates/
 
-### Syncing the content model from ACC to PEC
+### Making changes to the content model
 
-Edit the content model in the ACC space **only**, and then use Contentful's [Space Sync tool][space-sync] to sync it to the Palmer space. Example command (requires `CONTENTFUL_MANAGEMENT_ACCESS_TOKEN` to be set in your local env):
+It will sometimes be necessary to add, remove, or change content types and fields in Contentful. Rather than make changes in the production spaces, the recommended workflow is to use Contentful's [export][] and [import][] tools to spin up temporary staging spaces, and then to sync content model changes back to the production spaces.
 
-```
-contentful-space-sync --content-model-only \
-  --source-space=$CONTENTFUL_ACC_SPACE_ID \
-  --destination-space=$CONTENTFUL_PEC_SPACE_ID \
-  --source-delivery-token=$CONTENTFUL_ACC_ACCESS_TOKEN \
-  --destination-delivery-token=$CONTENTFUL_PEC_ACCESS_TOKEN \
-  --management-token=$CONTENTFUL_MANAGEMENT_ACCESS_TOKEN
-```
+1. Get a [personal access token][token] and set it as `$CONTENTFUL_MANAGEMENT_ACCESS_TOKEN` in your local env.
 
-[space-sync]: https://github.com/contentful/contentful-space-sync
+[token]: https://www.contentful.com/developers/docs/references/authentication/#getting-a-personal-access-token
+
+2. Create a new, empty space in Contentful (e.g. "ACC Dev").
+
+3. Export the ACC Production space:
+
+    ```
+    $ contentful-export --skip-webhooks \
+      --space-id $CONTENTFUL_ACC_SPACE_ID \
+      --management-token $CONTENTFUL_MANAGEMENT_ACCESS_TOKEN \
+      --skip-webhooks
+    ```
+
+4. Change your local `$CONTENTFUL_ACC_SPACE_ID` to the dev space ID.
+
+5. Import the production space data to the dev space:
+
+    ```
+    $ contentful-import --content-model-only \
+      --space-id=<ACC_DEV_SPACE_ID> \
+      --management-token=$CONTENTFUL_MANAGEMENT_ACCESS_TOKEN \
+      --content-file=<ACC_PRODUCTION_EXPORT_FILE>.json
+    ```
+
+6. Change the content model in the new space, and then test your changes locally by running `$ rake contentful:acc` and running `$ foreman start acc`.
+
+7. When the changes are complete, repeat steps 2 through 5 for PEC, creating "PEC Dev" and exporting/importing the PEC Production data.
+
+8. Export the updated content model from the new ACC Dev space:
+
+    ```
+    $ contentful-export --space-id $CONTENTFUL_ACC_SPACE_ID \
+      --management-token $CONTENTFUL_MANAGEMENT_ACCESS_TOKEN
+    ```
+
+9. Test importing the updated content model from the ACC Dev to the PEC Dev space:
+
+    ```
+    $ contentful-import --content-model-only \
+      --space-id=<PEC_DEV_SPACE_ID> \
+      --management-token=$CONTENTFUL_MANAGEMENT_ACCESS_TOKEN \
+      --content-file=<ACC_DEV_EXPORT_FILE>.json
+    ```
+
+10. If step 9 succeeds, you can proceed to change your env vars back to the production values and then run `contentful-import` to update both the ACC and PEC production spaces using the dev export and the **`--content-model-only`** option:
+
+    ```
+    $ contentful-import --content-model-only \
+      --space-id=$CONTENTFUL_ACC_SPACE_ID \
+      --management-token=$CONTENTFUL_MANAGEMENT_ACCESS_TOKEN \
+      --content-file=<ACC_DEV_EXPORT_FILE>.json
+
+    $ contentful-import --content-model-only \
+      --space-id=$CONTENTFUL_PEC_SPACE_ID \
+      --management-token=$CONTENTFUL_MANAGEMENT_ACCESS_TOKEN \
+      --content-file=<ACC_DEV_EXPORT_FILE>.json
+    ```
+
+11. Once you've confirmed everything is working, you can delete the ACC Dev and PEC Dev spaces.
+
+In some cases, it may also be necessary to update existing entries en masse, using Rake and the [contentful-management][] gem or a similar migration script workflow. You can use the above procedure to test such migrations. When you're ready to run your script on the production spaces, you should temporarily disable the production space webhooks to avoid triggering unnecessary deploys. Reenable them after the updates are published.
+
+[export]: https://github.com/contentful/contentful-export
+[import]: https://github.com/contentful/contentful-import
+[contentful-management]: https://github.com/contentful/contentful-management.rb
 
 ## Deploying
 
