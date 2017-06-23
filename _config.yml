@@ -37,7 +37,8 @@ contentful_options: &contentful_options
   content_types:
     accordionBlock: Mappers::ContentBlockMapper
     contactBlock: Mappers::ContentBlockMapper
-    galleryBlock: Mappers::GalleryBlockMapper
+    galleryBlock: Mappers::ContentBlockMapper
+    galleryImage: Mappers::GalleryImageMapper
     menu: Mappers::ContentBlockMapper
     textBlock: Mappers::ContentBlockMapper
 

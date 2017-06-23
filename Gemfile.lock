@@ -27,6 +27,10 @@ GEM
       http (~> 1.0)
       json (~> 1.8)
       multi_json (~> 1)
+    contentful-management (1.8.0)
+      http (> 1.0, < 3.0)
+      json (~> 1.8)
+      multi_json (~> 1)
     deep_merge (1.0.1)
     domain_name (0.5.20161021)
       unf (>= 0.0.5, < 1.0.0)
@@ -137,6 +141,7 @@ PLATFORMS
 DEPENDENCIES
   activesupport
   autoprefixer-rails
+  contentful-management
   faraday
   font-awesome-sass
   foreman
@@ -154,4 +159,4 @@ RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.12.5
+   1.15.1
