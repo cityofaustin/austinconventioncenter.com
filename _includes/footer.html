@@ -81,3 +81,8 @@
     </div>
   </div>
 </footer>
+<div class="acc-test">
+  {% for breadcrumb in page.breadcrumbs %}
+    <span >{{ breadcrumb.title }}</span>
+  {% endfor %}
+</div>
