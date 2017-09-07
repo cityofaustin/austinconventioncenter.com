@@ -28,7 +28,13 @@ We continuously deploy the static sites to Amazon S3 by using [s3_website][] on 
         $ bundle install
         $ npm install
 
-3. Import Contentful data:
+3. Add the following line to your `.bash_profile`:  
+
+    ```
+    eval "$(direnv hook $0)"
+    ```
+
+4. Import Contentful data:
 
     Using the values found in Contentful's APIs tab, set these variables in your local checkout using a tool like [direnv][] (add `.envrc` to your **global** gitignore):
 
@@ -39,11 +45,11 @@ We continuously deploy the static sites to Amazon S3 by using [s3_website][] on 
 
     Then run `rake contentful` (or `rake contentful:acc` and `rake contentful:pec`).
 
-4. Import calendar data (from data.austintexas.gov's Socrata API):
+5. Import calendar data (from data.austintexas.gov's Socrata API):
 
         $ rake calendar
 
-5. Serve the Jekyll site(s):
+6. Serve the Jekyll site(s):
 
     `$ foreman start acc`, `$ foreman start pec`, or just `$ foreman start` for both.
 
@@ -51,9 +57,9 @@ We continuously deploy the static sites to Amazon S3 by using [s3_website][] on 
 
 ## Contributing
 
-Refer to the [Developer Guide][], particularly the Git workflow.
+Refer to the _Application Development_ section of the [Developer Guide][], particularly the Git workflow.
 
-[Developer Guide]: http://pages.austintexas.io/guides/developer-guide/
+[Developer Guide]: http://developer-guides.austintexas.io
 
 ## Working with Contentful
 
@@ -132,17 +138,17 @@ It will sometimes be necessary to add, remove, or change content types and field
 
 10. If step 9 succeeds, you can proceed to change your env vars back to the production values and then run `contentful-import` to update both the ACC and PEC production spaces using the dev export and the **`--content-model-only`** option:
 
-    ```
-    $ contentful-import --content-model-only \
-      --space-id=$CONTENTFUL_ACC_SPACE_ID \
-      --management-token=$CONTENTFUL_MANAGEMENT_ACCESS_TOKEN \
-      --content-file=<ACC_DEV_EXPORT_FILE>.json
+  ```
+  $ contentful-import --content-model-only \
+    --space-id=$CONTENTFUL_ACC_SPACE_ID \
+    --management-token=$CONTENTFUL_MANAGEMENT_ACCESS_TOKEN \
+    --content-file=<ACC_DEV_EXPORT_FILE>.json
 
-    $ contentful-import --content-model-only \
-      --space-id=$CONTENTFUL_PEC_SPACE_ID \
-      --management-token=$CONTENTFUL_MANAGEMENT_ACCESS_TOKEN \
-      --content-file=<ACC_DEV_EXPORT_FILE>.json
-    ```
+  $ contentful-import --content-model-only \
+    --space-id=$CONTENTFUL_PEC_SPACE_ID \
+    --management-token=$CONTENTFUL_MANAGEMENT_ACCESS_TOKEN \
+    --content-file=<ACC_DEV_EXPORT_FILE>.json
+  ```
 
 11. Once you've confirmed everything is working, you can delete the ACC Dev and PEC Dev spaces.
 
