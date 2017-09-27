@@ -24,4 +24,8 @@
   {% stylesheet print media:"print" %}
 <!-- Google Analytics -->
   {% include analytics/google_analytics.html %}
+<!-- Facebook Analytics -->
+  {% if site.facebook_analytics_pixel_id %}
+    {% include analytics/facebook_analytics.html %}
+  {% endif %}
 </head>
