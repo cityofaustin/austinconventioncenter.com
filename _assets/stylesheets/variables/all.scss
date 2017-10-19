@@ -3,13 +3,13 @@ $site: config_value("id");
 $acc-color-primary-light: #cef8f0;
 $acc-color-primary: #00807a;
 $acc-color-primary-dark: #1d6464;
-$acc-breadcrumb-color: #f35348;
+$acc-breadcrumb-color: #77BC1F;
 
 @if $site == pec {
   $acc-color-primary-light: #B1D6ED;
   $acc-color-primary: #2573A1;
   $acc-color-primary-dark: #1D5C80;
-  $acc-breadcrumb-color: #C1005A;
+  $acc-breadcrumb-color: #1AAFE2;
 }
 
 // Colors
