@@ -50,6 +50,16 @@ contentful:
     -
       pec:
         <<: *contentful_options
+    -
+      acc_staging:
+        <<: *contentful_options
+        client_options:
+          api_url: 'preview.contentful.com'
+    -
+      pec_staging:
+        <<: *contentful_options
+        client_options:
+          api_url: 'preview.contentful.com'
 
 defaults:
   -

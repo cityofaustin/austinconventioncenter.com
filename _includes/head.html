@@ -3,6 +3,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <!-- Meta Attributes -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% if site.environment == "staging" %}
+  <meta name="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+{% endif %}
   <link rel="icon" type="image/png" href="{% asset_path "{{ site.id }}-favicon.png" %}">
 {% if page.title %}
   <title>{{ site.title }} | {{ page.title }}</title>

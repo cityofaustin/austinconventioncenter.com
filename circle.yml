@@ -13,7 +13,6 @@ test:
 
 deployment:
   merge:
-    branch:
-      - master
+    branch: [master, staging]
     commands:
       - "bundle exec rake ci:deploy"
