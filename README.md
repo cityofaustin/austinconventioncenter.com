@@ -160,7 +160,7 @@ In some cases, it may also be necessary to update existing entries en masse, usi
 
 ## Deploying
 
-Each site deploys automatically when new commits are added to master or when data in their respective Contentful spaces is updated. Deploy progress and output can be viewed in CircleCI.
+Each site deploys automatically when new commits are added to master or when data in their respective Contentful spaces is updated. Deploy progress and output can be viewed in [the publicly-accessible CircleCI project](https://circleci.com/gh/cityofaustin/austinconventioncenter.com).
 
 ## Credits
 
