@@ -164,9 +164,12 @@ namespace :ci do
       faraday.response :logger
       faraday.adapter Faraday.default_adapter
     end
-
-    connection.post("/api/v1/project/cityofaustin/austinconventioncenter.com/tree/master") do |request|
-      request.params["circle-token"] = ENV["CIRCLE_TOKEN"]
+    
+    branches = ["master", "staging"]
+    branches.each do |branch|
+      connection.post("/api/v1/project/cityofaustin/austinconventioncenter.com/tree/#{branch}") do |request|
+        request.params["circle-token"] = ENV["CIRCLE_TOKEN"]
+      end
     end
   end
 end
