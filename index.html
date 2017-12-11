@@ -5,7 +5,7 @@ layout: default
 {% assign contentful = site.contentful.page | where: "slug", "home" | first %}
 {% assign hero_image = contentful.files.first %}
 
-<section class="acc-hero"{% if hero_image %} style="background-image: url({{ hero_image.url }});"{% endif %}>
+<section class="acc-hero"{% if hero_image %} style="background-image: url({{ hero_image.url }}?h=1500);"{% endif %}>
   <div class="usa-grid-full">
   </div>
 </section>
