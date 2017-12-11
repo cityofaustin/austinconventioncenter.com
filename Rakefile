@@ -14,14 +14,28 @@ namespace :build do
   task :pec do
     Jekyll::Commands::Build.process(config: ["_config.yml", "_config/pec.yml"])
   end
+
+  desc "Run `jekyll build` with ACC Staging configuration (use `foreman start acc_staging` for `jekyll serve`)"
+  task :acc_staging do
+    Jekyll::Commands::Build.process(config: ["_config.yml", "_config/acc_staging.yml"])
+  end
+
+  desc "Run `jekyll build` with PEC Staging configuration (use `foreman start pec_staging` for `jekyll serve`)"
+  task :pec_staging do
+    Jekyll::Commands::Build.process(config: ["_config.yml", "_config/pec_staging.yml"])
+  end
 end
 
-desc "Build both ACC and PEC sites"
+desc "Build the sites"
 task :build do
   if ENV["CI"] || system("which parallel") # On macOS: `brew install parallel` (optional)
-    exec("parallel bundle exec rake build:{} ::: acc pec")
+    if ENV["CIRCLE_BRANCH"] == "master"
+      exec("parallel bundle exec rake build:{} ::: acc pec")
+    else
+      exec("parallel bundle exec rake build:{} ::: acc_staging pec_staging")
+    end
   else
-    %w(acc pec).each { |site| Rake::Task["build:#{site}"].invoke }
+    %w(acc pec acc_staging pec_staging).each { |site| Rake::Task["build:#{site}"].invoke }
   end
 end
 
@@ -51,10 +65,42 @@ namespace :contentful do
 
     Jekyll::Commands::Contentful.process([], {}, config)
   end
+
+  desc "Import ACC Staging Contentful data"
+  task :acc_staging do
+    config = Jekyll.configuration["contentful"]
+    config["spaces"].select! { |space| space.include?("acc_staging") }
+
+    config["spaces"][0]["acc_staging"].merge!({
+      "space" => ENV["CONTENTFUL_ACC_SPACE_ID"],
+      "access_token" => ENV["CONTENTFUL_ACC_STAGING_ACCESS_TOKEN"]
+    })
+
+    Jekyll::Commands::Contentful.process([], {}, config)
+  end
+
+  desc "Import PEC Staging Contentful data"
+  task :pec_staging do
+    config = Jekyll.configuration["contentful"]
+    config["spaces"].select! { |space| space.include?("pec_staging") }
+
+    config["spaces"][0]["pec_staging"].merge!({
+      "space" => ENV["CONTENTFUL_PEC_SPACE_ID"],
+      "access_token" => ENV["CONTENTFUL_PEC_STAGING_ACCESS_TOKEN"]
+    })
+
+    Jekyll::Commands::Contentful.process([], {}, config)
+  end
 end
 
-desc "Import both ACC and PEC Contentful data"
-multitask :contentful => ["contentful:acc", "contentful:pec"]
+desc "Import all Contentful data"
+if ENV["CI"]
+  if ENV["CIRCLE_BRANCH"] == "master"
+    multitask :contentful => ["contentful:acc", "contentful:pec"]
+  else
+    multitask :contentful => ["contentful:acc_staging", "contentful:pec_staging"]
+  end
+end
 
 desc "Import ACC and PEC event listings from Socrata (data.austintexas.gov)"
 task :calendar do
@@ -72,10 +118,22 @@ namespace :deploy do
   task :pec do
     exec "SITE=pec S3_BUCKET=www.palmereventscenter.com s3_website push --site=_site/pec"
   end
+
+  task :acc_staging do
+    exec "SITE=acc_staging S3_BUCKET=staging.austinconventioncenter.com s3_website push --site=_site/acc_staging"
+  end
+
+  task :pec_staging do
+    exec "SITE=pec_staging S3_BUCKET=staging.palmereventscenter.com s3_website push --site=_site/pec_staging"
+  end
 end
 
 task :deploy do
-  exec "parallel bundle exec rake deploy:{} ::: acc pec"
+  if ENV["CIRCLE_BRANCH"] == "master"
+    exec "parallel bundle exec rake deploy:{} ::: acc pec"
+  elsif ENV["CIRCLE_BRANCH"] == "staging"
+    exec "parallel bundle exec rake deploy:{} ::: acc_staging pec_staging"
+  end
 end
 
 # CI-specific import, build, and deploy commands that toggle between ACC, PEC, or both, depending on
@@ -106,9 +164,12 @@ namespace :ci do
       faraday.response :logger
       faraday.adapter Faraday.default_adapter
     end
-
-    connection.post("/api/v1/project/cityofaustin/austinconventioncenter.com/tree/master") do |request|
-      request.params["circle-token"] = ENV["CIRCLE_TOKEN"]
+    
+    branches = ["master", "staging"]
+    branches.each do |branch|
+      connection.post("/api/v1/project/cityofaustin/austinconventioncenter.com/tree/#{branch}") do |request|
+        request.params["circle-token"] = ENV["CIRCLE_TOKEN"]
+      end
     end
   end
 end

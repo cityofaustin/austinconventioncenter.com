@@ -40,10 +40,12 @@ We continuously deploy the static sites to Amazon S3 by using [s3_website][] on 
 
             export CONTENTFUL_ACC_SPACE_ID='TBD'
             export CONTENTFUL_ACC_ACCESS_TOKEN='TBD'
+            export CONTENTFUL_ACC_STAGING_ACCESS_TOKEN='TBD'
             export CONTENTFUL_PEC_SPACE_ID='TBD'
             export CONTENTFUL_PEC_ACCESS_TOKEN='TBD'
+            export CONTENTFUL_PEC_STAGING_ACCESS_TOKEN='TBD'
 
-    Then run `rake contentful` (or `rake contentful:acc` and `rake contentful:pec`).
+    Then run `rake contentful` (or `rake contentful:acc`, `rake contentful:pec`, `rake contentful:acc_staging`, or `rake contentful:pec_staging`).
 
 5. Import calendar data (from data.austintexas.gov's Socrata API):
 
@@ -51,7 +53,7 @@ We continuously deploy the static sites to Amazon S3 by using [s3_website][] on 
 
 6. Serve the Jekyll site(s):
 
-    `$ foreman start acc`, `$ foreman start pec`, or just `$ foreman start` for both.
+    `$ foreman start acc`, `$ foreman start pec`, `$ foreman start acc_staging`, `$ foreman start pec_staging`, or just `$ foreman start` for all.
 
 [direnv]: http://direnv.net
 
@@ -160,7 +162,12 @@ In some cases, it may also be necessary to update existing entries en masse, usi
 
 ## Deploying
 
-Each site deploys automatically when new commits are added to master or when data in their respective Contentful spaces is updated. Deploy progress and output can be viewed in CircleCI.
+Each site deploys automatically when new commits are added to master or when data in their respective Contentful spaces is updated. Deploy progress and output can be viewed in [the publicly-accessible CircleCI project](https://circleci.com/gh/cityofaustin/austinconventioncenter.com).
+
+| Environment                              | Status                                   |
+| ---------------------------------------- | ---------------------------------------- |
+| Production<br />[ACC](https://austinconventioncenter.com) \| [PEC](https://palmereventscenter.com) \| [CircleCI](https://circleci.com/gh/cityofaustin/austinconventioncenter.com/tree/master) | [![CircleCI](https://circleci.com/gh/cityofaustin/austinconventioncenter.com/tree/master.svg?style=svg)](https://circleci.com/gh/cityofaustin/austinconventioncenter.com/tree/master) |
+| Staging<br />[ACC](http://staging.austinconventioncenter.com) \| [PEC](http://staging.palmereventscenter.com) \| [CircleCI](https://circleci.com/gh/cityofaustin/austinconventioncenter.com/tree/staging) | [![CircleCI](https://circleci.com/gh/cityofaustin/austinconventioncenter.com/tree/staging.svg?style=svg)](https://circleci.com/gh/cityofaustin/austinconventioncenter.com/tree/staging) |
 
 ## Credits
 
