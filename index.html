@@ -16,8 +16,13 @@ layout: default
       <h2>{{ contentful.description }}</h2>
     </header>
 
-    {% assign menu = site.contentful.menu | where_exp: "menu", "menu.name == 'Homepage'" | first %}
-    {% include components/menu.html items=menu.items list_classes="acc-button-grid-wide" item_classes="acc-button acc-button-primary" show_description=true %}
-  </div>
+
+
+    </div>
 </div>
+
+{% include carousel.html %}
+
+
+
 
