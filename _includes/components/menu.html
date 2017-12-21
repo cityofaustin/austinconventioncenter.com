@@ -1,5 +1,8 @@
 <ul class="usa-unstyled-list {{ include.list_classes }}">
   {% for item in include.items %}
+      <!--
+        {{ item }}
+      -->
     {% assign doc = item | find_document %}
     {% assign url = item.url | default: doc.url %}
 
@@ -22,3 +25,4 @@
     {% endif %}
   {% endfor %}
 </ul>
+
