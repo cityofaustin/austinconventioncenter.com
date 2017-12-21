@@ -1,7 +1,10 @@
 <ul class="usa-unstyled-list {{ include.list_classes }}">
   {% for item in include.items %}
       <!--
-        {{ item }}
+        ID: {{ item.sys.id }}
+        {% if item.url %}
+          URL: {{ item.url }}
+        {% endif %}
       -->
     {% assign doc = item | find_document %}
     {% assign url = item.url | default: doc.url %}
@@ -25,4 +28,3 @@
     {% endif %}
   {% endfor %}
 </ul>
-
