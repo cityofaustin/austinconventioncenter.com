@@ -755,8 +755,6 @@ menu:
         url: https://youtu.be/qellCoDJutk
       - sys:
           id: 1HuwJSqhD6qWyAoGWEmCEe
-        title: Flyover test
-        url: https://youtu.be/QGSc9nHBGsA
       type: menu
     files:
     - title: ACC Contract Agreement
@@ -4372,10 +4370,6 @@ menu:
       id: 6qzi91ta9y8AueekIkEuqG
     title: 2017 ACCD Employee Awards Video
     url: https://youtu.be/qellCoDJutk
-  - sys:
-      id: 1HuwJSqhD6qWyAoGWEmCEe
-    title: Flyover test
-    url: https://youtu.be/QGSc9nHBGsA
   type: menu
 - sys:
     id: 6ulBoZl7Z6sqEYUe68g8Mo
@@ -6354,8 +6348,6 @@ page:
       url: https://youtu.be/qellCoDJutk
     - sys:
         id: 1HuwJSqhD6qWyAoGWEmCEe
-      title: Flyover test
-      url: https://youtu.be/QGSc9nHBGsA
     type: menu
   files:
   - title: ACC Contract Agreement
@@ -8858,10 +8850,6 @@ page:
         id: 6qzi91ta9y8AueekIkEuqG
       title: 2017 ACCD Employee Awards Video
       url: https://youtu.be/qellCoDJutk
-    - sys:
-        id: 1HuwJSqhD6qWyAoGWEmCEe
-      title: Flyover test
-      url: https://youtu.be/QGSc9nHBGsA
     type: menu
   - sys:
       id: 60EW2DcxgIYy8cO6YQc0ck
@@ -8994,8 +8982,6 @@ page:
       url: https://youtu.be/qellCoDJutk
     - sys:
         id: 1HuwJSqhD6qWyAoGWEmCEe
-      title: Flyover test
-      url: https://youtu.be/QGSc9nHBGsA
     type: menu
   files:
   - title: ACCD Operational Policy
@@ -10957,8 +10943,6 @@ page:
       url: https://youtu.be/qellCoDJutk
     - sys:
         id: 1HuwJSqhD6qWyAoGWEmCEe
-      title: Flyover test
-      url: https://youtu.be/QGSc9nHBGsA
     type: menu
   files:
   - title: ACC Facility Overview
