@@ -166,8 +166,10 @@ Each site deploys automatically when new commits are added to master or when dat
 
 | Environment                              | Status                                   |
 | ---------------------------------------- | ---------------------------------------- |
-| Production<br />[ACC](https://austinconventioncenter.com) \| [PEC](https://palmereventscenter.com) \| [CircleCI](https://circleci.com/gh/cityofaustin/austinconventioncenter.com/tree/master) | [![CircleCI](https://circleci.com/gh/cityofaustin/austinconventioncenter.com/tree/master.svg?style=svg)](https://circleci.com/gh/cityofaustin/austinconventioncenter.com/tree/master) |
-| Staging<br />[ACC](http://staging.austinconventioncenter.com) \| [PEC](http://staging.palmereventscenter.com) \| [CircleCI](https://circleci.com/gh/cityofaustin/austinconventioncenter.com/tree/staging) | [![CircleCI](https://circleci.com/gh/cityofaustin/austinconventioncenter.com/tree/staging.svg?style=svg)](https://circleci.com/gh/cityofaustin/austinconventioncenter.com/tree/staging) |
+| Production:  [ACC](https://austinconventioncenter.com) \| [PEC](https://palmereventscenter.com) \| [CircleCI](https://circleci.com/gh/cityofaustin/austinconventioncenter.com/tree/master) | [![CircleCI](https://circleci.com/gh/cityofaustin/austinconventioncenter.com/tree/master.svg?style=svg)](https://circleci.com/gh/cityofaustin/austinconventioncenter.com/tree/master) |
+| Staging: [ACC](http://staging.austinconventioncenter.com) \| [PEC](http://staging.palmereventscenter.com) \| [CircleCI](https://circleci.com/gh/cityofaustin/austinconventioncenter.com/tree/staging) | [![CircleCI](https://circleci.com/gh/cityofaustin/austinconventioncenter.com/tree/staging.svg?style=svg)](https://circleci.com/gh/cityofaustin/austinconventioncenter.com/tree/staging) |
+
+Details about the deployment pipeline and configurations can be found in [`DEPLOYMENT-CONFIG.md`](DEPLOYMENT-CONFIG.md)
 
 ## Credits
 
