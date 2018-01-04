@@ -3,28 +3,38 @@
 {% if block.title %}<h3 class="acc-content-block-header">{{ block.title }}</h3>{% endif %}
 
 <div itemscope itemtype="http://schema.org/ImageGallery" data-gid="{{ block.sys.id }}" class="acc-gallery {% unless block.showThumbnails == false %}acc-gallery-thumbnails{% endunless %}">
-  {% for gallery_image in block.galleryImages %}
+    {% for gallery_image in block.galleryImages %}
     {% assign image = gallery_image.image %}
 
     {% if image.url %}
-      <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" data-index="{{ forloop.index0 }}" data-pid="{{ image.sys.id }}" class="acc-gallery-photo">
+    <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" data-index="{{ forloop.index0 }}" data-pid="{{ image.sys.id }}" class="acc-gallery-photo">
         {% if block.showThumbnails == false %}
-          <img src="{{ image.url }}?w=960"
-            srcset="{{ image.url }}?w=1920 2x,
+        <img src="{{ image.url }}?w=960"
+             srcset="{{ image.url }}?w=1920 2x,
                     {{ image.url }}?w=960" alt="{{ gallery_image.title | default: image.title }}" />
         {% else %}
-          <a href="{{ image.url }}?w=1800" itemprop="contentUrl" data-width="{{ image.width }}" data-height="{{ image.height }}" data-url="{{ image.url }}">
+        <a href="{{ image.url }}?w=1800" itemprop="contentUrl" data-width="{{ image.width }}" data-height="{{ image.height }}" data-url="{{ image.url }}">
             <img src="{{ image.url }}?w=330&h=220&fit=thumb"
-              srcset="{{ image.url }}?w=990&h=660&fit=thumb 3x,
+                 srcset="{{ image.url }}?w=990&h=660&fit=thumb 3x,
                       {{ image.url }}?w=660&h=440&fit=thumb 2x,
                       {{ image.url }}?w=330&h=220&fit=thumb"
-              itemprop="thumbnail" alt="{{ gallery_image.title | default: image.title }}" />
-          </a>
+                 itemprop="thumbnail" alt="{{ gallery_image.title | default: image.title }}" />
+        </a>
         {% endif %}
         {% if block.showCaptions or gallery_image.caption != empty %}
-          <figcaption class="acc-gallery-caption {% unless block.showCaptions == true %}sr-only{% endunless %}" itemprop="caption description">{{ gallery_image.caption | default: gallery_image.title | markdownify }}</figcaption>
+        <figcaption class="acc-gallery-caption {% unless block.showCaptions == true %}sr-only{% endunless %}" itemprop="caption description">{{ gallery_image.caption | default: gallery_image.title | markdownify }}</figcaption>
         {% endif %}
-      </figure>
+        {% if block.showCaptions or image.caption != empty %}
+        <figcaption class="acc-gallery-caption sr-only" itemprop="caption description">{{ image.caption | default: image.title | markdownify }}</figcaption>
+        {% if image.title != empty %}
+        <div class="carousel-caption"> {{ image.title }} </div>
+        {% endif %}
+        {% if image.caption != empty %}
+        <div class="carousel-caption">  {{ image.caption }} </div>
+        {% endif %}
+        {% endif %}
+    </figure>
     {% endif %}
-  {% endfor %}
+    {% endfor %}
 </div>
+

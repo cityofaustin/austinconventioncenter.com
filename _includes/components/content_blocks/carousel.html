@@ -1,0 +1,67 @@
+{% assign block = include.block %}
+
+{% if block.title %}<h3 class="acc-content-block-header">{{ block.title }}</h3>{% endif %}
+
+{% if block.title == "Facility Photos" %}
+  <a href="/photos/facility">Show All</a>
+{% else %}
+  <a href="/photos/events">Show All </a>
+{% endif %}
+<br/><br/>
+
+<script src="http://code.jquery.com/jquery-1.8.2.min.js" type="text/javascript"></script>
+<div itemscope itemtype="http://schema.org/ImageGallery" data-gid="{{ block.sys.id }}" class="acc-gallery  acc-gallery-thumbnails" style="width: 600px;">
+</div>
+
+<div class="wrapper"  id="carousel_{{ block.sys.id }}">
+    <div class="jcarousel-wrapper">
+        <div class="jcarousel" >
+            <ul style="display:flex;">
+                {% for gallery_image in block.galleryImages %}
+                {% assign image = gallery_image.image %}
+
+
+                {% if image.url %}
+                <li>
+                    <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" data-index="{{ forloop.index0 }}" data-pid="{{ image.sys.id }}" class="acc-gallery-photo acc-gallery-photo-carousel" >
+
+                        <a href="{{ image.url }}?w=1800" itemprop="contentUrl" data-width="{{ image.width }}" data-height="{{ image.height }}" data-url="{{ image.url }}"  target="_blank">
+                            <img src="{{ image.url }}?w=330&h=220&fit=thumb"
+                                 srcset="{{ image.url }}?w=990&h=660&fit=thumb 3x,
+                        {{ image.url }}?w=660&h=440&fit=thumb 2x,
+                        {{ image.url }}?w=330&h=220&fit=thumb"
+                                 itemprop="thumbnail" alt="{{ title | default: image.title }}"  />
+                        </a>
+
+                        {% if block.showCaptions or image.caption != empty %}
+                        <figcaption class="acc-gallery-caption sr-only" itemprop="caption description">{{ image.caption | default: image.title | markdownify }}</figcaption>
+                        {% if image.title != empty %}
+                        <div class="carousel-caption"> {{ image.title }} </div>
+                        {% endif %}
+                        {% if image.caption != empty %}
+                        <div class="carousel-caption">  {{ image.caption }} </div>
+                        {% endif %}
+                        {% endif %}
+
+                    </figure>
+                </li>
+
+                {% endif %}
+                {% endfor %}
+            </ul>
+
+
+        </div>
+
+        <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
+        <a href="#" class="jcarousel-control-next">&rsaquo;</a>
+
+        <p class="jcarousel-pagination"></p>
+    </div>
+</div>
+
+
+
+
+{% javascript jcarousel.responsive %}
+{% javascript jquery.jcarousel.min %}

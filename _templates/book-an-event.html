@@ -2,46 +2,7 @@
 layout: page
 ---
 
-<form class="usa-form-large acc-form" action="https://formspree.io/{{ site.contact_sales_form.formspree_email }}" method="POST">
-  <fieldset>
-    <legend><h3>Contact Sales</h3></legend>
-
-    <label for="name" class="usa-input-required">Your name</label>
-    <input id="name" name="name" type="text" required="" aria-required="true" placeholder="First Last">
-
-    <label for="email" class="usa-input-required">Your email</label>
-    <input id="email" name="_replyto" type="email" required="" aria-required="true" placeholder="first.last@example.com">
-
-    <label for="phone" class="usa-input-required">Your phone</label>
-    <input id="email" name="phone" type="text" required="" aria-required="true" placeholder="(512) 555-1234">
-
-    <label for="organization">Organization name</label>
-    <input id="organization" name="organization" type="text">
-
-    <label for="event-name">Event name</label>
-    <input id="event-name" name="event-name" type="text">
-
-    <label for="start-date">Start date</label>
-    <input id="start-date" name="start-date" type="date" placeholder="mm/dd/yyyy">
-
-    <label for="end-date">End date</label>
-    <input id="end-date" name="end-date" type="date" placeholder="mm/dd/yyyy">
-
-    <input id="dates-flexible" type="checkbox" name="dates-flexible" value="dates-flexible">
-    <label for="dates-flexible">These dates are flexible.</label>
-
-    <label for="attendance">Projected Attendance</label>
-    <input id="attendance" name="attendance" type="text">
-
-    <label for="budget">Total Budget</label>
-    <input id="budget" name="budget" type="text">
-
-    <label for="additional-information">Additional information</label>
-    <textarea id="additional-information" name="additional-information" placeholder="Space requirements, food and beverage needs, etc..."></textarea>
-
-    <input type="hidden" name="_next" value="{{ "/thank-you/" | absolute_url }}" />
-    <input type="text" name="_gotcha" style="display:none" />
-
-    <input type="submit" value="Submit" class="usa-button-unstyled acc-button acc-button-tertiary" />
-  </fieldset>
-</form>
+<div class="usa-form-large acc-form">
+  <script src="https://static.airtable.com/js/embed/embed_snippet_v1.js"></script>
+  <iframe class="airtable-embed airtable-dynamic-height" src="https://airtable.com/embed/shrxXbj7abqD01Oqo?backgroundColor=yellow" frameborder="0" onmousewheel="" width="100%" height="3828" style="background: transparent; border: 1px solid #ccc;"></iframe>
+</div>
