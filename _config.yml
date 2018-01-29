@@ -32,6 +32,7 @@ exclude:
 
 contentful_options: &contentful_options
   cda_query:
+    include: 2
     limit: 1000
   all_entries: true
   content_types:
