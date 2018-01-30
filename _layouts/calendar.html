@@ -37,7 +37,19 @@ layout: default
         <ul class="usa-unstyled-list">
           {% for event in events %}
             <li>
-              <a href="{% if event.website %}http://{{event.website}}{% else %}#{% endif %}" class="acc-calendar-event{% if event.website %} acc-calendar-event-link{% endif %}">
+
+              <a href="{% if event.website %}
+                         {% if event.website contains 'http' or event.website contains 'https' %}
+                           {{ event.website }}
+                         {% else %}
+                           {{ event.website | prepend: 'http://' }}
+                         {% endif %}
+                       {% else %}
+                         #
+                       {% endif %}"
+                 class="acc-calendar-event{% if event.website %} acc-calendar-event-link{% endif %}">
+
+
                 {% assign arrive_month = event.arrive_date | date: "%B" %}
                 {% assign depart_month = event.depart_date | date: "%B" %}
 
