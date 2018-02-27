@@ -7,6 +7,7 @@ layout: default
       <h1>Floor Plans</h1>
     </header>
   </div>
+
   {% if site.plans %}
     <aside class="usa-width-one-fourth">
       <nav role="navigation" class="acc-sidenav" id="sidenav">
@@ -14,23 +15,39 @@ layout: default
           <img src="{% asset_path uswds/src/img/close.svg %}" alt="close">
         </button>
         <ul class="usa-unstyled-list acc-sidenav-list" id="acc-floor-plan-nav">
-          <li><a href="/facility/plans/"{% if page.url == "/facility/plans/" %} class="acc-current"{% endif %}>Center Overview</a></li>
+          <li>
+            {% if page.url contains 'planners' %}
+              <a href="/planners/plans/"{% if page.url == "/planners/plans/" %} class="acc-current"{% endif %}>Center Overview</a>
+            {% elsif page.url contains 'exhibitors' %}
+              <a href="/exhibitors/plans/"{% if page.url == "/exhibitors/plans/" %} class="acc-current"{% endif %}>Center Overview</a>
+            {% elsif page.url contains 'attendees' %}
+              <a href="/attendees/plans/"{% if page.url == "/attendees/plans/" %} class="acc-current"{% endif %}>Center Overview</a>
+            {% endif %}
+          </li>
           {% assign docs = site.plans | sort: "title" | sort: "priority", "last"  %}
           {% for doc in docs %}
+
               {% if doc.docs and doc.docs != empty %}
                 <li>
+
                   {% capture expanded %}{% if page.url contains doc.url %}true{% else %}false{% endif %}{% endcapture %}
+
                   <a href="{{ doc.url }}"{% if page.url == doc.url %} class="acc-current"{% endif %} data-slug="{{ doc.slug }}" title="{{ doc.title }}"><button class="usa-button-unstyled acc-folder-control" aria-expanded="{{ expanded }}" aria-controls="{{ doc.slug }}-nav"></button> <span>{{ doc.title }}</span></a>
+
+
                   <ul class="usa-unstyled-list acc-folder-content acc-sidenav-sub_list" id="{{ doc.slug }}-nav"{% if expanded == "true" %} aria-hidden="false"{% endif %}>
                     {% assign child_docs = doc.docs | sort: "title" %}
                     {% for child_doc in child_docs %}
-                      <li><a href="{{ child_doc.url }}"{% if page.url == child_doc.url %} class="acc-current"{% endif %} data-slug="{{ child_doc.slug }}" title="{{ child_doc.title }}">{{ child_doc.title }}</a></li>
+                       <li>
+                           <a href="{{ child_doc.url}}"{% if page.url == child_doc.url %} class="acc-current"{% endif %} data-slug="{{ child_doc.slug }}" title="{{ child_doc.title }}">{{ child_doc.title }}</a>
+                        </li>
                     {% endfor %}
                   </ul>
                 </li>
               {% else %}
                 <li>
-                  <a href="{{ doc.url }}"{% if page.url == doc.url %} class="acc-current"{% endif %} data-slug="{{ doc.slug }}" title="{{ doc.title }}">{{ doc.title }}</a>
+                  {% assign my_url = doc.url %}
+                    <a href="{{ doc.url }}"{% if page.url == doc.url %} class="acc-current"{% endif %} data-slug="{{ doc.slug }}" title="{{ doc.title }}">{{ doc.title }}</a>
                 </li>
               {% endif %}
           {% endfor %}
