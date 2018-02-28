@@ -1,0 +1,502 @@
+
+@import '//fonts.googleapis.com/css?family=Lato:400,400italic|Arvo:700,400,400italic';
+
+
+.wrapper {
+  padding: 0 20px 20px 20px;
+  margin: auto;
+}
+
+.jcarousel-wrapper {
+  margin: 20px auto;
+  position: relative;
+}
+
+/** Carousel **/
+
+.jcarousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.jcarousel ul {
+  width: 20000em;
+  min-width: 2000em;
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.jcarousel li {
+ /* width: 200px; */
+  float: left;
+  border: 1px solid #fff;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  min-height: 200px;
+  padding: 2px;
+}
+
+.jcarousel img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: auto !important;
+}
+
+/** Carousel Controls **/
+
+.jcarousel-control-prev,
+.jcarousel-control-next {
+  position: absolute;
+  //top: 60%;
+  height: 0;
+  width: 0;
+
+  //margin-top: -130%;
+  text-align: center;
+  color: transparent !important;
+  text-decoration: none;
+  font: 5em "Courier New", Courier, monospace;
+  display: none;
+
+  -webkit-text-stroke: 1px  #8c8b85 !important;
+  -webkit-text-fill-color: #fff !important;
+}
+
+
+
+
+
+@media screen  and (min-width: 951px)  {
+  .jcarousel-control-prev,
+  .jcarousel-control-next {
+    top: 155px !important;
+  }
+}
+
+@media screen and (min-width:895px ) and (max-width: 950px)  {
+  .jcarousel-control-prev,
+  .jcarousel-control-next {
+    top: 130px !important;
+  }
+}
+
+@media screen and (min-width:888px ) and (max-width: 895px)  {
+  .jcarousel-control-prev,
+  .jcarousel-control-next {
+    top: 125px !important;
+  }
+}
+
+
+
+@media screen and (min-width:867px ) and (max-width: 887px)  {
+  .jcarousel-control-prev,
+  .jcarousel-control-next {
+    top: 125px !important;
+  }
+}
+
+
+@media screen and (min-width:831px ) and (max-width: 866px)  {
+  .jcarousel-control-prev,
+  .jcarousel-control-next {
+    top: 125px !important;
+  }
+}
+
+@media screen and (min-width:800px ) and (max-width: 830px)  {
+  .jcarousel-control-prev,
+  .jcarousel-control-next {
+    top: 125px !important;
+  }
+}
+
+@media screen and (min-width:750px ) and (max-width: 799px)  {
+  .jcarousel-control-prev,
+  .jcarousel-control-next {
+    top: 100px !important;
+  }
+}
+
+@media screen and (min-width:700px ) and (max-width: 749px)  {
+  .jcarousel-control-prev,
+  .jcarousel-control-next {
+    top: 85px !important;
+  }
+}
+
+@media screen and (min-width:650px ) and (max-width: 699px)  {
+  .jcarousel-control-prev,
+  .jcarousel-control-next {
+    top: 73px !important;
+  }
+}
+
+@media screen and (min-width:600px ) and (max-width: 649px)  {
+  .jcarousel-control-prev,
+  .jcarousel-control-next {
+    top: 67px !important;
+  }
+}
+
+@media screen and (min-width:550px ) and (max-width: 599px)  {
+  .jcarousel-control-prev,
+  .jcarousel-control-next {
+    top: 130px !important;
+  }
+}
+
+@media screen and (min-width:475px ) and (max-width: 549px)  {
+  .jcarousel-control-prev,
+  .jcarousel-control-next {
+    top: 100px !important;
+  }
+}
+
+@media screen and (min-width:400px ) and (max-width: 474px)  {
+  .jcarousel-control-prev,
+  .jcarousel-control-next {
+    top: 70px !important;
+  }
+}
+
+@media screen and (max-width:399px )   {
+  .jcarousel-control-prev,
+  .jcarousel-control-next {
+    top: 55px !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.jcarousel a:visited{
+  color: transparent !important;
+  background-color: transparent !important;
+}
+
+.jcarousel-control-prev {
+  left: 10px;
+}
+
+.jcarousel-control-next {
+  right: 65px;
+}
+
+
+
+/** Carousel Pagination **/
+
+/** these are the bubbles that indicate the relative position of the image you are viewing **/
+
+
+.jcarousel-pagination {
+  position: absolute;
+  top: 360px !important;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  //border: 1px solid green !important;
+
+}
+
+@media screen  and (min-width: 100px) and (max-width: 278px) {
+  .jcarousel-pagination{
+    top: 100px !important;
+    //border: 1px solid white !important;
+  }
+}
+@media screen  and (min-width: 278px) and (max-width: 287px) {
+  .jcarousel-pagination{
+    top: 100px !important;
+    //border: 1px solid black !important;
+  }
+}
+
+
+@media screen  and (min-width: 287px) and (max-width: 291px) {
+  .jcarousel-pagination{
+    top: 104px !important;
+    //border: 1px solid brown !important;
+  }
+}
+
+
+@media screen and (min-width: 291px) and (max-width: 320px) {
+  .jcarousel-pagination{
+    top: 110px!important;
+    //border: 1px solid red !important;
+  }
+}
+
+
+@media screen and (min-width: 321px) and (max-width: 333px) {
+  .jcarousel-pagination{
+    top: 135px !important;
+    //border: 1px solid orange !important;
+  }
+}
+
+@media screen and (min-width: 334px) and (max-width: 360px) {
+  .jcarousel-pagination{
+    top: 140px !important;
+    //border: 1px solid orange !important;
+  }
+}
+
+@media screen and (min-width: 361px) and (max-width: 365px) {
+  .jcarousel-pagination{
+    top: 150px !important;
+    //border: 2px solid yellow !important;
+  }
+}
+
+@media screen and (min-width: 366px) and (max-width: 380px) {
+  .jcarousel-pagination{
+    top: 160px !important;
+    //border: 1px solid green !important;
+  }
+}
+
+@media screen and (min-width: 381px) and (max-width: 413px) {
+  .jcarousel-pagination{
+    top: 170px !important;
+    //border: 1px solid green !important;
+  }
+}
+
+@media screen and (min-width: 414px) and (max-width: 425px) {
+  .jcarousel-pagination{
+    top: 190px !important;
+    //border: 1px solid blue !important;
+  }
+}
+
+@media screen and (min-width: 426px) and (max-width: 455px) {
+  .jcarousel-pagination{
+    top: 200px !important;
+    //border: 1px solid violet !important;
+  }
+}
+
+@media screen and (min-width: 455px) and (max-width: 459px) {
+  .jcarousel-pagination{
+    top: 214px !important;
+    //border: 1px solid gray !important;
+  }
+}
+@media screen and (min-width: 460px) and (max-width: 490px) {
+  .jcarousel-pagination{
+    top: 220px !important;
+    //border: 1px solid white !important;
+  }
+}
+
+@media screen and (min-width: 491px) and (max-width: 531px) {
+  .jcarousel-pagination{
+    top: 240px !important;
+    //border: 2px dotted black !important;
+  }
+}
+
+@media screen and (min-width: 532px) and (max-width: 577px) {
+  .jcarousel-pagination{
+    top: 270px !important;
+    //border: 2px dashed brown !important;
+  }
+}
+
+@media screen and (min-width: 578px) and (max-width: 591px) {
+  .jcarousel-pagination{
+    top: 293px !important;
+    //border: 2px dashed red !important;
+  }
+}
+
+@media screen and (min-width: 592px) and (max-width: 600px) {
+  .jcarousel-pagination{
+    top: 310px !important;
+    //border: 2px dashed orange !important;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 620px) {
+  .jcarousel-pagination{
+    top: 165px !important;
+    //border: 2px dashed yellow !important;
+  }
+}
+
+@media screen and (min-width: 621px) and (max-width: 640px) {
+  .jcarousel-pagination{
+    top: 176px !important;
+    //border: 2px dashed green !important;
+  }
+}
+
+@media screen and (min-width: 641px) and (max-width: 685px) {
+  .jcarousel-pagination{
+    top: 191px !important;
+    //border: 2px dashed blue !important;
+  }
+}
+
+@media screen and (min-width: 686px) and (max-width: 736px) {
+  .jcarousel-pagination{
+    top: 220px !important;
+    //border: 2px dashed violet !important;
+  }
+}
+
+@media screen and (min-width: 737px) and (max-width: 768px) {
+  .jcarousel-pagination{
+    top: 229px !important;
+    //border: 2px dashed grey !important;
+  }
+}
+
+
+
+@media screen and (min-width: 769px) and (max-width: 812px) {
+  .jcarousel-pagination {
+    top: 240px !important;
+    //border: 2px dashed white !important;
+  }
+}
+
+/* iPhone x */
+@media screen and (min-width: 769px) and (max-width: 812px) and (orientation: landscape){
+  .jcarousel-pagination {
+    top: 255px !important;
+    //border: 2px dashed black !important;
+  }
+}
+
+@media screen and (min-width: 813px) and (max-width: 850px) {
+  .jcarousel-pagination {
+    top: 260px !important;
+    //border: 2px dashed brown !important;
+  }
+}
+
+@media screen and (min-width: 851px) and (max-width: 871px) {
+  .jcarousel-pagination {
+    top: 270px !important;
+    //border: 3px dotted red !important;
+  }
+}
+
+
+@media screen and (min-width: 872px) and (max-width: 935px) {
+  .jcarousel-pagination {
+    top: 290px !important;
+    //border: 3px dotted orange !important;
+  }
+}
+@media screen and (min-width: 936px) and (max-width: 947px) {
+  .jcarousel-pagination {
+    top: 300px !important;
+    //border: 3px dotted yellow !important;
+  }
+}
+@media screen and (min-width: 948px) and (max-width: 1024px) {
+  .jcarousel-pagination{
+    top: 313px !important;
+    //border: 3px dotted green !important;
+  }
+}
+
+
+@media screen and (min-width: 948px) and (max-width: 1024px)  and (orientation: landscape) {
+  .jcarousel-pagination{
+    top: 340px !important;
+    //border: 3px dotted blue !important;
+  }
+}
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+  .jcarousel-pagination{
+    top: 339px !important;
+    //border: 3px dotted violet !important;
+  }
+}
+
+
+
+
+.jcarousel-pagination a {
+  text-decoration: none;
+  display: inline-block;
+  font-size: 11px;
+  height: 10px;
+  width: 10px;
+  line-height: 10px;
+  color: #fff;
+  border-radius: 15px;
+  text-indent: -9999px;
+  margin-right: 7px;
+  -webkit-box-shadow: 0 0 2px #fff;
+  -moz-box-shadow: 0 0 2px #fff;
+  box-shadow: 0 0 2px #fff;
+}
+
+
+
+.jcarousel-pagination a.active {
+  background: #fff;
+  color: #fff;
+  opacity: 1;
+  font-size: 11px;
+  height: 10px;
+  width: 10px;
+  line-height: 10px;
+
+  -webkit-box-shadow: 0 0 4px #fff;
+  -moz-box-shadow: 0 0 4px #fff;
+  box-shadow: 0 0 4px #fff;
+}
+
+.carousel-caption{
+  text-align: left;
+  font-size: 1rem;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.carousel-caption em{
+  font-size: 11px;
+}
+
+.acc-gallery-photo-carousel {
+  margin: 0;
+  min-width:200px;
+  width: 100%;
+  /*margin-right: 0.5em;*/
+  margin-bottom: 0.5em;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+.show-all-link {
+  float:right;
+  margin-right:30px;
+  margin-top: -30px;
+}
+
+.caption-container{
+  padding-left: 3px;
+  padding-right: 3px;
+}
