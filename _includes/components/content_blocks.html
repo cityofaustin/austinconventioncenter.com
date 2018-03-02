@@ -9,7 +9,7 @@
             {% include components/content_blocks/contact.html block=block %}
           {% when "galleryBlock" %}
             {% assign photoswipe = true %}
-            {% if page.title == "Tour & Photos" %}
+            {% if page.title == "Photos & Virtual Tour" %}
               {% include components/content_blocks/carousel.html block=block %}
             {% else %}
               {% include components/content_blocks/gallery.html block=block %}
