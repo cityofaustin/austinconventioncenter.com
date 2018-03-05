@@ -10,8 +10,8 @@ module Jekyll
     DATE_KEYS = %w(arrive depart).freeze
 
     def generate(site)
-      section = site.collections["calendar"]
-      events = site.data.dig("socrata", "calendar", "events")
+      section = site.collections["events"]
+      events = site.data.dig("socrata", "events", "events")
 
       return if section.nil? || events.nil?
 
@@ -70,5 +70,3 @@ module Jekyll
 
   end
 end
-
-

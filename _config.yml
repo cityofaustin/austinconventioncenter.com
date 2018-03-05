@@ -79,10 +79,10 @@ defaults:
       layout: "page"
       permalink: "/:slug/"
   - scope:
-      type: calendar
+      type: events
     values:
-      layout: calendar
-      permalink: "/calendar/:year/:month/"
+      layout: events
+      permalink: "/events/:year/:month/"
   -
     scope:
       type: press-room
