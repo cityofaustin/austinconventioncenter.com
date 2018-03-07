@@ -8,7 +8,7 @@ module Calendar
     class << self
       def import(config)
         results = socrata_client.get("e43u-d7ev", "$limit": 5000)
-        path = File.join(config["source"], config["data_dir"], "socrata", "calendar", "events.yaml")
+        path = File.join(config["source"], config["data_dir"], "socrata", "events", "events.yaml")
 
         FileUtils.mkdir_p(File.dirname(path))
 

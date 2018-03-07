@@ -5,16 +5,16 @@ layout: default
 <div class="usa-grid">
   <div class="usa-width-one-whole">
     <header class="acc-content-header">
-      <h1>Calendar</h1>
+      <h1>Events</h1>
     </header>
   </div>
-  {% if site.calendar and site.calendar != empty %}
+  {% if site.events and site.events != empty %}
     <aside class="usa-width-one-fourth">
       <nav role="navigation" class="acc-sidenav" id="sidenav">
         <button class="usa-button-unstyled acc-sidenav-close">
           <img src="{% asset_path uswds/src/img/close.svg %}" alt="close">
         </button>
-        {% assign years = site.calendar | group_by: "year" %}
+        {% assign years = site.events | group_by: "year" %}
         {% for year in years %}
           <h4>{{ year.name }}</h4>
           <ul class="usa-unstyled-list acc-sidenav-list">
@@ -83,8 +83,8 @@ layout: default
           {% endfor %}
         </ul>
       {% else %}
-        {% comment %} Redirect /calendar/ to current month {% endcomment %}
-        {% assign current_month = site.calendar | first %}
+        {% comment %} Redirect /events/ to current month {% endcomment %}
+        {% assign current_month = site.events | first %}
         <script type="text/javascript">
           window.location = "{{ current_month.url }}";
         </script>
