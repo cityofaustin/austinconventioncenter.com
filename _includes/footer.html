@@ -52,26 +52,14 @@
   </div>
   <div class="acc-footer-end">
     <div class="usa-grid acc-footer-badges">
-      <div class="usa-width-one-fourth acc-footer-badge">
-        <a href="http://sxsw.com">
-          {% img badges/sxsw.png "South by Southwest" %}
-        </a>
-      </div>
-      <div class="usa-width-one-fourth acc-footer-badge">
-        <a href="http://conveningleaders.org/">
-          {% img badges/pcma.jpg "PCMA" %}
-        </a>
-      </div>
-      <div class="usa-width-one-fourth acc-footer-badge">
-        <a href="http://www.tsae.org/">
-          {% img badges/tsae.png "Texas Society of Association Executives" %}
-        </a>
-      </div>
-      <div class="usa-width-one-fourth acc-footer-badge">
-        <a href="{{site.baseurl}}/facility/sustainability">
-          {% img badges/leed.png "LEED Certified" %}
-        </a>
-      </div>
+      {% assign footer_logos = site.contentful.menu | where_exp: "menu", "menu.name == 'Footer Logo Menu'" | first %}
+      {% for logo in footer_logos.items limit:4 %}
+        <div class="usa-width-one-fourth acc-footer-badge">
+          <a href="{{ logo.url }}">
+            <img src="{{ logo.image.url }}" alt="{{ logo.image.title }}" />
+          </a>
+        </div>
+      {% endfor %}
     </div>
     <div class="usa-grid acc-footer-copyright" itemscope itemtype="https://schema.org/copyrightHolder">
       Copyright &copy;
