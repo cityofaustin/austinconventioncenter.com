@@ -24,6 +24,12 @@ layout: default
   <div class="usa-width-one-whole">
     <header class="acc-intro">
       <h2>{{ contentful.description }}</h2>
+      {% assign statement = contentful.contentBlocks | where: "title", "statement" | first %}
+      {% unless statement == blank %}
+        <p class="acc-press-statement">
+          {{ statement.text }}
+        </p>
+      {% endunless %}
     </header>
 
     {% assign menu = site.contentful.menu | where_exp: "menu", "menu.name == 'Homepage'" | first %}
