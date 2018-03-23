@@ -6,7 +6,7 @@ This is the website of the Austin Convention Center Department, which was create
 
 ## Architecture
 
-This project implements a decoupled CMS, which you can read about in [our Medium post][medium]. It uses [Contentful][] as the content editor and [Jekyll][] as the static site generator.
+This project implements a decoupled CMS, which you can read about in [our Medium post][medium]. It uses [Contentful][] as the content editor and [Jekyll][] as the static site generator. Content management capabilities are documented in the site's [content management guide][].
 
 The same source builds both austinconventioncenter.com and palmereventscenter.com using content from separate Contentful spaces. Site-specific files in [_config/](_config) extend the base configuration found in [_config.yml](_config.yml).
 
@@ -16,6 +16,7 @@ We continuously deploy the static sites to Amazon S3 by using [s3_website][] on 
 [contentful]: https://www.contentful.com
 [jekyll]: https://jekyllrb.com
 [s3_website]: https://github.com/laurilehmijoki/s3_website
+[content management guide]: https://austinconventioncenter.com/guides
 
 ## Getting Started
 
