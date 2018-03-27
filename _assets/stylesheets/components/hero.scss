@@ -2,16 +2,38 @@
   background-image: image_url("#{$site}-hero.jpg");
   background-position: center;
   background-size: cover;
-
+  position: relative;
   height: 30rem;
 
   @media screen and (min-width: $large-screen) {
     height: 60rem;
   }
 
-  .acc-button {
-    color: $color-white;
+  .acc-hero-button-wrapper {
+    bottom: 2rem;
+    font-size: $lead-font-size;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+
+    .acc-button {
+      background: rgba(0, 0, 0, .5);
+      border: 2px solid $acc-color-white;
+      color: $acc-color-white;
+      display: inline-block;
+      padding-left: 1em;
+      padding-right: 1em;
+      transition: all $transition-time ease;
+      transition-property: border-color, color;
+      width: auto;
+
+      &:hover, &:active {
+        border-color: $acc-color-brand-secondary;
+        color: $acc-color-brand-secondary;
+      }
+    }
   }
+
 }
 
 .acc-hero-tagline {
