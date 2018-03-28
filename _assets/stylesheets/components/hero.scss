@@ -2,8 +2,9 @@
   background-image: image_url("#{$site}-hero.jpg");
   background-position: center;
   background-size: cover;
-  position: relative;
   height: 30rem;
+  position: relative;
+  overflow: hidden;
 
   @media screen and (min-width: $large-screen) {
     height: 60rem;
@@ -32,6 +33,14 @@
         color: $acc-color-brand-secondary;
       }
     }
+  }
+
+  .acc-hero-video {
+    height: auto;
+    left: 0;
+    position: absolue;
+    top: 0;
+    width: 100%;
   }
 
 }

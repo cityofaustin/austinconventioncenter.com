@@ -4,42 +4,24 @@ layout: default
 
 {% assign contentful = site.contentful.page | where: "slug", "home" | first %}
 {% assign hero_image = contentful.files.first %}
-
-{% assign video = contentful.files | where: "title", "Hero Video" | first %}
-
-<h2>files:</h2>
-<p>
-  {{ contentful.files }}
-</p>
-
-<h2>
-  {% if video == blank %}
-    No video asset found
-  {% else %}
-    Video asset found
-  {% endif %}
-</h2>
-<p>
-  {{ video }}
-</p>
+{% assign hero_video = contentful.files | where: "title", "HeroVideo" | first %}
 
 
 
 
+<!-- <section class="acc-hero"{% if hero_image %} style="background-image: url({{ hero_image.url }});"{% endif %}> -->
+<section class="acc-hero">
 
 
-
-<section class="acc-hero"{% if hero_image %} style="background-image: url({{ hero_image.url }});"{% endif %}>
-
-
+  {% unless hero_video == blank %}
+    <video playsinline autoplay muted loop poster="{{ hero_image.url }}" class="acc-hero-video">
+      <source src="{{ hero_video.url }}" type="video/mp4">
 <!--
-  <video playsinline autoplay muted loop poster="placeholder.jpg" id="bgvideo" width="x" height="y">
-    <source src="path/to/myvideo.ogg" type="video/ogg">
-    <source src="path/to/myvideo.webm" type="video/webm">
-    <source src="path/to/myvideo.mp4" type="video/mp4">
-  </video>
+      <source src="path/to/myvideo.webm" type="video/webm">
+      <source src="path/to/myvideo.mp4" type="video/mp4">
 -->
-
+    </video>
+  {% endunless %}
 
 
 
