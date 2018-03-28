@@ -41,6 +41,12 @@
     position: absolute;
     top: 0;
     width: auto;
+
+    @media screen and (min-width: $medium-screen) {
+      height: auto;
+      width: 100%;
+    }
+
   }
 
 }
