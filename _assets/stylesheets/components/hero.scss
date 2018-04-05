@@ -1,71 +1,104 @@
 .acc-hero {
-  background-image: image_url("#{$site}-hero.jpg");
+//   background-image: image_url("#{$site}-hero.jpg");
   background-position: center;
   background-size: cover;
   height: 30rem;
   position: relative;
   overflow: hidden;
 
-  @media screen and (min-width: $large-screen) {
+//   @media screen and (min-width: $large-screen) {
+  @media screen and (min-width: $medium-screen) {
     height: 60rem;
   }
+}
 
-  .acc-hero-button-wrapper {
-    bottom: 2rem;
-    font-size: $lead-font-size;
-    position: absolute;
-    text-align: center;
-    width: 100%;
+/*
+.acc-hero-content-wrapper {
+  height: 100%;
+  overflow: hidden;
+  text-align: center;
+  width: 100%;
+  z-index: 11;
+}
+*/
 
-    .acc-button {
-      background: rgba(0, 0, 0, .5);
-      border: 2px solid $acc-color-white;
-      color: $acc-color-white;
-      display: inline-block;
-      padding-left: 1em;
-      padding-right: 1em;
-      transition: all $transition-time ease;
-      transition-property: border-color, color;
-      width: auto;
+/*
+.acc-hero-tagline {
+  color: $acc-color-white;
+  font-size: $lead-font-size;
+}
+*/
 
-      &:hover, &:active {
-        border-color: $acc-color-brand-secondary;
-        color: $acc-color-brand-secondary;
-      }
-    }
-  }
+.acc-hero-button-wrapper {
+  bottom: 2rem;
+  font-size: $lead-font-size;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  z-index: 11;
 
-  .acc-hero-video {
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
+  .acc-button {
+    background: $acc-opaque-black;
+    border: 2px solid $acc-color-white;
+    color: $acc-color-white;
+    display: inline-block;
+    padding-left: 1em;
+    padding-right: 1em;
+    transition: all $transition-time ease;
+    transition-property: border-color, color;
     width: auto;
 
-    @media screen and (min-width: $medium-screen) {
-      height: auto;
-      width: 100%;
+    &:hover, &:active {
+      border-color: $acc-color-brand-secondary;
+      color: $acc-color-brand-secondary;
     }
+  }
+}
 
+
+
+.acc-hero-overlay {
+  position: absolute;
+  text-align: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: rgba(255,255,255,.5);
+  background-image: url(https://www.transparenttextures.com/patterns/cubes.png);
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! *//* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+
+.acc-hero-video {
+//   background-image: image_url("#{$site}-hero.jpg");
+  background-size: cover;
+  height: auto;
+  left: 0;
+  min-height: 100%;
+  min-width: 100%;
+  position: absolute;
+  top: 0;
+  width: auto;
+
+  @media screen and (min-width: $medium-screen) {
+/*
+    height: 100%;
+    width: 100%;
+*/
   }
 
 }
 
 .acc-hero-tagline {
-  background-color: rgba($acc-color-gray-dark, 0.95);
+  background-color: $acc-opaque-black;
+  color: $acc-color-white;
+  display: inline-block;
   padding: 1.5rem;
-
-  @media screen and (min-width: $small-screen) {
-    padding: 3.5rem;
-    max-width: 33rem;
-  }
-
-  h2 {
-    color: $acc-color-white;
-    font-weight: 300;
-    margin: 0;
-    line-height: 1.4em;
-  }
+  color: $acc-color-white;
+  display: inline-block;
+//   margin: 0;
+//   margin-top: 2em;
 }
 
 .acc-intro > *:first-child {
