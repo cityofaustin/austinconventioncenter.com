@@ -3,7 +3,7 @@ markdown: kramdown
 
 permalink: pretty
 
-gems:
+plugins:
   - jekyll-assets
   - jekyll-redirect-from
 
