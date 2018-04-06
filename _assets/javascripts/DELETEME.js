@@ -35,15 +35,15 @@ $( document ).ready(function() {
   }
 
   if ($.urlParam('bgimg')) {
-    $bgimg = $.urlParam('bgimg');
+    $bgimg = 'url(https://www.transparenttextures.com/patterns/' + $.urlParam('bgimg') + '.png';
   }
   else {
-    $bgimg = 'cubes.png';
+    $bgimg = '';
   }
 
   $overlay.css({
     "background-color": "rgba(" + $bgrgba + ")",
-    "background-image": "url(https://www.transparenttextures.com/patterns/" + $bgimg + ".png)"
+    "background-image": $bgimg
   });
 
 });
