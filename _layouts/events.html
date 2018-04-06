@@ -8,6 +8,14 @@ layout: default
       <h1>Events</h1>
     </header>
   </div>
+  {% if site.title == 'Austin Convention Center' %}
+    {% assign booking_adjective = 'contracted' %}
+  {% else %}
+    {% assign booking_adjective = 'booked' %}
+  {% endif %}
+  <p>
+    Please note the calendar of events below does not reflect all {{ booking_adjective }} dates. <a href="{{ site.url }}/planners/book-an-event/">Connect with our sales team</a> for date availability and event details.
+  </p>
   {% if site.events and site.events != empty %}
     <aside class="usa-width-one-fourth">
       <nav role="navigation" class="acc-sidenav" id="sidenav">
