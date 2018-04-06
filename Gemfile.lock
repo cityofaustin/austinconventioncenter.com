@@ -41,7 +41,7 @@ GEM
       http_parser.rb (~> 0.6.0)
     eventmachine (1.2.5)
     execjs (2.7.0)
-    extras (0.1.0)
+    extras (0.3.0)
       forwardable-extended (~> 2.5)
     faraday (0.10.1)
       multipart-post (>= 1.2, < 3)
