@@ -109,7 +109,7 @@ GEM
     pathutil (0.16.1)
       forwardable-extended (~> 2.6)
     public_suffix (3.0.2)
-    rack (1.6.4)
+    rack (1.6.9)
     rake (11.3.0)
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
