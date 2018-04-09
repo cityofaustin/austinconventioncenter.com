@@ -1,0 +1,13 @@
+.acc-social-header {
+  text-align: center;
+}
+
+#curator-feed {
+  margin-top: 1em;
+}
+
+.crt-feed.gridalicious {
+  @media screen and (min-width: $medium-screen) {
+    margin-left: -12px !important;
+  }
+}
