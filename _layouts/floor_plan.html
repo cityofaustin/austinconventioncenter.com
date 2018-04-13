@@ -16,13 +16,7 @@ layout: default
         </button>
         <ul class="usa-unstyled-list acc-sidenav-list" id="acc-floor-plan-nav">
           <li>
-            {% if page.url contains 'planners' %}
-              <a href="/planners/plans/"{% if page.url == "/planners/plans/" %} class="acc-current"{% endif %}>Center Overview</a>
-            {% elsif page.url contains 'exhibitors' %}
-              <a href="/exhibitors/plans/"{% if page.url == "/exhibitors/plans/" %} class="acc-current"{% endif %}>Center Overview</a>
-            {% elsif page.url contains 'attendees' %}
-              <a href="/attendees/plans/"{% if page.url == "/attendees/plans/" %} class="acc-current"{% endif %}>Center Overview</a>
-            {% endif %}
+            <a href="/plan/plans/"{% if page.url == "/plan/plans/" %} class="acc-current"{% endif %}>Center Overview</a>
           </li>
           {% assign docs = site.plans | sort: "title" | sort: "priority", "last"  %}
           {% for doc in docs %}
