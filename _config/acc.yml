@@ -3,7 +3,7 @@ environment: production
 title: Austin Convention Center
 url: "https://www.austinconventioncenter.com"
 
-calendar_location: "Austin Convention Center" # Socrata event data location value
+calendar_location: "Austin Convention Center Events" # Socrata event data location value
 
 footer_address:
   street: 500 E. Cesar Chavez St.
