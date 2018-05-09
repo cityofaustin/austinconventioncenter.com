@@ -36,3 +36,23 @@ layout: default
     {% include components/menu.html items=menu.items list_classes="acc-button-grid-wide" item_classes="acc-button acc-button-primary" show_description=true %}
   </div>
 </div>
+
+<div class="usa-grid acc-social-container">
+  <div class="usa-width-one-whole">
+    {% assign socialMediaHeader = contentful.contentBlocks | where: "title", "social-media-header" | first %}
+    {% unless socialMediaHeader == blank %}
+      <div class="acc-social-header">
+        {{ socialMediaHeader.text | markdownify }}
+      </div>
+    {% endunless %}
+    <div id="curator-feed"></div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  (function(){
+  var i, e, d = document, s = "script";i = d.createElement("script");i.async = 1;
+  i.src = "https://cdn.curator.io/published/{{ site.curator_embed_id }}.js";
+  e = d.getElementsByTagName(s)[0];e.parentNode.insertBefore(i, e);
+  })();
+</script>
