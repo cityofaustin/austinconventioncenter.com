@@ -1,5 +1,6 @@
 //= require uswds/dist/js/uswds.min.js
 //= require photoswipe
+//= require click_tracking
 
 var delegate = require("dom-delegate"), // https://github.com/ftlabs/ftdomdelegate
     folders = require("components/folders"),
