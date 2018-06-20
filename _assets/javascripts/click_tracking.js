@@ -73,13 +73,13 @@ $(document).ready(function() {
 
   // When a sidebar external link button is clicked
   $('.acc-external-link').click(function() {
-    reportEvent('PDF Button Click', $(this).children('span:first').text(), window.location.pathname);
+    reportEvent('Sidebar External Link Click', $(this).children('span:first').text(), window.location.pathname);
   });
 
   // When a text link within a content block is clicked
   // NOTE: the .acc-inline-external-link class must be applied via markdown in the Contentful Content Item
   $('.acc-inline-external-link').click(function() {
-    reportEvent('PDF Button Click', $(this).text() + ' (Text link)', window.location.pathname);
+    reportEvent('Inline Link Click', $(this).text() + ' (Text link)', window.location.pathname);
   });
 
 });
