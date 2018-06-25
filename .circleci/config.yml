@@ -88,6 +88,13 @@ jobs:
     # The config translation tool does not support translating deployment steps
     # since deployment in CircleCI 2.0 are better handled through workflows.
     # See the documentation for more information https://circleci.com/docs/2.0/workflows/
+    - run:
+        command: bundle exec rake ci:deploy
+        filters:
+          branches:
+            only:
+              - staging
+              - sandbox
     # Teardown
     #   If you break your build into multiple jobs with workflows, you will probably want to do the parts of this that are relevant in each
     # Save test results
@@ -98,32 +105,3 @@ jobs:
         path: /tmp/circleci-artifacts
     - store_artifacts:
         path: /tmp/circleci-test-results
-
-
-
-# * *
-# * *
-
-# ORIGINAL
-
-# * *
-# * *
-#
-# machine:
-#   node:
-#     version: 6.1.0
-# 
-# dependencies:
-#   post:
-#     - "bundle exec s3_website install"
-# 
-# test:
-#   override:
-#     - "bundle exec rake ci:import"
-#     - "JEKYLL_ENV=production bundle exec rake ci:build"
-# 
-# deployment:
-#   merge:
-#     branch: [master, staging]
-#     commands:
-#       - "bundle exec rake ci:deploy"
