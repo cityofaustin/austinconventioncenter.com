@@ -1,12 +1,9 @@
-# This configuration was automatically generated from a CircleCI 1.0 config.
-# It should include any build commands you had along with commands that CircleCI
-# inferred from your project structure. We strongly recommend you read all the
-# comments in this file to understand the structure of CircleCI 2.0, as the idiom
-# for configuration has changed substantially in 2.0 to allow arbitrary jobs rather
-# than the prescribed lifecycle of 1.0. In general, we recommend using this generated
-# configuration as a reference rather than using it in production, though in most
-# cases it should duplicate the execution of your original 1.0 config.
 version: 2
+general:
+  branches:
+    only:
+     - staging
+     - master
 jobs:
   build:
     working_directory: ~/cityofaustin/austinconventioncenter.com
@@ -88,6 +85,13 @@ jobs:
     # The config translation tool does not support translating deployment steps
     # since deployment in CircleCI 2.0 are better handled through workflows.
     # See the documentation for more information https://circleci.com/docs/2.0/workflows/
+    - run:
+        command: bundle exec rake ci:deploy
+        filters:
+          branches:
+            only:
+              - staging
+              - master
     # Teardown
     #   If you break your build into multiple jobs with workflows, you will probably want to do the parts of this that are relevant in each
     # Save test results
@@ -98,32 +102,3 @@ jobs:
         path: /tmp/circleci-artifacts
     - store_artifacts:
         path: /tmp/circleci-test-results
-
-
-
-# * *
-# * *
-
-# ORIGINAL
-
-# * *
-# * *
-#
-# machine:
-#   node:
-#     version: 6.1.0
-# 
-# dependencies:
-#   post:
-#     - "bundle exec s3_website install"
-# 
-# test:
-#   override:
-#     - "bundle exec rake ci:import"
-#     - "JEKYLL_ENV=production bundle exec rake ci:build"
-# 
-# deployment:
-#   merge:
-#     branch: [master, staging]
-#     commands:
-#       - "bundle exec rake ci:deploy"
