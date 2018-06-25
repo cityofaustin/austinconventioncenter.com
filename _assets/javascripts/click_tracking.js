@@ -9,6 +9,15 @@ $(document).ready(function() {
     });
   };
 
+  function reportFormSubmisson(event) {
+    ga('send', 'event', {
+      eventCategory: 'Form Submission',
+      eventAction: 'Form Submitted',
+      eventLabel: 'Request a Proposal',
+      transport: 'beacon'
+    });
+  }
+
 /*
   Photo Carousel
 */
@@ -59,7 +68,7 @@ $(document).ready(function() {
 
   // When a form actually submits
   $('form').submit(function() {
-    reportEvent('Form Submission', 'Form Submitted', $(this.attr('action')));
+    reportFormSubmisson(event);
   });
 
 /*
