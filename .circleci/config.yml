@@ -29,7 +29,7 @@ jobs:
     # https://circleci.com/docs/2.0/circleci-images/
     docker:
 #     - image: circleci/build-image:ubuntu-14.04-XXL-upstart-1189-5614f37
-    - image: circleci/node:latest
+    - image: circleci/node:10-browsers
       command: /sbin/init
     steps:
     # Machine Setup
@@ -44,9 +44,9 @@ jobs:
     - run:
         working_directory: ~/cityofaustin/austinconventioncenter.com
         command: nvm install 6.1.0 && nvm alias default 6.1.0
-        command: 'export NVM_DIR="$HOME/.nvm"'
-        command: [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-        command: [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#         command: 'export NVM_DIR="$HOME/.nvm"'
+#         command: [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#         command: [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
     # Dependencies
     #   This would typically go in either a build or a build-and-test job when using workflows
     # Restore the dependency cache
