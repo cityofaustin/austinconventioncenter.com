@@ -43,10 +43,11 @@ jobs:
     # This is based on your 1.0 configuration file or project settings
     - run:
         working_directory: ~/cityofaustin/austinconventioncenter.com
-        command: nvm install 6.1.0 && nvm alias default 6.1.0
-#         command: 'export NVM_DIR="$HOME/.nvm"'
-#         command: [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-#         command: [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+        command: |
+          nvm install 6.1.0 && nvm alias default 6.1.0
+          export NVM_DIR="$HOME/.nvm"
+          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+          [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
     # Dependencies
     #   This would typically go in either a build or a build-and-test job when using workflows
     # Restore the dependency cache
