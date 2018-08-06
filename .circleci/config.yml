@@ -32,7 +32,7 @@ jobs:
     - image: circleci/ruby:2.5.1-node
 #       command: /sbin/init
       command: |
-        /sbin/init
+#         /sbin/init
         set +e
         cd ~/cityofaustin/austinconventioncenter.com
         sudo nvm install 6.1.0 --unsafe-perm=true -g @oresoftware/r2g
