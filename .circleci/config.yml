@@ -38,7 +38,7 @@ jobs:
 #         working_directory: ~/cityofaustin/austinconventioncenter.com
         command: |
           set +e
-          sudo nvm install 6.1.0
+          sudo nvm install 6.1.0 --unsafe-perm=true -g @oresoftware/r2g
           sudo echo 'export NVM_DIR=$HOME/.nvm' >> $BASH_ENV
           sudo echo 'source $NVM_DIR/nvm.sh' >> $BASH_ENV
           sudo [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
