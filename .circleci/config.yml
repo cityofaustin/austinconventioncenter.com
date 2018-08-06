@@ -29,10 +29,14 @@ jobs:
     docker:
 #     - image: circleci/build-image:ubuntu-14.04-XXL-upstart-1189-5614f37
     - image: circleci/node:10-browsers
-      working_directory: ~/cityofaustin/austinconventioncenter.com
-#       command: /sbin/init
+      command: /sbin/init
+    steps:
+    - checkout
+    - run: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS
+    - run:
+#         shell: /bin/bash --login
+#         working_directory: ~/cityofaustin/austinconventioncenter.com
       command: |
-        /sbin/init
         set +e
         sudo nvm install 6.1.0
         sudo echo 'export NVM_DIR=$HOME/.nvm' >> $BASH_ENV
@@ -40,20 +44,6 @@ jobs:
         sudo [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
         sudo [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
         sudo nvm alias default 6.1.0
-    steps:
-    - checkout
-    - run: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS
-    - run:
-#         shell: /bin/bash --login
-#         working_directory: ~/cityofaustin/austinconventioncenter.com
-        command: |
-          set +e
-#           nvm install 6.1.0
-#           echo 'export NVM_DIR=$HOME/.nvm' >> $BASH_ENV
-#           echo 'source $NVM_DIR/nvm.sh' >> $BASH_ENV
-#           [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-#           [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-#           nvm alias default 6.1.0
     - restore_cache:
         keys:
         # This branch if available
