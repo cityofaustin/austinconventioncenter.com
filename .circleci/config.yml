@@ -28,7 +28,8 @@ jobs:
     # https://circleci.com/docs/2.0/circleci-images/
     docker:
 #     - image: circleci/build-image:ubuntu-14.04-XXL-upstart-1189-5614f37
-    - image: circleci/node:10-browsers
+#     - image: circleci/node:10-browsers
+    - image: circleci/ruby:2.5.1-node
 #       command: /sbin/init
       command: |
         /sbin/init
