@@ -41,7 +41,7 @@ jobs:
     steps:
     - checkout
     - run: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS
-    - run:
+#     - run:
 #         shell: /bin/bash --login
 #         working_directory: ~/cityofaustin/austinconventioncenter.com
     - restore_cache:
