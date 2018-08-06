@@ -34,7 +34,7 @@ jobs:
         /sbin/init
         set +e
         working_directory: ~/cityofaustin/austinconventioncenter.com
-        nvm install 6.1.0
+        sudo nvm install 6.1.0
         echo 'export NVM_DIR=$HOME/.nvm' >> $BASH_ENV
         echo 'source $NVM_DIR/nvm.sh' >> $BASH_ENV
         [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
