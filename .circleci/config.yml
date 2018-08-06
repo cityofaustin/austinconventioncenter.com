@@ -29,9 +29,11 @@ jobs:
     docker:
 #     - image: circleci/build-image:ubuntu-14.04-XXL-upstart-1189-5614f37
     - image: circleci/node:10-browsers
-      command: /sbin/init
+#       command: /sbin/init
       command: |
+        /sbin/init
         set +e
+        working_directory: ~/cityofaustin/austinconventioncenter.com
         nvm install 6.1.0
         echo 'export NVM_DIR=$HOME/.nvm' >> $BASH_ENV
         echo 'source $NVM_DIR/nvm.sh' >> $BASH_ENV
@@ -43,7 +45,7 @@ jobs:
     - run: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS
     - run:
 #         shell: /bin/bash --login
-        working_directory: ~/cityofaustin/austinconventioncenter.com
+#         working_directory: ~/cityofaustin/austinconventioncenter.com
         command: |
           set +e
 #           nvm install 6.1.0
