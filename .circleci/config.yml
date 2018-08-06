@@ -44,8 +44,8 @@ jobs:
     - run:
 #         shell: /bin/bash --login
         working_directory: ~/cityofaustin/austinconventioncenter.com
-#         command: |
-#           set +e
+        command: |
+          set +e
 #           nvm install 6.1.0
 #           echo 'export NVM_DIR=$HOME/.nvm' >> $BASH_ENV
 #           echo 'source $NVM_DIR/nvm.sh' >> $BASH_ENV
