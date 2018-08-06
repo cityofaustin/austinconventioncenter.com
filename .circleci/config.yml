@@ -34,6 +34,7 @@ jobs:
     - checkout
     - run: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS
     - run:
+        shell: /bin/bash --login
         working_directory: ~/cityofaustin/austinconventioncenter.com
         command: |
           - run: nvm install 6.1.0
