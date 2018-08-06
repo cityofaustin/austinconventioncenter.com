@@ -9,7 +9,7 @@
 version: 2
 jobs:
   build:
-#     working_directory: ~/cityofaustin/austinconventioncenter.com
+    working_directory: ~/cityofaustin/austinconventioncenter.com
     parallelism: 1
     shell: /bin/bash --login
     environment:
