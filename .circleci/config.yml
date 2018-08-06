@@ -36,6 +36,7 @@ jobs:
     - run:
         working_directory: ~/cityofaustin/austinconventioncenter.com
         command: |
+          - echo: 'Installing NVM...'
           - run: nvm install 6.1.0
           - run: export NVM_DIR="$HOME/.nvm"
           - run: [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
