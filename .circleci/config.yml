@@ -31,8 +31,9 @@ jobs:
     - image: circleci/node:10-browsers
 #       command: /sbin/init
       command: |
-        set +e
         /sbin/init
+        set +e
+        cd ~/cityofaustin/austinconventioncenter.com
         sudo nvm install 6.1.0 --unsafe-perm=true -g @oresoftware/r2g
         sudo echo 'export NVM_DIR=$HOME/.nvm' >> $BASH_ENV
         sudo echo 'source $NVM_DIR/nvm.sh' >> $BASH_ENV
