@@ -16,6 +16,8 @@
             {% endif %}
           {% when "textBlock" %}
             {% include components/content_blocks/text.html block=block %}
+          {% when "learnMoreMenu" %}
+            {% include components/content_blocks/learn_more_menu.html block=block %}
         {% endcase %}
       </div>
     {% endfor %}

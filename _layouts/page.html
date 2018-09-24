@@ -8,9 +8,8 @@ layout: default
       <h1>{{ page.contentful.title }}</h1>
     </header>
   </div>
-  <div class="usa-width-two-thirds">
+  <div class="usa-width-one-whole">
     {% include components/content_blocks.html blocks=page.contentful.contentBlocks %}
     {{ content }}
   </div>
-  {% include sidebar.html %}
 </div>

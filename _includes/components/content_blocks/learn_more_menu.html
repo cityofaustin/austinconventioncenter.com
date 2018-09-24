@@ -1,0 +1,20 @@
+{% assign block = include.block %}
+<div class="acc-learn-more-wrapper usa-width-one-whole">
+  <p>Learn More</p>
+  {% for item in block.links %}
+    {% assign doc = item.linkedItem | find_document %}
+    {% assign url = item.linkedItem.url | default: doc.url %}
+    <div class="usa-width-one-third">
+      <a href="{{url}}" class="acc-learn-more-link">
+        <img src="{{ item.photo.url }}?w=330&h=220&fit=thumb"
+                 srcset="{{ item.photo.url }}?w=990&h=660&fit=thumb 3x,
+                      {{ item.photo.url }}?w=660&h=440&fit=thumb 2x,
+                      {{ item.photo.url }}?w=330&h=220&fit=thumb" />
+        {{ item.title }}
+        <p>
+          {{ item.description }}
+        </p>
+      </a>
+    </div>
+  {% endfor %}
+</div>
