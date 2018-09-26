@@ -40,9 +40,9 @@ contentful_options: &contentful_options
     contactBlock: Mappers::ContentBlockMapper
     galleryBlock: Mappers::ContentBlockMapper
     galleryImage: Mappers::GalleryImageMapper
-#     learnMoreLink: Mappers::LearnMoreLinkMapper
     learnMoreMenu: Mappers::ContentBlockMapper
     menu: Mappers::ContentBlockMapper
+    pageBanner: Mappers::ContentBlockMapper
     textBlock: Mappers::ContentBlockMapper
 
 contentful:

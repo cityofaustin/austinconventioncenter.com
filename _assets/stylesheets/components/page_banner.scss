@@ -1,0 +1,37 @@
+.acc-page-banner {
+  margin-bottom: 4rem;
+  position: relative;
+  text-align: center;
+
+  @media screen and (min-width: $medium-screen) {
+  }
+
+  h1 {
+    color: white;
+    padding: 3em 0;
+    text-transform: uppercase;
+    margin: 0;
+  }
+}
+
+.acc-page-banner-text-container {
+  background-color: red;
+  color: white;
+  font-size: 1.2em;
+  padding: 1em;
+}
+
+/*
+.acc-facility-feature {
+  margin-top: 20rem;
+  padding-top: 10rem;
+  padding-bottom: 20rem;
+  ul, p, h1, h2, h3 {
+    margin: 1em 5em;
+    display: inline-block;
+    background-color: red;
+    color: white;
+  }
+  
+}
+*/

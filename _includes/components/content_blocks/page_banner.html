@@ -1,0 +1,25 @@
+{% assign banner = include.block %}
+
+<div class="acc-page-banner">		
+  <h1 style="background-image: url('{{ banner.backgroundImage.url }}');">
+    {{ banner.title }}
+  </h1>
+  <div class="acc-page-banner-text-container">		
+    <div class="usa-grid">
+      {{ banner.text | markdownify }}
+  
+      {% if banner.buttons %}
+        <ul class="usa-unstyled-list">
+          {% assign buttons = banner.buttons %}
+          {% for button in buttons %}
+            {% assign doc = button | find_document %}
+            {% assign url = button.url | default: doc.url %}
+            <li>
+              <a href="{{ url }}">{{ button.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+  </div>		
+</div>
