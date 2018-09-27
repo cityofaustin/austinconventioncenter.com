@@ -6,6 +6,7 @@
   </h1>
   <div class="acc-page-banner-text-container">		
     <div class="usa-grid">
+      <div class="usa-width-one-whole">
       {{ banner.text | markdownify }}
   
       {% if banner.buttons %}
@@ -20,6 +21,7 @@
           {% endfor %}
         </ul>
       {% endif %}
+      </div>
     </div>
   </div>		
 </div>

@@ -1,16 +1,13 @@
 {% if include.blocks != empty %}
-
-  {% for block in include.blocks %}
-    {% case block.type %}
-      {% when "pageBanner" %}
-        {% include components/content_blocks/page_banner.html block=block %}
-    {% endcase %}
-  {% endfor %}
+<!--
 
   <div class="usa-grid">
     <div class="acc-content-block-list usa-width-one-whole">
+-->
+
+
+
       {% for block in include.blocks %}
-        <div class="acc-content-block">
           {% case block.type %}
             {% when "accordionBlock" %}
               {% include components/content_blocks/accordion.html block=block %}
@@ -25,12 +22,22 @@
               {% endif %}
             {% when "learnMoreMenu" %}
               {% include components/content_blocks/learn_more_menu.html block=block %}
+            {% when "pageBanner" %}
+              {% include components/content_blocks/page_banner.html block=block %}
+            {% when "sideBySide" %}
+              {% include components/content_blocks/side_by_side.html block=block %}
             {% when "textBlock" %}
               {% include components/content_blocks/text.html block=block %}
           {% endcase %}
-        </div>
       {% endfor %}
+
+
+
+
+
+<!--
     </div>
   </div>
+-->
   {% if photoswipe %}{% include components/photoswipe.html %}{% endif %}
 {% endif %}
