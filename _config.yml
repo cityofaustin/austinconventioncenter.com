@@ -42,6 +42,7 @@ contentful_options: &contentful_options
     galleryImage: Mappers::GalleryImageMapper
     learnMoreMenu: Mappers::ContentBlockMapper
     menu: Mappers::ContentBlockMapper
+    navigationSection: Mappers::ContentBlockMapper
     pageBanner: Mappers::ContentBlockMapper
     sideBySide: Mappers::ContentBlockMapper
     textBlock: Mappers::ContentBlockMapper

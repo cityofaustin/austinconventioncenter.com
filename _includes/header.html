@@ -14,7 +14,7 @@
     </button>
     <nav role="navigation" class="acc-nav" id="nav">
       {% assign menu = site.contentful.menu | where: "name", "Header" | first %}
-      {% include components/menu.html items=menu.items list_classes="acc-nav-list" item_classes="acc-nav-link" %}
+      {% include components/navigation.html items=menu.items list_classes="acc-nav-list" item_classes="acc-nav-link" %}
     </nav>
   </div>
 </header>
