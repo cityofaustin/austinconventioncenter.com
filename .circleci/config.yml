@@ -4,6 +4,7 @@ general:
     only:
      - staging
      - master
+     - sandbox
 jobs:
   build:
     working_directory: ~/cityofaustin/austinconventioncenter.com
@@ -92,6 +93,7 @@ jobs:
             only:
               - staging
               - master
+              - sandbox
     # Teardown
     #   If you break your build into multiple jobs with workflows, you will probably want to do the parts of this that are relevant in each
     # Save test results
