@@ -1,4 +1,4 @@
-<ul class="usa-nav-primary usa-accordion">
+<ul class="usa-nav-primary usa-accordion acc-nav-primary">
   {% for item in include.items %}
     {% case forloop.index %}
       {% when 1 %}
@@ -13,17 +13,18 @@
         {% assign nav_class = 'five' %}
     {% endcase %}
     {% if item.type == 'navigationSection' %}
-      <li>
-        <button class="usa-accordion-button usa-nav-link" aria-expanded="false" aria-controls="basic-mega-nav-section-{{ nav_class }}">
-          <span>{{ item.name }}</span>
+      <li class="acc-mega-nav-{{ item.name | slugify }}">
+        <button class="usa-accordion-button usa-nav-link acc-nav-link" aria-expanded="false" aria-controls="basic-mega-nav-section-{{ nav_class }}">
+          <span aria-hidden="true">{{ item.name }}</span>
         </button>
-        <div id="basic-mega-nav-section-{{nav_class}}" class="usa-nav-submenu usa-megamenu usa-grid-full">
-          <div class="usa-megamenu-col">
+        <div id="basic-mega-nav-section-{{nav_class}}" class="usa-nav-submenu usa-megamenu usa-grid-full acc-mega-nav-section">
+          <span class="acc-nav-submenu-title">{{ item.name }}</span>
+          <div class="usa-megamenu-col acc-megamenu-description">
             <p>
-              {{ item.description }}
+                {{ item.description }}
             </p>
           </div>
-          <div class="usa-megamenu-col">
+          <div class="usa-megamenu-col acc-megamenu-col">
             <ul>
               {% for link in item.column1 %}
                 {% assign doc = link | find_document %}
@@ -38,7 +39,7 @@
               {% endfor %}
             </ul>
           </div>
-          <div class="usa-megamenu-col">
+          <div class="usa-megamenu-col acc-megamenu-col">
             <ul>
               {% for link in item.column2 %}
                 {% assign doc = link | find_document %}
@@ -66,4 +67,7 @@
       {% endif %}
     {% endif %}
   {% endfor %}
+  <li class="acc-nav-events-link">
+    <a href="/events">Events</a>
+  </li>
 </ul>

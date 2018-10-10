@@ -1,5 +1,5 @@
 id: sandbox
-environment: staging
+environment: production
 title: Palmer Events Center
 url: "http://sandbox.austinconventioncenter.com.s3-website-us-east-1.amazonaws.com"
 

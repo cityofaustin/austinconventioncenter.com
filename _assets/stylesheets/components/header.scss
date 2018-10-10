@@ -1,3 +1,5 @@
+$desktop-header-height: 8rem;
+
 .acc-header-content {
   display: flex;
   flex-direction: row;
@@ -7,7 +9,7 @@
   height: 9rem;
 
   @media screen and (min-width: $nav-width) {
-    height: 11rem;
+    height: $desktop-header-height;
   }
 }
 
@@ -52,6 +54,111 @@
   }
 }
 
+.acc-nav-submenu-title {
+  display: none;
+  font-size: 3rem;
+  font-family: $acc-font-header;
+  padding-left: 3rem;
+
+  @media screen and (min-width: $nav-width) {
+    display: block;
+  }
+
+}
+
+.acc-megamenu-description {
+  font-size: 1rem;
+  padding: 2em 1em 0 3rem;
+  p {
+    margin: 0;
+  }
+}
+.acc-mega-nav-attend {
+  
+}
+
+.acc-nav-primary .acc-nav-events-link {
+  margin: .5rem 0;
+  border-left: 1px solid #ccc;
+}
+
+.acc-nav-primary .acc-nav-link {
+  background-color: white;
+  font-size: 2.2rem;
+  transition: background-color $transition-time;
+
+  &:hover, &:active, &[aria-expanded=true] {
+    color: white;
+    transition: background-color $transition-time;
+
+    span {
+      border: none;
+    }
+  }
+}
+
+.acc-nav-primary .acc-mega-nav-section {
+  color: white;
+  left: 0;
+
+  .acc-megamenu-col {
+
+    @media screen and (min-width: $nav-width) {
+      padding-left: 1em;
+      ul {
+        color: white;
+        list-style-position: outside;
+        list-style-type: square;
+      }
+      li {
+        font-size: 2.4rem;
+  
+        a {
+          display: inline-block;
+        }
+      }
+    }
+    a {
+      background-color: transparent;
+      color: white;
+      text-decoration: none;
+      transition: background-color $transition-time;
+      margin-top: -1rem;
+    }
+    a:hover, a:active {
+      background-color: rgba(255, 255, 255, .2);
+      transition: background-color $transition-time;
+    }
+  }
+}
+
+.acc-nav-primary {
+
+  @media screen and (min-width: $nav-width) {
+    .acc-megamenu-col {
+      width: 33%;
+    }
+  }
+
+  .acc-mega-nav-plan {
+    button:hover, button:active, button[aria-expanded=true] {
+      background-color: $plan-color;
+    }
+    .acc-mega-nav-section {
+      @include navigation-gradient($plan-color);
+    }
+  }
+  
+  .acc-mega-nav-attend {
+    button:hover, button:active, button[aria-expanded=true] {
+      background-color: $attend-color;
+    }
+    .acc-mega-nav-section {
+      @include navigation-gradient($attend-color);
+    }
+  }
+}
+
 .acc-nav-list {
   display: flex;
   flex-direction: column;
@@ -81,6 +188,7 @@
   }
 }
 
+.acc-nav-primary {
 .acc-nav-link {
   display: block;
   font-size: $h4-font-size;
@@ -94,22 +202,32 @@
     padding-right: $site-margins;
   }
 
+  @media screen and (min-width: $medium-screen) {
+    &[aria-expanded=true], &[aria-expanded=false] {
+      background-image: none !important;
+    }
+  }
+
+
   span {
-    border-left: 3px solid transparent;
+//     border-left: 3px solid transparent;
     padding: 0.25rem 0 0.25rem 1rem;
     margin-left: calc(-1rem - 3px);
-    transition: border-color 0.15s;
+    border-bottom-width: 0px;
+//     transition: border-color 0.15s;
   }
 
   @media screen and (min-width: $nav-width) {
+    height: $desktop-header-height;
     span {
       margin-left: 0;
       padding: 0 0 0.25rem 0;
       border-left: none;
-      border-bottom: 3px solid transparent;
+//       border-bottom: 3px solid transparent;
     }
   }
 
+/*
   &:visited, &:active {
     color: $acc-color-gray-dark;
   }
@@ -121,6 +239,8 @@
       border-color: $acc-color-primary;
     }
   }
+*/
+}
 }
 
 .acc-logo {

@@ -1,3 +1,9 @@
+@require 'bourbon';
+
+@function lighten($color) {
+  @return mix(white, $color, 20%);
+}
+
 @mixin background-color-transition {
   transition: background-color $transition-time;
 }
@@ -7,4 +13,17 @@
     color: $color;
     text-decoration: none;
   }
+}
+
+@mixin navigation-gradient($color) {
+  @include gradient-theme($color);
+  &::before, &::after {
+    @include gradient-theme($color);
+  }
+}
+
+@mixin gradient-theme($color) {
+  background: linear-gradient($color, lighten($color));
+  background: -moz-linear-gradient($color, lighten($color));
+  background: -webkit-linear-gradient($color, lighten($color));
 }
