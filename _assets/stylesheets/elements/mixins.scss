@@ -27,3 +27,19 @@
   background: -moz-linear-gradient($color, lighten($color));
   background: -webkit-linear-gradient($color, lighten($color));
 }
+
+.acc-color-theme-Plan {
+  @include gradient-theme($acc-color-plan)
+}
+
+.acc-color-theme-Attend {
+  @include gradient-theme($acc-color-attend)
+}
+
+.acc-color-theme-Exhibit {
+  @include gradient-theme($acc-color-exhibit)
+}
+
+.acc-color-theme-Calendar {
+  @include gradient-theme($acc-color-calendar)
+}

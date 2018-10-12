@@ -142,19 +142,19 @@ $desktop-header-height: 8rem;
 
   .acc-mega-nav-plan {
     button:hover, button:active, button[aria-expanded=true] {
-      background-color: $plan-color;
+      background-color: $acc-color-plan;
     }
     .acc-mega-nav-section {
-      @include navigation-gradient($plan-color);
+      @include navigation-gradient($acc-color-plan);
     }
   }
   
   .acc-mega-nav-attend {
     button:hover, button:active, button[aria-expanded=true] {
-      background-color: $attend-color;
+      background-color: $acc-color-attend;
     }
     .acc-mega-nav-section {
-      @include navigation-gradient($attend-color);
+      @include navigation-gradient($acc-color-attend);
     }
   }
 }
