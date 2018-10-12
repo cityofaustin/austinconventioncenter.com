@@ -8,9 +8,14 @@
 
   h1 {
     color: white;
-    padding: 3em 0;
-    text-transform: uppercase;
+    font-size: 5rem;
     margin: 0;
+    padding: 1em 0;
+    text-transform: uppercase;
+
+    @media screen and (min-width: $nav-width) {
+      font-size: 17rem;
+    }
   }
 }
 
