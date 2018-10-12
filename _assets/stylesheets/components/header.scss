@@ -157,6 +157,16 @@ $desktop-header-height: 8rem;
       @include navigation-gradient($acc-color-attend);
     }
   }
+
+  .acc-mega-nav-exhibit {
+    button:hover, button:active, button[aria-expanded=true] {
+      background-color: $acc-color-exhibit;
+    }
+    .acc-mega-nav-section {
+      @include navigation-gradient($acc-color-exhibit);
+    }
+  }
+
 }
 
 .acc-nav-list {
