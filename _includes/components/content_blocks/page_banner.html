@@ -8,13 +8,13 @@
     {{ banner.text | markdownify }}
 
     {% if banner.buttons %}
-      <ul class="usa-unstyled-list">
+      <ul class="usa-unstyled-list acc-page-banner-menu">
         {% assign buttons = banner.buttons %}
         {% for button in buttons %}
           {% assign doc = button | find_document %}
           {% assign url = button.url | default: doc.url %}
           <li>
-            <a href="{{ url }}">{{ button.title }}</a>
+            <a href="{{ url }}" class="acc-button">{{ button.title }}</a>
           </li>
         {% endfor %}
       </ul>

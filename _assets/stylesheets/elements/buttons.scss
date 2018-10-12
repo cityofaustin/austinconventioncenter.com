@@ -1,4 +1,15 @@
 @mixin acc-button-base {
+  display: inline-block;
+  border-width: 2px;
+  border-style: solid;
+  border-color: black;
+  font-family: $acc-font-header;
+  font-size: 2rem;
+  padding: .5em 1em;
+  text-decoration: none;
+  text-align: center;
+  width: 205px;
+/*
   background-color: $acc-color-gray-lightest;
   border-radius: 0.5rem;
   color: $acc-color-gray;
@@ -9,9 +20,10 @@
   text-align: left;
   text-decoration: none;
   width: 100%;
+*/
 
   &:active, &:visited, &:hover {
-    color: $acc-color-gray;
+//     color: $acc-color-gray;
   }
 }
 
