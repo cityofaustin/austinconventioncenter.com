@@ -191,6 +191,7 @@ $desktop-header-height: 8rem;
 .acc-nav-primary {
 .acc-nav-link {
   display: block;
+  font-family: $acc-font-header;
   font-size: $h4-font-size;
   font-weight: 600;
   color: $acc-color-gray-dark;
