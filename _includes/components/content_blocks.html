@@ -13,6 +13,8 @@
               {% include components/content_blocks/accordion.html block=block %}
             {% when "contactBlock" %}
               {% include components/content_blocks/contact.html block=block %}
+            {% when "featureBlock" %}
+              {% include components/content_blocks/feature.html block=block %}
             {% when "galleryBlock" %}
               {% assign photoswipe = true %}
               {% if page.title == "Photos & Virtual Tour" %}

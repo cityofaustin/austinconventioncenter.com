@@ -1,0 +1,24 @@
+.acc-feature-block {
+  background-color: $acc-color-gray-lightest;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 7rem 7rem;
+  font-size: 2rem;
+  margin-top: 3rem;
+  padding: 2em 3rem;
+  text-align: center;
+
+}
+
+.acc-feature-Testimonial {
+  background-image: image_url('icons/testimonial.png');
+}
+
+.acc-feature-block p {
+  max-width: $site-max-width;
+  margin: 0 auto;
+
+  &:first-child {
+    padding-bottom: 1em;
+  }
+}
