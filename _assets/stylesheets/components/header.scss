@@ -82,7 +82,7 @@ $desktop-header-height: 8rem;
   border-left: 1px solid #ccc;
 }
 
-.acc-nav-primary > li {
+.acc-nav-primary > li > a, .acc-nav-primary > li > button {
   @media screen and (min-width: $nav-width) {
     font-size: 2.2rem;
   }
