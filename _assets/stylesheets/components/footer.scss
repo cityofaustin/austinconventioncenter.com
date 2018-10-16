@@ -8,19 +8,25 @@
 .acc-parking-footer .acc-button {
   border-color: white;
   color: white;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  margin-left: -($acc-button-width/2);
+
+  @media screen and (min-width: $medium-screen) {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -($acc-button-width/2);
+  }
 }
 
 .acc-parking-footer > div > div {
-  height: 430px;
-  position: relative;
+  @media screen and (min-width: $medium-screen) {
+    height: 350px;
+    position: relative;
+  }
 }
 
 .acc-parking-footer h2 {
   font-size: 4.5rem;
+  line-height: 1em;
   text-align: left;
 }
 .acc-footer {
