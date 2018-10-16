@@ -1,7 +1,7 @@
 <div class="acc-parking-footer acc-color-theme-{{ page.contentful.colorScheme }}">
   <div class="usa-grid">
-    <div class="usa-width-one-third">
-      {% img acc-parking-map.png "Parking Map" height="350px" width="350px" %}
+    <div class="usa-width-one-third acc-parking-map">
+      {% img acc-parking-map.png "Parking Map" %}
     </div>
     <div class="usa-width-one-third">
       {% assign parking_info = site.contentful.textBlock | where_exp: "textBlock", "textBlock.name == 'Parking Information Footer'" | first %}
@@ -15,7 +15,6 @@
     </div>
   </div>
 </div>
-
 
 <footer class="acc-footer" role="contentinfo">
   <div class="acc-footer-content">

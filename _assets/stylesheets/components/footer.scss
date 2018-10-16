@@ -5,6 +5,15 @@
   padding: 5rem 0 3rem 0;
 }
 
+.acc-parking-map {
+  text-align: center;
+  @media screen and (min-width: $medium-screen) {
+    text-align: left;
+  }
+  img {
+    width: 100%;
+  }
+}
 .acc-parking-footer .acc-button {
   border-color: white;
   color: white;
