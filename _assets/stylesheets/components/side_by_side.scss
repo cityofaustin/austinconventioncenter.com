@@ -1,3 +1,36 @@
+.acc-side-by-side-container {
+  margin-top: $acc-vertical-margin;
+  h3 {
+    text-align: left;
+  }
+
+}
+
+
+.acc-side-by-side-container h3 {
+  margin-top: 0;
+}
+@media screen and (min-width: $medium-screen) {
+  .acc-side-by-side-component {
+    padding: 0 3rem;
+  }
+
+  .acc-side-by-side-container .acc-button {
+    bottom: 0;
+    display: block;
+    left: 3rem;
+    position: absolute;
+  }
+
+  .acc-side-by-side-container > div > div {
+    position: relative;
+    height: 270px;
+    overflow: hidden;
+  }
+}
+
 .acc-side-by-side-content-block {
-  
+  h3 {
+    text-align: left;
+  }
 }

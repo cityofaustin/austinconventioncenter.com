@@ -1,14 +1,18 @@
 {% assign items = include.block.items %}
 
-<div class="usa-grid">
-  {% for item in items %}
-    <div class="usa-width-one-half">
-      {% case item.type %}
-        {% when 'galleryImage' %}
-          <img src="{{ item.image.url }}?w=500&h=250&fit=fill" alt="{{ item.title }}" />
-        {% when 'textBlock' %}
-          {{ item.text | markdownify }}
-      {% endcase %}
-    </div>
-  {% endfor %}
+<div class="acc-side-by-side-container">
+  <div class="usa-grid">
+    {% for item in items %}
+      <div class="usa-width-one-half">
+        <div class="acc-side-by-side-component">
+          {% case item.type %}
+            {% when 'galleryImage' %}
+              <img src="{{ item.image.url }}?h=270&fit=fill" alt="{{ item.title }}" />
+            {% when 'textBlock' %}
+              {{ item.text | markdownify }}
+          {% endcase %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
 </div>
