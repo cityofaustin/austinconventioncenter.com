@@ -1,3 +1,28 @@
+.acc-parking-footer {
+  color: white;
+  font-size: 1.2rem;
+  margin-top: $acc-vertical-margin;
+  padding: 5rem 0 3rem 0;
+}
+
+.acc-parking-footer .acc-button {
+  border-color: white;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -($acc-button-width/2);
+}
+
+.acc-parking-footer > div > div {
+  height: 430px;
+  position: relative;
+}
+
+.acc-parking-footer h2 {
+  font-size: 4.5rem;
+  text-align: left;
+}
 .acc-footer {
   font-size: 1.5rem;
   margin-top: 7rem;

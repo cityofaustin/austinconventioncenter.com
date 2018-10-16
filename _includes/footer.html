@@ -1,3 +1,22 @@
+<div class="acc-parking-footer acc-color-theme-{{ page.contentful.colorScheme }}">
+  <div class="usa-grid-full">
+    <div class="usa-width-one-third">
+      {% img acc-parking-map.png "Parking Map" height="350px" width="350px" %}
+    </div>
+    <div class="usa-width-one-third">
+      {% assign parking_info = site.contentful.textBlock | where_exp: "textBlock", "textBlock.name == 'Parking Information Footer'" | first %}
+      <h2>{{ parking_info.title }}</h2>
+      {{ parking_info.text | markdownify }}
+    </div>
+    <div class="usa-width-one-third">
+      {% assign vicinity_info = site.contentful.textBlock | where_exp: "textBlock", "textBlock.name == 'Downtown Information Footer'" | first %}
+      <h2>{{ vicinity_info.title }}</h2>
+      {{ vicinity_info.text | markdownify }}
+    </div>
+  </div>
+</div>
+
+
 <footer class="acc-footer" role="contentinfo">
   <div class="acc-footer-content">
     <div class="usa-grid">
