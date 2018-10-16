@@ -25,6 +25,35 @@ $desktop-header-height: 8rem;
   }
 }
 
+@media screen and (min-width: $nav-width) {
+  .acc-nav-primary .acc-megamenu-col > ul {
+    margin-left: 1em;
+  }
+}
+
+.acc-nav .acc-nav-primary .acc-mega-nav-section .acc-nav-close-button {
+  display: none;
+  position: absolute;
+  top: 3rem;
+  right: 0;
+  width: 4rem;
+  height: 4rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-image: image_url('icons/button-close.png');
+  background-position: center center;
+  text-indent: -9999px;
+
+  &:hover, &:active {
+    background-color: transparent;
+  }
+
+  @media screen and (min-width: $nav-width) {
+    display: block;
+  }
+}
+
 .acc-nav {
   background-color: $acc-color-white;
   box-shadow: 0 3px 5px -3px rgba(#000, 0.3);
