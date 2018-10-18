@@ -59,6 +59,6 @@
 	}
 	google.maps.event.addDomListener(window, 'load', initMap);
 </script>
-<script async defer src="//maps.googleapis.com/maps/api/js?key=<%= ENV["DARTS_MAPS_KEY"] %>&callback=initMap" type="text/javascript"></script>
+<script async defer src="//maps.googleapis.com/maps/api/js?key={{ site.google_maps_api_key }}&callback=initMap" type="text/javascript"></script>
 
 </head>

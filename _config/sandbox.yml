@@ -11,7 +11,8 @@ footer_address:
   phone: (512) 404-4500
 
 google_analytics_id: UA-87703455-97
-google_maps_api_key: "AIzaSyBRr3ZaxMM0Y-zW1OSZS0eOrURqc2tRHew"
+# google_maps_api_key: "AIzaSyBRr3ZaxMM0Y-zW1OSZS0eOrURqc2tRHew"
+google_maps_api_key: "AIzaSyAWGQpLsfy3fVrKpQ5OHowxctaBYgOgVtw"
 facebook_analytics_pixel_id: 12345
 facebook_url: https://www.facebook.com/PalmerEventsCenter/
 instagram_url: https://www.instagram.com/pectx/
