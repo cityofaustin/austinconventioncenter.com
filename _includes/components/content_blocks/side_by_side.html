@@ -7,7 +7,7 @@
         <div class="acc-side-by-side-component">
           {% case item.type %}
             {% when 'galleryImage' %}
-              <img src="{{ item.image.url }}?h=270&fit=fill" alt="{{ item.title }}" />
+              <img src="{{ item.image.url }}?h=270&w=430&fit=fill" alt="{{ item.title }}" />
             {% when 'textBlock' %}
               {{ item.text | markdownify }}
           {% endcase %}

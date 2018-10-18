@@ -7,6 +7,9 @@
   }
 
   h1 {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
     color: white;
     font-size: 5rem;
     margin: 0;
@@ -22,11 +25,12 @@
 .acc-page-banner-text-container {
   color: white;
   font-size: 2.4rem;
-  padding: 1em;
+  padding: 1em 1em 2em 1em;
 
   p {
     margin: 0 auto;
-    max-width: 600px;
+    max-width: 800px;
+    padding: 1em;
     text-align: center;
   }
 

@@ -3,17 +3,21 @@
 }
 
 .acc-learn-more-link {
-  background-color: $acc-color-gray-light;
+  background-color: $acc-color-gray-lightest;
   color: black;
   display: block;
   margin: 0 1em;
   text-decoration: none;
+  transition: background-color $transition-time;
 
-  &:hover, &:active {
+  &:hover, &:active, &:visited {
     color: black;
-    background-color: $acc-color-gray-lightest;
   }
 
+  &:hover, &:active {
+    background-color: $acc-color-gray-light;
+    transition: background-color $transition-time;
+  }
   img {
     display: block;
     margin: 0 auto;

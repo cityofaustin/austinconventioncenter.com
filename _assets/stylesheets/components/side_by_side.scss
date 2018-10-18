@@ -14,22 +14,31 @@
     padding: 0 3rem;
   }
 
+/*
   .acc-side-by-side-container .acc-button {
     bottom: 0;
     display: block;
     left: 3rem;
     position: absolute;
   }
+*/
 
+/*
   .acc-side-by-side-container > div > div {
     position: relative;
     height: 270px;
     overflow: hidden;
   }
+*/
 }
 
 .acc-side-by-side-content-block {
   h3 {
     text-align: left;
   }
+}
+
+.acc-side-by-side-content-block img {
+  height: auto;
+  width: 100%;
 }
