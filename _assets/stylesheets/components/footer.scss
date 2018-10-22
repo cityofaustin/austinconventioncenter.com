@@ -28,6 +28,21 @@
 */
 }
 
+#map {
+  color: black;
+  h4 {
+    color: black;
+    margin-top: 0;
+  }
+  ul {
+    list-style: none;
+    padding-left: 0;
+    li a {
+      @include acc-button-base;
+      font-size: 1.5rem;
+    }
+  }
+}
 /*
 .acc-parking-footer > div > div {
   @media screen and (min-width: $medium-screen) {
