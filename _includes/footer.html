@@ -4,17 +4,12 @@
 
 
 <!-- Google Maps -->
-{{ site.contentful.asset }}
-  {% assign kmlSrc = site.contentful.asset | where_exp: "asset", "asset.title == 'sandbox-kml'" | first %}
-  <h1>kml source asset: {% asset_path "{{site.id}}.kml" %}</h1>
-  
-
 <div id="map" style="width: 100%;height: 300px;border: 2px solid red;"></div>
 
 <script>
 	var map;
-//   var src = {% asset_path "{{site.id}}.kml" %};
-  var src = 'https://www.dartsinaustin.com/venues.kml'
+  var src = {% asset_path "{{site.id}}.kml" %};
+//   var src = 'https://www.dartsinaustin.com/venues.kml'
 	function initMap() {
 	  map = new google.maps.Map(document.getElementById('map'), {
 	    center: new google.maps.LatLng(30.274709,-97.738737),
