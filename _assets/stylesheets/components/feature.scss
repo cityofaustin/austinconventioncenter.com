@@ -1,17 +1,21 @@
 .acc-feature-block {
   background-color: $acc-color-gray-lightest;
   background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 7rem 7rem;
+  background-position: center 2rem;
+  background-size: auto;
   font-size: 2rem;
   margin-top: 3rem;
-  padding: 2em 3rem;
+  padding: 8rem 3rem 2em 3rem;
   text-align: center;
 
 }
 
 .acc-feature-Testimonial {
   background-image: image_url('icons/testimonial.png');
+}
+
+.acc-feature-Wifi {
+  background-image: image_url('icons/wifi.png');
 }
 
 .acc-feature-block p {
@@ -21,4 +25,10 @@
   &:first-child {
     padding-bottom: 1em;
   }
+}
+
+.acc-feature-block ul {
+  max-width: $site-max-width/2;
+  margin: 0 auto;
+  text-align: left;
 }
