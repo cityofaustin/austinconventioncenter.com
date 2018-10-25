@@ -5,6 +5,16 @@
   padding: 5rem 0 3rem 0;
 }
 
+.acc-parking-footer {
+  h2, p, ul {
+    margin-left: 2rem;
+  }
+
+  p:last-child {
+    text-align: center;
+  }
+}
+
 .acc-parking-map {
   text-align: center;
   @media screen and (min-width: $medium-screen) {
