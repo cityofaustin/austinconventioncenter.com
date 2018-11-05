@@ -98,14 +98,29 @@ $desktop-header-height: 8rem;
 .acc-megamenu-description {
   font-size: 1.7rem;
   padding: 1em 1em 0 3rem;
+
+  display: none;
+
   p {
     margin: 0;
+  }
+
+  @media screen and (min-width: $nav-width) {
+    display: block;
   }
 }
 .acc-mega-nav-attend {
   
 }
 
+@media screen and (max-width: $nav-width) {
+  .acc-mega-nav-section {
+    display: block;
+    &[aria-hidden=true] {
+      display: block;
+    }
+  }
+}
 .acc-nav-primary .acc-nav-events-link {
   margin: .5rem 0;
   border-left: 1px solid #ccc;
@@ -241,59 +256,57 @@ $desktop-header-height: 8rem;
 }
 
 .acc-nav-primary {
-.acc-nav-link {
-  display: block;
-  font-family: $acc-font-header;
-//   font-weight: 600;
-//   color: $acc-color-gray-dark;
-  letter-spacing: .07em;
-  padding: 1.3rem $site-margins-mobile 1.7rem;
-  text-decoration: none;
-
-  @media screen and (min-width: $medium-screen) and (max-width: $nav-width) {
-    padding-left: $site-margins;
-    padding-right: $site-margins;
-  }
-
-  @media screen and (min-width: $medium-screen) {
-    &[aria-expanded=true], &[aria-expanded=false] {
-      background-image: none !important;
+  .acc-nav-link {
+    display: block;
+    font-family: $acc-font-header;
+  //   font-weight: 600;
+  //   color: $acc-color-gray-dark;
+    letter-spacing: .07em;
+    padding: 1.3rem $site-margins-mobile 1.7rem;
+    text-decoration: none;
+  
+    @media screen and (min-width: $medium-screen) and (max-width: $nav-width) {
+      padding-left: $site-margins;
+      padding-right: $site-margins;
     }
-  }
-
-
-  span {
-//     border-left: 3px solid transparent;
-    padding: 0.25rem 0 0.25rem 1rem;
-    margin-left: calc(-1rem - 3px);
-    border-bottom-width: 0px;
-//     transition: border-color 0.15s;
-  }
-
-  @media screen and (min-width: $nav-width) {
-    height: $desktop-header-height;
+  
+    @media screen and (min-width: $medium-screen) {
+      &[aria-expanded=true], &[aria-expanded=false] {
+        background-image: none !important;
+      }
+    }
+  
+    @media screen and (max-width: $nav-width) {
+      font-size: 2em;
+      padding-left:2rem;
+      &[aria-expanded=false], &[aria-expanded=true] {
+        background-image: none;
+      }
+      span {
+        padding-left: 2rem;
+      }
+    }
+  
     span {
-      margin-left: 0;
-      padding: 0 0 0.25rem 0;
-      border-left: none;
-//       border-bottom: 3px solid transparent;
+  //     border-left: 3px solid transparent;
+      padding: 0.25rem 0 0.25rem 1rem;
+      margin-left: calc(-1rem - 3px);
+      border-bottom-width: 0px;
+  //     transition: border-color 0.15s;
     }
-  }
 
-/*
-  &:visited, &:active {
-    color: $acc-color-gray-dark;
-  }
-
-  &:hover {
-    color: $acc-color-primary;
-
-    span {
-      border-color: $acc-color-primary;
+    @media screen and (min-width: $nav-width) {
+      height: $desktop-header-height;
+      span {
+        margin-left: 0;
+        padding: 0 0 0.25rem 0;
+        border-left: none;
+  //       border-bottom: 3px solid transparent;
+      }
     }
+  
   }
-*/
-}
+
 }
 
 .acc-logo {
