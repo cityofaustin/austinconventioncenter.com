@@ -16,6 +16,12 @@ layout: default
   <p>
     Please note the calendar of events below does not reflect all {{ booking_adjective }} dates. <a href="{{ site.url }}/plan/request-a-proposal/">Connect with our sales team</a> for date availability and event details.
   </p>
+  <p>
+    Page data: {{ page.contentful }}
+  </p>
+  <p>
+    Doc data: {{ doc.contentful }}
+  </p>
   {% if site.events and site.events != empty %}
     <aside class="usa-width-one-fourth">
       <nav role="navigation" class="acc-sidenav" id="sidenav">
