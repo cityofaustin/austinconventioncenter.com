@@ -1,0 +1,77 @@
+.acc-calendar-event {
+  @include acc-button-base;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  @media all and (min-width: $small-screen) {
+    flex-direction: row;
+    min-height: 19rem;
+  }
+}
+
+.acc-calendar-event-link .acc-calendar-event-details {
+  position: relative;
+  padding-right: 8rem;
+
+  &::after {
+    @include acc-button-icon;
+    background-image: none;
+    right: 1em;
+    content: "\f08e";
+    font-family: FontAwesome;
+    font-size: 2rem;
+    color: #00807a;
+    padding: 1.1rem 0 0 1.6rem;
+  }
+}
+
+.acc-calendar-event:not(.acc-calendar-event-link) {
+  cursor: default;
+  pointer-events: none;
+}
+
+.acc-calendar-event-date,
+.acc-calendar-event-details {
+  padding: 3rem 2.5rem;
+}
+
+.acc-calendar-event-date {
+  background-color: $acc-color-gray;
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  h1, h4 {
+    color: $acc-color-white;
+    margin: 0;
+  }
+
+  @media all and (min-width: $small-screen) {
+    width: 18rem;
+  }
+}
+
+.acc-calendar-event-day {
+  white-space: nowrap;
+}
+
+.acc-calendar-event-details {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.acc-calendar-event-title {
+  flex: 1 0 auto;
+  margin: 0;
+}
+
+.acc-calendar-event-attendance {
+  margin: 0;
+}
