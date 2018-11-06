@@ -16,7 +16,7 @@ layout: default
         </button>
         <ul class="usa-unstyled-list acc-sidenav-list" id="acc-floor-plan-nav">
           <li>
-            <a href="/plan/plans/"{% if page.url == "/plan/plans/" %} class="acc-current"{% endif %}>Center Overview</a>
+            <a href="/plans/"{% if page.url == "/plan/plans/" %} class="acc-current"{% endif %}>Center Overview</a>
           </li>
           {% assign docs = site.plans | sort: "title" | sort: "priority", "last"  %}
           {% for doc in docs %}
