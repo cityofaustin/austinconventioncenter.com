@@ -1,0 +1,31 @@
+.acc-homepage-menu-container .acc-button-grid li {
+  text-align: center;
+
+  a {
+    background-color: $acc-color-gray-lightest;
+    text-align: center;
+    margin: 0 auto 2em auto;
+    display: inline-block;
+    font-family: $acc-font-header;
+    text-decoration: none;
+    padding-bottom: 1em;
+    color: black;
+    transition: all $transition-time;
+    max-width: 50rem;
+
+    &:hover {
+      background-color: white;
+      transition: all $transition-time;
+    }
+
+    img {
+      display: block;
+      padding-bottom: 1em;
+      width: 100%;
+    }
+
+    @media screen and (min-width: $medium-screen) {
+//       margin: 0 2rem 2rem 2rem;
+    }
+  }
+}

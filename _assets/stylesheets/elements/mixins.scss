@@ -28,6 +28,10 @@
   background: -webkit-linear-gradient($color, lighten($color));
 }
 
+.acc-color-theme-Default {
+  @include gradient-theme($acc-color-base)
+}
+
 .acc-color-theme-Plan {
   @include gradient-theme($acc-color-plan)
 }

@@ -22,6 +22,19 @@
       z-index: 20;
     }
 
+    .acc-button {
+      position: absolute;
+      width: 22rem;
+      border-color: white;
+      color: white;
+      text-align: center;
+      bottom: 1em;
+      left: 50%;
+      margin-left: -11rem;
+      display: block;
+      z-index: 20;
+    }
+
     @media screen and (min-width: $nav-width) {
       font-size: 17rem;
     }
