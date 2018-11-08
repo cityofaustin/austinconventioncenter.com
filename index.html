@@ -5,7 +5,7 @@ layout: default
 {% assign contentful = site.contentful.page | where: "slug", "home" | first %}
 
 {% assign banner = contentful.contentBlocks | where: "type", "pageBanner" | first %}
-<div class="acc-page-banner">
+<div class="acc-page-banner acc-homepage-banner">
   <h1 style="background-image: url('{{ banner.backgroundImage.url }}?w=1200');">
     <div class="acc-page-banner-overlay"></div>
 <!--     <span>{{ banner.title }}</span> -->
