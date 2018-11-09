@@ -32,3 +32,34 @@
   margin: 0 auto;
   text-align: left;
 }
+
+.acc-mega-feature {
+  margin-top: $acc-vertical-margin;
+  text-align: center;
+}
+.acc-mega-feature .usa-grid > div {
+  border: 5px solid red;
+  background-repeat: no-repeat;
+  padding: 3em 0;
+  background-position: 0 0;
+  background-size: 100% 3em;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    display: block;
+    left: 0;
+    width: 100%;
+    height: 5em;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('//images.ctfassets.net/xv1q576gx3e5/pKnk2MrCsSskqce4kSK4o/69a3a51930b612300b385f8475c85ce0/SpiceWorld_2016_FB4.JPG?w=1200');
+  }
+
+  @media screen and (min-width: $medium-screen) {
+    background-position: 0 50%;
+    background-size: cover;
+    padding-right: 60%
+  }
+}

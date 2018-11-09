@@ -26,6 +26,13 @@
   background: linear-gradient($color, lighten($color));
   background: -moz-linear-gradient($color, lighten($color));
   background: -webkit-linear-gradient($color, lighten($color));
+  color: white;
+
+  .acc-button {
+    color: white;
+    border-color: white;
+
+  }
 }
 
 .acc-color-theme-Default {

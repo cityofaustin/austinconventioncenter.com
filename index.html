@@ -31,7 +31,6 @@ layout: default
 
 <div class="usa-grid acc-homepage-menu-container">
   {% assign menu = site.contentful.menu | where_exp: "menu", "menu.name == 'Homepage'" | first %}
-
   <ul class="usa-unstyled-list acc-button-grid">
     {% for item in menu.items %}
       <li>
@@ -44,7 +43,30 @@ layout: default
   </ul>
 </div>
 
+<div class="usa-grid acc-upcoming-events">
+  <h3>Upcoming Events</h3>
+  {% assign eventsMenu = site.contentful.menu | where_exp: "menu", "menu.name == 'Upcoming Events'" | first %}
+  {% for event in eventsMenu.items %}
+    <div class="usa-width-one-third">
+      <a href="{{event.website}}">{{ event.dates }}</a>
+      <span class="acc-event-name">{{ event.eventName }}</span>
+    </div>
+  {% endfor %}
+</div>
 
+<div class="acc-mega-feature acc-color-theme-Default">
+  <div class="usa-grid">
+    <div class="usa-width-one-whole">
+      <h3>Bringing events to life</h3>
+      <p>
+        Get inspired and explore the Austin Convention Center's pre-function space, exhibit halls, and ballrooms. Imagine how your event can transform the space.
+      </p>
+      <p>
+        <a href="/gallery" class="acc-button">Visit our Photo Gallery</a>
+      </p>
+    </div>
+  </div>
+</div>
 
 <div class="usa-grid acc-social-container">
   <div class="usa-width-one-whole">

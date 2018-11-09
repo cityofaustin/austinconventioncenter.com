@@ -2,6 +2,9 @@
   min-height: 20rem;
 }
 
+.acc-homepage-menu-container {
+  margin-top: $acc-vertical-margin;
+}
 .acc-homepage-menu-container .acc-button-grid li {
   text-align: center;
 
@@ -33,3 +36,40 @@
     }
   }
 }
+
+.acc-upcoming-events {
+  margin-top: $acc-vertical-margin;
+  font-size: 2rem;
+
+  > div {
+    border-right: 1px solid black;
+    text-align: center;
+  }
+
+  &:last-child div {
+    border-right: none;
+  }
+
+  a {
+    display: block;
+    background-color: white;
+    padding: 1em .5em;
+    text-align: center;
+    text-decoration: none;
+    transition: all $transition-time;
+    font-size: 3rem;
+    padding-bottom: .5em;
+
+/*
+    &:hover {
+      background-color: $acc-color-gray-lightest;
+      transition: all $transition-time;
+    }
+*/
+
+  }
+  &:last-child > div {
+      border-right: none;
+  }
+}
+
