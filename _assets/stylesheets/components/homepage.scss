@@ -9,29 +9,48 @@
   text-align: center;
 
   a {
-    background-color: $acc-color-gray-lightest;
+    background-color: rgba(0,0,0,0);
+    border: 1px solid black;
+/*
+    background-color: white;
+*/
     text-align: center;
     margin: 0 auto 2em auto;
     display: inline-block;
     font-family: $acc-font-header;
     text-decoration: none;
-    padding-bottom: 1em;
     color: black;
     transition: all $transition-time;
     max-width: 50rem;
 
+    span {
+/*
+      border-width: 0 2px 2px 2px;
+      border-style: solid;
+      border-color: black;
+*/
+      display: block;
+      padding: 1em .5em;
+    }
     &:hover {
-      background-color: white;
+//       background-color: white;
+    background-color: rgba(0,0,0,.1);
       transition: all $transition-time;
     }
 
     img {
       display: block;
-      margin-bottom: 1em;
       width: 100%;
     }
 
     @media screen and (min-width: $medium-screen) {
+      img {
+/*
+        border-width: 1px 1px 0 1px;
+        border-style: solid;
+        border-color: black;
+*/
+      }
 //       margin: 0 2rem 2rem 2rem;
     }
   }
@@ -60,10 +79,13 @@
 .acc-upcoming-events {
   margin-top: $acc-vertical-margin;
   font-size: 2rem;
+  position: relative;
 
   > div {
 //     border-right: 1px solid black;
     text-align: center;
+    vertical-align: top;
+    height: 100%;
   }
 
   &:last-child div {
@@ -73,7 +95,7 @@
   .acc-upcoming-event-link {
     display: block;
     background-color: white;
-    padding: .5em .5em .25em .5em;
+    padding: .25em .5em .25em .5em;
     text-align: center;
     transition: all $transition-time;
     font-size: 3rem;
@@ -94,3 +116,17 @@
   }
 }
 
+.acc-social-container {
+
+  margin-top: $acc-vertical-margin/2;
+
+  p {
+    font-size: 2rem;
+    text-align: center;
+  
+    @media screen and (min-width: $nav-width) {
+      margin: 0 auto;
+      width: 80%;
+    }
+  }
+}
