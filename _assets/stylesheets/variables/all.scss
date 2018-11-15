@@ -2,14 +2,17 @@ $site: config_value("id");
 
 $acc-color-primary-light: #cef8f0;
 $acc-color-primary: #63A70A;
-$acc-color-primary-dark: #1d6464;
+// $acc-color-primary-dark: #1d6464;
+$acc-color-primary-dark: black;
 $acc-breadcrumb-color: #77BC1F;
 
 @if $site == pec or $site == pec_staging {
+/*
   $acc-color-primary-light: #B1D6ED;
   $acc-color-primary: #2573A1;
   $acc-color-primary-dark: #1D5C80;
   $acc-breadcrumb-color: #1AAFE2;
+*/
 }
 
 $acc-vertical-margin: 12rem;

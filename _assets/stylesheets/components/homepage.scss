@@ -1,9 +1,9 @@
 .acc-homepage-banner h1 {
-  min-height: 20rem;
+  min-height: 60rem;
 }
 
 .acc-homepage-menu-container {
-  margin-top: $acc-vertical-margin;
+  margin-top: -5rem;
 }
 .acc-homepage-menu-container .acc-button-grid li {
   text-align: center;
@@ -27,7 +27,7 @@
 
     img {
       display: block;
-      padding-bottom: 1em;
+      margin-bottom: 1em;
       width: 100%;
     }
 
@@ -37,12 +37,32 @@
   }
 }
 
+
+.acc-width-one-third {
+  box-sizing: border-box;
+  @media screen and (min-width: $nav-width) {
+    width: 33.3%;
+    font-size: 0px;
+    display: inline-block;
+  }
+}
+
+@media screen and (min-width: $nav-width) {
+  .acc-width-one-third:nth-child(2) {
+    border-right: 1px solid black;
+  }
+  .acc-grid > div:last-child {
+    border-left: 1px solid black;
+    margin-left: -1rem;
+  }
+}
+
 .acc-upcoming-events {
   margin-top: $acc-vertical-margin;
   font-size: 2rem;
 
   > div {
-    border-right: 1px solid black;
+//     border-right: 1px solid black;
     text-align: center;
   }
 
@@ -50,15 +70,14 @@
     border-right: none;
   }
 
-  a {
+  .acc-upcoming-event-link {
     display: block;
     background-color: white;
-    padding: 1em .5em;
+    padding: .5em .5em .25em .5em;
     text-align: center;
-    text-decoration: none;
     transition: all $transition-time;
     font-size: 3rem;
-    padding-bottom: .5em;
+    font-family: $acc-font-header;
 
 /*
     &:hover {
@@ -68,8 +87,10 @@
 */
 
   }
-  &:last-child > div {
-      border-right: none;
+
+  .acc-upcoming-event-name {
+    font-size: 2rem;
+    padding-bottom: 1em;
   }
 }
 

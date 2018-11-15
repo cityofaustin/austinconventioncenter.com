@@ -6,26 +6,13 @@ layout: default
 
 {% assign banner = contentful.contentBlocks | where: "type", "pageBanner" | first %}
 <div class="acc-page-banner acc-homepage-banner">
-  <h1 style="background-image: url('{{ banner.backgroundImage.url }}?w=1200');">
+  <h1 style="background-image: url('{{ banner.backgroundImage.url }}?w=1400');">
     <div class="acc-page-banner-overlay"></div>
 <!--     <span>{{ banner.title }}</span> -->
     <a class="acc-button" href="#">Request a Proposal</a>
   </h1>
-  <div class="acc-page-banner-text-container acc-color-theme-Default acc-color-theme-{{ page.contentful.colorScheme }}">
+  <div class="acc-page-banner-text-container">
     {{ banner.text | markdownify }}
-
-    {% if banner.buttons %}
-      <ul class="usa-unstyled-list acc-page-banner-menu">
-        {% assign buttons = banner.buttons %}
-        {% for button in buttons %}
-          {% assign doc = button | find_document %}
-          {% assign url = button.url | default: doc.url %}
-          <li>
-            <a href="{{ url }}" class="acc-button">{{ button.title }}</a>
-          </li>
-        {% endfor %}
-      </ul>
-    {% endif %}
   </div>		
 </div>
 
@@ -43,15 +30,20 @@ layout: default
   </ul>
 </div>
 
-<div class="usa-grid acc-upcoming-events">
+<div class="usa-grid-full acc-grid acc-upcoming-events">
   <h3>Upcoming Events</h3>
   {% assign eventsMenu = site.contentful.menu | where_exp: "menu", "menu.name == 'Upcoming Events'" | first %}
   {% for event in eventsMenu.items %}
-    <div class="usa-width-one-third">
-      <a href="{{event.website}}">{{ event.dates }}</a>
-      <span class="acc-event-name">{{ event.eventName }}</span>
+    <div class="acc-width-one-third">
+      <a href="{{event.website}}" class="acc-upcoming-event-link">{{ event.dates }}</a>
+      <span class="acc-upcoming-event-name">{{ event.eventName }}</span>
     </div>
   {% endfor %}
+<!--
+  <p style="text-align: center;">
+    <a href="#" class="acc-button">View Full Calendar</a>
+  </p>
+-->
 </div>
 
 <div class="acc-mega-feature acc-color-theme-Default">

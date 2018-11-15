@@ -31,7 +31,10 @@
   .acc-button {
     color: white;
     border-color: white;
-
+    &:hover, &:active {
+      color: white;
+      background-color: rgba(0,0,0,.1);
+    }
   }
 }
 
