@@ -16,7 +16,7 @@ layout: default
         </button>
         <ul class="usa-unstyled-list acc-sidenav-list" id="acc-floor-plan-nav">
           <li>
-            <a href="/plans/"{% if page.url == "/plan/plans/" %} class="acc-current"{% endif %}>Center Overview</a>
+            <a href="/plan/plans/"{% if page.url == "/plan/plans/" %} class="acc-current"{% endif %}>Center Overview</a>
           </li>
           {% assign docs = site.plans | sort: "title" | sort: "priority", "last"  %}
           {% for doc in docs %}
@@ -66,7 +66,11 @@ layout: default
     {% if map.title contains '.svg' %}
       {% assign contentBlocks = contentBlocks | shift %}
       <div id="acc-floor-plan-map" class="acc-floor-plan-map">
+        <h1>Floor plan map</h1>
+        <h2>Block: {{ map }}</h2>
+        
         {% capture path %}floor-plans/{{map.title}}{% endcapture %}
+        <h3>path: {{path}}</h3>
         {% if assets[path] %}
           {% asset_source "{{path}}" %}
         {% endif %}

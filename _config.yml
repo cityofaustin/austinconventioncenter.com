@@ -101,6 +101,11 @@ defaults:
       permalink: "/press-room/:year/:month/:day/:title/"
   -
     scope:
+      type: "contact"
+    values:
+      layout: contact
+  -
+    scope:
       type: "plans"
     values:
       layout: floor_plan

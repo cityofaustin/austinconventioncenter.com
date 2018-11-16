@@ -73,7 +73,7 @@
 }
 
 .acc-footer-content {
-  background-color: $acc-color-gray-dark;
+  background-color: black;
   color: $acc-color-white;
   padding-top: 2.5rem;
 }
@@ -89,7 +89,6 @@
 .acc-footer-content a {
   color: $acc-color-white;
   display: inline-block;
-  text-decoration: none;
 
   &:visited, &:active {
     color: $acc-color-white;
@@ -103,6 +102,7 @@
 
 .acc-footer-content h4 {
   color: $acc-color-gray-lightest;
+  color: white;
 }
 
 .acc-footer-info {

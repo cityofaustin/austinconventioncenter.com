@@ -49,17 +49,49 @@
   <div class="acc-footer-content">
     <div class="usa-grid">
       <nav class="usa-width-one-whole">
-        <div class="usa-width-one-third">
+        <div class="usa-width-one-fourth acc-footer-info">
+          <h4>Address</h4>
+          <section class="acc-footer-address">
+            <div itemscope itemtype="http://schema.org/LocalBusiness">
+              <span itemprop="name">{{ site.title }}</span><br/>
+              <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                <span itemprop="streetAddress">{{ site.footer_address.street }}</span>
+                <span itemprop="addressLocality">Austin</span>,
+                <span itemprop="addressRegion">TX</span>
+                <span itemprop="postalCode">{{ site.footer_address.zip_code }}</span><br/>
+                <span itemprop="telephone">{{ site.footer_address.phone }}</span>
+              </span>
+            </div>
+          </section>
+          <section class="acc-footer-logo">
+            <a href="http://www.austintexas.gov">
+              {% img coa-stamp.png "City of Austin" height="75px" width="75px" %}
+            </a>
+          </section>
+          <section class="acc-footer-social-links">
+            <a href="{{ site.instagram_url }}" title="Visit the {{site.title}} on Instagram">
+              <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="{{ site.facebook_url }}" title="Visit the {{site.title}} on Facebook">
+              <i class="fa fa-facebook-official" aria-hidden="true"></i>
+            </a>
+            <a href="{{ site.youtube_url }}" title="Visit the {{site.title}} on YouTube">
+              <i class="fa fa-youtube" aria-hidden="true"></i>
+            </a>
+          </section>
+        </div>
+        <div class="usa-width-one-fourth">
           <h4>Quick Links</h4>
+          <h4>{{ section.contentful.colorScheme }}</h4>
           {% assign quick_links = site.contentful.menu | where_exp: "menu", "menu.name == 'Footer - Quick Links'" | first %}
           {% include components/menu.html items=quick_links.items %}
         </div>
-        <div class="usa-width-one-third">
+        <div class="usa-width-one-fourth">
           <h4>About Us</h4>
           {% assign about_us = site.contentful.menu | where_exp: "menu", "menu.name == 'Footer - About Us'" | first %}
           {% include components/menu.html items=about_us.items %}
         </div>
-        <div class="usa-width-one-third">
+        <div class="usa-width-one-fourth">
           <h4>Partners</h4>
           {% assign partners = site.contentful.menu | where_exp: "menu", "menu.name == 'Footer - Partners'" | first %}
           {% include components/menu.html items=partners.items %}

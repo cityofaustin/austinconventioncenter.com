@@ -1,10 +1,12 @@
 $site: config_value("id");
 
 $acc-color-primary-light: #cef8f0;
-$acc-color-primary: #63A70A;
-// $acc-color-primary-dark: #1d6464;
+$acc-color-primary: #000;
+$acc-color-primary-dark: #000;
+/*
 $acc-color-primary-dark: black;
 $acc-breadcrumb-color: #77BC1F;
+*/
 
 @if $site == pec or $site == pec_staging {
 /*
@@ -27,10 +29,18 @@ $acc-color-gray-light: #A2ACAB;
 $acc-color-gray: #919D9D;
 $acc-color-gray-dark: #717C7D;
 */
+/* Most recently provided ~ Oct 28? */
 $acc-color-gray-lightest: #B7CDC8;
 $acc-color-gray-light: #9FB2AC;
 $acc-color-gray: #809699;
 $acc-color-gray-dark: #526D6F;
+
+/* Matt's version */
+$acc-color-gray-lightest: #B7CDC8;
+$acc-color-gray-light: #9FB2AC;
+$acc-color-gray: #809699;
+$acc-color-gray-dark: #526D6F;
+
 
 $acc-color-red: #d36e7d;
 $acc-color-orange: #f35348;

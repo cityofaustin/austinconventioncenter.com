@@ -7,6 +7,7 @@
   }
 
   h1 {
+    background-color: black;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -25,8 +26,8 @@
     .acc-button {
       position: absolute;
       width: 22rem;
-      border-color: white;
-      color: white;
+//       border-color: white;
+//       color: white;
       text-align: center;
       bottom: 1em;
       left: 50%;
@@ -67,6 +68,7 @@
   }
 
   .acc-button {
+    color: black;
 /*
     border-color: white;
     color: white;

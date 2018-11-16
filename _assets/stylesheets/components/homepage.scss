@@ -1,5 +1,10 @@
 .acc-homepage-banner h1 {
   min-height: 60rem;
+
+  .acc-button {
+    color: white;
+    border-color: white;
+  }
 }
 
 .acc-homepage-menu-container {
@@ -129,4 +134,8 @@
       width: 80%;
     }
   }
+}
+
+#curator-feed {
+  margin-top: 2em;
 }

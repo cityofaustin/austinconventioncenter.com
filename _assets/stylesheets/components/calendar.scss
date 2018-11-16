@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-//   margin-bottom: 2rem;
+  margin-bottom: 2rem;
   border-width: 1px;
 
   @media all and (min-width: $small-screen) {
@@ -72,6 +72,7 @@
 .acc-calendar-event-title {
   flex: 1 0 auto;
   margin: 0;
+  text-align: left;
 }
 
 .acc-calendar-event-attendance {

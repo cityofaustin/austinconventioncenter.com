@@ -38,22 +38,35 @@
   }
 }
 
+@mixin theme-inheritance($color) {
+  &.acc-page-banner-text-container, &.acc-parking-footer {
+    @include gradient-theme($color);
+  }
+}
+
 .acc-color-theme-Default {
-  @include gradient-theme($acc-color-base)
+  @include gradient-theme($acc-color-base);
+  @include theme-inheritance($acc-color-base);
+/*
+  &.acc-page-banner-text-container, &.acc-parking-footer {
+    @include gradient-theme($acc-color-base);
+  }
+*/
 }
 
 .acc-color-theme-Plan {
-  @include gradient-theme($acc-color-plan)
+  @include gradient-theme($acc-color-plan);
+  @include theme-inheritance($acc-color-plan);
 }
 
 .acc-color-theme-Attend {
-  @include gradient-theme($acc-color-attend)
+  @include gradient-theme($acc-color-attend);
 }
 
 .acc-color-theme-Exhibit {
-  @include gradient-theme($acc-color-exhibit)
+  @include gradient-theme($acc-color-exhibit);
 }
 
 .acc-color-theme-Calendar {
-  @include gradient-theme($acc-color-calendar)
+  @include gradient-theme($acc-color-calendar);
 }
