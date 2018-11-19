@@ -2,33 +2,5 @@
 layout: default
 ---
 
-<div class="usa-grid">
-  <div class="usa-width-one-whole">
-    <header class="acc-content-header">
-      <h1>{{ page.contentful.title }}</h1>
-    </header>
-  </div>
-  <div class="usa-width-two-thirds">
-    {% if page.contentful.contentBlocks %}
-      {% include components/content_blocks.html blocks=page.contentful.contentBlocks %}
-    {% endif %}
-    {% if page.docs and page.docs != empty %}
-      <ul class="usa-unstyled-list acc-button-grid">
-        {% assign docs = page.docs | sort: "priority", "last" %}
-        {% for doc in docs %}
-          <li>
-            <a href="{{doc.url}}" class="acc-button acc-button-primary">
-              <h3>{{ doc.contentful.title }}</h3>
-              {% if doc.contentful.description %}
-                <div class="acc-button-description">
-                  {{ doc.contentful.description | markdownify }}
-                </div>
-              {% endif %}
-            </a>
-          </li>
-        {% endfor %}
-      </ul>
-    {% endif %}
-  </div>
-  {% include sidebar.html %}
-</div>
+{% include components/content_blocks.html blocks=page.contentful.contentBlocks %}
+{{ content }}
