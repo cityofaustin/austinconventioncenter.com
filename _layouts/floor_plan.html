@@ -66,6 +66,10 @@ layout: default
     {% if map.title contains '.svg' %}
       {% assign contentBlocks = contentBlocks | shift %}
       <div id="acc-floor-plan-map" class="acc-floor-plan-map">
+        <h1>Static-coded:</h1>
+        <div>
+          {% asset_source "floor-plans/PEC_FloorPlans_level-2.svg" %}
+        </div>
         <h1>Floor plan map</h1>
         <h2>Block: {{ map }}</h2>
         
