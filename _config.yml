@@ -69,8 +69,6 @@ contentful:
     -
       sandbox:
         <<: *contentful_options
-        client_options:
-          api_url: 'preview.contentful.com'
 
 defaults:
   -
