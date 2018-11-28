@@ -59,16 +59,11 @@ $(document).ready(function() {
   });
 
 /*
-  Form Submission
+  RFP Link
 */
-  // When a submit button is clicked
-  $('input[type=submit]').click(function() {
-    reportEvent('Form Submission', 'Submit Button Clicked', $(this).parents('form:first').attr('action'));
-  });
-
-  // When a form actually submits
-  $('form').submit(function() {
-    reportFormSubmisson(event);
+  // When the external RFP link is clicked
+  $('.acc-rfp-link').click(function() {
+    reportEvent('RFP External Link Click', $(this).text(), window.location.pathname);
   });
 
 /*
