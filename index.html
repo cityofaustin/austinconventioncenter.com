@@ -20,12 +20,18 @@ layout: default
   {% assign menu = site.contentful.menu | where_exp: "menu", "menu.name == 'Homepage'" | first %}
   <ul class="usa-unstyled-list acc-button-grid">
     {% for item in menu.items %}
-      <li>
-        <a href="#">
-          <img src="{{ item.image.url }}?w=330&h=220&fit=thumb" />
-          <span>{{ item.name }}</span>
-        </a>
-      </li>
+      {% assign doc = item.page | find_document %}
+      {% assign url = item.page.url | default: doc.url %}
+  
+      {% if url %}
+        {% assign protocol = url | slice: 0, 4 %}
+        <li>
+          <a href="{{url}}">
+            <img src="{{ item.image.url }}?w=330&h=220&fit=thumb" />
+            <span>{{ item.name }}</span>
+          </a>
+        </li>
+      {% endif %}
     {% endfor %}
   </ul>
 </div>
@@ -39,10 +45,10 @@ layout: default
       <span class="acc-upcoming-event-name">{{ event.eventName }}</span>
     </div>
   {% endfor %}
-  <p style="text-align: center;">
-    <a href="/events" class="acc-button">View Full Calendar</a>
-  </p>
 </div>
+<p style="text-align: center; margin-top: 2em;">
+  <a href="/events" class="acc-button">View Full Calendar</a>
+</p>
 
 <div class="acc-mega-feature acc-color-theme-Default">
   <div class="usa-grid">
