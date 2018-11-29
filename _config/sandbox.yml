@@ -1,26 +1,23 @@
 id: sandbox
 environment: production
-title: Palmer Events Center
+title: Austin Convention Center
 url: "http://sandbox.austinconventioncenter.com.s3-website-us-east-1.amazonaws.com"
 
-calendar_location: "Palmer Events Center" # Socrata event data location value
+calendar_location: "Austin Convention Center" # Socrata event data location value
 
 footer_address:
-  street: 900 Barton Springs Road
-  zip_code: 78704
-  phone: (512) 404-4500
+  street: 500 E. Cesar Chavez St.
+  zip_code: 78701
+  phone: (512) 404-4000
 
-google_analytics_id: UA-87703455-97
-# google_maps_api_key: "AIzaSyBRr3ZaxMM0Y-zW1OSZS0eOrURqc2tRHew"
-google_maps_api_key: "AIzaSyDGDr_BgH6OZoXWQOSIkVtWM_dIFGfUe_0"
-facebook_analytics_pixel_id: 12345
-facebook_url: https://www.facebook.com/PalmerEventsCenter/
-instagram_url: https://www.instagram.com/pectx/
+google_analytics_id: UA-87703455-87
+facebook_url: http://www.facebook.com/AustinConventionCenter/
+instagram_url: http://www.instagram.com/accdtx/
 youtube_url: https://www.youtube.com/channel/UCUfiBJZM1W58J2uTIssujKQ
-curator_embed_id: 87d27806-af29-473a-bdb5-b4b2c825
+curator_embed_id: b9b8dc8e-ec24-4975-ad19-504a93f1896b
 
 contact_sales_form:
-  formspree_email: PalmerSales@austintexas.gov
+  formspree_email: ConventionSales@austintexas.gov
 
 # Build settings
 destination: _site/sandbox

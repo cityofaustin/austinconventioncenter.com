@@ -10,15 +10,17 @@
 .acc-homepage-menu-container {
   margin-top: -5rem;
 }
+.acc-homepage-menu-container .acc-button-grid {
+    display: flex;
+  flex-direction: column;
+
+}
 .acc-homepage-menu-container .acc-button-grid li {
   text-align: center;
+  flex: 1;
 
   a {
-    background-color: rgba(0,0,0,0);
-    border: 1px solid black;
-/*
-    background-color: white;
-*/
+    background-color: $acc-color-gray-lightest;
     text-align: center;
     margin: 0 auto 2em auto;
     display: inline-block;
