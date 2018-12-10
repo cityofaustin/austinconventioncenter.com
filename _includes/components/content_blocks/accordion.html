@@ -1,5 +1,5 @@
 {% assign accordion = include.block %}
-<div class="usa-grid">
+<div class="usa-grid acc-accordion-container">
   <ul class="usa-accordion acc-accordion">
     {% for block in accordion.contentBlocks %}
       {% if block.type != "textBlock" %}{% continue %}{% endif %}
