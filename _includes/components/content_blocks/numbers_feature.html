@@ -1,0 +1,18 @@
+{% assign block = include.block %}
+<div class="acc-numbers-feature">
+  <div class="usa-grid">
+    <div class="usa-row">
+      <h2>{{ block.name }}</h2>
+    </div>
+    <div class="usa-row">
+    {% for stat in block.stats %}
+      <div class="usa-width-one-fourth">
+        <h3>{{stat.number}}</h3>
+        <p>
+          {{ stat.feature }}
+        </p>
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+</div>

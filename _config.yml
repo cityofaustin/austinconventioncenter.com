@@ -47,6 +47,7 @@ contentful_options: &contentful_options
     megaFeature: Mappers::ContentBlockMapper
     menu: Mappers::ContentBlockMapper
     navigationSection: Mappers::ContentBlockMapper
+    numbersFeature: Mappers::ContentBlockMapper
     pageBanner: Mappers::ContentBlockMapper
     pdfMenu: Mappers::ContentBlockMapper
     sideBySide: Mappers::ContentBlockMapper
