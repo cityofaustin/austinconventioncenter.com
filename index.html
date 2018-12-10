@@ -4,9 +4,42 @@ layout: default
 
 {% assign contentful = site.contentful.page | where: "slug", "home" | first %}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {% assign banner = contentful.contentBlocks | where: "type", "pageBanner" | first %}
 <div class="acc-page-banner acc-homepage-banner">
   <h1 style="background-image: url('{{ banner.backgroundImage.url }}?w=1400');">
+    {% assign hero_video = contentful.file %}
+    <video playsinline autoplay muted loop poster="" class="acc-hero-video">
+      <source src="{{ hero_video.url }}" type="video/mp4">
+    </video>
     <div class="acc-page-banner-overlay"></div>
 <!--     <span>{{ banner.title }}</span> -->
     <a class="acc-button" href="#">Request a Proposal</a>

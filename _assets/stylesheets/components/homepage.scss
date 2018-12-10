@@ -145,3 +145,114 @@
 #curator-feed {
   margin-top: 2em;
 }
+
+
+
+
+
+.acc-hero {
+//   background-image: image_url("#{$site}-hero.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 30rem;
+  position: relative;
+  overflow: hidden;
+
+//   @media screen and (min-width: $large-screen) {
+  @media screen and (min-width: $medium-screen) {
+    height: 60rem;
+  }
+}
+
+/*
+.acc-hero-content-wrapper {
+  height: 100%;
+  overflow: hidden;
+  text-align: center;
+  width: 100%;
+  z-index: 11;
+}
+*/
+
+/*
+.acc-hero-tagline {
+  color: $acc-color-white;
+  font-size: $lead-font-size;
+}
+*/
+
+.acc-hero-button-wrapper {
+  bottom: 2rem;
+//   font-size: $lead-font-size;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  z-index: 11;
+
+  .acc-button {
+//     background: $acc-opaque-black;
+//     border: 2px solid $acc-color-white;
+//     color: $acc-color-white;
+    display: inline-block;
+    padding-left: 1em;
+    padding-right: 1em;
+/*
+    transition: all $transition-time ease;
+    transition-property: border-color, color;
+*/
+    width: auto;
+
+    &:hover, &:active {
+/*
+      border-color: $acc-color-brand-secondary;
+      color: $acc-color-brand-secondary;
+*/
+    }
+  }
+}
+
+
+
+.acc-hero-overlay {
+  position: absolute;
+  text-align: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: rgba(255,255,255,.5);
+//   background-image: url(https://www.transparenttextures.com/patterns/cubes.png);
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! *//* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+
+.acc-hero-video {
+//   background-image: image_url("#{$site}-hero.jpg");
+  background-size: cover;
+  height: auto;
+  left: 0;
+  min-height: 100%;
+  min-width: 100%;
+  position: absolute;
+  top: 0;
+  width: auto;
+
+  @media screen and (min-width: $medium-screen) {
+/*
+    height: 100%;
+    width: 100%;
+*/
+  }
+
+}
+
+.acc-hero-tagline {
+//   background-color: $acc-opaque-black;
+//   color: $acc-color-white;
+  display: inline-block;
+  padding: 1.5rem;
+//   color: $acc-color-white;
+  display: inline-block;
+//   margin: 0;
+//   margin-top: 2em;
+}
