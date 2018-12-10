@@ -1,4 +1,8 @@
-<div class="acc-parking-footer acc-color-theme-Default acc-color-theme-{{ page.contentful.colorScheme }}">
+{% if page.contentful.colorScheme != blank %}
+  <div class="acc-parking-footer acc-color-theme-{{ page.contentful.colorScheme }}">
+{% else %}
+  <div class="acc-parking-footer acc-color-theme-Default">
+{% endif %}
   <div class="usa-grid">
     <div class="usa-width-one-third acc-parking-map">
       <!-- Google Maps -->
@@ -46,12 +50,13 @@
 </div>
 
 <footer class="acc-footer" role="contentinfo">
+
   <div class="acc-footer-content">
+
     <div class="usa-grid">
       <nav class="usa-width-one-whole">
-        <div class="usa-width-one-fourth acc-footer-info">
+        <div class="usa-width-one-fourth">
           <h4>Address</h4>
-          <section class="acc-footer-address">
             <div itemscope itemtype="http://schema.org/LocalBusiness">
               <span itemprop="name">{{ site.title }}</span><br/>
               <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
@@ -62,27 +67,9 @@
                 <span itemprop="telephone">{{ site.footer_address.phone }}</span>
               </span>
             </div>
-          </section>
-          <section class="acc-footer-logo">
-            <a href="http://www.austintexas.gov">
-              {% img coa-stamp.png "City of Austin" height="75px" width="75px" %}
-            </a>
-          </section>
-          <section class="acc-footer-social-links">
-            <a href="{{ site.instagram_url }}" title="Visit the {{site.title}} on Instagram">
-              <i class="fa fa-instagram" aria-hidden="true"></i>
-            </a>
-            <a href="{{ site.facebook_url }}" title="Visit the {{site.title}} on Facebook">
-              <i class="fa fa-facebook-official" aria-hidden="true"></i>
-            </a>
-            <a href="{{ site.youtube_url }}" title="Visit the {{site.title}} on YouTube">
-              <i class="fa fa-youtube" aria-hidden="true"></i>
-            </a>
-          </section>
         </div>
         <div class="usa-width-one-fourth">
           <h4>Quick Links</h4>
-          <h4>{{ section.contentful.colorScheme }}</h4>
           {% assign quick_links = site.contentful.menu | where_exp: "menu", "menu.name == 'Footer - Quick Links'" | first %}
           {% include components/menu.html items=quick_links.items %}
         </div>
@@ -97,24 +84,21 @@
           {% include components/menu.html items=partners.items %}
         </div>
       </nav>
-      <div class="usa-width-one-whole acc-footer-info">
+    </div>
+    <div class="usa-grid acc-footer-info">
+      <div class="usa-width-one-fourth">
         <section class="acc-footer-logo">
           <a href="http://www.austintexas.gov">
             {% img coa-stamp.png "City of Austin" height="75px" width="75px" %}
           </a>
         </section>
-        <section class="acc-footer-address">
-          <div itemscope itemtype="http://schema.org/LocalBusiness">
-            <span itemprop="name">{{ site.title }}</span><br/>
-            <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-              <span itemprop="streetAddress">{{ site.footer_address.street }}</span>
-              <span itemprop="addressLocality">Austin</span>,
-              <span itemprop="addressRegion">TX</span>
-              <span itemprop="postalCode">{{ site.footer_address.zip_code }}</span><br/>
-              <span itemprop="telephone">{{ site.footer_address.phone }}</span>
-            </span>
-          </div>
-        </section>
+      </div>
+      <div class="usa-width-one-fourth">
+      </div>
+      <div class="usa-width-one-fourth">
+        {% img badges/leed.png "LEED-Certified" height="75px" width="75px" %}
+      </div>
+      <div class="usa-width-one-fourth">
         <section class="acc-footer-social-links">
           <a href="{{ site.instagram_url }}" title="Visit the {{site.title}} on Instagram">
             <i class="fa fa-instagram" aria-hidden="true"></i>
@@ -127,24 +111,18 @@
           </a>
         </section>
       </div>
+  </div>
+
+  <div class="usa-grid-full acc-partner-logos">
+    <div class="usa-width-one-third">
+      {% img badges/sxsw.png %}
+    </div>
+    <div class="usa-width-one-third">
+      {% img badges/tsae.png %}
+    </div>
+    <div class="usa-width-one-third">
+      {% img badges/pcma.png %}
     </div>
   </div>
-  <div class="acc-footer-end">
-    <div class="usa-grid acc-footer-badges">
-      {% assign footer_logos = site.contentful.menu | where_exp: "menu", "menu.name == 'Footer Logo Menu'" | first %}
-      {% for logo in footer_logos.items limit:4 %}
-        <div class="usa-width-one-fourth acc-footer-badge">
-          <a href="{{ logo.url }}">
-            <img src="{{ logo.image.url }}" alt="{{ logo.image.title }}" />
-          </a>
-        </div>
-      {% endfor %}
-    </div>
-    <div class="usa-grid acc-footer-copyright" itemscope itemtype="https://schema.org/copyrightHolder">
-      Copyright &copy;
-      <span itemprop="copyrightYear">{{ site.time | date: "%Y" }}</span>
-      <span itemprop="organization">Austin Convention Center Department</span>.
-      All Rights Reserved.
-    </div>
-  </div>
+
 </footer>

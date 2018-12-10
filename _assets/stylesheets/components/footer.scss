@@ -103,6 +103,9 @@
 .acc-footer-content h4 {
   color: $acc-color-gray-lightest;
   color: white;
+  width: 100%;
+  padding-top: 1em;
+  font-size: 2rem;
 }
 
 .acc-footer-info {
@@ -123,6 +126,19 @@
 
   @media screen and (min-width: $medium-screen) {
     flex: 1 0 auto;
+  }
+}
+
+.acc-partner-logos {
+  background-color: white;
+  padding: 2rem 1rem;
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+
+  > div {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
   }
 }
 
