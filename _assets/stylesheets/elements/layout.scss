@@ -1,0 +1,16 @@
+body {
+  padding-top: 11rem;
+}
+
+main {
+  background-size: cover;
+  background-position: top cener;
+  background-attachment: fixed;
+  position: relative;
+  background-image: url('sandbox/pec-skyline.jpg');
+}
+
+.acc-footer {
+  padding-top: 500px; // just to force scrolling on pages where there is no content
+  background-color: white;
+}

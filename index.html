@@ -50,6 +50,10 @@ layout: default
   <a href="/events" class="acc-button">View Full Calendar</a>
 </p>
 
+{% assign mega_feature = contentful.contentBlocks | last %}
+
+{% include components/content_blocks/mega_feature.html block=mega_feature %}
+<!--
 <div class="acc-mega-feature acc-color-theme-Default">
   <div class="usa-grid">
     <div class="usa-width-one-whole">
@@ -63,6 +67,7 @@ layout: default
     </div>
   </div>
 </div>
+-->
 
 <div class="usa-grid acc-social-container">
   <div class="usa-width-one-whole">

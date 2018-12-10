@@ -15,6 +15,10 @@
               {% include components/content_blocks/contact.html block=block %}
             {% when "featureBlock" %}
               {% include components/content_blocks/feature.html block=block %}
+            {% when "pdfMenu" %}
+              {% include components/content_blocks/pdf_menu.html block=block %}
+            {% when "megaFeature" %}
+              {% include components/content_blocks/mega_feature.html block=block %}
             {% when "galleryBlock" %}
               {% assign photoswipe = true %}
               {% if page.title == "Photos & Virtual Tour" %}

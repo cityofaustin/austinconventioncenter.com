@@ -2,3 +2,16 @@
   max-width: 700px;
   margin: 0 auto;
 }
+
+.acc-accordion-button {
+  background-color: white;
+  border: 2px solid black;
+  color: black;
+  transition: background-color $transition-time;
+
+  &:hover {
+    background-color: rgba(0,0,0,.1);
+    border-bottom-width: 2px;
+    transition: background-color $transition-time;
+  }
+}
