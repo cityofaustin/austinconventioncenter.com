@@ -88,7 +88,7 @@
         </div>
         <div class="usa-width-one-fourth">
           <h4>About Us</h4>
-          {% assign about_us = site.contentful.menu | where_exp: "menu", "menu.name == 'Footer - About Us'" | first %}
+          {% assign about_us = site.contentful.menu | where_exp: "menu", "menu.name == 'Footer - About'" | first %}
           {% include components/menu.html items=about_us.items %}
         </div>
         <div class="usa-width-one-fourth">
