@@ -35,7 +35,11 @@
             {% when "sideBySide" %}
               {% include components/content_blocks/side_by_side.html block=block %}
             {% when "textBlock" %}
-              {% include components/content_blocks/text.html block=block %}
+            <div class="usa-grid">
+              <div class="usa-width-one-whole">
+                {% include components/content_blocks/text.html block=block %}
+              </div>
+            </div>
           {% endcase %}
       {% endfor %}
 
