@@ -8,15 +8,26 @@
   color: black;
 }
 
-.acc-accordion-button {
-//   background-color: white;
-//   border: 2px solid black;
-  color: black;
-//   transition: background-color $transition-time;
 
-  &:hover {
-//     background-color: rgba(0,0,0,.1);
-//     border-bottom-width: 2px;
-//     transition: background-color $transition-time;
+
+.acc-accordion-button {
+  @include acc-button-font-icon(1.5rem, "\f068");
+  background-color: $acc-color-gray-lightest;
+  background-image: none;
+  padding-right: 5.5rem;
+  position: relative;
+
+  &::after {
+    right: 3rem;
+  }
+
+  &[aria-expanded=false] {
+    background-image: none;
+
+    &::after {
+      content: "\f067";
+    }
   }
 }
+
+
