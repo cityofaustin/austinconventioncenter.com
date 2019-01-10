@@ -1,5 +1,9 @@
 .acc-homepage-banner h1 {
-  min-height: 60rem;
+  min-height: 30rem;
+  overflow: hidden;
+  @media screen and (min-width: $nav-width) {
+    min-height: 60rem;
+  }
 
   .acc-button {
     color: white;
