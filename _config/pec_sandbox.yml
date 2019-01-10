@@ -1,0 +1,26 @@
+id: pec_sandbox
+environment: production
+title: Palmer Events Center
+url: "https://sandbox.palmereventscenter.com.s3-website-us-east-1.amazonaws.com"
+
+calendar_location: "Palmer Events Center" # Socrata event data location value
+
+footer_address:
+  street: 900 Barton Springs Road
+  zip_code: 78704
+  phone: (512) 404-4500
+
+google_analytics_id: UA-87703455-97
+facebook_url: https://www.facebook.com/PalmerEventsCenter/
+instagram_url: https://www.instagram.com/pectx/
+youtube_url: https://www.youtube.com/channel/UCUfiBJZM1W58J2uTIssujKQ
+curator_embed_id: aa497cef-c70f-4e84-8d1c-9dfc5db737f3
+google_maps_api_key: AIzaSyB4byp3LedAowymjs7aAOaKqgz2neZZhfU
+
+contact_sales_form:
+  formspree_email: ConventionSales@austintexas.gov
+
+# Build settings
+destination: _site/pec_sandbox
+assets:
+  cache: .asset-cache/pec_sandbox

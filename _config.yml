@@ -74,6 +74,9 @@ contentful:
     -
       sandbox:
         <<: *contentful_options
+    -
+      pec_sandbox:
+        <<: *contentful_options
 
 defaults:
   -

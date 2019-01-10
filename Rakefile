@@ -29,6 +29,11 @@ namespace :build do
   task :sandbox do
     Jekyll::Commands::Build.process(config: ["_config.yml", "_config/sandbox.yml"])
   end
+
+  desc "Run `jekyll build` with Sandbox configuration (use `foreman start pec_sandbox` for `jekyll serve`)"
+  task :pec_sandbox do
+    Jekyll::Commands::Build.process(config: ["_config.yml", "_config/pec_sandbox.yml"])
+  end
 end
 
 desc "Build the sites"
@@ -37,7 +42,7 @@ task :build do
     if ENV["CIRCLE_BRANCH"] == "master"
       exec("parallel bundle exec rake build:{} ::: acc pec")
     elsif ENV["CIRCLE_BRANCH"] == "sandbox"
-      exec("parallel bundle exec rake build:{} ::: sandbox")
+      exec("parallel bundle exec rake build:{} ::: sandbox pec_sandbox")
     else
       exec("parallel bundle exec rake build:{} ::: acc_staging pec_staging")
     end
@@ -111,6 +116,19 @@ namespace :contentful do
 
     Jekyll::Commands::Contentful.process([], {}, config)
   end
+
+  desc "Import PEC Sandbox Contentful data"
+  task :pec_sandbox do
+    config = Jekyll.configuration["contentful"]
+    config["spaces"].select! { |space| space.include?("pec_sandbox") }
+
+    config["spaces"][0]["pec_sandbox"].merge!({
+      "space" => ENV["CONTENTFUL_PEC_SANDBOX_SPACE_ID"],
+      "access_token" => ENV["CONTENTFUL_PEC_SANDBOX_ACCESS_TOKEN"]
+    })
+
+    Jekyll::Commands::Contentful.process([], {}, config)
+  end
 end
 
 desc "Import all Contentful data"
@@ -118,7 +136,7 @@ if ENV["CI"]
   if ENV["CIRCLE_BRANCH"] == "master"
     multitask :contentful => ["contentful:acc", "contentful:pec"]
   elsif ENV["CIRCLE_BRANCH"] == "sandbox"
-    multitask :contentful => ["contentful:sandbox"]
+    multitask :contentful => ["contentful:sandbox", "contentful:pec_sandbox"]
   else
     multitask :contentful => ["contentful:acc_staging", "contentful:pec_staging"]
   end
@@ -152,13 +170,17 @@ namespace :deploy do
   task :sandbox do
     exec "SITE=sandbox S3_BUCKET=sandbox.austinconventioncenter.com s3_website push --site=_site/sandbox"
   end
+
+  task :pec_sandbox do
+    exec "SITE=pec_sandbox S3_BUCKET=sandbox.palmereventscenter.com s3_website push --site=_site/pec_sandbox"
+  end
 end
 
 task :deploy do
   if ENV["CIRCLE_BRANCH"] == "master"
     exec "parallel bundle exec rake deploy:{} ::: acc pec"
   elsif ENV["CIRCLE_BRANCH"] == "sandbox"
-    exec "parallel bundle exec rake deploy:{} ::: sandbox"
+    exec "parallel bundle exec rake deploy:{} ::: sandbox pec_sandbox"
   elsif ENV["CIRCLE_BRANCH"] == "staging"
     exec "parallel bundle exec rake deploy:{} ::: acc_staging pec_staging"
   end
@@ -192,7 +214,7 @@ namespace :ci do
       faraday.response :logger
       faraday.adapter Faraday.default_adapter
     end
-    
+
     branches = ["master", "staging"]
     branches.each do |branch|
       connection.post("/api/v1/project/cityofaustin/austinconventioncenter.com/tree/#{branch}") do |request|
