@@ -5,7 +5,7 @@
     <div class="acc-page-banner-overlay"></div>
     <span>{{ banner.title }}</span>
   </h1>
-  <div class="acc-page-banner-text-container acc-color-theme-Default acc-color-theme-{{ page.contentful.colorScheme }}">
+  <div class="acc-page-banner-text-container acc-color-theme-{{ page.contentful.colorScheme }}">
     {{ banner.text | markdownify }}
 
     {% if banner.buttons %}
