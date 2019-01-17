@@ -58,7 +58,7 @@
   > div {
     @media screen and (min-width: $large-screen) {
       background-position: top left;
-      padding: 3em 3em 3em 60%;
+      padding: 3em 3em 3em 50%;
     }
   }
 }
@@ -68,7 +68,7 @@
   > div {
     @media screen and (min-width: $large-screen) {
       background-position: top right;
-      padding: 3em 60% 3em 3em;
+      padding: 3em 50% 3em 3em;
     }
   }
 }
