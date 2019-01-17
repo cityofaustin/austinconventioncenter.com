@@ -1,0 +1,10 @@
+.acc-folder-content {
+  &[aria-hidden="true"] {
+    display: none;
+  }
+
+  &:not([aria-hidden]) {
+    position: absolute;
+    left: -999em;
+  }
+}
