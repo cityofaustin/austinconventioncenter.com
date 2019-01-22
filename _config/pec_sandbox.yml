@@ -1,7 +1,7 @@
 id: pec_sandbox
 environment: production
 title: Palmer Events Center
-url: "https://sandbox.palmereventscenter.com.s3-website-us-east-1.amazonaws.com"
+url: "http://sandbox.palmereventscenter.com.s3-website-us-east-1.amazonaws.com"
 
 calendar_location: "Palmer Events Center" # Socrata event data location value
 

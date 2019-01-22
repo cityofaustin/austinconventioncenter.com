@@ -12,7 +12,11 @@
         var src = "{{site.url}}{% asset_path "{{site.id}}.kml" %}";
       	function initMap() {
       	  map = new google.maps.Map(document.getElementById('map'), {
-      	    center: new google.maps.LatLng(30.263669,-97.739609),
+        	  {% if site.calendar_location == 'Palmer Events Center' %}
+        	    center: new google.maps.LatLng(30.260317,-97.751960),
+        	  {% else %}
+        	    center: new google.maps.LatLng(30.263669,-97.739609),
+        	 {% endif %}
       	    zoom: 14,
       	    mapTypeId: google.maps.MapTypeId.ROADMAP,
       	    gestureHandling: 'cooperative'

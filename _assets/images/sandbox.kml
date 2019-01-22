@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2">
   <Document>
-    <Style id="darts0">
-      <IconStyle>
-        <Icon>
-          <href>http://www.dartsinaustin.com/images/placemarks/0/1.png</href>
-        </Icon>
-      </IconStyle>
+    <Style id="accd0">
       <BalloonStyle>
         <text>
           <![CDATA[<h4>5th Street Garage</h4>]]>
@@ -14,12 +9,7 @@
         </text>
       </BalloonStyle>
     </Style>
-    <Style id="darts1">
-      <IconStyle>
-        <Icon>
-          <href>http://www.dartsinaustin.com/images/placemarks/0/2.png</href>
-        </Icon>
-      </IconStyle>
+    <Style id="accd1">
       <BalloonStyle>
         <text>
           <![CDATA[<h4>2nd Street Garage</h4>]]>
@@ -27,12 +17,7 @@
         </text>
       </BalloonStyle>
     </Style>
-    <Style id="darts2">
-      <IconStyle>
-        <Icon>
-          <href>http://www.dartsinaustin.com/images/placemarks/0/3.png</href>
-        </Icon>
-      </IconStyle>
+    <Style id="accd2">
       <BalloonStyle>
         <text>
           <![CDATA[<h4>Austin Convention Center</h4>]]>
@@ -42,21 +27,21 @@
     </Style>
     <Placemark>
       <description>167 Brazos Street, Austin, Texas 78701, USA</description>
-      <styleUrl>#darts0</styleUrl>
+      <styleUrl>#accd0</styleUrl>
       <Point>
         <coordinates>-97.737157,30.265403</coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <description>601 E 5th St, Austin, Texas 78701, USA</description>
-      <styleUrl>#darts1</styleUrl>
+      <styleUrl>#accd1</styleUrl>
       <Point>
         <coordinates>-97.742976,30.263667</coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <description>500 E Cesar Chavez St, Austin, TX 78701</description>
-      <styleUrl>#darts2</styleUrl>
+      <styleUrl>#accd2</styleUrl>
       <Point>
         <coordinates>-97.739609,30.263669</coordinates>
       </Point>
