@@ -1,7 +1,7 @@
 id: sandbox
 environment: production
 title: Austin Convention Center
-url: "http://sandbox.austinconventioncenter.com.s3-website-us-east-1.amazonaws.com"
+url: "https://staging.austinconventioncenter.com"
 
 calendar_location: "Austin Convention Center" # Socrata event data location value
 

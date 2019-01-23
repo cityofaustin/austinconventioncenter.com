@@ -168,11 +168,11 @@ namespace :deploy do
   end
 
   task :sandbox do
-    exec "SITE=sandbox S3_BUCKET=sandbox.austinconventioncenter.com s3_website push --site=_site/sandbox"
+    exec "SITE=sandbox S3_BUCKET=staging.austinconventioncenter.com s3_website push --site=_site/sandbox"
   end
 
   task :pec_sandbox do
-    exec "SITE=pec_sandbox S3_BUCKET=sandbox.palmereventscenter.com s3_website push --site=_site/pec_sandbox"
+    exec "SITE=pec_sandbox S3_BUCKET=staging.palmereventscenter.com s3_website push --site=_site/pec_sandbox"
   end
 end
 
