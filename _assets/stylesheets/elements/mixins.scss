@@ -57,16 +57,32 @@
 .acc-color-theme-Plan {
   @include gradient-theme($acc-color-plan);
   @include theme-inheritance($acc-color-plan);
+
+  .acc-button {
+    color: white !important;
+  }
 }
 
 .acc-color-theme-Attend {
   @include gradient-theme($acc-color-attend);
+
+  .acc-button {
+    color: white !important;
+  }
 }
 
 .acc-color-theme-Exhibit {
   @include gradient-theme($acc-color-exhibit);
+
+  .acc-button {
+    color: white !important;
+  }
 }
 
 .acc-color-theme-Calendar {
   @include gradient-theme($acc-color-calendar);
+
+  .acc-button {
+    color: white !important;
+  }
 }
