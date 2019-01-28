@@ -50,7 +50,9 @@
   }
 }
 .acc-mega-feature .usa-grid > div {
-  padding: 3em;
+  @media screen and (max-width: $large-screen) {
+    padding: 3em;
+  }
 }
 
 .acc-mega-feature-left-bg {
