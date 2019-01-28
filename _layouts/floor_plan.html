@@ -73,6 +73,13 @@ layout: default
       </div>
     {% endif %}
 
+    {% if map.title contains '.png' %}
+      {% assign contentBlocks = contentBlocks | shift %}
+      <div id="acc-floor-plan-map" class="acc-floor-plan-map">
+        {% img floor-plans/{{map.title}} %}
+      </div>
+    {% endif %}
+
     {% if page.contentful.files %}
       <ul class="usa-unstyled-list acc-button-grid acc-floor-plan-files">
         {% for file in page.contentful.files %}
