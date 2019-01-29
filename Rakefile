@@ -165,7 +165,7 @@ namespace :ci do
       faraday.adapter Faraday.default_adapter
     end
     
-    branches = ["master", "staging"]
+    branches = ["sandbox-prod", "sandbox-staging"]
     branches.each do |branch|
       connection.post("/api/v1/project/cityofaustin/austinconventioncenter.com/tree/#{branch}") do |request|
         request.params["circle-token"] = ENV["CIRCLE_TOKEN"]
