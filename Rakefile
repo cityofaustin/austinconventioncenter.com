@@ -177,11 +177,9 @@ namespace :deploy do
 end
 
 task :deploy do
-  if ENV["CIRCLE_BRANCH"] == "master"
-    exec "parallel bundle exec rake deploy:{} ::: acc pec"
-  elsif ENV["CIRCLE_BRANCH"] == "sandbox"
+  if ENV["CIRCLE_BRANCH"] == "sandbox-prod"
     exec "parallel bundle exec rake deploy:{} ::: sandbox pec_sandbox"
-  elsif ENV["CIRCLE_BRANCH"] == "staging"
+  elsif ENV["CIRCLE_BRANCH"] == "sandbox-staging"
     exec "parallel bundle exec rake deploy:{} ::: acc_staging pec_staging"
   end
 end
@@ -214,8 +212,8 @@ namespace :ci do
       faraday.response :logger
       faraday.adapter Faraday.default_adapter
     end
-
-    branches = ["master", "sandbox"]
+    
+    branches = ["sandbox-prod", "sandbox-staging"]
     branches.each do |branch|
       connection.post("/api/v1/project/cityofaustin/austinconventioncenter.com/tree/#{branch}") do |request|
         request.params["circle-token"] = ENV["CIRCLE_TOKEN"]
