@@ -41,7 +41,7 @@ task :build do
   if ENV["CI"] || system("which parallel") # On macOS: `brew install parallel` (optional)
     if ENV["CIRCLE_BRANCH"] == "master"
       exec("parallel bundle exec rake build:{} ::: acc pec")
-    elsif ENV["CIRCLE_BRANCH"] == "sandbox"
+    elsif ENV["CIRCLE_BRANCH"] == "sandbox-prod"
       exec("parallel bundle exec rake build:{} ::: sandbox pec_sandbox")
     else
       exec("parallel bundle exec rake build:{} ::: acc_staging pec_staging")
@@ -133,12 +133,12 @@ end
 
 desc "Import all Contentful data"
 if ENV["CI"]
-  if ENV["CIRCLE_BRANCH"] == "master"
-    multitask :contentful => ["contentful:acc", "contentful:pec"]
-  elsif ENV["CIRCLE_BRANCH"] == "sandbox"
+  if ENV["CIRCLE_BRANCH"] == "sandbox-prod"
     multitask :contentful => ["contentful:sandbox", "contentful:pec_sandbox"]
-  else
-    multitask :contentful => ["contentful:acc_staging", "contentful:pec_staging"]
+#   elsif ENV["CIRCLE_BRANCH"] == "sandbox-staging"
+#     multitask :contentful => ["contentful:sandbox", "contentful:pec_sandbox"]
+#   else
+#     multitask :contentful => ["contentful:acc_staging", "contentful:pec_staging"]
   end
 end
 
@@ -168,19 +168,19 @@ namespace :deploy do
   end
 
   task :sandbox do
-    exec "SITE=sandbox S3_BUCKET=staging.austinconventioncenter.com s3_website push --site=_site/sandbox"
+    exec "SITE=sandbox S3_BUCKET=www.austinconventioncenter.com s3_website push --site=_site/sandbox"
   end
 
   task :pec_sandbox do
-    exec "SITE=pec_sandbox S3_BUCKET=staging.palmereventscenter.com s3_website push --site=_site/pec_sandbox"
+    exec "SITE=pec_sandbox S3_BUCKET=www.palmereventscenter.com s3_website push --site=_site/pec_sandbox"
   end
 end
 
 task :deploy do
   if ENV["CIRCLE_BRANCH"] == "sandbox-prod"
     exec "parallel bundle exec rake deploy:{} ::: sandbox pec_sandbox"
-  elsif ENV["CIRCLE_BRANCH"] == "sandbox-staging"
-    exec "parallel bundle exec rake deploy:{} ::: acc_staging pec_staging"
+#   elsif ENV["CIRCLE_BRANCH"] == "sandbox-staging"
+#     exec "parallel bundle exec rake deploy:{} ::: acc_staging pec_staging"
   end
 end
 
@@ -213,7 +213,7 @@ namespace :ci do
       faraday.adapter Faraday.default_adapter
     end
     
-    branches = ["sandbox-prod", "sandbox-staging"]
+    branches = ["sandbox-prod"]
     branches.each do |branch|
       connection.post("/api/v1/project/cityofaustin/austinconventioncenter.com/tree/#{branch}") do |request|
         request.params["circle-token"] = ENV["CIRCLE_TOKEN"]
