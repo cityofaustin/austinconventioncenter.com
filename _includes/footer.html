@@ -11,6 +11,9 @@
       	var map;
         var src = "{{site.url}}{% asset_path "{{site.id}}.kml" %}";
       	function initMap() {
+          if (!window.google) {
+            return;
+          }
       	  map = new google.maps.Map(document.getElementById('map'), {
         	  {% if site.calendar_location == 'Palmer Events Center' %}
         	    center: new google.maps.LatLng(30.260317,-97.751960),
@@ -33,12 +36,12 @@
             e.featureData.infoWindowHtml 
              = e.featureData.infoWindowHtml.replace(/target="_blank"/g,'');
           });
-      	}
-      	google.maps.event.addDomListener(window, 'load', initMap);
+        }
+        if (window.google) {
+          google.maps.event.addDomListener(window, 'load', initMap);
+        }
       </script>
-      <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key={{ site.google_maps_api_key }}&callback=initMap">
-      </script>
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ site.google_maps_api_key }}&callback=initMap"></script>
     </div>
     <div class="usa-width-one-third">
       {% assign parking_info = site.contentful.textBlock | where_exp: "textBlock", "textBlock.name == 'Parking Information Footer'" | first %}
