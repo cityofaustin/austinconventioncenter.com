@@ -94,3 +94,23 @@
     margin-top: $size / -2;
   }
 }
+
+@mixin button-unstyled {
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  font-weight: $font-normal;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  text-align: left;
+  -webkit-font-smoothing: auto;
+
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+.acc-button-unstyled {
+  @include button-unstyled;
+}
