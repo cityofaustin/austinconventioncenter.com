@@ -1,16 +1,37 @@
+.acc-nav{
+
+}
+
+.acc-nav-primary{
+  
+  & > li{
+    display: inline-block;
+    & > a {
+      text-decoration: none;
+      &:hover{
+        text-decoration: underline;
+        color: black;
+      }
+    }
+    & > button, & > a {
+      font-family: "bebas-neue", "Arial Black", serif;
+    }
+  }
+}
 .acc-nav-section{
     width: 100%;
     display: none;
-    padding-bottom: 3em;
+    padding-bottom: 3rem;
     &[aria-hidden="false"]{
         display: block;
     }
 }
 
 @media screen and (max-width: $nav-width) {
-  // mobile (max-width)
+  // mobile: uses max-width
   .acc-nav-section {
     display: block;
+    padding-bottom: 0;
     &[aria-hidden=true] {
       display: block;
     }
@@ -34,10 +55,9 @@
 
 .acc-section-col{
     ul {
-        // margin: 0;
-        // padding: 0;
+      list-style-type: none;
         li {
-            font-size: 2em;
+            font-size: 1.4rem;
             a{
                 font-family: "PT Sans", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
                 line-height: 1.3;
@@ -53,16 +73,28 @@
   @media screen and (min-width: $nav-width) {
     .acc-section-cols{
         display: flex;
-        .acc-section-col{
-            flex: 1;
-        }
     }
+    .acc-section-col{
+      ul {
+        flex: 1;
+        list-style-type: square;
+        li{
+          font-size: 3rem;
+        }
+      }
+    }
+  }
+
+  a:hover{
+    background-color: rgba(255,255,255,0.2);
+    color: white;
   }
 
   .acc-mega-nav-plan {
     button:hover, button:active, button[aria-expanded=true] {
       background-color: $acc-color-plan;
     }
+
     .acc-nav-section {
       @include navigation-gradient($acc-color-plan);
     }
