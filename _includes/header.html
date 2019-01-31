@@ -1,22 +1,19 @@
-<a class="usa-skipnav" href="#main-content">Skip to main content</a>
-<header class="acc-header" role="banner">
-  <div class="usa-grid acc-header-content">
-    <!-- <button class="usa-menu-btn">Menu</button> -->
-    <div class="acc-logo">
-      <a href="{{site.baseurl}}/" accesskey="1" title="Home" aria-label="Home">
-        <img src="{% asset_path "{{site.id}}-logo.jpg" %}" />
-      </a>
-    </div>
-    <button class="usa-button-unstyled acc-nav-button hamburger hamburger--squeeze" type="button">
-      <span class="hamburger-box">
-        <span class="hamburger-inner"></span>
-      </span>
-    </button>
-    <nav role="navigation" class="acc-nav" id="nav">
-      {% assign menu = site.contentful.menu | where: "name", "Header" | first %}
-      {% include components/navigation.html items=menu.items list_classes="acc-nav-list" item_classes="acc-nav-link" %}
-    </nav>
+<a class="acc-skipnav" href="#main-content">Skip to main content</a>
+<header class="acc-header-content" role="banner">
+  <div class="acc-logo">
+    <a href="{{site.baseurl}}/" accesskey="1" title="Home" aria-label="Home">
+      <img src="{% asset_path "{{site.id}}-logo.jpg" %}" />
+    </a>
   </div>
+  <button class="usa-button-unstyled acc-nav-button hamburger hamburger--squeeze" type="button">
+    <span class="hamburger-box">
+      <span class="hamburger-inner"></span>
+    </span>
+  </button>
+  <nav role="navigation" class="acc-nav" id="nav">
+    {% assign menu = site.contentful.menu | where: "name", "Header" | first %}
+    {% include components/navigation.html items=menu.items list_classes="acc-nav-list" item_classes="acc-nav-link" %}
+  </nav>
 </header>
 <div class="usa-overlay"></div>
 <div class="acc-overlay"></div>
