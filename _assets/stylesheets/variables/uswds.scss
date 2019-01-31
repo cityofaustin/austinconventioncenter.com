@@ -2,8 +2,8 @@
 // (originally copied from USWDS source) to customize .usa-* styles. We import these in both
 // uswds.scss and in main.scss, so they're available to our own Sass as well as USWDS.
 
-@import "uswds/src/stylesheets/lib/functions/strip-units";
-@import "uswds/src/stylesheets/lib/functions/px-to-rem";
+// @import "uswds/src/stylesheets/lib/functions/strip-units";
+// @import "uswds/src/stylesheets/lib/functions/px-to-rem";
 
 // Typography
 $em-base: 10px;

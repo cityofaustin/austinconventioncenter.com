@@ -1,5 +1,13 @@
 {
   "name": "austinconventioncenter.com",
+  "devDependencies": {
+    "grunt": "^1.0.3",
+    "grunt-concurrent": "^2.3.1",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-http-server": "^2.1.0",
+    "grunt-sass": "^3.0.2",
+    "node-sass": "^4.10.0"
+  },
   "dependencies": {
     "babel-core": "^6.20.0",
     "dom-delegate": "^2.0.3",
