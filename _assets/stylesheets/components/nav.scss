@@ -3,7 +3,7 @@
 }
 
 .acc-nav-primary{
-  
+  margin: 0;   
   & > li{
     display: inline-block;
     & > a {
@@ -18,6 +18,7 @@
     }
   }
 }
+
 .acc-nav-section{
     width: 100%;
     display: none;
@@ -27,13 +28,53 @@
     }
 }
 
+.acc-nav-header{
+
+}
+.acc-section-cols{
+    display: block;
+}
+
+.acc-section-col{
+    ul {
+      list-style-type: none;
+      margin: 0;
+      li {
+          font-size: 1.4rem;
+          margin: 0;
+          a{
+              font-family: "PT Sans", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+              line-height: 1.3;
+              padding: 0.85rem 1rem 0.85rem 1.8rem;
+              color: white;
+          }
+      }
+    }
+}
+
 @media screen and (max-width: $nav-width) {
   // mobile: uses max-width
+  .acc-nav-primary{
+    & > li{
+      display: block;
+    }
+  }
   .acc-nav-section {
     display: block;
     padding-bottom: 0;
     &[aria-hidden=true] {
       display: block;
+    }
+  }
+  .acc-section-description{
+    display: none;
+  }
+  .acc-section-col ul {
+    padding: 0;
+    li {
+      a{
+        padding-left: 2.8rem;
+      }
     }
   }
 }
@@ -46,30 +87,7 @@
     }
  }
 
-.acc-nav-header{
-
-}
-.acc-section-cols{
-    display: block;
-}
-
-.acc-section-col{
-    ul {
-      list-style-type: none;
-        li {
-            font-size: 1.4rem;
-            a{
-                font-family: "PT Sans", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
-                line-height: 1.3;
-                padding: 0.85rem 1rem 0.85rem 1.8rem;
-                color: white;
-            }
-        }
-    }
-}
-
 .acc-nav-primary {
-
   @media screen and (min-width: $nav-width) {
     .acc-section-cols{
         display: flex;
