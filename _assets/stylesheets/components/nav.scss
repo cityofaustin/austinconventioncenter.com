@@ -19,8 +19,11 @@
 .acc-nav-primary{
   margin: 0;
   padding: 0;
+  a {
+    text-decoration: none;
+  }
   & > li{
-    display: inline-block;
+    display: block;
     & > a {
       padding-left: 2.8rem;
       line-height: 1.3;
@@ -30,101 +33,73 @@
       }
     }
     & > button, & > a {
-      font-family: $acc-font-header;;
+      font-family: $acc-font-header;
     }
   }
 }
 
-.acc-nav-primary .acc-nav-events-link {
-  margin: .5rem 0;
-  border-left: 1px solid #ccc;
-}
-
-// .acc-nav-primary {
-//   .acc-nav-link {
-//     @include button-unstyled;
-//     display: block;
-//     font-family: $acc-font-header;
-//     letter-spacing: .07em;
-//     padding: 1.3rem $site-margins-mobile 1.7rem;
-//     text-decoration: none;
-//     background-color: white;
-//     color: black;
-//     transition: background-color $transition-time;
-    
-//     &:hover, &:active, &[aria-expanded=true] {
-//       color: white;
-//       transition: background-color $transition-time;
-
-//       span {
-//         border: none;
-//       }
-//     }
-    
-//     @media screen and (min-width: $medium-screen) and (max-width: $nav-width) {
-//       padding-left: $site-margins;
-//       padding-right: $site-margins;
-//     }
-  
-//     @media screen and (min-width: $medium-screen) {
-//       &[aria-expanded=true], &[aria-expanded=false] {
-//         background-image: none !important;
-//       }
-//     }
-  
-//     @media screen and (max-width: $nav-width) {
-//       font-size: 2em;
-//       padding-left:2rem;
-//       &[aria-expanded=false], &[aria-expanded=true] {
-//         background-image: none;
-//       }
-//       span {
-//         padding-left: 2rem;
-//       }
-//     }
-  
-//     span {
-//       padding: 0.25rem 0 0.25rem 1rem;
-//       margin-left: calc(-1rem - 3px);
-//       border-bottom-width: 0px;
-//     }
-
-//     @media screen and (min-width: $nav-width) {
-//       height: $desktop-header-height;
-//       span {
-//         margin-left: 0;
-//         padding: 0 0 0.25rem 0;
-//         border-left: none;
-//       }
-//     }
-  
-//   }
-// }
 
 
 
-// .acc-nav-primary > li > a, .acc-nav-primary > li > button {
-//   @media screen and (min-width: $nav-width) {
-//     font-size: 2.2rem;
-//   }
-// }
-
-.acc-nav{
-  a {
-    text-decoration: none;
+@media screen and (min-width: $nav-width) {
+  .acc-nav-link, .acc-nav-button{
+    padding-left: $site-margins-mobile;
+  }
+  .acc-nav-button{
+    height: $desktop-header-height;
+    &:focus{
+      box-shadow: 0 0 3px black, 0 0 7px black;
+    }
+  }
+  .acc-nav-primary{
+    & > li {
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: -4px;
+      a {
+        padding: 1.3rem 1.5rem 1.7rem;
+      }
+    }
+    .acc-nav-events-link {
+      border-left: 1px solid #ccc;
+    }
   }
 }
 
 
+.acc-section-description{
+  display: none;
+}
 
-.acc-nav-section{
+.acc-subnav{
     width: 100%;
-    display: none;
-    padding-bottom: 3rem;
+    display: block;
     &[aria-hidden="false"]{
         display: block;
     }
 }
+
+ @media screen and (min-width: $nav-width) {
+    .acc-subnav{
+        display: none;
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        padding-bottom: 3rem;
+    }
+
+    .acc-section-description{
+      display: block;
+    }
+    
+    .acc-section-col ul {
+      li {
+        a{
+          padding: 0.85rem 1rem 0.85rem 1.8rem;
+        }
+      }
+    }
+ }
 
 .acc-nav-header{
 
@@ -137,55 +112,22 @@
     ul {
       list-style-type: none;
       margin: 0;
+      padding: 0;
       li {
           font-size: 1.4rem;
           margin: 0;
-          display: block;
           a{
             display: block;            
             font-family: $acc-font-primary;
             line-height: 1.3;
-            padding: 0.85rem 1rem 0.85rem 1.8rem;
+            padding: 0.85rem 1rem 0.85rem 2.8rem;
             color: white;
           }
       }
     }
 }
 
-@media screen and (max-width: $nav-width) {
-  // mobile: uses max-width
-  .acc-nav-primary{
-    & > li{
-      display: block;
-    }
-  }
-  .acc-nav-section {
-    display: block;
-    padding-bottom: 0;
-    &[aria-hidden=true] {
-      display: block;
-    }
-  }
-  .acc-section-description{
-    display: none;
-  }
-  .acc-section-col ul {
-    padding: 0;
-    li {
-      a{
-        padding-left: 2.8rem;
-      }
-    }
-  }
-}
 
- @media screen and (min-width: $nav-width) {
-    .acc-nav-section{
-        position: absolute;
-        z-index: 1;
-        left: 0;
-    }
- }
 
 .acc-nav-primary {
   @media screen and (min-width: $nav-width) {
@@ -193,9 +135,10 @@
         display: flex;
     }
     .acc-section-col{
+      flex: 1;
       ul {
-        flex: 1;
         list-style-type: square;
+        padding: 0 3rem;
         li{
           font-size: 3rem;
         }
@@ -213,7 +156,7 @@
       background-color: $acc-color-plan;
     }
 
-    .acc-nav-section {
+    .acc-subnav {
       @include navigation-gradient($acc-color-plan);
     }
   }
@@ -222,7 +165,7 @@
     button:hover, button:active, button[aria-expanded=true] {
       background-color: $acc-color-attend;
     }
-    .acc-nav-section {
+    .acc-subnav {
       @include navigation-gradient($acc-color-attend);
     }
   }
@@ -231,16 +174,11 @@
     button:hover, button:active, button[aria-expanded=true] {
       background-color: $acc-color-exhibit;
     }
-    .acc-nav-section {
+    .acc-subnav {
       @include navigation-gradient($acc-color-exhibit);
     }
   }
 }
-
-.acc-section-col{
-    flex: 1;
-}
-
 
 .acc-menu-button { // hamburger
   width: auto;
@@ -260,7 +198,7 @@
   }
 }
 
-.acc-nav .acc-nav-primary .acc-nav-section .acc-nav-close-button {
+.acc-nav .acc-nav-primary .acc-subnav .acc-nav-close-button {
   display: none;
   position: absolute;
   top: 3rem;
@@ -316,7 +254,7 @@
   display: none;
   font-size: 6rem;
   font-family: $acc-font-header;
-  padding-left: 3rem;
+  padding: 4rem 0 0 3rem;
 
   @media screen and (min-width: $nav-width) {
     display: block;

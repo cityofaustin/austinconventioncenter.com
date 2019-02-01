@@ -11,8 +11,8 @@ function navInit (delegate) {
 $(document).ready(function () {
   $('.acc-nav-close-button').click(function () {
     event.preventDefault();
-    $(this).closest('.acc-nav-section').attr('aria-hidden', 'true');
-    $(this).closest('.acc-nav-section').prev('button').attr('aria-expanded', 'false');
+    $(this).closest('.acc-subnav').attr('aria-hidden', 'true');
+    $(this).closest('.acc-subnav').prev('button').attr('aria-expanded', 'false');
   });
 });
 
