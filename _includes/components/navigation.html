@@ -14,7 +14,7 @@
     {% endcase %}
     {% if item.type == 'navigationSection' %}
       <li class="acc-mega-nav-{{ item.name | slugify }}">
-        <button class="usa-accordion-button usa-nav-link acc-nav-link" aria-expanded="false" aria-controls="basic-mega-nav-section-{{ nav_class }}">
+        <button class="usa-accordion-button acc-nav-button" aria-expanded="false" aria-controls="basic-mega-nav-section-{{ nav_class }}">
           <span aria-hidden="true">{{ item.name }}</span>
         </button>
         <div id="basic-mega-nav-section-{{nav_class}}" class="acc-nav-section">
@@ -67,12 +67,12 @@
       {% if url %}
         {% assign protocol = url | slice: 0, 4 %}
         <li>
-          <a href="{{ url }}">{{ item.title }}</a>
+          <a href="{{ url }}" class="acc-nav-link">{{ item.title }}</a>
         </li>
       {% endif %}
     {% endif %}
   {% endfor %}
   <li class="acc-nav-events-link">
-    <a href="/events">Events</a>
+    <a href="/events" class="acc-nav-link">Events</a>
   </li>
 </ul>

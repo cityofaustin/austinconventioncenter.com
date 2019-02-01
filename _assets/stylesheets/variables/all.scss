@@ -57,5 +57,8 @@ $transition-time: 0.5s;
 // Sizes
 $desktop-header-height: 8rem;
 
+$grid-columns: 12 !default;
+$default-feature: min-width;
+
 @import "media";
 @import "uswds";
