@@ -21,6 +21,11 @@
             flex-direction: row;
         }
     }
+    &.break-partners{
+        @media screen and (min-width: $partners-width) {
+            flex-direction: row;
+        }
+    }
 }
 .acc-flex-one-third{
     flex: 1 1 33%;
