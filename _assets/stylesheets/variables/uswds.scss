@@ -2,8 +2,21 @@
 // (originally copied from USWDS source) to customize .usa-* styles. We import these in both
 // uswds.scss and in main.scss, so they're available to our own Sass as well as USWDS.
 
-@import "uswds/src/stylesheets/lib/functions/strip-units";
-@import "uswds/src/stylesheets/lib/functions/px-to-rem";
+@function strip-units($value) {
+  @return ($value / ($value * 0 + 1));
+}
+
+@function rem($pxval) {
+  @if not unitless($pxval) {
+    $pxval: strip-units($pxval);
+  }
+
+  $base: $em-base;
+  @if not unitless($base) {
+    $base: strip-units($base);
+  }
+  @return ($pxval / $base) * 1rem;
+}
 
 // Typography
 $em-base: 10px;
