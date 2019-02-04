@@ -1,3 +1,91 @@
+// Variables
+
+$accordion-border: 3px solid $color-gray-lightest;
+
+// Screen reader only helper
+@mixin sr-only() {
+  position: absolute;
+  left: -999em;
+}
+
+.usa-sr-only {
+  @include sr-only();
+}
+
+// Aria hidden helper
+@mixin accessibly-hidden() {
+  &[aria-hidden=true] {
+    display: none;
+  }
+}
+
+
+@mixin accordion-button-styles {
+  @include button-unstyled;
+  background-color: $color-gray-lightest;
+  color: $color-base;
+  cursor: pointer;
+  display: inline-block;
+  font-family: $font-sans;
+  font-weight: $font-bold;
+  margin: 0;
+  
+
+  &:focus {
+    box-shadow: $focus-shadow;
+  }
+
+  &:hover {
+    background-color: $color-gray-lighter;
+    color: $color-base;
+  }
+}
+
+.usa-accordion {
+  @include unstyled-list;
+  color: $color-base;
+  margin: 0;
+  padding: 0;
+
+  + .usa-accordion {
+    margin-top: 1rem;
+  }
+  > li {
+    background-color: $color-gray-lightest;
+    list-style: none;
+  }
+
+}
+
+
+.usa-accordion-content {
+  background-color: $color-white;
+  overflow: auto;
+  padding: 3rem;
+
+  > *:first-child {
+    margin-top: 0;
+  }
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+
+  &:not([aria-hidden]) {
+    @include sr-only();
+  }
+
+  @include accessibly-hidden();
+}
+
+
+
+
+
+
+
+
+
 .acc-accordion-container {
   margin-top: $acc-vertical-margin;
 }
@@ -6,26 +94,46 @@
   max-width: 700px;
   margin: 0 auto;
   color: black;
+  li {
+    margin-bottom: 6px;
+  }
 }
 
-
-
 .acc-accordion-button {
-  @include acc-button-font-icon(1.5rem, "\f068");
   background-color: $acc-color-gray-lightest;
-  background-image: none;
-  padding-right: 5.5rem;
   position: relative;
-
-  &::after {
-    right: 3rem;
+  display: flex;
+  padding: 1.5rem 3rem 1.5rem 3rem;
+  width: 100%;
+  text-align: left;
+  outline: 0;
+  &:focus {
+    box-shadow: $focus-shadow;
   }
 
-  &[aria-expanded=false] {
-    background-image: none;
+  &:hover {
+    background-color: $color-gray-lighter;
+    color: $color-base;
+  }
+  span{
+    flex: 1;
+    align-self: center;
+  }
+  i{
+    flex: 0 0 1em;
+    align-self: center;
+  }
+  
 
-    &::after {
-      content: "\f067";
+  &[aria-expanded="true"] {
+    .fa-plus{
+      display: none;
+    }
+  }
+
+  &[aria-expanded="false"] {
+    .fa-minus{
+      display: none;
     }
   }
 }

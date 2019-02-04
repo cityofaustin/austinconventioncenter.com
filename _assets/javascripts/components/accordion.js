@@ -73,7 +73,7 @@ Accordion.prototype.hideAll = function () {
 };
 
 function initAccordions() {
-    var accordions = select('.usa-accordion, .usa-accordion-bordered');
+    var accordions = select('.usa-accordion');
     accordions.forEach(function (el) {
         new Accordion(el);
     });

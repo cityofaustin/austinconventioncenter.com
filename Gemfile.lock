@@ -160,7 +160,7 @@ DEPENDENCIES
   autoprefixer-rails
   contentful-management
   faraday
-  font-awesome-sass
+  font-awesome-sass (~> 5.6.1)
   foreman
   jekyll (~> 3.7.3)
   jekyll-assets (~> 2.2.8)
