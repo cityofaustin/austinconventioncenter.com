@@ -16,19 +16,13 @@
 .acc-calendar-event-link .acc-calendar-event-details {
   position: relative;
   padding-right: 8rem;
-
-  &::after {
-//     @include acc-button-icon;
-    background-image: none;
-    right: 1em;
-    content: "\f08e";
-    font-family: FontAwesome;
-    font-size: 2rem;
-    color: #00807a;
-    padding: 1.1rem 0 0 1.6rem;
-  }
 }
 
+.fas.fa-external-link-alt{
+  color: #00807a;
+  font-size: 2rem;
+  padding: 1.1rem 0 0 1.6rem;
+}
 .acc-calendar-event:not(.acc-calendar-event-link) {
   cursor: default;
   pointer-events: none;

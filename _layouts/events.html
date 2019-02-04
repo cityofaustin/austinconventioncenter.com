@@ -84,6 +84,9 @@ layout: default
                   {% if event.attendance %}
                     <h4>Expected Attendance</h4>
                     {{ event.attendance }}
+                    {% if event.website %}
+                      <i class="fas fa-external-link-alt"></i>
+                    {% endif %}
                   {% endif %}
                 </div>
               </a>
