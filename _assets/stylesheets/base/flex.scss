@@ -1,0 +1,28 @@
+.acc-flex {
+    display: flex;
+    flex-direction: column;
+    &.break-large{
+        @media screen and (min-width: $large-screen) {
+            flex-direction: row;
+        }
+    }
+    &.break-medium{
+        @media screen and (min-width: $medium-screen) {
+            flex-direction: row;
+        }
+    }
+    &.break-small{
+        @media screen and (min-width: $small-screen) {
+            flex-direction: row;
+        }
+    }
+    &.break-nav{
+        @media screen and (min-width: $nav-width) {
+            flex-direction: row;
+        }
+    }
+}
+.acc-flex-one-third{
+    flex: 1 1 33%;
+    padding: 0 3rem;
+}

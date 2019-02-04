@@ -27,15 +27,6 @@
 .acc-parking-footer .acc-button {
   border-color: white;
   color: white;
-
-/*
-  @media screen and (min-width: $medium-screen) {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    margin-left: -($acc-button-width/2);
-  }
-*/
 }
 
 #map {
@@ -53,19 +44,14 @@
     }
   }
 }
-/*
-.acc-parking-footer > div > div {
-  @media screen and (min-width: $medium-screen) {
-    height: 350px;
-    position: relative;
-  }
-}
-*/
 
 .acc-parking-footer h2 {
   font-size: 4.5rem;
   line-height: 1em;
   text-align: left;
+  @media screen and (min-width: $nav-width) {
+    margin-top: 0;
+  }
 }
 .acc-footer {
   font-size: 1.5rem;
@@ -80,10 +66,6 @@
 
 .acc-footer-content nav {
   padding-bottom: 5rem;
-}
-
-.acc-footer-content section {
-  padding-bottom: 2.5rem;
 }
 
 .acc-footer-content a {
@@ -101,11 +83,17 @@
 }
 
 .acc-footer-content h4 {
-  color: $acc-color-gray-lightest;
   color: white;
   width: 100%;
-  padding-top: 1em;
   font-size: 2rem;
+}
+
+.acc-footer-address {
+  padding: 0 3rem;
+  h4{
+    margin: 0;
+    padding: 0;
+  }
 }
 
 .acc-footer-info {
@@ -115,18 +103,34 @@
   flex-wrap: wrap;
 }
 
-.acc-footer-logo {
-  flex: 0 0 auto;
-  margin-right: 2rem;
+.acc-footer-logos{
+  display: flex;
+  padding: 0 3rem;
+  margin-bottom: 2rem;
+  span, a{
+    display: inline-block;
+    align-self: center;
+    margin-right: 1.5rem;
+  }
+  a {
+    font-size: 2em;
+  }
 }
+.acc-footer-stamps{
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
+}
+.acc-footer-icons{
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+}
+
 
 .acc-footer-address {
   font-size: 1.3rem;
   line-height: 1.5em;
-
-  @media screen and (min-width: $medium-screen) {
-    flex: 1 0 auto;
-  }
 }
 
 .acc-partner-logos {
