@@ -1,90 +1,92 @@
 ---
 layout: default
 ---
-<header class="acc-content-header">
-  <h1>Floor Plans</h1>
-</header>
-<div class="acc-flex break-large acc-floor-plan">
-  {% if site.plans %}
-    <aside class="acc-flex-one-fourth">
-      <nav role="navigation" class="acc-sidenav" id="sidenav">
-        <button class="usa-button-unstyled acc-sidenav-close">
-          <img src="{% asset_path uswds/src/img/close.svg %}" alt="close">
-        </button>
-        <ul class="usa-unstyled-list acc-sidenav-list" id="acc-floor-plan-nav">
-          <li>
-            <a href="/plan/plans/"{% if page.url == "/plan/plans/" %} class="acc-current"{% endif %}>Center Overview</a>
-          </li>
-          {% assign docs = site.plans | sort: "title" | sort: "priority", "last"  %}
-          {% for doc in docs %}
+<div class="acc-full">
+  <header class="acc-content-header">
+    <h1>Floor Plans</h1>
+  </header>
+  <div class="acc-flex break-large acc-floor-plan">
+    {% if site.plans %}
+      <aside class="acc-flex-one-fourth">
+        <nav role="navigation" class="acc-sidenav" id="sidenav">
+          <button class="usa-button-unstyled acc-sidenav-close">
+            <img src="{% asset_path uswds/src/img/close.svg %}" alt="close">
+          </button>
+          <ul class="acc-unstyled-list acc-sidenav-list" id="acc-floor-plan-nav">
+            <li>
+              <a href="/plan/plans/"{% if page.url == "/plan/plans/" %} class="acc-current"{% endif %}>Center Overview</a>
+            </li>
+            {% assign docs = site.plans | sort: "title" | sort: "priority", "last"  %}
+            {% for doc in docs %}
 
-              {% if doc.docs and doc.docs != empty %}
-                <li>
+                {% if doc.docs and doc.docs != empty %}
+                  <li>
 
-                  {% capture expanded %}{% if page.url contains doc.url %}true{% else %}false{% endif %}{% endcapture %}
+                    {% capture expanded %}{% if page.url contains doc.url %}true{% else %}false{% endif %}{% endcapture %}
 
-                  <a href="{{ doc.url }}"{% if page.url == doc.url %} class="acc-current"{% endif %} data-slug="{{ doc.slug }}" title="{{ doc.title }}"><button class="usa-button-unstyled acc-folder-control" aria-expanded="{{ expanded }}" aria-controls="{{ doc.slug }}-nav"></button> <span>{{ doc.title }}</span></a>
+                    <a href="{{ doc.url }}"{% if page.url == doc.url %} class="acc-current"{% endif %} data-slug="{{ doc.slug }}" title="{{ doc.title }}"><button class="usa-button-unstyled acc-folder-control" aria-expanded="{{ expanded }}" aria-controls="{{ doc.slug }}-nav"></button> <span>{{ doc.title }}</span></a>
 
 
-                  <ul class="usa-unstyled-list acc-folder-content acc-sidenav-sub_list" id="{{ doc.slug }}-nav"{% if expanded == "true" %} aria-hidden="false"{% endif %}>
-                    {% assign child_docs = doc.docs | sort: "title" %}
-                    {% for child_doc in child_docs %}
-                       <li>
-                           <a href="{{ child_doc.url}}"{% if page.url == child_doc.url %} class="acc-current"{% endif %} data-slug="{{ child_doc.slug }}" title="{{ child_doc.title }}">{{ child_doc.title }}</a>
-                        </li>
-                    {% endfor %}
-                  </ul>
-                </li>
-              {% else %}
-                <li>
-                  {% assign my_url = doc.url %}
-                    <a href="{{ doc.url }}"{% if page.url == doc.url %} class="acc-current"{% endif %} data-slug="{{ doc.slug }}" title="{{ doc.title }}">{{ doc.title }}</a>
-                </li>
-              {% endif %}
+                    <ul class="usa-unstyled-list acc-folder-content acc-sidenav-sub_list" id="{{ doc.slug }}-nav"{% if expanded == "true" %} aria-hidden="false"{% endif %}>
+                      {% assign child_docs = doc.docs | sort: "title" %}
+                      {% for child_doc in child_docs %}
+                        <li>
+                            <a href="{{ child_doc.url}}"{% if page.url == child_doc.url %} class="acc-current"{% endif %} data-slug="{{ child_doc.slug }}" title="{{ child_doc.title }}">{{ child_doc.title }}</a>
+                          </li>
+                      {% endfor %}
+                    </ul>
+                  </li>
+                {% else %}
+                  <li>
+                    {% assign my_url = doc.url %}
+                      <a href="{{ doc.url }}"{% if page.url == doc.url %} class="acc-current"{% endif %} data-slug="{{ doc.slug }}" title="{{ doc.title }}">{{ doc.title }}</a>
+                  </li>
+                {% endif %}
+            {% endfor %}
+          </ul>
+        </nav>
+      </aside>
+    {% endif %}
+
+    <div class="acc-flex-three-fourths">
+      <h3 style="text-align: left; margin-top: 0;">
+        {% if page.title == "Floor Plans" %}
+          Center Overview
+        {% else %}
+          {{ page.contentful.title }}
+        {% endif %}
+        <a href="#" class="acc-sidenav-button">Change View</a>
+      </h3>
+
+      {% assign contentBlocks = page.contentful.contentBlocks %}
+      {% assign map = contentBlocks | first %}
+
+      {% if map.title contains '.svg' %}
+        {% assign contentBlocks = contentBlocks | shift %}
+        <div id="acc-floor-plan-map" class="acc-floor-plan-map">
+          {% capture path %}floor-plans/{{map.title}}{% endcapture %}
+          {% if assets[path] %}
+            {% asset_source "{{path}}" %}
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if map.title contains '.png' %}
+        {% assign contentBlocks = contentBlocks | shift %}
+        <div id="acc-floor-plan-map" class="acc-floor-plan-map">
+          {% img floor-plans/{{map.title}} %}
+        </div>
+      {% endif %}
+
+      {% if page.contentful.files %}
+        <ul class="usa-unstyled-list acc-button-grid acc-floor-plan-files">
+          {% for file in page.contentful.files %}
+            <li><a href="{{ file.url }}" target="_blank" class="acc-button acc-button-secondary acc-button-pdf">{{ file.title }}</a></li>
           {% endfor %}
         </ul>
-      </nav>
-    </aside>
-  {% endif %}
-
-  <div class="acc-flex-three-fourths">
-    <h3 style="text-align: left;">
-      {% if page.title == "Floor Plans" %}
-        Center Overview
-      {% else %}
-        {{ page.contentful.title }}
       {% endif %}
-      <a href="#" class="acc-sidenav-button">Change View</a>
-    </h3>
-
-    {% assign contentBlocks = page.contentful.contentBlocks %}
-    {% assign map = contentBlocks | first %}
-
-    {% if map.title contains '.svg' %}
-      {% assign contentBlocks = contentBlocks | shift %}
-      <div id="acc-floor-plan-map" class="acc-floor-plan-map">
-        {% capture path %}floor-plans/{{map.title}}{% endcapture %}
-        {% if assets[path] %}
-          {% asset_source "{{path}}" %}
-        {% endif %}
-      </div>
-    {% endif %}
-
-    {% if map.title contains '.png' %}
-      {% assign contentBlocks = contentBlocks | shift %}
-      <div id="acc-floor-plan-map" class="acc-floor-plan-map">
-        {% img floor-plans/{{map.title}} %}
-      </div>
-    {% endif %}
-
-    {% if page.contentful.files %}
-      <ul class="usa-unstyled-list acc-button-grid acc-floor-plan-files">
-        {% for file in page.contentful.files %}
-          <li><a href="{{ file.url }}" target="_blank" class="acc-button acc-button-secondary acc-button-pdf">{{ file.title }}</a></li>
-        {% endfor %}
-      </ul>
-    {% endif %}
-    {% include components/content_blocks.html blocks=contentBlocks %}
+      {% include components/content_blocks.html blocks=contentBlocks %}
+    </div>
   </div>
 </div>
-{% javascript floor_plan %}
+  {% javascript floor_plan %}

@@ -8,6 +8,8 @@
 .acc-full{
     // not really a flex box, but replaces functionality of usa-grid
     max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
     @media screen and (min-width: $medium-screen) {
         padding-right: 3rem;
         padding-left: 3rem;
