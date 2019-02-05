@@ -3,7 +3,11 @@
 }
 
 .acc-learn-more-list {
+  @include unstyled-list;
   margin-bottom: 3rem;
+  .acc-flex-one-third{
+    padding: 0 1.5rem;
+  }
 }
 
 .acc-learn-more-link {
@@ -25,6 +29,7 @@
   img {
     display: block;
     margin: 0 auto;
+    width: 100%;
   }
 }
 

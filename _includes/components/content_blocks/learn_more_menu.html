@@ -1,25 +1,21 @@
 {% assign block = include.block %}
-<div class="usa-grid">
-  <div class="usa-width-one-whole">
-    <div class="acc-learn-more-wrapper">
-      <h3>Learn More</h3>
-      <ul class="acc-learn-more-list usa-unstyled-list">
-        {% for item in block.links %}
-          {% assign doc = item.linkedItem | find_document %}
-          {% assign url = item.linkedItem.url | default: doc.url %}
-          <li class="usa-width-one-third">
-            <a href="{{url}}" class="acc-learn-more-link">
-              <img src="{{ item.photo.url }}?w=330&h=220&fit=thumb" />
-              <span class="acc-learn-more-link-title">
-                {{ item.title }}
-              </span>
-              <span class="acc-learn-more-link-description">
-                {{ item.description }}
-              </span>
-            </a>
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
-  </div>
+<div class="acc-learn-more-wrapper">
+  <h3>Learn More</h3>
+  <ul class="acc-flex break-medium acc-learn-more-list">
+    {% for item in block.links %}
+      {% assign doc = item.linkedItem | find_document %}
+      {% assign url = item.linkedItem.url | default: doc.url %}
+      <li class="acc-flex-one-third">
+        <a href="{{url}}" class="acc-learn-more-link">
+          <img src="{{ item.photo.url }}?w=330&h=220&fit=thumb" />
+          <span class="acc-learn-more-link-title">
+            {{ item.title }}
+          </span>
+          <span class="acc-learn-more-link-description">
+            {{ item.description }}
+          </span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
 </div>
