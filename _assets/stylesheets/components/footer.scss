@@ -90,10 +90,6 @@
 
 .acc-footer-address {
   padding: 0 3rem;
-  h4{
-    margin: 0;
-    padding: 0;
-  }
 }
 
 .acc-footer-info {
@@ -110,10 +106,17 @@
   span, a{
     display: inline-block;
     align-self: center;
-    margin-right: 1.5rem;
   }
   a {
     font-size: 2em;
+  }
+  .logo-third{
+    flex: 1 1 33%;
+  }
+  @media screen and (min-width: $small-screen) {
+    .logo-third{
+      padding: 0 3rem;
+    }
   }
 }
 .acc-footer-stamps{
@@ -125,6 +128,9 @@
   display: flex;
   flex: 1;
   justify-content: flex-end;
+  a{
+    margin-right: 1.5rem;
+  }
 }
 
 
