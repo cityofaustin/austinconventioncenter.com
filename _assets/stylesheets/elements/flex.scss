@@ -43,7 +43,11 @@
             flex-direction: row;
         }
     }
+    &.wrap{
+        flex-wrap: wrap;
+    }
 }
+
 .acc-flex-one-half{
     flex: 1 1 50%;
     padding: 0 3rem;
@@ -59,4 +63,13 @@
 .acc-flex-three-fourths{
     flex: 1 1 75%;
     padding: 0 3rem;
+}
+.acc-flex-quarter-half{
+    // will divide into quarters, then halves, then column
+    // note, must be used with "wrap": class="acc-flex wrap"
+    flex: 1 1 50%;    
+    padding: 0 3rem;
+    @media screen and (min-width: $large-screen) {
+        flex: 1 1 25%;
+    }
 }
