@@ -1,3 +1,18 @@
+// Mobile First Breakpoints
+// $small-screen: 481px;
+// $medium-screen: 600px;
+// $large-screen: 1201px;
+// $nav-width: 951px;
+// $partners-width: 720px;
+
+.acc-full{
+    // not really a flex box, but replaces functionality of usa-grid
+    max-width: 1200px;
+    @media screen and (min-width: $medium-screen) {
+        padding-right: 3rem;
+        padding-left: 3rem;
+    }
+}
 .acc-flex {
     display: flex;
     flex-direction: column;
@@ -29,5 +44,13 @@
 }
 .acc-flex-one-third{
     flex: 1 1 33%;
+    padding: 0 3rem;
+}
+.acc-flex-one-fourth{
+    flex: 1 1 25%;
+    padding: 0 3rem;
+}
+.acc-flex-three-fourths{
+    flex: 1 1 75%;
     padding: 0 3rem;
 }

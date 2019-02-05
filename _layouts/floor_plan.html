@@ -1,15 +1,12 @@
 ---
 layout: default
 ---
-<div class="usa-grid acc-floor-plan">
-  <div class="usa-width-one-whole">
-    <header class="acc-content-header">
-      <h1>Floor Plans</h1>
-    </header>
-  </div>
-
+<header class="acc-content-header">
+  <h1>Floor Plans</h1>
+</header>
+<div class="acc-flex break-large acc-floor-plan">
   {% if site.plans %}
-    <aside class="usa-width-one-fourth">
+    <aside class="acc-flex-one-fourth">
       <nav role="navigation" class="acc-sidenav" id="sidenav">
         <button class="usa-button-unstyled acc-sidenav-close">
           <img src="{% asset_path uswds/src/img/close.svg %}" alt="close">
@@ -50,7 +47,7 @@ layout: default
     </aside>
   {% endif %}
 
-  <div class="usa-width-three-fourths">
+  <div class="acc-flex-three-fourths">
     <h3 style="text-align: left;">
       {% if page.title == "Floor Plans" %}
         Center Overview
@@ -87,9 +84,7 @@ layout: default
         {% endfor %}
       </ul>
     {% endif %}
-
     {% include components/content_blocks.html blocks=contentBlocks %}
   </div>
 </div>
-
 {% javascript floor_plan %}
