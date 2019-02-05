@@ -1,23 +1,21 @@
 ---
 layout: default
 ---
-
-<div class="usa-grid">
-  <div class="usa-width-one-whole">
-    <header class="acc-content-header">
-      <h1>Events</h1>
-    </header>
-  </div>
+<header class="acc-content-header">
+  <h1>Events</h1>
   {% if site.title == 'Austin Convention Center' %}
-    {% assign booking_adjective = 'contracted' %}
+  {% assign booking_adjective = 'contracted' %}
   {% else %}
-    {% assign booking_adjective = 'booked' %}
+  {% assign booking_adjective = 'booked' %}
   {% endif %}
   <p>
-    Please note the calendar of events below does not reflect all {{ booking_adjective }} dates. <a href="{{ site.url }}/request-a-proposal/">Connect with our sales team</a> for date availability and event details.
+    Please note the calendar of events below does not reflect all {{ booking_adjective }} dates. <a href="{{ site.url }}/request-a-proposal/">Connect
+      with our sales team</a> for date availability and event details.
   </p>
+</header>
+<div class="acc-flex break-large">
   {% if site.events and site.events != empty %}
-    <aside class="usa-width-one-fourth">
+    <aside class="acc-flex-one-fourth">
       <nav role="navigation" class="acc-sidenav" id="sidenav">
         <button class="usa-button-unstyled acc-sidenav-close">
           <img src="{% asset_path uswds/src/img/close.svg %}" alt="close">
@@ -35,14 +33,14 @@ layout: default
         {% endfor %}
       </nav>
     </aside>
-    <div class="usa-width-three-fourths">
+    <div class="acc-flex-three-fourths">
       <h3 class="acc-sidenav-header">
         {{ page.title }}
         <a href="#" class="acc-sidenav-button">Change Month</a>
       </h3>
       {% if page.events %}
         {% assign events = page.events | sort: "arrive_date" %}
-        <ul class="usa-unstyled-list">
+        <ul class="acc-unstyled-list">
           {% for event in events %}
             <li>
 
