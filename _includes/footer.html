@@ -3,7 +3,7 @@
 {% else %}
   <div class="acc-parking-footer acc-color-theme-Default">
 {% endif %}
-  <div class="acc-flex break-nav">
+  <div class="acc-full acc-flex break-nav">
     <div class="acc-flex-one-third acc-parking-map">
       <!-- Google Maps -->
       <div id="map" style="width: 100%;height: 300px;"></div>
@@ -57,9 +57,8 @@
 </div>
 
 <footer class="acc-footer" role="contentinfo">
-
   <div class="acc-footer-content">
-    <nav class="acc-flex wrap break-small">
+    <nav class="acc-full acc-flex wrap break-small">
       <div class="acc-flex-quarter-half acc-footer-address">
         <h4>Address</h4>
         <div itemscope itemtype="http://schema.org/LocalBusiness">
@@ -89,11 +88,11 @@
         {% include components/menu.html items=partners.items %}
       </div>
     </nav>
-    <div class="acc-footer-logos">
+    <div class="acc-full acc-footer-logos">
       <a class="logo-third" href="http://www.austintexas.gov">
         {% img coa-stamp.png "City of Austin" height="75px" width="75px" %}
       </a>
-      <span class="logo-third">
+      <span class="logo-third" style="text-align: center;">
         {% img badges/leed.png "LEED-Certified" height="75px" width="75px" %}
       </span>
       <div class="logo-third acc-footer-icons">

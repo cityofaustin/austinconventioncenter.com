@@ -35,23 +35,26 @@
 .acc-mega-feature {
   margin-top: $acc-vertical-margin;
   text-align: center;
-}
-.acc-mega-feature > div {
-  background-repeat: no-repeat;
-  background-size: 0 0;
-  padding: 3em;
-
-  @media screen and (min-width: $large-screen) {
-    background-size: auto 100%;
+  h3 {
+    margin-top: 0;
   }
-
-  p {
-    margin-top: 2em;
-  }
-}
-.acc-mega-feature .usa-grid > div {
-  @media screen and (max-width: $large-screen) {
+  & > div {
+    background-repeat: no-repeat;
+    background-size: 0 0;
     padding: 3em;
+
+    @media screen and (min-width: $large-screen) {
+      background-size: auto 100%;
+    }
+
+    p {
+      margin-top: 2em;
+    }
+  }
+  .acc-full > div {
+    @media screen and (max-width: $large-screen) {
+      padding: 3em;
+    }
   }
 }
 

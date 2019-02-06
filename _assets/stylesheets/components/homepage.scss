@@ -14,19 +14,8 @@
 .acc-homepage-menu-container {
   margin-top: -5rem;
 }
-.acc-homepage-menu-container .acc-button-grid {
-/*
-    display: flex;
-  flex-direction: column;
-*/
 
-}
 .acc-homepage-menu-container .acc-button-grid li {
-/*
-  text-align: center;
-  flex: 1;
-*/
-
   a {
     background-color: $acc-color-gray-lightest;
     text-align: center;
@@ -39,16 +28,10 @@
     max-width: 50rem;
 
     span {
-/*
-      border-width: 0 2px 2px 2px;
-      border-style: solid;
-      border-color: black;
-*/
       display: block;
       padding: 1em .5em;
     }
     &:hover {
-//       background-color: white;
     background-color: rgba(0,0,0,.1);
       transition: all $transition-time;
     }
@@ -56,17 +39,6 @@
     img {
       display: block;
       width: 100%;
-    }
-
-    @media screen and (min-width: $medium-screen) {
-      img {
-/*
-        border-width: 1px 1px 0 1px;
-        border-style: solid;
-        border-color: black;
-*/
-      }
-//       margin: 0 2rem 2rem 2rem;
     }
   }
 }
@@ -97,15 +69,21 @@
   position: relative;
 
   > div {
-//     border-right: 1px solid black;
     text-align: center;
     vertical-align: top;
     height: 100%;
   }
 
-  &:last-child div {
-    border-right: none;
+  .acc-flex-one-third{
+    border: 0;
   }
+  
+  @media screen and (min-width: $nav-width) {
+    .acc-flex-one-third:not(:last-child){
+      border-right: 1px solid black;
+    }    
+  }
+  
 
   .acc-upcoming-event-link {
     color: $acc-color-base;
@@ -116,14 +94,6 @@
     transition: all $transition-time;
     font-size: 3rem;
     font-family: $acc-font-header;
-
-/*
-    &:hover {
-      background-color: $acc-color-gray-lightest;
-      transition: all $transition-time;
-    }
-*/
-
   }
 
   .acc-upcoming-event-name {

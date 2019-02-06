@@ -58,9 +58,9 @@ layout: default
   </div>		
 </div>
 
-<div class="usa-grid acc-homepage-menu-container">
+<div class="acc-full acc-homepage-menu-container">
   {% assign menu = site.contentful.menu | where_exp: "menu", "menu.name == 'Homepage'" | first %}
-  <ul class="usa-unstyled-list acc-button-grid">
+  <ul class="acc-unstyled-list acc-button-grid">
     {% for item in menu.items %}
       {% assign doc = item.page | find_document %}
       {% assign url = item.page.url | default: doc.url %}
@@ -78,16 +78,19 @@ layout: default
   </ul>
 </div>
 
-<div class="usa-grid-full acc-grid acc-upcoming-events">
+<div class="acc-full acc-upcoming-events">
   <h3>Upcoming Events</h3>
-  {% assign eventsMenu = site.contentful.menu | where_exp: "menu", "menu.name == 'Upcoming Events'" | first %}
-  {% for event in eventsMenu.items %}
-    <div class="acc-width-one-third">
-      <a href="{{event.website}}" class="acc-upcoming-event-link">{{ event.dates }}</a>
-      <span class="acc-upcoming-event-name">{{ event.eventName }}</span>
-    </div>
-  {% endfor %}
+  <div class="acc-flex break-nav">
+    {% assign eventsMenu = site.contentful.menu | where_exp: "menu", "menu.name == 'Upcoming Events'" | first %}
+    {% for event in eventsMenu.items %}
+      <div class="acc-flex-one-third">
+        <a href="{{event.website}}" class="acc-upcoming-event-link">{{ event.dates }}</a>
+        <span class="acc-upcoming-event-name">{{ event.eventName }}</span>
+      </div>
+    {% endfor %}
+  </div>
 </div>
+
 <p style="text-align: center; margin-top: 2em;">
   <a href="/events" class="acc-button">View Full Calendar</a>
 </p>
@@ -95,32 +98,15 @@ layout: default
 {% assign mega_feature = contentful.contentBlocks | last %}
 
 {% include components/content_blocks/mega_feature.html block=mega_feature %}
-<!--
-<div class="acc-mega-feature acc-color-theme-Default">
-  <div class="usa-grid">
-    <div class="usa-width-one-whole">
-      <h3>Bringing events to life</h3>
-      <p>
-        Get inspired and explore the Austin Convention Center's pre-function space, exhibit halls, and ballrooms. Imagine how your event can transform the space.
-      </p>
-      <p>
-        <a href="/gallery" class="acc-button">Visit our Photo Gallery</a>
-      </p>
-    </div>
-  </div>
-</div>
--->
 
-<div class="usa-grid acc-social-container">
-  <div class="usa-width-one-whole">
-    {% assign socialMediaHeader = contentful.contentBlocks | where: "title", "social-media-header" | first %}
-    {% unless socialMediaHeader == blank %}
-      <div class="acc-social-header">
-        {{ socialMediaHeader.text | markdownify }}
-      </div>
-    {% endunless %}
-    <div id="curator-feed"></div>
-  </div>
+<div class="acc-full acc-social-container">
+  {% assign socialMediaHeader = contentful.contentBlocks | where: "title", "social-media-header" | first %}
+  {% unless socialMediaHeader == blank %}
+    <div class="acc-social-header">
+      {{ socialMediaHeader.text | markdownify }}
+    </div>
+  {% endunless %}
+  <div id="curator-feed"></div>
 </div>
 
 <script type="text/javascript">
