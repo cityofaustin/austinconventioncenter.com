@@ -9,7 +9,7 @@
       <div id="map" style="width: 100%;height: 300px;"></div>
       <script>
       	var map;
-        var src = "{{site.url}}{% asset_path "{{site.id}}.kml" %}";
+        var src = "{{site.url}}{% asset_path "kml/{{site.id}}.kml" %}";
       	function initMap() {
           if (!window.google) {
             return;
