@@ -15,7 +15,7 @@
     {% if item.type == 'navigationSection' %}
       <li class="acc-mega-nav-{{ item.name | slugify }}">
         <button class="usa-accordion-button acc-nav-button" aria-expanded="false" aria-controls="basic-mega-nav-section-{{ nav_class }}">
-          <span aria-hidden="true">{{ item.name }}</span>
+          <span>{{ item.name }}</span>
         </button>
         <div id="basic-mega-nav-section-{{nav_class}}" class="acc-subnav">
           <div class="acc-nav-header">
