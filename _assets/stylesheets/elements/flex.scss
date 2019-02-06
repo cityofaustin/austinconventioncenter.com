@@ -41,6 +41,9 @@
             display: flex;
         }
     }
+    &.no-break{
+        display: flex;
+    }
     &.break-partners{
         @media screen and (min-width: $partners-width) {
             display: flex;
@@ -58,6 +61,14 @@
 .acc-flex-thirds{
     flex: 1 1 33%;
     padding: 0 3rem;
+}
+.acc-flex-one-third{
+    flex: 1 1 33%;
+    padding: 0 0 0 3rem;
+}
+.acc-flex-two-thirds{
+    flex: 1 1 66%;
+    padding: 0 3rem 0 0;
 }
 .acc-flex-one-fourth{
     flex: 1 1 25%;
