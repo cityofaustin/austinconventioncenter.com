@@ -103,8 +103,8 @@ if ENV["CI"]
     multitask :contentful => ["contentful:acc", "contentful:pec"]
   elsif ENV["CIRCLE_BRANCH"] == "sandbox-staging"
     multitask :contentful => ["contentful:acc_staging", "contentful:pec_staging"]
-#   else
-#     multitask :contentful => ["contentful:acc_staging", "contentful:pec_staging"]
+  else
+    multitask :contentful => ["contentful:acc_staging", "contentful:pec_staging"]
   end
 end
 
