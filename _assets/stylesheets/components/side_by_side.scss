@@ -1,29 +1,22 @@
 .acc-side-by-side-container {
-  margin-top: $acc-vertical-margin;
+  max-width: 1200px;
+  margin: $acc-vertical-margin auto 0 auto;
   h3 {
     text-align: left;
+    margin-top: 0;
   }
   img{
     width: 100%;
   }
 }
 
-.acc-side-by-side-container h3 {
-  margin-top: 0;
-}
-// @media screen and (min-width: $medium-screen) {
-//   .acc-side-by-side-component {
-//     padding: 0 3rem;
-//   }
-// }
 
 .acc-side-by-side-content-block {
   h3 {
     text-align: left;
   }
-}
-
-.acc-side-by-side-content-block img {
-  height: auto;
-  width: 100%;
+  img {
+    height: auto;
+    width: 100%;
+  }
 }

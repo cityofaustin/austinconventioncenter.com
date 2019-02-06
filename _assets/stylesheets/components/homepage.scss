@@ -74,12 +74,12 @@
     height: 100%;
   }
 
-  .acc-flex-one-third{
+  .acc-flex-thirds{
     border: 0;
   }
   
   @media screen and (min-width: $nav-width) {
-    .acc-flex-one-third:not(:last-child){
+    .acc-flex-thirds:not(:last-child){
       border-right: 1px solid black;
     }    
   }

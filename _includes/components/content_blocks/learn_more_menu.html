@@ -5,7 +5,7 @@
     {% for item in block.links %}
       {% assign doc = item.linkedItem | find_document %}
       {% assign url = item.linkedItem.url | default: doc.url %}
-      <li class="acc-flex-one-third">
+      <li class="acc-flex-thirds">
         <a href="{{url}}" class="acc-learn-more-link">
           <img src="{{ item.photo.url }}?w=330&h=220&fit=thumb" />
           <span class="acc-learn-more-link-title">

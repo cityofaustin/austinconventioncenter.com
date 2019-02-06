@@ -4,7 +4,7 @@
   <div class="acc-parking-footer acc-color-theme-Default">
 {% endif %}
   <div class="acc-full acc-flex break-nav">
-    <div class="acc-flex-one-third acc-parking-map">
+    <div class="acc-flex-thirds acc-parking-map">
       <!-- Google Maps -->
       <div id="map" style="width: 100%;height: 300px;"></div>
       <script>
@@ -43,12 +43,12 @@
       </script>
       <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ site.google_maps_api_key }}&callback=initMap"></script>
     </div>
-    <div class="acc-flex-one-third">
+    <div class="acc-flex-thirds">
       {% assign parking_info = site.contentful.textBlock | where_exp: "textBlock", "textBlock.name == 'Parking Information Footer'" | first %}
       <h2>{{ parking_info.title }}</h2>
       {{ parking_info.text | markdownify }}
     </div>
-    <div class="acc-flex-one-third">
+    <div class="acc-flex-thirds">
       {% assign vicinity_info = site.contentful.textBlock | where_exp: "textBlock", "textBlock.name == 'Downtown Information Footer'" | first %}
       <h2>{{ vicinity_info.title }}</h2>
       {{ vicinity_info.text | markdownify }}
@@ -109,13 +109,13 @@
     </div>
 
   <div class="acc-flex break-partners acc-partner-logos">
-    <div class="acc-flex-one-third">
+    <div class="acc-flex-thirds">
       {% img badges/sxsw.png %}
     </div>
-    <div class="acc-flex-one-third">
+    <div class="acc-flex-thirds">
       {% img badges/tsae.png %}
     </div>
-    <div class="acc-flex-one-third">
+    <div class="acc-flex-thirds">
       {% img badges/pcma.png %}
     </div>
   </div>

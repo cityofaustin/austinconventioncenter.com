@@ -83,7 +83,7 @@ layout: default
   <div class="acc-flex break-nav">
     {% assign eventsMenu = site.contentful.menu | where_exp: "menu", "menu.name == 'Upcoming Events'" | first %}
     {% for event in eventsMenu.items %}
-      <div class="acc-flex-one-third">
+      <div class="acc-flex-thirds">
         <a href="{{event.website}}" class="acc-upcoming-event-link">{{ event.dates }}</a>
         <span class="acc-upcoming-event-name">{{ event.eventName }}</span>
       </div>
