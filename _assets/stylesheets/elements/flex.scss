@@ -21,6 +21,9 @@
     &.break-large{
         @media screen and (min-width: $large-screen) {
             display: flex;
+            .acc-flex-one-fourth{
+                padding: 0 3rem 0 0;
+            }
         }
     }
     &.break-medium{
@@ -58,11 +61,11 @@
 }
 .acc-flex-one-fourth{
     flex: 1 1 25%;
-    padding: 0 3rem;
+    padding: 0 3rem 0 0;
 }
 .acc-flex-three-fourths{
     flex: 1 1 75%;
-    padding: 0 3rem;
+    padding: 0;
 }
 .acc-flex-quarter-half{
     // will divide into quarters, then halves, then column
