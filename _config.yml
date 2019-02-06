@@ -71,12 +71,6 @@ contentful:
         <<: *contentful_options
         client_options:
           api_url: 'preview.contentful.com'
-    -
-      sandbox:
-        <<: *contentful_options
-    -
-      pec_sandbox:
-        <<: *contentful_options
 
 defaults:
   -
