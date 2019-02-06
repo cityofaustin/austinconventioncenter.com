@@ -1,4 +1,4 @@
-id: acc
+id: sandbox
 environment: production
 title: Austin Convention Center
 url: "https://www.austinconventioncenter.com"
@@ -10,17 +10,17 @@ footer_address:
   zip_code: 78701
   phone: (512) 404-4000
 
-google_analytics_id: UA-87703455-2
+google_analytics_id: UA-87703455-6
 facebook_url: http://www.facebook.com/AustinConventionCenter/
 instagram_url: http://www.instagram.com/accdtx/
 youtube_url: https://www.youtube.com/channel/UCUfiBJZM1W58J2uTIssujKQ
-curator_embed_id: 057ae9d8-383d-45b0-90bd-2d7d6661
-google_maps_api_key: AIzaSyB4byp3LedAowymjs7aAOaKqgz2neZZhfU
+curator_embed_id: b9b8dc8e-ec24-4975-ad19-504a93f1896b
+google_maps_api_key: AIzaSyArNGD-2u8r_msu0iya5Dkl_XL5MNdO1ZE
 
 contact_sales_form:
   formspree_email: ConventionSales@austintexas.gov
 
 # Build settings
-destination: _site/acc
+destination: _site/sandbox
 assets:
-  cache: .asset-cache/acc
+  cache: .asset-cache/sandbox

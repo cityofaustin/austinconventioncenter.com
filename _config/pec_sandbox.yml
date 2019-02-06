@@ -1,7 +1,7 @@
-id: pec
+id: pec_sandbox
 environment: production
 title: Palmer Events Center
-url: "http://www.palmereventscenter.com"
+url: "https://www.palmereventscenter.com"
 
 calendar_location: "Palmer Events Center" # Socrata event data location value
 
@@ -10,18 +10,17 @@ footer_address:
   zip_code: 78704
   phone: (512) 404-4500
 
-google_analytics_id: UA-87703455-3
-facebook_analytics_pixel_id: 1623289217737073
+google_analytics_id: UA-87703455-7
 facebook_url: https://www.facebook.com/PalmerEventsCenter/
 instagram_url: https://www.instagram.com/pectx/
 youtube_url: https://www.youtube.com/channel/UCUfiBJZM1W58J2uTIssujKQ
 curator_embed_id: aa497cef-c70f-4e84-8d1c-9dfc5db737f3
-google_maps_api_key: AIzaSyB4byp3LedAowymjs7aAOaKqgz2neZZhfU
+google_maps_api_key: AIzaSyArNGD-2u8r_msu0iya5Dkl_XL5MNdO1ZE
 
 contact_sales_form:
-  formspree_email: PalmerSales@austintexas.gov
+  formspree_email: ConventionSales@austintexas.gov
 
 # Build settings
-destination: _site/pec
+destination: _site/pec_sandbox
 assets:
-  cache: .asset-cache/pec
+  cache: .asset-cache/pec_sandbox

@@ -24,22 +24,30 @@ namespace :build do
   task :pec_staging do
     Jekyll::Commands::Build.process(config: ["_config.yml", "_config/pec_staging.yml"])
   end
+
+  desc "Run `jekyll build` with Sandbox configuration (use `foreman start sandbox` for `jekyll serve`)"
+  task :sandbox do
+    Jekyll::Commands::Build.process(config: ["_config.yml", "_config/sandbox.yml"])
+  end
+
+  desc "Run `jekyll build` with Sandbox configuration (use `foreman start pec_sandbox` for `jekyll serve`)"
+  task :pec_sandbox do
+    Jekyll::Commands::Build.process(config: ["_config.yml", "_config/pec_sandbox.yml"])
+  end
 end
 
 desc "Build the sites"
 task :build do
   if ENV["CI"] || system("which parallel") # On macOS: `brew install parallel` (optional)
-#     if ENV["CIRCLE_BRANCH"] == "master"
-#       exec("parallel bundle exec rake build:{} ::: acc pec")
-#     elsif ENV["CIRCLE_BRANCH"] == "sandbox-prod"
-    if ENV["CIRCLE_BRANCH"] == "sandbox-prod"
+    if ENV["CIRCLE_BRANCH"] == "master"
       exec("parallel bundle exec rake build:{} ::: acc pec")
-#     elsif ENV["CIRCLE_BRANCH"] == "sandbox-staging"
+    elsif ENV["CIRCLE_BRANCH"] == "sandbox-prod"
+      exec("parallel bundle exec rake build:{} ::: sandbox pec_sandbox")
     else
       exec("parallel bundle exec rake build:{} ::: acc_staging pec_staging")
     end
   else
-    %w(acc pec acc_staging pec_staging).each { |site| Rake::Task["build:#{site}"].invoke }
+    %w(acc pec acc_staging pec_staging sandbox).each { |site| Rake::Task["build:#{site}"].invoke }
   end
 end
 
@@ -95,16 +103,42 @@ namespace :contentful do
 
     Jekyll::Commands::Contentful.process([], {}, config)
   end
+
+  desc "Import Sandbox Contentful data"
+  task :sandbox do
+    config = Jekyll.configuration["contentful"]
+    config["spaces"].select! { |space| space.include?("sandbox") }
+
+    config["spaces"][0]["sandbox"].merge!({
+      "space" => ENV["CONTENTFUL_SANDBOX_SPACE_ID"],
+      "access_token" => ENV["CONTENTFUL_SANDBOX_ACCESS_TOKEN"]
+    })
+
+    Jekyll::Commands::Contentful.process([], {}, config)
+  end
+
+  desc "Import PEC Sandbox Contentful data"
+  task :pec_sandbox do
+    config = Jekyll.configuration["contentful"]
+    config["spaces"].select! { |space| space.include?("pec_sandbox") }
+
+    config["spaces"][0]["pec_sandbox"].merge!({
+      "space" => ENV["CONTENTFUL_PEC_SANDBOX_SPACE_ID"],
+      "access_token" => ENV["CONTENTFUL_PEC_SANDBOX_ACCESS_TOKEN"]
+    })
+
+    Jekyll::Commands::Contentful.process([], {}, config)
+  end
 end
 
 desc "Import all Contentful data"
 if ENV["CI"]
   if ENV["CIRCLE_BRANCH"] == "sandbox-prod"
-    multitask :contentful => ["contentful:acc", "contentful:pec"]
-  elsif ENV["CIRCLE_BRANCH"] == "sandbox-staging"
-    multitask :contentful => ["contentful:acc_staging", "contentful:pec_staging"]
-  else
-    multitask :contentful => ["contentful:acc_staging", "contentful:pec_staging"]
+    multitask :contentful => ["contentful:sandbox", "contentful:pec_sandbox"]
+#   elsif ENV["CIRCLE_BRANCH"] == "sandbox-staging"
+#     multitask :contentful => ["contentful:sandbox", "contentful:pec_sandbox"]
+#   else
+#     multitask :contentful => ["contentful:acc_staging", "contentful:pec_staging"]
   end
 end
 
@@ -132,13 +166,21 @@ namespace :deploy do
   task :pec_staging do
     exec "SITE=pec_staging S3_BUCKET=staging.palmereventscenter.com s3_website push --site=_site/pec_staging"
   end
+
+  task :sandbox do
+    exec "SITE=sandbox S3_BUCKET=www.austinconventioncenter.com s3_website push --site=_site/sandbox"
+  end
+
+  task :pec_sandbox do
+    exec "SITE=pec_sandbox S3_BUCKET=www.palmereventscenter.com s3_website push --site=_site/pec_sandbox"
+  end
 end
 
 task :deploy do
   if ENV["CIRCLE_BRANCH"] == "sandbox-prod"
     exec "parallel bundle exec rake deploy:{} ::: sandbox pec_sandbox"
-  elsif ENV["CIRCLE_BRANCH"] == "sandbox-staging"
-    exec "parallel bundle exec rake deploy:{} ::: acc_staging pec_staging"
+#   elsif ENV["CIRCLE_BRANCH"] == "sandbox-staging"
+#     exec "parallel bundle exec rake deploy:{} ::: acc_staging pec_staging"
   end
 end
 
@@ -170,7 +212,7 @@ namespace :ci do
       faraday.response :logger
       faraday.adapter Faraday.default_adapter
     end
-
+    
     branches = ["sandbox-prod"]
     branches.each do |branch|
       connection.post("/api/v1/project/cityofaustin/austinconventioncenter.com/tree/#{branch}") do |request|
