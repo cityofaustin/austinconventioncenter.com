@@ -4,7 +4,6 @@
 
 .acc-learn-more-list {
   @include unstyled-list;
-  margin: 0 -1.5rem 3rem -1.5rem; // outdent sides to make up for padding
   .acc-flex-thirds{
     padding: 0 1.5rem;
   }
