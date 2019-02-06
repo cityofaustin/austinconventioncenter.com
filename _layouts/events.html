@@ -2,104 +2,104 @@
 layout: default
 ---
 <div class="acc-full">
-<header class="acc-content-header">
-  <h1>Events</h1>
-  {% if site.title == 'Austin Convention Center' %}
-  {% assign booking_adjective = 'contracted' %}
-  {% else %}
-  {% assign booking_adjective = 'booked' %}
-  {% endif %}
-  <p>
-    Please note the calendar of events below does not reflect all {{ booking_adjective }} dates. <a href="{{ site.url }}/request-a-proposal/">Connect
-      with our sales team</a> for date availability and event details.
-  </p>
-</header>
-<div class="acc-flex break-large">
-  {% if site.events and site.events != empty %}
-    <aside class="acc-flex-one-fourth">
-      <nav role="navigation" class="acc-sidenav" id="sidenav">
-        <button class="usa-button-unstyled acc-sidenav-close">
-          <img src="{% asset_path uswds/src/img/close.svg %}" alt="close">
-        </button>
-        {% assign years = site.events | group_by: "year" %}
-        {% for year in years %}
-          <h4>{{ year.name }}</h4>
-          <ul class="usa-unstyled-list acc-sidenav-list">
-            {% for doc in year.items %}
+  <header class="acc-content-header">
+    <h1>Events</h1>
+    {% if site.title == 'Austin Convention Center' %}
+    {% assign booking_adjective = 'contracted' %}
+    {% else %}
+    {% assign booking_adjective = 'booked' %}
+    {% endif %}
+    <p>
+      Please note the calendar of events below does not reflect all {{ booking_adjective }} dates. <a href="{{ site.url }}/request-a-proposal/">Connect
+        with our sales team</a> for date availability and event details.
+    </p>
+  </header>
+  <div class="acc-flex break-large">
+    {% if site.events and site.events != empty %}
+      <aside class="acc-flex-one-fourth">
+        <nav role="navigation" class="acc-sidenav" id="sidenav">
+          <button class="usa-button-unstyled acc-sidenav-close">
+            <img src="{% asset_path uswds/src/img/close.svg %}" alt="close">
+          </button>
+          {% assign years = site.events | group_by: "year" %}
+          {% for year in years %}
+            <h4>{{ year.name }}</h4>
+            <ul class="usa-unstyled-list acc-sidenav-list">
+              {% for doc in year.items %}
+                <li>
+                  <a href="{{ doc.url }}"{% if page.url == doc.url %} class="acc-current"{% endif %} data-slug="{{ doc.slug }}" title="{{ doc.title }}">{{ doc.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endfor %}
+        </nav>
+      </aside>
+      <div class="acc-flex-three-fourths">
+        <h3 class="acc-sidenav-header">
+          {{ page.title }}
+          <a href="#" class="acc-sidenav-button">Change Month</a>
+        </h3>
+        {% if page.events %}
+          {% assign events = page.events | sort: "arrive_date" %}
+          <ul class="acc-unstyled-list">
+            {% for event in events %}
               <li>
-                <a href="{{ doc.url }}"{% if page.url == doc.url %} class="acc-current"{% endif %} data-slug="{{ doc.slug }}" title="{{ doc.title }}">{{ doc.title }}</a>
+
+                <a href="{% if event.website %}
+                          {% if event.website contains 'http' or event.website contains 'https' %}
+                            {{ event.website }}
+                          {% else %}
+                            {{ event.website | prepend: 'http://' }}
+                          {% endif %}
+                        {% else %}
+                          #
+                        {% endif %}"
+                  class="acc-calendar-event{% if event.website %} acc-calendar-event-link{% endif %}">
+
+
+                  {% assign arrive_month = event.arrive_date | date: "%B" %}
+                  {% assign depart_month = event.depart_date | date: "%B" %}
+
+                  <div class="acc-calendar-event-date">
+                    <h4 class="acc-calendar-event-month">
+                      {% if arrive_month == depart_month %}
+                        {{ arrive_month }}
+                      {% else %}
+                        {{ event.arrive_date | date: "%b" }} / {{ event.depart_date | date: "%b" }}
+                      {% endif %}
+                    </h4>
+                    <h1 class="acc-calendar-event-day">
+                      {% if event.arrive_date == event.depart_date %}
+                        {{ event.arrive_date | date: "%d" }}
+                      {% else %}
+                        {{ event.arrive_date | date: "%d" }}-{{ event.depart_date | date: "%d" }}
+                      {% endif %}
+                    </h1>
+                  </div>
+                  <div class="acc-calendar-event-details">
+                    <h3 class="acc-calendar-event-title">
+                      {{ event.event_name | default: "Private Event" }}
+                    </h3>
+                    {% if event.attendance %}
+                      <h4>Expected Attendance</h4>
+                      {{ event.attendance }}
+                      {% if event.website %}
+                        <i class="fas fa-external-link-alt"></i>
+                      {% endif %}
+                    {% endif %}
+                  </div>
+                </a>
               </li>
             {% endfor %}
           </ul>
-        {% endfor %}
-      </nav>
-    </aside>
-    <div class="acc-flex-three-fourths">
-      <h3 class="acc-sidenav-header">
-        {{ page.title }}
-        <a href="#" class="acc-sidenav-button">Change Month</a>
-      </h3>
-      {% if page.events %}
-        {% assign events = page.events | sort: "arrive_date" %}
-        <ul class="acc-unstyled-list">
-          {% for event in events %}
-            <li>
-
-              <a href="{% if event.website %}
-                         {% if event.website contains 'http' or event.website contains 'https' %}
-                           {{ event.website }}
-                         {% else %}
-                           {{ event.website | prepend: 'http://' }}
-                         {% endif %}
-                       {% else %}
-                         #
-                       {% endif %}"
-                 class="acc-calendar-event{% if event.website %} acc-calendar-event-link{% endif %}">
-
-
-                {% assign arrive_month = event.arrive_date | date: "%B" %}
-                {% assign depart_month = event.depart_date | date: "%B" %}
-
-                <div class="acc-calendar-event-date">
-                  <h4 class="acc-calendar-event-month">
-                    {% if arrive_month == depart_month %}
-                      {{ arrive_month }}
-                    {% else %}
-                      {{ event.arrive_date | date: "%b" }} / {{ event.depart_date | date: "%b" }}
-                    {% endif %}
-                  </h4>
-                  <h1 class="acc-calendar-event-day">
-                    {% if event.arrive_date == event.depart_date %}
-                      {{ event.arrive_date | date: "%d" }}
-                    {% else %}
-                      {{ event.arrive_date | date: "%d" }}-{{ event.depart_date | date: "%d" }}
-                    {% endif %}
-                  </h1>
-                </div>
-                <div class="acc-calendar-event-details">
-                  <h3 class="acc-calendar-event-title">
-                    {{ event.event_name | default: "Private Event" }}
-                  </h3>
-                  {% if event.attendance %}
-                    <h4>Expected Attendance</h4>
-                    {{ event.attendance }}
-                    {% if event.website %}
-                      <i class="fas fa-external-link-alt"></i>
-                    {% endif %}
-                  {% endif %}
-                </div>
-              </a>
-            </li>
-          {% endfor %}
-        </ul>
-      {% else %}
-        {% comment %} Redirect /events/ to current month {% endcomment %}
-        {% assign current_month = site.events | first %}
-        <script type="text/javascript">
-          window.location = "{{ current_month.url }}";
-        </script>
-      {% endif %}
-    </div>
-  {% endif %}
-</div>
+        {% else %}
+          {% comment %} Redirect /events/ to current month {% endcomment %}
+          {% assign current_month = site.events | first %}
+          <script type="text/javascript">
+            window.location = "{{ current_month.url }}";
+          </script>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
 </div>
