@@ -16,31 +16,31 @@
     }
 }
 .acc-flex {
-    display: flex;
-    flex-direction: column;
+    display: block;
+    flex-direction: row;
     &.break-large{
         @media screen and (min-width: $large-screen) {
-            flex-direction: row;
+            display: flex;
         }
     }
     &.break-medium{
         @media screen and (min-width: $medium-screen) {
-            flex-direction: row;
+            display: flex;
         }
     }
     &.break-small{
         @media screen and (min-width: $small-screen) {
-            flex-direction: row;
+            display: flex;
         }
     }
     &.break-nav{
         @media screen and (min-width: $nav-width) {
-            flex-direction: row;
+            display: flex;
         }
     }
     &.break-partners{
         @media screen and (min-width: $partners-width) {
-            flex-direction: row;
+            display: flex;
         }
     }
     &.wrap{
@@ -68,8 +68,10 @@
     // will divide into quarters, then halves, then column
     // note, must be used with "wrap": class="acc-flex wrap"
     flex: 1 1 50%;    
+    max-width: 50%;
     padding: 0 3rem;
     @media screen and (min-width: $large-screen) {
         flex: 1 1 25%;
+        max-width: 25%;
     }
 }
