@@ -13,7 +13,7 @@ module Calendar
         FileUtils.mkdir_p(File.dirname(path))
 
         File.open(path, "w") do |file|
-          file.write(YAML.dump(results.map(&:to_hash)))
+          file.write(YAML.dump(results.body.map(&:to_hash)))
         end
       end
 
