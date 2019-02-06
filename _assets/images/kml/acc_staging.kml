@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <Style id="accd0">
+      <BalloonStyle>
+        <text>
+          <![CDATA[<h4>5th Street Garage</h4>]]>
+          <![CDATA[<ul><li><a href="https://goo.gl/maps/kY1tfhqZcMx" class="acc-button">Street View</a></li><li><a href="https://maps.google.com?daddr=601+East+5th+Street+Austin+TX+78701" class="acc-button">Directions</a></li></ul>]]>
+        </text>
+      </BalloonStyle>
+    </Style>
+    <Style id="accd1">
+      <BalloonStyle>
+        <text>
+          <![CDATA[<h4>2nd Street Garage</h4>]]>
+          <![CDATA[<ul><li><a href="https://maps.google.com?daddr=167+Brazos+Street+Austin+TX+78701" class="acc-button">Directions</a></li><li><a href="https://goo.gl/maps/sZcE1Wk7ddn" class="acc-button">Street View</a></li></ul>]]>
+        </text>
+      </BalloonStyle>
+    </Style>
+    <Style id="accd2">
+      <BalloonStyle>
+        <text>
+          <![CDATA[<h4>Austin Convention Center</h4>]]>
+          <![CDATA[<ul><li><a href="https://maps.google.com?daddr=500+E+Cesar+Chavez+Street+Austin+TX+78701" class="acc-button">Directions</a></li><li><a href="https://goo.gl/maps/ArTzNXPJCD82" class="acc-button">Street View</a></li></ul>]]>
+        </text>
+      </BalloonStyle>
+    </Style>
+    <Placemark>
+      <description>167 Brazos Street, Austin, Texas 78701, USA</description>
+      <styleUrl>#accd0</styleUrl>
+      <Point>
+        <coordinates>-97.737157,30.265403</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <description>601 E 5th St, Austin, Texas 78701, USA</description>
+      <styleUrl>#accd1</styleUrl>
+      <Point>
+        <coordinates>-97.742976,30.263667</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <description>500 E Cesar Chavez St, Austin, TX 78701</description>
+      <styleUrl>#accd2</styleUrl>
+      <Point>
+        <coordinates>-97.739609,30.263669</coordinates>
+      </Point>
+    </Placemark>
+  </Document>
+</kml>
