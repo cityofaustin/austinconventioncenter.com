@@ -8,15 +8,15 @@ table {
       background-color: transparent;
       color: $acc-color-gray-dark;
       border-top: 0;
+      text-align: left;
     }
   }
 
   th,
   td {
     background-color: transparent;
-    border-color: $acc-color-gray-lightest;
-    border-left: 0;
-    border-right: 0;
+    border: 1px solid $acc-color-gray-lightest;
+    border-width: 0 0 1px 0;
     padding: 1rem;
   }
 }
