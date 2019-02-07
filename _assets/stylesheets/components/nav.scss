@@ -71,6 +71,26 @@
     &[aria-hidden="false"]{
         display: block;
     }
+    &:before{
+      background-color: #000;
+      content: '';
+      display: block;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      width: 1000%;
+      right: 100%;
+    }
+    &:after{
+      background-color: #000;
+      content: '';
+      display: block;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      width: 1000%;
+      left: 100%;
+    }
 }
 
  @media screen and (min-width: $nav-width) {
@@ -95,9 +115,6 @@
     }
  }
 
-.acc-nav-header{
-
-}
 .acc-section-cols{
     display: block;
 }
