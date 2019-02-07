@@ -8,6 +8,10 @@
 .acc-full{
     // not really a flex box, but replaces functionality of usa-grid
    @include full-width();
+   &.no-pad{
+    padding-right: 0;
+    padding-left: 0;
+   }
 }
 .acc-flex {
     display: block;
