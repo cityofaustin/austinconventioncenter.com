@@ -9,8 +9,8 @@ layout: default
     {% if site.plans %}
       <aside class="acc-flex-one-fourth">
         <nav role="navigation" class="acc-sidenav" id="sidenav">
-          <button class="usa-button-unstyled acc-sidenav-close">
-            <img src="{% asset_path uswds/src/img/close.svg %}" alt="close">
+          <button class="acc-button-unstyled acc-sidenav-close">
+            <i class="fas fa-times" aria-hidden="true"></i>
           </button>
           <ul class="acc-unstyled-list acc-sidenav-list" id="acc-floor-plan-nav">
             <li>
@@ -24,7 +24,7 @@ layout: default
 
                     {% capture expanded %}{% if page.url contains doc.url %}true{% else %}false{% endif %}{% endcapture %}
 
-                    <a href="{{ doc.url }}"{% if page.url == doc.url %} class="acc-current"{% endif %} data-slug="{{ doc.slug }}" title="{{ doc.title }}"><button class="usa-button-unstyled acc-folder-control" aria-expanded="{{ expanded }}" aria-controls="{{ doc.slug }}-nav"></button> <span>{{ doc.title }}</span></a>
+                    <a href="{{ doc.url }}"{% if page.url == doc.url %} class="acc-current"{% endif %} data-slug="{{ doc.slug }}" title="{{ doc.title }}"><button class="acc-button-unstyled acc-folder-control" aria-expanded="{{ expanded }}" aria-controls="{{ doc.slug }}-nav"></button> <span>{{ doc.title }}</span></a>
 
 
                     <ul class="usa-unstyled-list acc-folder-content acc-sidenav-sub_list" id="{{ doc.slug }}-nav"{% if expanded == "true" %} aria-hidden="false"{% endif %}>

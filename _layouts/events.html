@@ -18,8 +18,8 @@ layout: default
     {% if site.events and site.events != empty %}
       <aside class="acc-flex-one-fourth">
         <nav role="navigation" class="acc-sidenav" id="sidenav">
-          <button class="usa-button-unstyled acc-sidenav-close">
-            <img src="{% asset_path uswds/src/img/close.svg %}" alt="close">
+          <button class="acc-button-unstyled acc-sidenav-close">
+            <i class="fas fa-times" aria-hidden="true"></i>
           </button>
           {% assign years = site.events | group_by: "year" %}
           {% for year in years %}

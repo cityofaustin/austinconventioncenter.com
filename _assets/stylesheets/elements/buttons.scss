@@ -1,3 +1,27 @@
+@mixin button-unstyled {
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  font-weight: $font-normal;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  text-align: left;
+  -webkit-font-smoothing: auto;
+
+  &:hover {
+    background-color: transparent;
+  }
+
+  &:focus{
+    box-shadow: $focus-shadow;
+  }
+}
+
+.acc-button-unstyled {
+  @include button-unstyled;
+}
+
 @mixin acc-button-base {
   background-color: transparent;
   display: inline-block;
@@ -61,23 +85,6 @@
   }
 }
 
-/*
-@mixin acc-button-icon {
-  background-color: #fff;
-  background-image: image_url("icons/button-primary-#{$site}.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  border-radius: 2.5rem;
-  content: '';
-  width: 5rem;
-  height: 5rem;
-  position: absolute;
-  right: 0;
-  top: 50%;
-  margin-top: -2.5rem;
-}
-*/
-
 @mixin acc-button-font-icon($size, $icon) {
   padding-right: 3 * $size;
 
@@ -95,22 +102,3 @@
   }
 }
 
-@mixin button-unstyled {
-  background-color: transparent;
-  border: 0;
-  border-radius: 0;
-  font-weight: $font-normal;
-  margin: 0;
-  outline: 0;
-  padding: 0;
-  text-align: left;
-  -webkit-font-smoothing: auto;
-
-  &:hover {
-    background-color: transparent;
-  }
-}
-
-.acc-button-unstyled {
-  @include button-unstyled;
-}
