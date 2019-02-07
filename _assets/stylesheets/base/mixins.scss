@@ -86,3 +86,13 @@
     color: white !important;
   }
 }
+
+@mixin full-width {
+  max-width: $site-max-width;
+  margin-left: auto;
+  margin-right: auto;
+  @media screen and (max-width: (rem($large-screen) + 6rem)) {
+    padding-right: 3rem;
+    padding-left: 3rem;
+  }
+}

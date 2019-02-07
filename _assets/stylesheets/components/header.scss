@@ -5,16 +5,13 @@
 }
 
 .acc-header-content {
+  @include full-width();
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   position: relative;
   height: 9rem;
-  padding: 0 3rem;
-  max-width: 1200px;
-  margin: 0 auto;
-
   @media screen and (min-width: $nav-width) {
     height: $desktop-header-height;
   }
