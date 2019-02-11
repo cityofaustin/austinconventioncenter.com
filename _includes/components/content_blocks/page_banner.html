@@ -9,7 +9,7 @@
     {{ banner.text | markdownify }}
 
     {% if banner.buttons %}
-      <ul class="usa-unstyled-list acc-page-banner-menu">
+      <ul class="acc-unstyled-list acc-page-banner-menu">
         {% assign buttons = banner.buttons %}
         {% for button in buttons %}
           {% assign doc = button | find_document %}

@@ -27,7 +27,7 @@ layout: default
                     <a href="{{ doc.url }}"{% if page.url == doc.url %} class="acc-current"{% endif %} data-slug="{{ doc.slug }}" title="{{ doc.title }}"><button class="acc-button-unstyled acc-folder-control" aria-expanded="{{ expanded }}" aria-controls="{{ doc.slug }}-nav"></button> <span>{{ doc.title }}</span></a>
 
 
-                    <ul class="usa-unstyled-list acc-folder-content acc-sidenav-sub_list" id="{{ doc.slug }}-nav"{% if expanded == "true" %} aria-hidden="false"{% endif %}>
+                    <ul class="acc-unstyled-list acc-folder-content acc-sidenav-sub_list" id="{{ doc.slug }}-nav"{% if expanded == "true" %} aria-hidden="false"{% endif %}>
                       {% assign child_docs = doc.docs | sort: "title" %}
                       {% for child_doc in child_docs %}
                         <li>
@@ -79,7 +79,7 @@ layout: default
       {% endif %}
 
       {% if page.contentful.files %}
-        <ul class="usa-unstyled-list acc-button-grid acc-floor-plan-files">
+        <ul class="acc-unstyled-list acc-button-grid acc-floor-plan-files">
           {% for file in page.contentful.files %}
             <li><a href="{{ file.url }}" target="_blank" class="acc-button acc-button-secondary acc-button-pdf">{{ file.title }}</a></li>
           {% endfor %}
