@@ -1,14 +1,12 @@
 // Variables
-
 $accordion-border: 3px solid $color-gray-lightest;
-
 // Screen reader only helper
 @mixin sr-only() {
   position: absolute;
   left: -999em;
 }
 
-.usa-sr-only {
+.acc-sr-only {
   @include sr-only();
 }
 
@@ -19,7 +17,6 @@ $accordion-border: 3px solid $color-gray-lightest;
   }
 }
 
-
 @mixin accordion-button-styles {
   @include button-unstyled;
   background-color: $color-gray-lightest;
@@ -29,73 +26,52 @@ $accordion-border: 3px solid $color-gray-lightest;
   font-family: $font-sans;
   font-weight: $font-bold;
   margin: 0;
-  
-
   &:focus {
     box-shadow: $focus-shadow;
   }
-
   &:hover {
     background-color: $color-gray-lighter;
     color: $color-base;
   }
 }
 
-.usa-accordion {
+.acc-accordion {
   @include unstyled-list;
-  color: $color-base;
-  margin: 0;
+  // color: $color-base;
+  margin: 0 auto;
   padding: 0;
-
-  + .usa-accordion {
+  max-width: 700px;
+  color: black;
+  +.acc-accordion {
     margin-top: 1rem;
   }
-  > li {
+  >li {
     background-color: $color-gray-lightest;
     list-style: none;
   }
-}
-
-
-.usa-accordion-content {
-  background-color: $color-white;
-  overflow: auto;
-  padding: 3rem;
-
-  > *:first-child {
-    margin-top: 0;
-  }
-
-  > *:last-child {
-    margin-bottom: 0;
-  }
-
-  &:not([aria-hidden]) {
-    @include sr-only();
-  }
-
-  @include accessibly-hidden();
-}
-
-
-
-
-
-
-
-
-
-.acc-accordion-container {
-  margin-top: $acc-vertical-margin;
-}
-
-.acc-accordion {
-  max-width: 700px;
-  margin: 0 auto;
-  color: black;
   li {
     margin-bottom: 6px;
   }
+}
+
+.acc-accordion-content {
+  background-color: $color-white;
+  overflow: auto;
+  padding: 3rem;
+  >*:first-child {
+    margin-top: 0;
+  }
+  >*:last-child {
+    margin-bottom: 0;
+  }
+  &:not([aria-hidden]) {
+    @include sr-only();
+  }
+  @include accessibly-hidden();
+}
+
+.acc-accordion-container {
+  margin-top: $acc-vertical-margin;
 }
 
 .acc-accordion-button {
@@ -112,32 +88,26 @@ $accordion-border: 3px solid $color-gray-lightest;
   &:focus {
     box-shadow: $focus-shadow;
   }
-
   &:hover {
     background-color: $color-gray-lighter;
     color: $color-base;
   }
-  span{
+  span {
     flex: 1;
     align-self: center;
   }
-  i{
+  i {
     flex: 0 0 1em;
     align-self: center;
   }
-  
-
   &[aria-expanded="true"] {
-    .fa-plus{
+    .fa-plus {
       display: none;
     }
   }
-
   &[aria-expanded="false"] {
-    .fa-minus{
+    .fa-minus {
       display: none;
     }
   }
 }
-
-

@@ -28,26 +28,25 @@ function Accordion(el) {
     this.root = el;
 
     // delegate click events on each <button>
-    var buttons = select('button', this.root);
-    buttons.forEach(function (el) {
+    select('button', this.root).forEach(function (el) {
         el.addEventListener('click', showPanelListener.bind(self, el));
     });
 
     // find the first expanded button
-    var expanded = this.$('button[aria-expanded=true]')[0];
+    var expanded = this.select('button[aria-expanded=true]')[0];
     this.hideAll();
     if (expanded !== undefined) {
         this.show(expanded);
     }
 }
 
-Accordion.prototype.$ = function (selector) {
+Accordion.prototype.select = function (selector) {
     return select(selector, this.root);
 };
 
 Accordion.prototype.hide = function (button) {
     var selector = button.getAttribute('aria-controls'),
-        content = this.$('#' + selector)[0];
+        content = this.select('#' + selector)[0];
 
     button.setAttribute('aria-expanded', 'false');
     content.setAttribute('aria-hidden', 'true');
@@ -56,7 +55,7 @@ Accordion.prototype.hide = function (button) {
 
 Accordion.prototype.show = function (button) {
     var selector = button.getAttribute('aria-controls'),
-        content = this.$('#' + selector)[0];
+        content = this.select('#' + selector)[0];
 
     button.setAttribute('aria-expanded', 'true');
     content.setAttribute('aria-hidden', 'false');
@@ -65,16 +64,14 @@ Accordion.prototype.show = function (button) {
 
 Accordion.prototype.hideAll = function () {
     var self = this;
-    var buttons = this.$('ul > li > button, .usa-accordion-button');
-    buttons.forEach(function (button) {
+  this.select('ul > li > button, [data-widget="accordion-button"]').forEach(function (button) {
         self.hide(button);
     });
     return this;
 };
 
 function initAccordions() {
-    var accordions = select('.usa-accordion');
-    accordions.forEach(function (el) {
+    select('[data-widget="accordion"]').forEach(function (el) {
         new Accordion(el);
     });
 }

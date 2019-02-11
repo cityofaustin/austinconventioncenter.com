@@ -1,14 +1,14 @@
 {% assign accordion = include.block %}
 <div class="acc-accordion-container">
-  <ul class="usa-accordion acc-accordion">
+  <ul class="acc-accordion" data-widget="accordion">
     {% for block in accordion.contentBlocks %}
       {% if block.type != "textBlock" %}{% continue %}{% endif %}
       {% assign id = block.title | slugify %}
       <li>
-        <button class="usa-accordion-button acc-accordion-button" aria-controls="{{ id }}-{{ forloop.index }}">
-          <span>{{ block.title }}</span><i class="fas fa-plus"></i><i class="fas fa-minus"></i>
+        <button class="acc-accordion-button" data-widget="accordion-button" aria-controls="{{ id }}-{{ forloop.index }}">
+          <span>{{ block.title }}</span><i class="fas fa-plus" aria-hidden="true"></i><i class="fas fa-minus" aria-hidden="true"></i>
         </button>
-        <div id="{{ id }}-{{ forloop.index }}" class="usa-accordion-content acc-accordion-content">
+        <div id="{{ id }}-{{ forloop.index }}" class="acc-accordion-content">
           {{ block.text | markdownify }}
         </div>
       </li>

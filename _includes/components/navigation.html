@@ -1,4 +1,4 @@
-<ul class="usa-nav-primary usa-accordion acc-nav-primary">
+<ul class="acc-accordion acc-nav-primary" data-widget="accordion">
   {% for item in include.items %}
     {% case forloop.index %}
       {% when 1 %}
@@ -14,7 +14,7 @@
     {% endcase %}
     {% if item.type == 'navigationSection' %}
       <li class="acc-mega-nav-{{ item.name | slugify }}">
-        <button class="usa-accordion-button acc-nav-button" aria-expanded="false" aria-controls="basic-mega-nav-section-{{ nav_class }}">
+        <button class="acc-nav-button" aria-expanded="false" data-widget="accordion-button" aria-controls="basic-mega-nav-section-{{ nav_class }}">
           <span>{{ item.name }}</span>
         </button>
         <div id="basic-mega-nav-section-{{nav_class}}" class="acc-subnav">

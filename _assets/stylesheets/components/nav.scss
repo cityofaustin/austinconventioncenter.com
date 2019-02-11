@@ -1,34 +1,38 @@
-.acc-nav-link, .acc-nav-button{
+.acc-nav-link,
+.acc-nav-button {
   @include button-unstyled;
-    display: block;
-    font-family: $acc-font-header;
-    font-size: 2.2rem;
-    font-weight: bold;
-    letter-spacing: .03em;
-    padding: 1.3rem $site-margins-mobile 1.7rem;
-    text-decoration: none;
-    background-color: white;
-    color: black;
+  display: block;
+  font-family: $acc-font-header;
+  font-size: 2.2rem;
+  font-weight: bold;
+  letter-spacing: .03em;
+  padding: 1.3rem $site-margins-mobile 1.7rem;
+  text-decoration: none;
+  background-color: white;
+  color: black;
+  transition: background-color $transition-time;
+  width: 100%;
+  &:hover,
+  &:active,
+  &[aria-expanded=true] {
+    color: white;
     transition: background-color $transition-time;
-    width: 100%;
-    &:hover, &:active, &[aria-expanded=true] {
-      color: white;
-      transition: background-color $transition-time;
-    }
+  }
 }
 
-.acc-nav-primary{
+.acc-nav-primary.acc-accordion {
   margin: 0;
   padding: 0;
+  max-width: none;
   a {
     text-decoration: none;
   }
-  & > li{
-    display: block;
+  & > li {
+    margin-bottom: 0;
     & > a {
       padding-left: 2.8rem;
       line-height: 1.3;
-      &:hover{
+      &:hover {
         color: black;
       }
     }
@@ -36,16 +40,17 @@
 }
 
 @media screen and (min-width: $nav-width) {
-  .acc-nav-link, .acc-nav-button{
+  .acc-nav-link,
+  .acc-nav-button {
     padding-left: $site-margins-mobile;
   }
-  .acc-nav-button{
+  .acc-nav-button {
     height: $desktop-header-height;
-    &:focus{
+    &:focus {
       box-shadow: 0 0 3px black, 0 0 7px black;
     }
   }
-  .acc-nav-primary{
+  .acc-nav-primary {
     & > li {
       display: inline-block;
       vertical-align: middle;
@@ -60,129 +65,125 @@
   }
 }
 
-
-.acc-section-description{
+.acc-section-description {
   display: none;
 }
 
-.acc-subnav{
-    width: 100%;
+.acc-subnav {
+  width: 100%;
+  display: block;
+  &[aria-hidden="false"] {
     display: block;
-    &[aria-hidden="false"]{
-        display: block;
-    }
-    &:before{
-      background-color: #000;
-      content: '';
-      display: block;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      width: 1000%;
-      right: 100%;
-    }
-    &:after{
-      background-color: #000;
-      content: '';
-      display: block;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      width: 1000%;
-      left: 100%;
-    }
+  }
+  &:before {
+    background-color: #000;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 1000%;
+    right: 100%;
+  }
+  &:after {
+    background-color: #000;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 1000%;
+    left: 100%;
+  }
 }
 
- @media screen and (min-width: $nav-width) {
-    .acc-subnav{
-        display: none;
-        position: absolute;
-        z-index: 100;
-        left: 0;
-        padding-bottom: 3rem;
-    }
-
-    .acc-section-description{
-      display: block;
-    }
-    
-    .acc-section-col ul {
-      li {
-        a{
-          padding: 0.85rem 1rem 0.85rem 1.8rem;
-        }
+@media screen and (min-width: $nav-width) {
+  .acc-subnav {
+    display: none;
+    position: absolute;
+    z-index: 100;
+    left: 0;
+    padding-bottom: 3rem;
+  }
+  .acc-section-description {
+    display: block;
+  }
+  .acc-section-col ul {
+    li {
+      a {
+        padding: 0.85rem 1rem 0.85rem 1.8rem;
       }
     }
- }
-
-.acc-section-cols{
-    display: block;
+  }
 }
 
-.acc-section-col{
-    ul {
-      list-style-type: none;
+.acc-section-cols {
+  display: block;
+}
+
+.acc-section-col {
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    li {
+      font-size: 1.4rem;
       margin: 0;
-      padding: 0;
-      li {
-          font-size: 1.4rem;
-          margin: 0;
-          a{
-            display: block;            
-            font-family: $acc-font-primary;
-            line-height: 1.3;
-            padding: 0.85rem 1rem 0.85rem 2.8rem;
-            color: white;
-          }
+      a {
+        display: block;
+        font-family: $acc-font-primary;
+        line-height: 1.3;
+        padding: 0.85rem 1rem 0.85rem 2.8rem;
+        color: white;
       }
     }
+  }
 }
-
-
 
 .acc-nav-primary {
   @media screen and (min-width: $nav-width) {
-    .acc-section-cols{
-        display: flex;
+    .acc-section-cols {
+      display: flex;
     }
-    .acc-section-col{
+    .acc-section-col {
       flex: 1;
       ul {
         list-style-type: square;
         padding: 0 3rem;
-        li{
+        li {
           font-size: 3rem;
         }
       }
     }
   }
-
-  a:hover{
-    background-color: rgba(255,255,255,0.2);
+  a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
     color: white;
   }
-
   .acc-mega-nav-plan {
-    button:hover, button:active, button[aria-expanded=true] {
+    button:hover,
+    button:active,
+    button[aria-expanded=true] {
       background-color: $acc-color-plan;
     }
-
     .acc-subnav {
       @include navigation-gradient($acc-color-plan);
     }
   }
-  
   .acc-mega-nav-attend {
-    button:hover, button:active, button[aria-expanded=true] {
+    button:hover,
+    button:active,
+    button[aria-expanded=true] {
       background-color: $acc-color-attend;
     }
     .acc-subnav {
       @include navigation-gradient($acc-color-attend);
     }
   }
-
   .acc-mega-nav-exhibit {
-    button:hover, button:active, button[aria-expanded=true] {
+    button:hover,
+    button:active,
+    button[aria-expanded=true] {
       background-color: $acc-color-exhibit;
     }
     .acc-subnav {
@@ -191,20 +192,19 @@
   }
 }
 
-.acc-menu-button { // hamburger
+.acc-menu-button {
+  // hamburger
   width: auto;
-
   &:active {
     background-color: transparent;
   }
-
   @media screen and (min-width: $nav-width) {
     display: none;
   }
 }
 
 @media screen and (min-width: $nav-width) {
-  .acc-nav-primary .acc-megamenu-col > ul {
+  .acc-nav-primary .acc-megamenu-col>ul {
     margin-left: 1em;
   }
 }
@@ -222,11 +222,10 @@
   background-image: image_url('icons/button-close.png');
   background-position: center center;
   text-indent: -9999px;
-
-  &:hover, &:active {
+  &:hover,
+  &:active {
     background-color: transparent;
   }
-
   @media screen and (min-width: $nav-width) {
     display: block;
   }
@@ -243,13 +242,11 @@
   left: 0;
   transition: max-height 0.25s ease-out;
   z-index: 100;
-
   &.is-visible {
     max-height: 31rem; // ~ 6 items
     overflow-y: auto;
     transition: max-height 0.25s ease-in;
   }
-
   @media screen and (min-width: $nav-width) {
     box-shadow: none;
     max-height: none;
@@ -266,7 +263,6 @@
   font-size: 6rem;
   font-family: $acc-font-header;
   padding: 4rem 0 0 3rem;
-
   @media screen and (min-width: $nav-width) {
     display: block;
   }
