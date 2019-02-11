@@ -17,10 +17,6 @@ body > *:not(#main-content) {
   }
 }
 
-.usa-grid {
-  padding: 0;
-}
-
 .acc-content-block {
   p {
     max-width: none !important;
@@ -32,7 +28,7 @@ body > *:not(#main-content) {
   max-width: none !important;
 }
 
-.usa-accordion li {
+.acc-accordion li {
   background: transparent;
 }
 

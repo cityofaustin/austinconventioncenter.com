@@ -5,7 +5,7 @@
 // $nav-width: 951px;
 // $partners-width: 720px;
 .acc-full {
-  // not really a flex box, but replaces functionality of usa-grid
+  // not really a flex box, but replaces functionality of usa grid
   @include full-width();
   &.no-pad {
     padding-right: 0;
@@ -91,5 +91,13 @@
   @media screen and (min-width: $large-screen) {
     flex: 1 1 25%;
     max-width: 25%;
+  }
+}
+
+.acc-two-thirds {
+  // not flex
+  width: auto;
+  @media screen and (min-width: $small-screen) {
+    width: 66%;
   }
 }
