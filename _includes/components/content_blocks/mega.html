@@ -1,8 +1,0 @@
-{% assign block = include.block %}
-<div class="acc-mega-feature acc-mega-feature-{{block.bgOrientation | downcase}}-bg acc-color-theme-Default">
-    <div class="usa-grid" style="background-image:url('{{ block.backgroundImage.url }}?w=600');">
-    <div class="usa-width-one-whole">
-      {{ block.text | markdownify }}
-    </div>
-  </div>
-</div>
