@@ -8,21 +8,25 @@
 <div itemscope itemtype="http://schema.org/ImageGallery" data-gid="{{ block.sys.id }}" class="acc-gallery {% unless block.showThumbnails == false %}acc-gallery-thumbnails{% endunless %}">
   {% for gallery_image in block.galleryImages %}
     {% assign image = gallery_image.image %}
+    {% assign tag = gallery_image.tag %}
 
     {% if image.url %}
       <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" data-index="{{ forloop.index0 }}" data-pid="{{ image.sys.id }}" class="acc-gallery-photo">
         {% if block.showThumbnails == false %}
         <img src="{{ image.url }}?w=960"
+            data-tag="{{ tag }}"
              srcset="{{ image.url }}?w=1920 2x,
-                    {{ image.url }}?w=960" alt="{{ gallery_image.title | default: image.title }}" />
+                {{ image.url }}?w=960" alt="{{ gallery_image.title | default: image.title }}" />
         {% else %}
         <a href="{{ image.url }}?w=1800" itemprop="contentUrl" data-width="{{ image.width }}" data-height="{{ image.height }}" data-url="{{ image.url }}">
             <img src="{{ image.url }}?w=330&h=220&fit=thumb"
-                 srcset="{{ image.url }}?w=990&h=660&fit=thumb 3x,
-                      {{ image.url }}?w=660&h=440&fit=thumb 2x,
-                      {{ image.url }}?w=330&h=220&fit=thumb"
-                 itemprop="thumbnail" alt="{{ gallery_image.title | default: image.title }}" />
+                data-tag="{{ tag }}"
+                srcset="{{ image.url }}?w=990&h=660&fit=thumb 3x,
+                  {{ image.url }}?w=660&h=440&fit=thumb 2x,
+                  {{ image.url }}?w=330&h=220&fit=thumb"
+                itemprop="thumbnail" alt="{{ gallery_image.title | default: image.title }}" />
         </a>
+        <strong>{{ tag }}</strong>
         {% endif %}
         {% if block.showCaptions or gallery_image.caption != empty %}
           <figcaption class="acc-gallery-caption" itemprop="caption description">{{ gallery_image.caption | default: gallery_image.title | markdownify }}</figcaption>
