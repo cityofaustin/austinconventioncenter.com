@@ -4,6 +4,16 @@
 
 {% if block.title %}<h3 class="acc-content-block-header">{{ block.title }}</h3>{% endif %}
 
+<ul class="acc-accordion" data-widget="accordion">
+  <li>
+    <button class="acc-accordion-button" data-widget="accordion-button" aria-controls="gallery-filter-content">
+      <span>Filter Gallery Images</span><i class="fas fa-plus" aria-hidden="true"></i><i class="fas fa-minus" aria-hidden="true"></i>
+    </button>
+    <div id="gallery-filter-content" class="acc-accordion-content gallery-filters">
+      <!-- checkboxes will be dynamically added from gallery-filter.js -->
+    </div>
+  </li>
+</ul>
 
 <div itemscope itemtype="http://schema.org/ImageGallery" data-gid="{{ block.sys.id }}" class="acc-gallery {% unless block.showThumbnails == false %}acc-gallery-thumbnails{% endunless %}">
   {% for gallery_image in block.galleryImages %}
@@ -26,7 +36,6 @@
                   {{ image.url }}?w=330&h=220&fit=thumb"
                 itemprop="thumbnail" alt="{{ gallery_image.title | default: image.title }}" />
         </a>
-        <strong>{{ tag }}</strong>
         {% endif %}
         {% if block.showCaptions or gallery_image.caption != empty %}
           <figcaption class="acc-gallery-caption" itemprop="caption description">{{ gallery_image.caption | default: gallery_image.title | markdownify }}</figcaption>
@@ -35,5 +44,7 @@
     {% endif %}
   {% endfor %}
 </div>
+
+<div id="no-gallery-images" class="acc-full">No images match the filter results.</div>
 
 </div>

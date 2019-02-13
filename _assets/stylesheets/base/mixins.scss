@@ -61,6 +61,13 @@
   }
 }
 
+@mixin abs-center() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .acc-color-theme-Default {
   @include gradient-theme($acc-color-base);
   @include theme-inheritance($acc-color-base);

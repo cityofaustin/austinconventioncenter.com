@@ -1,0 +1,59 @@
+.gallery-filters {
+  ul {
+    @include unstyled-list;
+    max-width: none;
+    li {
+      padding: 1rem 1rem;
+      &:nth-child(even) {
+        background-color: $acc-color-gray-lightest;
+      }
+      .check-container {
+        position: relative;
+        width: 1.7rem;
+        height: 1.7rem;
+      }
+      .check-container,
+      label {
+        display: inline-block;
+        vertical-align: middle;
+      }
+      span {
+        display: block;
+        border: 1px solid black;
+        background-color: white;
+        width: 1.7rem;
+        height: 1.7rem;
+        pointer-events: none;
+        i {
+          display: none;
+          font-size: 1.2rem;
+          &:before {
+            @include abs-center;
+          }
+        }
+      }
+      input {
+        width: $hit-area;
+        height: $hit-area;
+        opacity: 0;
+        @include abs-center;
+      }
+      input:checked+span i {
+        display: block;
+      }
+      input:focus+span {
+        box-shadow: $focus-shadow;
+      }
+      label {
+        margin-left: 0.5em;
+        line-height: 0;
+      }
+    }
+  }
+}
+
+#no-gallery-images {
+  display: none;
+  color: $acc-color-gray;
+  font-style: italic;
+}
