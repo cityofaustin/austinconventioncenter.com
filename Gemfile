@@ -13,6 +13,7 @@ gem "soda-ruby"
 gem "sprockets", "~> 3.6.3"
 gem "sprockets-commoner"
 gem "uglifier"
+gem 'jekyll-maps', "~> 2.3.0"
 
 group :jekyll_plugins do
   gem "jekyll-contentful-data-import", "~>1.3.0"
