@@ -38,9 +38,12 @@
   ul {
     list-style: none;
     padding-left: 0;
+    margin-left: 0.5em;
     li a {
       @include acc-button-base;
+      display: block;
       font-size: 1.5rem;
+      text-align: center;
     }
   }
 }
