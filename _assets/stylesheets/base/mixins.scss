@@ -2,21 +2,6 @@
   @return mix(white, $color, 20%);
 }
 
-@function strip-units($value) {
-  @return ($value / ($value * 0 + 1));
-}
-
-@function rem($pxval) {
-  @if not unitless($pxval) {
-    $pxval: strip-units($pxval);
-  }
-  $base: $em-base;
-  @if not unitless($base) {
-    $base: strip-units($base);
-  }
-  @return ($pxval / $base) * 1rem;
-}
-
 @mixin background-color-transition {
   transition: background-color $transition-time;
 }
