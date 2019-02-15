@@ -103,7 +103,7 @@ function galleryInit() {
     if (e.target.localName !== 'input') {
       return;
     }
-    const value = e.target.value;
+    var value = e.target.value;
     if (value === ALL) {
       // Select All (or none)
       setChecks(e.target.checked);
