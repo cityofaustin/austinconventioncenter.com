@@ -1,12 +1,26 @@
-$site: config_value("id");
+@function strip-units($value) {
+  @return ($value / ($value * 0 + 1));
+}
 
+@function rem($pxval) {
+  @if not unitless($pxval) {
+    $pxval: strip-units($pxval);
+  }
+  $base: $em-base;
+  @if not unitless($base) {
+    $base: strip-units($base);
+  }
+  @return ($pxval / $base) * 1rem;
+}
+
+$site: config_value("id");
 $acc-color-primary-light: #cef8f0;
 $acc-color-primary: #000;
 $acc-color-primary-dark: #000;
 $acc-vertical-margin: 12rem;
 $acc-button-width: 20rem;
 // Colors
-$acc-color-white : #ffffff;
+$acc-color-white: #ffffff;
 /* Most recently provided ~ Oct 28? */
 
 // $acc-color-gray-lightest: #B7CDC8;
@@ -120,9 +134,6 @@ $focus-shadow: 0 0 3px $color-focus,
 0 0 7px $color-focus;
 // 44 x 44 pixels hit target following Apple iOS Human Interface Guidelines
 $hit-area: 4.4rem;
-
-
-
 // Typography
 $em-base: 10px;
 $base-font-size: rem(17px);
