@@ -51,6 +51,8 @@
     var dt = dateParts[ 1 ];
     event.dateIndex = monthMap[ mo ] * 100 + parseInt(dt);
     return event;
+  }).sort(function (a, b) {
+    return a.dateIndex - b.dateIndex;
   });
 
   // find current event, and next two events
