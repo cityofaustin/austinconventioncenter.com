@@ -1,9 +1,10 @@
+// Reference:
 // Mobile First Breakpoints
-// $small-screen: 481px;
-// $medium-screen: 600px;
-// $large-screen: 1201px;
-// $nav-width: 951px;
-// $partners-width: 720px;
+//      $small-screen: 481px;
+//      $medium-screen: 600px;
+//      $large-screen: 1201px;
+//      $nav-width: 951px;
+//      $partners-width: 720px;
 .acc-full {
   // not really a flex box, but replaces functionality of usa grid
   @include full-width();
@@ -12,6 +13,11 @@
     padding-left: 0;
   }
 }
+
+// acc-flex is mobile-first, so used by itself, it will not create columns
+// it should always be used in conjunction with a break point:
+// class="acc-flex break-medium"
+// class="acc-flex break-nav"
 
 .acc-flex {
   display: block;
@@ -40,6 +46,7 @@
     }
   }
   &.no-break {
+    // will create columns that never change.
     display: flex;
   }
   &.break-partners {
@@ -52,6 +59,7 @@
   }
 }
 
+// children of acc-flex
 .acc-flex-one-half {
   flex: 1 1 50%;
   padding: 0 3rem;
