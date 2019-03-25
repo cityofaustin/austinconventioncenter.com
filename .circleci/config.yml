@@ -2,9 +2,8 @@ version: 2
 general:
   branches:
     only:
-     - sandbox-staging
-     - sandbox-prod
-     - sandbox-pipeline
+     - master
+     - staging
 jobs:
   build:
     working_directory: ~/cityofaustin/austinconventioncenter.com
@@ -91,8 +90,8 @@ jobs:
         filters:
           branches:
             only:
-              - sandbox-staging
-              - sandbox-prod
+              - master
+              - staging
     # Teardown
     #   If you break your build into multiple jobs with workflows, you will probably want to do the parts of this that are relevant in each
     # Save test results

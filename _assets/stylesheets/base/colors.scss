@@ -4,7 +4,7 @@ $acc-color-calendar: #9C0F17;
 $acc-color-exhibit: #FF952C;
 $acc-color-plan: #1B75B6;
 
-@if $site == pec or $site == pec_staging or $site == pec_sandbox {
+@if $site == pec or $site == pec_staging {
   $acc-color-attend: #FF952C;
   $acc-color-base: #1B75B6;
   $acc-color-calendar: #9C0F17;

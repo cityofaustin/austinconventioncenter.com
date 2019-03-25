@@ -29,12 +29,8 @@ end
 desc "Build the sites"
 task :build do
   if ENV["CI"] || system("which parallel") # On macOS: `brew install parallel` (optional)
-#     if ENV["CIRCLE_BRANCH"] == "master"
-#       exec("parallel bundle exec rake build:{} ::: acc pec")
-#     elsif ENV["CIRCLE_BRANCH"] == "sandbox-prod"
-    if ENV["CIRCLE_BRANCH"] == "sandbox-prod"
+    if ENV["CIRCLE_BRANCH"] == "master"
       exec("parallel bundle exec rake build:{} ::: acc pec")
-#     elsif ENV["CIRCLE_BRANCH"] == "sandbox-staging"
     else
       exec("parallel bundle exec rake build:{} ::: acc_staging pec_staging")
     end
@@ -99,10 +95,8 @@ end
 
 desc "Import all Contentful data"
 if ENV["CI"]
-  if ENV["CIRCLE_BRANCH"] == "sandbox-prod"
+  if ENV["CIRCLE_BRANCH"] == "master"
     multitask :contentful => ["contentful:acc", "contentful:pec"]
-  elsif ENV["CIRCLE_BRANCH"] == "sandbox-staging"
-    multitask :contentful => ["contentful:acc_staging", "contentful:pec_staging"]
   else
     multitask :contentful => ["contentful:acc_staging", "contentful:pec_staging"]
   end
@@ -135,9 +129,9 @@ namespace :deploy do
 end
 
 task :deploy do
-  if ENV["CIRCLE_BRANCH"] == "sandbox-prod"
-    exec "parallel bundle exec rake deploy:{} ::: sandbox pec_sandbox"
-  elsif ENV["CIRCLE_BRANCH"] == "sandbox-staging"
+  if ENV["CIRCLE_BRANCH"] == "master"
+    exec "parallel bundle exec rake deploy:{} ::: acc pec"
+  elsif ENV["CIRCLE_BRANCH"] == "staging"
     exec "parallel bundle exec rake deploy:{} ::: acc_staging pec_staging"
   end
 end
@@ -171,7 +165,7 @@ namespace :ci do
       faraday.adapter Faraday.default_adapter
     end
 
-    branches = ["sandbox-prod"]
+    branches = ["master"]
     branches.each do |branch|
       connection.post("/api/v1/project/cityofaustin/austinconventioncenter.com/tree/#{branch}") do |request|
         request.params["circle-token"] = ENV["CIRCLE_TOKEN"]
