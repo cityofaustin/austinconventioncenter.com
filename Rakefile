@@ -136,7 +136,7 @@ end
 
 task :deploy do
   if ENV["CIRCLE_BRANCH"] == "sandbox-prod"
-    exec "parallel bundle exec rake deploy:{} ::: sandbox pec_sandbox"
+    exec "parallel bundle exec rake deploy:{} ::: acc pec"
   elsif ENV["CIRCLE_BRANCH"] == "sandbox-staging"
     exec "parallel bundle exec rake deploy:{} ::: acc_staging pec_staging"
   end
