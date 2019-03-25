@@ -57,11 +57,13 @@
             '</div>' +
             '</div>';
 
-        var pecIcon = '{% asset_path "marker-1.png" %}';
-        var pecGarageIcon = '{% asset_path "marker-2.png" %}';
-        var accIcon = '{% asset_path "marker-3.png" %}';
-        var accGarageIcon1 = '{% asset_path "marker-4.png" %}';
-        var accGarageIcon2 = '{% asset_path "marker-5.png" %}';
+/*
+        var pecIcon = '{% asset_path "coa-stamp.png" %}';
+        var pecGarageIcon = '{% asset_path "coa-stamp.png" %}';
+        var accIcon = '{% asset_path "coa-stamp.png" %}';
+        var accGarageIcon1 = '{% asset_path "coa-stamp.png" %}';
+        var accGarageIcon2 = '{% asset_path "coa-stamp.png" %}';
+*/
 
         function initMap() {
           if (!window.google) {
@@ -85,29 +87,29 @@
           var features = isPEC ? [
             {
               position: pecLocGarage,
-              icon: pecGarageIcon,
+//               icon: pecGarageIcon,
               content: pecGarageContent,
               title: 'Palmer Events Center Parking Garage'
             }, {
               position: pecLoc,
-              icon: pecIcon,
+//               icon: pecIcon,
               content: pecContent,
               title: 'Palmer Events Center'
             }
           ] : [
             {
                 position: accLoc,
-                icon: accIcon,
+//                 icon: accIcon,
                 content: accContent,
                 title: 'Austin Convention Center'
               }, {
                 position: accLocGarage1,
-                icon: accGarageIcon1,
+//                 icon: accGarageIcon1,
                 content: accGarageContent1,
                 title: '2nd Street Garage'
               }, {
                 position: accLocGarage2,
-                icon: accGarageIcon2,
+//                 icon: accGarageIcon2,
                 content: accGarageContent2,
                 title: '5th Street Garage'
               }
@@ -116,7 +118,7 @@
           features.forEach(function (feature) {
             var marker = new google.maps.Marker({
               position: feature.position,
-              icon: feature.icon,
+//               icon: feature.icon,
               title: feature.title,
               map: map
             });
