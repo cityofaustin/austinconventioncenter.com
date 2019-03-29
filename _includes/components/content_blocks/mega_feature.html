@@ -1,8 +1,24 @@
-{% assign block = include.block %}
-<div class="acc-mega-feature acc-mega-feature-{{block.bgOrientation | downcase}}-bg acc-color-theme-Default">
-    <div class="acc-full" style="background-image:url('{{ block.backgroundImage.url }}?w=400&h=600&fit=crop');">
-    <div>
-      {{ block.text | markdownify }}
+{% assign items = include.block.items %}
+{% if page.contentful.colorScheme != blank %}
+  <div class="acc-mega-feature acc-color-theme-{{ page.contentful.colorScheme }}">
+{% else %}
+  <div class="acc-mega-feature acc-color-theme-Default">
+{% endif %}
+
+  <div class="acc-side-by-side-container">
+    <div class="acc-flex break-medium">
+      {% for item in items %}
+        <div class="acc-flex-one-half">
+          <div class="acc-side-by-side-component">
+            {% case item.type %}
+              {% when 'galleryImage' %}
+                <img src="{{ item.image.url }}?h=270&w=430&fit=fill" alt="{{ item.title }}" />
+              {% when 'textBlock' %}
+                {{ item.text | markdownify }}
+            {% endcase %}
+          </div>
+        </div>
+      {% endfor %}
     </div>
   </div>
 </div>
