@@ -38,7 +38,7 @@ layout: default
         {% assign protocol = url | slice: 0, 4 %}
         <li>
           <a href="{{url}}">
-            <img src="{{ item.image.url }}?w=330&h=220&fit=thumb" />
+            <img src="{{ item.image.url }}?w=330&h=220&fit=thumb" alt="{{ item.image.description }}" />
             <span>{{ item.name }}</span>
           </a>
         </li>
