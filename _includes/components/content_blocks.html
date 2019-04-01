@@ -1,24 +1,36 @@
 {% if include.blocks != empty %}
-  <div class="acc-content-block-list">
-    {% for block in include.blocks %}
-      <div class="acc-content-block">
-        {% case block.type %}
-          {% when "accordionBlock" %}
-            {% include components/content_blocks/accordion.html block=block %}
-          {% when "contactBlock" %}
-            {% include components/content_blocks/contact.html block=block %}
-          {% when "galleryBlock" %}
-            {% assign photoswipe = true %}
-            {% if page.title == "Photos & Virtual Tour" %}
-              {% include components/content_blocks/carousel.html block=block %}
-            {% else %}
-              {% include components/content_blocks/gallery.html block=block %}
-            {% endif %}
-          {% when "textBlock" %}
-            {% include components/content_blocks/text.html block=block %}
-        {% endcase %}
-      </div>
-    {% endfor %}
-  </div>
+  {% for block in include.blocks %}
+      {% case block.type %}
+        {% when "accordionBlock" %}
+          {% include components/content_blocks/accordion.html block=block %}
+        {% when "contactBlock" %}
+          {% include components/content_blocks/contact.html block=block %}
+        {% when "featureBlock" %}
+          {% include components/content_blocks/feature.html block=block %}
+        {% when "pdfMenu" %}
+          {% include components/content_blocks/pdf_menu.html block=block %}
+        {% when "megaFeature" %}
+          {% include components/content_blocks/mega_feature.html block=block %}
+        {% when "galleryBlock" %}
+          {% assign photoswipe = true %}
+          {% if page.title == "Photos & Virtual Tour" %}
+            {% include components/content_blocks/carousel.html block=block %}
+          {% else %}
+            {% include components/content_blocks/gallery.html block=block %}
+          {% endif %}
+        {% when "learnMoreMenu" %}
+          {% include components/content_blocks/learn_more_menu.html block=block %}
+        {% when "numbersFeature" %}
+          {% include components/content_blocks/numbers_feature.html block=block %}
+        {% when "pageBanner" %}
+          {% include components/content_blocks/page_banner.html block=block %}
+        {% when "sideBySide" %}
+          {% include components/content_blocks/side_by_side.html block=block %}
+        {% when "textBlock" %}
+        <div class="acc-full">
+          {% include components/content_blocks/text.html block=block %}
+        </div>
+      {% endcase %}
+  {% endfor %}
   {% if photoswipe %}{% include components/photoswipe.html %}{% endif %}
 {% endif %}

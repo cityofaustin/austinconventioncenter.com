@@ -1,0 +1,244 @@
+.acc-homepage-banner h1 {
+  min-height: 30rem;
+  overflow: hidden;
+  @media screen and (min-width: $nav-width) {
+    min-height: 60rem;
+  }
+
+  .acc-button {
+    color: white;
+    border-color: white;
+  }
+}
+
+.acc-homepage-menu-container {
+  margin-top: -5rem;
+}
+
+.acc-homepage-menu-container .acc-button-grid li {
+  a {
+    background-color: $acc-color-gray-lightest;
+    text-align: center;
+    margin: 0 auto 2em auto;
+    display: inline-block;
+    font-family: $acc-font-header;
+    text-decoration: none;
+    color: black;
+    transition: all $transition-time;
+    max-width: 50rem;
+
+    span {
+      display: block;
+      padding: 1em .5em;
+    }
+    &:hover {
+    background-color: rgba(0,0,0,.1);
+      transition: all $transition-time;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+}
+
+
+.acc-width-one-third {
+  box-sizing: border-box;
+  @media screen and (min-width: $nav-width) {
+    width: 33.3%;
+    font-size: 0px;
+    display: inline-block;
+  }
+}
+
+@media screen and (min-width: $nav-width) {
+  .acc-width-one-third:nth-child(2) {
+    border-right: 1px solid black;
+  }
+  .acc-grid > div:last-child {
+    border-left: 1px solid black;
+    margin-left: -1rem;
+  }
+}
+
+.acc-upcoming-events {
+  margin-top: $acc-vertical-margin;
+  font-size: 2rem;
+  position: relative;
+
+  > div {
+    text-align: center;
+    vertical-align: top;
+    height: 100%;
+  }
+
+  .acc-flex-thirds{
+    border: 0;
+  }
+  
+  @media screen and (min-width: $nav-width) {
+    .acc-flex-thirds:not(:last-child){
+      border-right: 1px solid black;
+    }    
+  }
+  
+
+  .acc-upcoming-event-link {
+    color: $acc-color-base;
+    display: block;
+    background-color: white;
+    padding: .25em .5em .25em .5em;
+    text-align: center;
+    transition: all $transition-time;
+    font-size: 3rem;
+    font-family: $acc-font-header;
+  }
+
+  .acc-upcoming-event-name {
+    font-size: 2rem;
+    padding-bottom: 1em;
+  }
+}
+
+.acc-social-container {
+
+  margin-top: $acc-vertical-margin/2;
+
+  p {
+    font-size: 2rem;
+    text-align: center;
+  
+    @media screen and (min-width: $nav-width) {
+      margin: 0 auto;
+      width: 80%;
+    }
+  }
+}
+
+#curator-feed {
+  margin-top: 2em;
+}
+
+
+
+
+
+.acc-hero {
+//   background-image: image_url("#{$site}-hero.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 30rem;
+  position: relative;
+  overflow: hidden;
+
+//   @media screen and (min-width: $large-screen) {
+  @media screen and (min-width: $medium-screen) {
+    height: 60rem;
+  }
+}
+
+/*
+.acc-hero-content-wrapper {
+  height: 100%;
+  overflow: hidden;
+  text-align: center;
+  width: 100%;
+  z-index: 11;
+}
+*/
+
+/*
+.acc-hero-tagline {
+  color: $acc-color-white;
+  font-size: $lead-font-size;
+}
+*/
+
+.acc-hero-button-wrapper {
+  bottom: 2rem;
+//   font-size: $lead-font-size;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  z-index: 11;
+
+  .acc-button {
+//     background: $acc-opaque-black;
+//     border: 2px solid $acc-color-white;
+//     color: $acc-color-white;
+    display: inline-block;
+    padding-left: 1em;
+    padding-right: 1em;
+/*
+    transition: all $transition-time ease;
+    transition-property: border-color, color;
+*/
+    width: auto;
+
+    &:hover, &:active {
+/*
+      border-color: $acc-color-brand-secondary;
+      color: $acc-color-brand-secondary;
+*/
+    }
+  }
+}
+
+
+
+.acc-hero-overlay {
+  position: absolute;
+  text-align: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: rgba(255,255,255,.5);
+//   background-image: url(https://www.transparenttextures.com/patterns/cubes.png);
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! *//* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+.acc-hero-video-container {
+  height: 60rem;
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.acc-hero-video {
+//   background-image: image_url("#{$site}-hero.jpg");
+  background-size: cover;
+  height: auto;
+  left: 0;
+  min-height: 100%;
+  /*
+  height: 60rem;
+
+*/
+  min-width: 100%;
+  position: absolute;
+  top: 0;
+  width: auto;
+
+  @media screen and (min-width: $medium-screen) {
+/*
+    height: 100%;
+    width: 100%;
+*/
+  }
+
+}
+
+.acc-hero-tagline {
+//   background-color: $acc-opaque-black;
+//   color: $acc-color-white;
+  display: inline-block;
+  padding: 1.5rem;
+//   color: $acc-color-white;
+  display: inline-block;
+//   margin: 0;
+//   margin-top: 2em;
+}

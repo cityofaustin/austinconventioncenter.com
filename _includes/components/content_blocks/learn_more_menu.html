@@ -1,0 +1,23 @@
+{% assign block = include.block %}
+<div class="acc-full acc-learn-more-wrapper">
+  <h3>Learn More</h3>
+  <ul class="acc-flex break-medium acc-learn-more-list">
+    {% for item in block.links %}
+      <li class="acc-flex-thirds">
+        {% if item.linkedItem %}
+        <a href="{{item.linkedItem.url}}" class="acc-learn-more-link">
+        {% else %}
+        <a href="/{{item.internalLink}}" class="acc-learn-more-link">
+        {% endif %}
+          <img src="{{ item.photo.url }}?w=330&h=220&fit=thumb" />
+          <span class="acc-learn-more-link-title">
+            {{ item.title }}
+          </span>
+          <span class="acc-learn-more-link-description">
+            {{ item.description }}
+          </span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

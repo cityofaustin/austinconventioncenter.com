@@ -3,22 +3,22 @@ layout: default
 contentful_id: 4S1U5bQghaQAaKQsqOKywe
 ---
 
-<div class="usa-grid">
-  <div class="usa-width-one-whole">
-    <header class="acc-content-header">
-      <h1>{{ page.contentful.title }}</h1>
-    </header>
+<div class="acc-full">
+  <header class="acc-content-header">
+    <h1>{{ page.contentful.title }}</h1>
+  </header>
+  <div class="acc-flex no-break">
+    <div class="acc-flex-two-thirds">
+      <ul class="acc-unstyled-list acc-press-release-list">
+        {% assign press_releases = site.press-room | sort: "date" | reverse %}
+        {% for press_release in press_releases %}
+          <li>
+            <strong class="acc-press-release-date">{{ press_release.date | date: "%B %-d, %Y" }}</strong><br>
+            <a href="{{press_release.url}}">{{ press_release.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% include sidebar.html %}
   </div>
-  <div class="usa-width-two-thirds">
-    <ul class="usa-unstyled-list acc-press-release-list">
-      {% assign press_releases = site.press-room | sort: "date" | reverse %}
-      {% for press_release in press_releases %}
-        <li>
-          <strong class="acc-press-release-date">{{ press_release.date | date: "%B %-d, %Y" }}</strong><br>
-          <a href="{{press_release.url}}">{{ press_release.title }}</a>
-        </li>
-      {% endfor %}
-    </ul>
-  </div>
-  {% include sidebar.html %}
 </div>

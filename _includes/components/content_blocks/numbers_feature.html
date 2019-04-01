@@ -1,0 +1,14 @@
+{% assign block = include.block %}
+<div class="acc-numbers-feature">
+  <h2>{{ block.name }}</h2>
+  <div class="acc-full no-pad acc-flex wrap break-small">
+    {% for stat in block.stats %}
+    <div class="acc-flex-quarter-half">
+      <h3>{{stat.number}}</h3>
+      <p>
+        {{ stat.feature }}
+      </p>
+      </div>
+    {% endfor %}
+  </div>
+</div>

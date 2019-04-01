@@ -1,9 +1,14 @@
+.acc-content-header {
+  padding: 0;
+}
 .acc-calendar-event {
   @include acc-button-base;
   padding: 0;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  margin-bottom: 2rem;
+  border-width: 1px;
 
   @media all and (min-width: $small-screen) {
     flex-direction: row;
@@ -14,19 +19,13 @@
 .acc-calendar-event-link .acc-calendar-event-details {
   position: relative;
   padding-right: 8rem;
-
-  &::after {
-    @include acc-button-icon;
-    background-image: none;
-    right: 1em;
-    content: "\f08e";
-    font-family: FontAwesome;
-    font-size: 2rem;
-    color: #00807a;
-    padding: 1.1rem 0 0 1.6rem;
-  }
 }
 
+.fas.fa-external-link-alt{
+  color: #00807a;
+  font-size: 2rem;
+  padding: 1.1rem 0 0 1.6rem;
+}
 .acc-calendar-event:not(.acc-calendar-event-link) {
   cursor: default;
   pointer-events: none;
@@ -70,6 +69,7 @@
 .acc-calendar-event-title {
   flex: 1 0 auto;
   margin: 0;
+  text-align: left;
 }
 
 .acc-calendar-event-attendance {

@@ -2,13 +2,11 @@
 layout: default
 ---
 
-<div class="usa-grid">
-  <div class="usa-width-two-thirds">
+<div class="acc-full">
+  <div class="acc-two-thirds">
     <header>
       <h2>{{ page.contentful.title }}</h2>
     </header>
-  </div>
-  <div class="usa-width-two-thirds">
     <h4 class="acc-press-byline">{{ page.contentful.byline }}</h4>
     {{ page.contentful.date | date: "%B %-d, %Y" }}
     {{ page.contentful.content | markdownify }}

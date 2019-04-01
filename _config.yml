@@ -37,10 +37,20 @@ contentful_options: &contentful_options
   all_entries: true
   content_types:
     accordionBlock: Mappers::ContentBlockMapper
+    acme: Mappers::ContentBlockMapper
     contactBlock: Mappers::ContentBlockMapper
+    featureBlock: Mappers::ContentBlockMapper
     galleryBlock: Mappers::ContentBlockMapper
     galleryImage: Mappers::GalleryImageMapper
+    learnMoreMenu: Mappers::ContentBlockMapper
+    mega: Mappers::ContentBlockMapper
+    megaFeature: Mappers::ContentBlockMapper
     menu: Mappers::ContentBlockMapper
+    navigationSection: Mappers::ContentBlockMapper
+    numbersFeature: Mappers::ContentBlockMapper
+    pageBanner: Mappers::ContentBlockMapper
+    pdfMenu: Mappers::ContentBlockMapper
+    sideBySide: Mappers::ContentBlockMapper
     textBlock: Mappers::ContentBlockMapper
 
 contentful:
@@ -89,6 +99,11 @@ defaults:
     values:
       layout: press_release
       permalink: "/press-room/:year/:month/:day/:title/"
+  -
+    scope:
+      type: "contact"
+    values:
+      layout: contact
   -
     scope:
       type: "plans"

@@ -1,5 +1,3 @@
 {% assign block = include.block %}
 
-{% if block.title %}<h3 class="acc-content-block-header">{{ block.title }}</h3>{% endif %}
-
 {{ block.text | markdownify }}

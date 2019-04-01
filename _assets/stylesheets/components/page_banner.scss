@@ -1,0 +1,101 @@
+.acc-page-banner {
+  margin-bottom: 4rem;
+  position: relative;
+  text-align: center;
+
+  @media screen and (min-width: $medium-screen) {
+  }
+
+  h1 {
+    background-color: black;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    font-size: 5rem;
+    margin: 0;
+    padding: 1em 0;
+    position: relative;
+    text-transform: uppercase;
+
+    span {
+      position: relative;
+      z-index: 20;
+    }
+
+    .acc-button {
+      position: absolute;
+      width: 22rem;
+//       border-color: white;
+//       color: white;
+      text-align: center;
+      bottom: 1em;
+      left: 50%;
+      margin-left: -11rem;
+      display: block;
+      z-index: 20;
+    }
+
+    @media screen and (min-width: $nav-width) {
+      font-size: 17rem;
+    }
+  }
+}
+
+.acc-page-banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.3);
+  z-index: 10;
+}
+
+.acc-page-banner-text-container {
+  font-size: 2.4rem;
+  padding: 1em 1em 2em 1em;
+
+  p {
+    margin: 0 auto;
+    max-width: $site-max-width;
+    padding: 1em;
+    text-align: center;
+  }
+
+  a {
+    color: white;
+  }
+
+  .acc-button {
+    color: black;
+/*
+    border-color: white;
+    color: white;
+*/
+    width: 25rem;
+    margin-bottom: 1em;
+  }
+}
+
+.acc-page-banner-menu {
+  padding-top: 1em;
+}
+.acc-page-banner-menu li {
+  display: inline-block;
+  padding: 0 1em;
+}
+/*
+.acc-facility-feature {
+  margin-top: 20rem;
+  padding-top: 10rem;
+  padding-bottom: 20rem;
+  ul, p, h1, h2, h3 {
+    margin: 1em 5em;
+    display: inline-block;
+    background-color: red;
+    color: white;
+  }
+  
+}
+*/

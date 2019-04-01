@@ -11,6 +11,7 @@ cache_control:
   "assets/*": public, max-age=31536000, s-maxage=86400
   "*.html": public, must-revalidate, max-age=3600, s-maxage=300
   "*.xml": public, must-revalidate, max-age=3600, s-maxage=300
+  "*.kml": public, must-revalidate, max-age=3600, s-maxage=300
   "*": public, max-age=86400
 
 cloudfront_distribution_id: <%= ENV["CLOUDFRONT_#{ENV["SITE"].upcase}_DISTRIBUTION_ID"] %>

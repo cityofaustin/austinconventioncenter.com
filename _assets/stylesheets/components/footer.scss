@@ -1,10 +1,68 @@
+.acc-parking-footer {
+  color: white;
+  font-size: 1.2rem;
+  margin-top: $acc-vertical-margin;
+  padding: 5rem 0 3rem 0;
+}
+
+.acc-parking-footer {
+  h2, p, ul {
+    margin-left: 2rem;
+  }
+
+  p:last-child {
+    text-align: center;
+  }
+}
+
+.acc-parking-map {
+  text-align: center;
+  @media screen and (min-width: $medium-screen) {
+    text-align: left;
+  }
+  img {
+    width: 100%;
+  }
+}
+.acc-parking-footer .acc-button {
+  border-color: white;
+  color: white;
+}
+
+#map {
+  color: black;
+  h4 {
+    color: black;
+    margin-top: 0;
+  }
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0.5em;
+    li a {
+      @include acc-button-base;
+      display: block;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+  }
+}
+
+.acc-parking-footer h2 {
+  font-size: 4.5rem;
+  line-height: 1em;
+  text-align: left;
+  @media screen and (min-width: $nav-width) {
+    margin-top: 0;
+  }
+}
 .acc-footer {
   font-size: 1.5rem;
   margin-top: 7rem;
 }
 
 .acc-footer-content {
-  background-color: $acc-color-gray-dark;
+  background-color: black;
   color: $acc-color-white;
   padding-top: 2.5rem;
 }
@@ -13,14 +71,9 @@
   padding-bottom: 5rem;
 }
 
-.acc-footer-content section {
-  padding-bottom: 2.5rem;
-}
-
 .acc-footer-content a {
   color: $acc-color-white;
   display: inline-block;
-  text-decoration: none;
 
   &:visited, &:active {
     color: $acc-color-white;
@@ -33,7 +86,9 @@
 }
 
 .acc-footer-content h4 {
-  color: $acc-color-gray-lightest;
+  color: white;
+  width: 100%;
+  font-size: 2rem;
 }
 
 .acc-footer-info {
@@ -43,17 +98,50 @@
   flex-wrap: wrap;
 }
 
-.acc-footer-logo {
-  flex: 0 0 auto;
-  margin-right: 2rem;
+.acc-footer-logos{
+  display: flex;
+  padding: 0 3rem;
+  margin-bottom: 2rem;
+  span, a{
+    display: inline-block;
+    align-self: center;
+  }
+  a {
+    font-size: 2em;
+  }
+  .logo-third{
+    flex: 1 1 33%;
+  }
+  @media screen and (min-width: $small-screen) {
+    .logo-third{
+      padding: 0 3rem;
+    }
+  }
+}
+.acc-footer-stamps{
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
+}
+.acc-footer-icons{
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  a{
+    margin-right: 1.5rem;
+  }
 }
 
-.acc-footer-address {
-  font-size: 1.3rem;
-  line-height: 1.5em;
+.acc-partner-logos {
+  background-color: white;
+  padding: 2rem 1rem;
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
 
-  @media screen and (min-width: $medium-screen) {
-    flex: 1 0 auto;
+  > div {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
   }
 }
 

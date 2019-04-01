@@ -49,7 +49,7 @@ namespace :contentful do
       "space" => ENV["CONTENTFUL_ACC_SPACE_ID"],
       "access_token" => ENV["CONTENTFUL_ACC_ACCESS_TOKEN"]
     })
-
+    puts "Import ACC Contentful data"
     Jekyll::Commands::Contentful.process([], {}, config)
   end
 
@@ -62,7 +62,7 @@ namespace :contentful do
       "space" => ENV["CONTENTFUL_PEC_SPACE_ID"],
       "access_token" => ENV["CONTENTFUL_PEC_ACCESS_TOKEN"]
     })
-
+    puts "Import PEC Contentful data"
     Jekyll::Commands::Contentful.process([], {}, config)
   end
 
@@ -75,7 +75,7 @@ namespace :contentful do
       "space" => ENV["CONTENTFUL_ACC_SPACE_ID"],
       "access_token" => ENV["CONTENTFUL_ACC_STAGING_ACCESS_TOKEN"]
     })
-
+    puts "Import ACC Staging Contentful data"
     Jekyll::Commands::Contentful.process([], {}, config)
   end
 
@@ -88,7 +88,7 @@ namespace :contentful do
       "space" => ENV["CONTENTFUL_PEC_SPACE_ID"],
       "access_token" => ENV["CONTENTFUL_PEC_STAGING_ACCESS_TOKEN"]
     })
-
+    puts "Import PEC Staging Contentful data"
     Jekyll::Commands::Contentful.process([], {}, config)
   end
 end
@@ -164,8 +164,8 @@ namespace :ci do
       faraday.response :logger
       faraday.adapter Faraday.default_adapter
     end
-    
-    branches = ["master", "staging"]
+
+    branches = ["master"]
     branches.each do |branch|
       connection.post("/api/v1/project/cityofaustin/austinconventioncenter.com/tree/#{branch}") do |request|
         request.params["circle-token"] = ENV["CIRCLE_TOKEN"]

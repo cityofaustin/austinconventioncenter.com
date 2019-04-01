@@ -3,50 +3,63 @@ layout: default
 ---
 
 {% assign contentful = site.contentful.page | where: "slug", "home" | first %}
-{% assign hero_image = contentful.files.first %}
 
-<section class="acc-hero"{% if hero_image %} style="background-image: url({{ hero_image.url }});"{% endif %}>
-  {% assign hero_menu = contentful.sidebarBlocks | first %}
-  {% unless hero_menu.empty? %}
-    <div class="acc-hero-button-wrapper">
-      {% for item in hero_menu.items %}
-        {% assign doc = item | find_document %}
-        {% assign url = item.url | default: doc.url %}
-        <a href="{{ url }}" class="acc-button">{{ item.title }}</a>
-      {% endfor %}
+{% assign banner = contentful.contentBlocks | where: "type", "pageBanner" | first %}
+<div class="acc-page-banner acc-homepage-banner">
+  <h1 style="background-image: url('{{ banner.backgroundImage.url }}?w=1400');position:relative;">
+    {% assign hero_video = contentful.file %}
+    <div class="acc-hero-video-container">
+      <video playsinline autoplay muted loop poster="" class="acc-hero-video">
+        <source src="{{ hero_video.url }}" type="video/mp4">
+      </video>
     </div>
-  {% endunless %}
-  <div class="usa-grid-full">
-  </div>
-</section>
-
-<div class="usa-grid">
-  <div class="usa-width-one-whole">
-    <header class="acc-intro">
-      <h2>{{ contentful.description }}</h2>
-      {% assign statement = contentful.contentBlocks | where: "title", "statement" | first %}
-      {% unless statement == blank %}
-        <p class="acc-press-statement">
-          {{ statement.text }}
-        </p>
-      {% endunless %}
-    </header>
-
-    {% assign menu = site.contentful.menu | where_exp: "menu", "menu.name == 'Homepage'" | first %}
-    {% include components/menu.html items=menu.items list_classes="acc-button-grid-wide" item_classes="acc-button acc-button-primary" show_description=true %}
-  </div>
+    {% if banner.buttons %}
+      {% assign buttons = banner.buttons %}
+      {% for button in buttons %}
+        {% assign doc = button | find_document %}
+        {% assign url = button.url | default: doc.url %}
+          <a href="{{ url }}" class="acc-button" style="font-size:3rem;width: 30rem;margin-left: -15rem;">{{ button.title }}</a>
+      {% endfor %}
+    {% endif %}
+  </h1>
+  <div class="acc-page-banner-text-container">
+    {{ banner.text | markdownify }}
+  </div>		
 </div>
 
-<div class="usa-grid acc-social-container">
-  <div class="usa-width-one-whole">
-    {% assign socialMediaHeader = contentful.contentBlocks | where: "title", "social-media-header" | first %}
-    {% unless socialMediaHeader == blank %}
-      <div class="acc-social-header">
-        {{ socialMediaHeader.text | markdownify }}
-      </div>
-    {% endunless %}
-    <div id="curator-feed"></div>
-  </div>
+<div class="acc-full acc-homepage-menu-container">
+  {% assign menu = site.contentful.menu | where_exp: "menu", "menu.name == 'Homepage'" | first %}
+  <ul class="acc-unstyled-list acc-button-grid">
+    {% for item in menu.items %}
+      {% assign doc = item.page | find_document %}
+      {% assign url = item.page.url | default: doc.url %}
+  
+      {% if url %}
+        {% assign protocol = url | slice: 0, 4 %}
+        <li>
+          <a href="{{url}}">
+            <img src="{{ item.image.url }}?w=330&h=220&fit=thumb" />
+            <span>{{ item.name }}</span>
+          </a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</div>
+
+{% include components/content_blocks/current_events.html block=site.events %}
+
+{% assign mega_feature = contentful.contentBlocks | last %}
+{% include components/content_blocks/mega_feature.html block=mega_feature %}
+
+<div class="acc-full acc-social-container">
+  {% assign socialMediaHeader = contentful.contentBlocks | where: "title", "social-media-header" | first %}
+  {% unless socialMediaHeader == blank %}
+    <div class="acc-social-header">
+      {{ socialMediaHeader.text | markdownify }}
+    </div>
+  {% endunless %}
+  <div id="curator-feed"></div>
 </div>
 
 <script type="text/javascript">

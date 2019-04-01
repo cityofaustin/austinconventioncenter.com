@@ -1,0 +1,78 @@
+<ul class="acc-accordion acc-nav-primary" data-widget="accordion">
+  {% for item in include.items %}
+    {% case forloop.index %}
+      {% when 1 %}
+        {% assign nav_class = "one" %}
+      {% when 2 %}
+        {% assign nav_class = 'two' %}
+      {% when 3 %}
+        {% assign nav_class = 'three' %}
+      {% when 4 %}
+        {% assign nav_class = 'four' %}
+      {% when 5 %}
+        {% assign nav_class = 'five' %}
+    {% endcase %}
+    {% if item.type == 'navigationSection' %}
+      <li class="acc-mega-nav-{{ item.name | slugify }}">
+        <button class="acc-nav-button" aria-expanded="false" data-widget="accordion-button" aria-controls="basic-mega-nav-section-{{ nav_class }}">
+          <span>{{ item.name }}</span>
+        </button>
+        <div id="basic-mega-nav-section-{{nav_class}}" class="acc-subnav">
+          <div class="acc-nav-header">
+            <a href="#" class="acc-nav-close-button">Close</a>
+            <span class="acc-nav-submenu-title">{{ item.name }}</span>
+          </div>
+          <div class="acc-section-cols">
+            <div class="acc-section-col acc-section-description">
+              <p>
+                  {{ item.description }}
+              </p>
+            </div>
+            <div class="acc-section-col">
+              <ul>
+                {% for link in item.column1 %}
+                  {% assign doc = link | find_document %}
+                  {% assign url = link.url | default: doc.url %}
+              
+                  {% if url %}
+                    {% assign protocol = url | slice: 0, 4 %}
+                    <li>
+                      <a href="{{ url }}">{{ link.title }}</a>
+                    </li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            </div>
+            <div class="acc-section-col">
+              <ul>
+                {% for link in item.column2 %}
+                  {% assign doc = link | find_document %}
+                  {% assign url = link.url | default: doc.url %}
+              
+                  {% if url %}
+                    {% assign protocol = url | slice: 0, 4 %}
+                    <li>
+                      <a href="{{ url }}">{{ link.title }}</a>
+                    </li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </li>
+    {% else %}
+      {% assign doc = item | find_document %}
+      {% assign url = item.url | default: doc.url %}
+      {% if url %}
+        {% assign protocol = url | slice: 0, 4 %}
+        <li>
+          <a href="{{ url }}" class="acc-nav-link">{{ item.title }}</a>
+        </li>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+  <li class="acc-nav-events-link">
+    <a href="/events" class="acc-nav-link">Events</a>
+  </li>
+</ul>

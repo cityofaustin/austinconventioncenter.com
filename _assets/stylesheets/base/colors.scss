@@ -1,0 +1,13 @@
+$acc-color-attend: #EF492E;
+$acc-color-base: #63A70A;
+$acc-color-calendar: #9C0F17;
+$acc-color-exhibit: #FF952C;
+$acc-color-plan: #1B75B6;
+
+@if $site == pec or $site == pec_staging {
+  $acc-color-attend: #FF952C;
+  $acc-color-base: #1B75B6;
+  $acc-color-calendar: #9C0F17;
+  $acc-color-exhibit: #EF492E;
+  $acc-color-plan: #63A70A;
+}

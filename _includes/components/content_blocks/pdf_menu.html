@@ -1,0 +1,10 @@
+{% assign block = include.block %}
+<div class="acc-full">
+  <h2>{{ block.name }}</h2>
+  <ul class="acc-unstyled-list">
+    {% for file in block.files %}
+      <li>
+        <a href="{{file.url}}" target="_blank">Download {{file.title}}</a>
+      </li>
+    {% endfor %}
+</div>

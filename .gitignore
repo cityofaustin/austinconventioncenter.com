@@ -5,3 +5,5 @@ _site
 _data/contentful
 _data/socrata
 node_modules/
+.envrc
+.DS_Store

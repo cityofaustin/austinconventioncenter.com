@@ -1,33 +1,32 @@
-//= require ./vendor/font_awesome
 //= require ./vendor/hamburgers
 //= require ./vendor/photoswipe
 //= require ./vendor/tooltip
-//= require ./vendor/uswds
-
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,600i');
-
 @import "variables/all";
-
-@import "elements/reset";
-@import "elements/mixins";
+@import "base/normalize";
+@import "base/colors";
+@import "base/mixins";
+@import "base/typography";
 @import "elements/forms";
 @import "elements/tables";
-@import "elements/typography";
+@import "elements/typography"; // not really typography
 @import "elements/buttons";
-
-@import "components/accordions";
-@import "components/breadcrumbs";
-@import "components/folders";
+@import "elements/lists";
+@import "elements/flex";
+@import "components/nav";
 @import "components/footer";
-@import "components/gallery";
+@import "components/folders";
 @import "components/header";
-@import "components/sidebar";
-@import "components/sidenav";
-@import "components/hero";
-@import "components/contacts";
-@import "components/press_release";
+@import "components/feature";
 @import "components/floor_plans";
+@import "components/sidenav";
+@import "components/learn_more_menu";
+@import "components/numbers_feature";
+@import "components/page_banner";
+@import "components/side_by_side";
+@import "components/homepage";
+@import "components/accordion";
 @import "components/calendar";
+@import "components/gallery";
 @import "components/style_guide";
-@import "components/carousel";
-@import "components/social_media";
+@import "components/skipnav";
+@import "components/filters";

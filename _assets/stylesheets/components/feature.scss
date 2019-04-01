@@ -1,0 +1,79 @@
+.acc-feature-block {
+  background-color: $acc-color-gray-lightest;
+  background-repeat: no-repeat;
+  background-position: center 2rem;
+  background-size: auto;
+  font-size: 2rem;
+  margin-top: $acc-vertical-margin;
+  padding: 8rem 3rem 2em 3rem;
+  text-align: center;
+}
+
+.acc-feature-Testimonial {
+  background-image: image_url('icons/testimonial.png');
+}
+
+.acc-feature-Wifi {
+  background-image: image_url('icons/wifi.png');
+}
+
+.acc-feature-block p {
+  max-width: $site-max-width;
+  margin: 0 auto;
+
+  &:first-child {
+    padding-bottom: 1em;
+  }
+}
+
+.acc-feature-block ul {
+  max-width: $site-max-width/2;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.acc-mega-feature {
+  margin-top: $acc-vertical-margin;
+  text-align: center;
+  h3 {
+    margin-top: 0;
+  }
+  & > div {
+    background-repeat: no-repeat;
+    background-size: 0 0;
+    padding: 3em;
+
+    @media screen and (min-width: $large-screen) {
+      background-size: auto 100%;
+    }
+
+    p {
+      margin-top: 2em;
+    }
+  }
+  .acc-full > div {
+    @media screen and (max-width: $large-screen) {
+      padding: 3em;
+    }
+  }
+}
+
+.acc-mega-feature-left-bg {
+
+  > div {
+    @media screen and (min-width: $large-screen) {
+      background-position: top left;
+      padding: 3em 3em 3em 50%;
+    }
+  }
+}
+
+.acc-mega-feature-right-bg {
+
+  > div {
+    @media screen and (min-width: $large-screen) {
+      background-position: top right;
+      padding: 3em 50% 3em 3em;
+    }
+  }
+}

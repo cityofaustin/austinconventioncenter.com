@@ -1,0 +1,18 @@
+{% assign items = include.block.items %}
+
+<div class="acc-side-by-side-container">
+  <div class="acc-flex break-medium">
+    {% for item in items %}
+      <div class="acc-flex-one-half">
+        <div class="acc-side-by-side-component">
+          {% case item.type %}
+            {% when 'galleryImage' %}
+              <img src="{{ item.image.url }}?h=270&w=430&fit=fill" alt="{{ item.title }}" />
+            {% when 'textBlock' %}
+              {{ item.text | markdownify }}
+          {% endcase %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>

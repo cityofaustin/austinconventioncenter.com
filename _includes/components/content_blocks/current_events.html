@@ -1,0 +1,110 @@
+{% assign site_events = include.block %}
+
+<div class="acc-full acc-upcoming-events">
+  <h3>Upcoming Events</h3>
+  <div class="acc-flex break-nav" data-widget="upcoming-events">
+    <!-- to be populated via javascript below -->
+  </div>
+</div>
+<p style="text-align: center; margin-top: 2em;">
+  <a href="/events" class="acc-button">View Full Calendar</a>
+</p>
+
+<script>
+  // helper, to get month index
+  var monthMap = {
+    Jan: 1, Feb: 2, Mar: 3, Apr: 4, May: 5, Jun: 6, Jul: 7, Aug: 8, Sep: 9, Oct: 10, Nov: 11, Dec: 12
+  }
+
+  // get current date "index", based on month and date (not year)
+  var date = new Date();
+  if (location.search && /mo=/.test(location.search)) {
+    // for testing different events, add month and date params to url: ?mo=4&dt=30
+    var parts = location.search.split('&');
+    var mo = parseInt(parts[ 0 ].split('=')[ 1 ]);
+    var dt = parseInt(parts[ 1 ].split('=')[ 1 ]);
+    var yr = new Date().getFullYear();
+    date = new Date(yr, mo, dt);
+  }
+  var dateIndex = (date.getMonth() + 1) * 100 + date.getDate();
+
+  // collect and parse all Jekyll calendar dates
+  var events = [];
+  {% for event in site_events %}
+  {% for e in event.events %}
+  {% assign arrive = e.arrive_date | date: "%b %d" %}
+  {% assign depart = e.depart_date | date: "%b %d" %}
+  {% assign arrive = e.arrive_date | date: "%b %d" %}
+  events.push({
+    title: {{ e.event_name | jsonify }},
+    url: {{ e.website | jsonify }},
+    dateBeg: {{ arrive | jsonify }},
+    dateEnd: {{ depart | jsonify }}
+  });
+  {% endfor %}
+  {% endfor %}
+
+  // add date "index" to each event so they can be compared to today's date index
+  events = events.map(function (event) {
+    var dateParts = event.dateEnd.split(' ');
+    var mo = dateParts[ 0 ];
+    var dt = dateParts[ 1 ];
+    event.dateIndex = monthMap[ mo ] * 100 + parseInt(dt);
+    return event;
+  }).sort(function (a, b) {
+    return a.dateIndex - b.dateIndex;
+  });
+
+  // find current event, and next two events
+  var currentEvents = [];
+  var eventAmount = 3;
+  var index = 0;
+  var e;
+  for (var i = 0; i < events.length; i++) {
+    e = events[ i ];
+    if (index > 0) {
+      currentEvents.push(e);
+      index = index + 1;
+      if (index === eventAmount) {
+        break;
+      }
+    } else if (e.dateIndex >= dateIndex) {
+      index = 1;
+      currentEvents.push(e);
+    }
+  }
+
+  function getDates(beg, end) {
+    // returns one of: Mar 30; Mar 30-31; Mar 30 - Apr 2
+    if (beg === end) {
+      return beg;
+    }
+    var begMo = beg.split(' ')[ 0 ];
+    var begDt = beg.split(' ')[ 1 ];
+    var endMo = end.split(' ')[ 0 ];
+    var endDt = end.split(' ')[ 1 ];
+    if (begMo === endMo) {
+      return begMo + ' ' + begDt + '-' + endDt;
+    }
+    return begMo + ' ' + begDt + ' - ' + endMo + ' ' + endDt;
+  }
+
+  // create events html
+  var html = '';
+  currentEvents = currentEvents.forEach(function (event) {
+    var url = !event.url ? null : /^http/.test(event.url) ? event.url : 'https://' + event.url;
+    var dates = getDates(event.dateBeg, event.dateEnd);
+    html += '<div class="acc-flex-thirds">';
+    if (url) {
+      html += '<a href="' + url + '" class="acc-upcoming-event-link">' + dates + '</a>';
+    } else {
+      html += '<span class="acc-upcoming-event-link">' + dates + '</span>';
+    }
+    html += '<span class="acc-upcoming-event-name">' + event.title + '</span>';
+    html += '</div>';
+  });
+
+  var node = document.querySelector('[data-widget="upcoming-events"]');
+  node.innerHTML = html;
+
+</script>

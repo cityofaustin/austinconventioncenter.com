@@ -6,7 +6,6 @@
     "element-closest": "^2.0.2",
     "hamburgers": "^0.7.0",
     "photoswipe": "^4.1.1",
-    "tether-tooltip": "^1.2.0",
-    "uswds": "^0.13.1"
+    "tether-tooltip": "^1.2.0"
   }
 }

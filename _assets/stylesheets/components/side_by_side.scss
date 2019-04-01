@@ -1,0 +1,22 @@
+.acc-side-by-side-container {
+  max-width: 1200px;
+  margin: $acc-vertical-margin auto 0 auto;
+  h3 {
+    text-align: left;
+    margin-top: 0;
+  }
+  img{
+    width: 100%;
+  }
+}
+
+
+.acc-side-by-side-content-block {
+  h3 {
+    text-align: left;
+  }
+  img {
+    height: auto;
+    width: 100%;
+  }
+}

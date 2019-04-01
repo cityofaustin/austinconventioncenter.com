@@ -22,6 +22,12 @@
   <meta property="og:description" content="{{ site.description | xml_escape }}" />
 {% endif %}
   <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+
+<!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,600i" rel="stylesheet" />
+  <link href="https://use.typekit.net/izd7zss.css" rel="stylesheet" /> <!-- ACCD's TypeKit -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  
 <!-- Styles -->
   {% stylesheet main %}
   {% stylesheet print media:"print" %}
@@ -33,4 +39,5 @@
   {% if site.facebook_analytics_pixel_id %}
     {% include analytics/facebook_analytics.html %}
   {% endif %}
+
 </head>

@@ -1,4 +1,4 @@
-<ul class="usa-unstyled-list {{ include.list_classes }}">
+<ul class="acc-unstyled-list {{ include.list_classes }}">
   {% for item in include.items %}
     {% assign doc = item | find_document %}
     {% assign url = item.url | default: doc.url %}

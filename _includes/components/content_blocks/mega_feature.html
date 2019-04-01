@@ -1,0 +1,8 @@
+{% assign block = include.block %}
+<div class="acc-mega-feature acc-mega-feature-{{block.bgOrientation | downcase}}-bg acc-color-theme-Default">
+    <div class="acc-full" style="background-image:url('{{ block.backgroundImage.url }}?w=400&h=600&fit=crop');">
+    <div>
+      {{ block.text | markdownify }}
+    </div>
+  </div>
+</div>
