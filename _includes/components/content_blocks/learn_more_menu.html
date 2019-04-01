@@ -9,7 +9,7 @@
         {% else %}
         <a href="/{{item.internalLink}}" class="acc-learn-more-link">
         {% endif %}
-          <img src="{{ item.photo.url }}?w=330&h=220&fit=thumb" />
+          <img src="{{ item.photo.url }}?w=330&h=220&fit=thumb" alt="{{ item.photo.title }}" />
           <span class="acc-learn-more-link-title">
             {{ item.title }}
           </span>
