@@ -32,11 +32,12 @@
   text-align: left;
 }
 
-.acc-mega-feature {
+.acc-mega-feature .acc-side-by-side-container {
   margin-top: $acc-vertical-margin;
   text-align: center;
   h3 {
     margin-top: 0;
+    text-align: center;
   }
   & > div {
     background-repeat: no-repeat;
@@ -45,6 +46,10 @@
 
     @media screen and (min-width: $large-screen) {
       background-size: auto 100%;
+
+      .acc-flex-one-half:last-child .acc-side-by-side-component {
+        padding-top: 1em;
+      }
     }
 
     p {
@@ -54,26 +59,6 @@
   .acc-full > div {
     @media screen and (max-width: $large-screen) {
       padding: 3em;
-    }
-  }
-}
-
-.acc-mega-feature-left-bg {
-
-  > div {
-    @media screen and (min-width: $large-screen) {
-      background-position: top left;
-      padding: 3em 3em 3em 50%;
-    }
-  }
-}
-
-.acc-mega-feature-right-bg {
-
-  > div {
-    @media screen and (min-width: $large-screen) {
-      background-position: top right;
-      padding: 3em 50% 3em 3em;
     }
   }
 }
