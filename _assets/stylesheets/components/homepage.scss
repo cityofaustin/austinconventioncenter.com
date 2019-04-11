@@ -1,7 +1,10 @@
 .acc-homepage-banner h1 {
-  min-height: 30rem;
+  min-height: 22rem;
   overflow: hidden;
-  @media screen and (min-width: $nav-width) {
+  @media screen and (min-width: $medium-screen) {
+    min-height: 30rem;
+  }
+  @media screen and (min-width: $large-screen) {
     min-height: 60rem;
   }
 
