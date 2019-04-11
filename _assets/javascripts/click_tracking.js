@@ -52,10 +52,10 @@ $(document).ready(function() {
   });
 
 /*
-  Homepage Hero Button(s)
+  Page Banner Button(s)
 */
-  $('.acc-hero .acc-button').click(function() {
-    reportEvent('Hero Button Click', $(this).text()), window.location.pathname;
+  $('.acc-page-banner .acc-button').click(function() {
+    reportEvent('Page Banner Button Click', $(this).text()), window.location.pathname;
   });
 
 /*
