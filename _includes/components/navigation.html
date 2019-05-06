@@ -28,7 +28,7 @@
                   {{ item.description }}
               </p>
             </div>
-            <div class="acc-section-col">
+            <div class="acc-section-col" aria-expanded="false">
               <ul>
                 {% for link in item.column1 %}
                   {% assign doc = link | find_document %}
