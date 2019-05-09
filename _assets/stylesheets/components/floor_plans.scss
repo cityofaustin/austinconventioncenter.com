@@ -13,6 +13,15 @@
   }
 }
 
+.acc-floor-plan-image {
+  width: 100%;
+}
+
+.acc-floor-plan table {
+  tr:nth-child(even) {
+    background-color: $acc-color-gray-lightest;
+  }
+}
 // room-type: (hover-color, current-color)
 $acc-floor-plan-map-colors: (
   "Ballroom": (#ffc955, #ffb618),
