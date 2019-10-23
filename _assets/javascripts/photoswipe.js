@@ -68,6 +68,14 @@
       setData(photoswipe, item);
     });
 
+    photoswipe.listen('beforeChange', function() {
+      ga('send', 'event', {
+        eventCategory: 'Photo Carousel Test', 
+        eventAction: 'View full-size photo',
+        eventLabel: window.location.pathname
+      });
+    });
+
     photoswipe.init();
   }
 
