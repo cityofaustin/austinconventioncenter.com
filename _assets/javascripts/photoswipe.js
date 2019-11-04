@@ -70,7 +70,7 @@
 
     photoswipe.listen('beforeChange', function() {
       ga('send', 'event', {
-        eventCategory: 'Photo Carousel Test', 
+        eventCategory: 'Photo Carousel', 
         eventAction: 'View full-size photo',
         eventLabel: window.location.pathname
       });
