@@ -27,13 +27,13 @@ $(document).ready(function() {
 /*
   External Links
 */
-  // When a sidebar PDF button is clicked
+  // When a PDF button is clicked
   $('.acc-button-pdf').click(function() {
     var buttonText = $(this).text().replace('Download ', '');
     reportEvent('PDF Button Click', buttonText + ' PDF', window.location.pathname);
   });
 
-  // When a sidebar external link button is clicked
+  // When an external link button is clicked
   $('.acc-external-link').click(function() {
     reportEvent('External Link Click', $(this).children('span:first').text(), window.location.pathname);
   });
