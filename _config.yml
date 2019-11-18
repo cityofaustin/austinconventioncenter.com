@@ -3,6 +3,12 @@ markdown: kramdown
 
 permalink: pretty
 
+press_contact:
+ name: Terri McBride
+ email: terri.mcbride@austintexas.gov
+ title: Public Information and Marketing Manager
+ phone: 5124044021
+
 plugins:
   - jekyll-assets
   - jekyll-redirect-from
