@@ -5,9 +5,11 @@
     {% for item in block.links %}
       <li class="acc-flex-thirds">
         {% if item.linkedItem %}
-        <a href="{{item.linkedItem.url}}" class="acc-learn-more-link">
+          {% assign doc = item.linkedItem | find_document %}
+          {% assign url = item.linkedItem.url | default: doc.url %}
+          <a href="{{url}}" class="acc-learn-more-link">
         {% else %}
-        <a href="/{{item.internalLink}}" class="acc-learn-more-link">
+          <a href="/{{item.internalLink}}" class="acc-learn-more-link">
         {% endif %}
           <img src="{{ item.photo.url }}?w=330&h=220&fit=thumb" alt="{{ item.photo.title }}" />
           <span class="acc-learn-more-link-title">
