@@ -13,7 +13,6 @@ module Jekyll
     def generate(site)
       # Select space using id defined in _config/ file
       data = site.data["contentful"]["spaces"][site.config["id"]]
-
       @sections = {}
 
       data.fetch("section", []).each do |attributes|
@@ -30,7 +29,6 @@ module Jekyll
 
         generate_page(site, section, attributes)
       end
-
       if press_releases_section = site.collections["press-room"]
         data.fetch("pressRelease", []).each do |attributes|
           attributes["date"] = attributes["date"].utc # Undo implicit time zone conversion

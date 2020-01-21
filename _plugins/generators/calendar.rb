@@ -7,11 +7,12 @@ module Jekyll
 
     safe true
 
-    DATE_KEYS = %w(arrive depart).freeze
+    DATE_KEYS = %w(start end).freeze
 
     def generate(site)
       section = site.collections["events"]
-      events = site.data.dig("socrata", "events", "events")
+      filename = "#{site.config["id"]}"
+      events = site.data.dig("events", filename)
 
       return if section.nil? || events.nil?
 
@@ -35,19 +36,20 @@ module Jekyll
 
     def group_events_by_month(events)
       events.each do |event|
+        start_date = (event["startDate"]).strftime('%Y-%m-%dT00:00:00.000')
         DATE_KEYS.each do |key|
-          event["#{key}_date"] = date = Date.parse(event["#{key}_date"])
-          event["#{key}_month"] = date.beginning_of_month
+          event["#{key}_date"] = date = (event["#{key}Date"]).strftime('%Y-%m-%dT00:00:00.000')
+          event["#{key}_month"] = Date.parse((event["#{key}Date"]).strftime('%Y-%m-%d')).beginning_of_month
         end
       end
 
-      months = events.group_by { |event| event["arrive_month"] }
+      months = events.group_by { |event| event["start_month"] }
 
       # Add events spanning the end of a month to the next month
       events.each do |event|
-        if event["depart_month"] != event["arrive_month"]
-          months[event["depart_month"]] ||= []
-          months[event["depart_month"]] << event
+        if event["end_month"] != event["start_month"]
+          months[event["end_month"]] ||= []
+          months[event["end_month"]] << event
         end
       end
 

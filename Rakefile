@@ -51,6 +51,8 @@ namespace :contentful do
     })
     puts "Import ACC Contentful data"
     Jekyll::Commands::Contentful.process([], {}, config)
+    Rake::Task["generate_events"].invoke('acc')
+    Rake::Task["generate_events"].reenable
   end
 
   desc "Import PEC Contentful data"
@@ -64,6 +66,8 @@ namespace :contentful do
     })
     puts "Import PEC Contentful data"
     Jekyll::Commands::Contentful.process([], {}, config)
+    Rake::Task["generate_events"].invoke('pec')
+    Rake::Task["generate_events"].reenable
   end
 
   desc "Import ACC Staging Contentful data"
@@ -77,6 +81,8 @@ namespace :contentful do
     })
     puts "Import ACC Staging Contentful data"
     Jekyll::Commands::Contentful.process([], {}, config)
+    Rake::Task["generate_events"].invoke('acc_staging')
+    Rake::Task["generate_events"].reenable
   end
 
   desc "Import PEC Staging Contentful data"
@@ -90,6 +96,56 @@ namespace :contentful do
     })
     puts "Import PEC Staging Contentful data"
     Jekyll::Commands::Contentful.process([], {}, config)
+    Rake::Task["generate_events"].invoke('pec_staging')
+    Rake::Task["generate_events"].reenable
+  end
+end
+
+desc "Generate calendar YAML from Event entries"
+task :generate_events, [:site] do |task, args|
+  case args.site
+    when "acc"
+      contentful_params = {
+        :space => ENV["CONTENTFUL_ACC_SPACE_ID"],
+        :access_token => ENV["CONTENTFUL_ACC_ACCESS_TOKEN"]
+      }
+    when "acc_staging"
+      contentful_params = {
+        :space => ENV["CONTENTFUL_ACC_SPACE_ID"],
+        :access_token => ENV["CONTENTFUL_ACC_STAGING_ACCESS_TOKEN"],
+        :api_url => 'preview.contentful.com'
+      }
+    when "pec"
+      contentful_params = {
+        :space => ENV["CONTENTFUL_PEC_SPACE_ID"],
+        :access_token => ENV["CONTENTFUL_PEC_ACCESS_TOKEN"]
+      }
+    when "pec_staging"
+      contentful_params = {
+        :space => ENV["CONTENTFUL_PEC_SPACE_ID"],
+        :access_token => ENV["CONTENTFUL_PEC_STAGING_ACCESS_TOKEN"],
+        :api_url => 'preview.contentful.com'
+      }
+  end
+  client = Contentful::Client.new(contentful_params)
+  events = client.entries(content_type: 'event')
+  events_array = []
+  events.each do |e|
+    fields = e.fields
+    parsed = {
+      "name" => e.fields[:name],
+      "startDate" => Date.parse(e.fields[:startDate]),
+      "endDate" => Date.parse(e.fields[:endDate]),
+      "attendance" => e.fields[:attendance],
+      "website" => e.fields[:website],
+      "location" => e.fields[:location]
+    }
+    events_array << parsed
+  end
+  path = File.join("_data", "events", "#{args.site}.yaml")
+  FileUtils.mkdir_p(File.dirname(path))
+  File.open(path, "w") do |file|
+    file.write(YAML.dump(events_array))
   end
 end
 
@@ -102,13 +158,8 @@ if ENV["CI"]
   end
 end
 
-desc "Import ACC and PEC event listings from Socrata (data.austintexas.gov)"
-task :calendar do
-  Calendar::Import.import(Jekyll.configuration)
-end
-
-desc "Import all Contentful and Calendar data"
-multitask :import => [:contentful, :calendar]
+desc "Import all Contentful data"
+multitask :import => [:contentful]
 
 namespace :deploy do
   task :acc do
@@ -140,7 +191,7 @@ end
 # a $SITE env var, which is set as a build parameter by the Contentful webhooks. We build and deploy
 # only the relevant site when receiving a Contentful webhook, but new commits to master update both.
 namespace :ci do
-  task :import => [:calendar] do
+  task :import do
     Rake::Task["contentful"].invoke(ENV["SITE"])
   end
 
@@ -152,24 +203,5 @@ namespace :ci do
   task :deploy do
     task = ENV["SITE"] ? "deploy:#{ENV["SITE"]}" : "deploy"
     Rake::Task[task].invoke
-  end
-
-  # Nightly task run by Heroku Scheduler to rebuild the site (rebuilding nightly ensures the
-  # calendar is always up-to-date).
-  task :scheduler do
-    require 'faraday'
-
-    connection = Faraday.new("https://circleci.com") do |faraday|
-      faraday.request  :url_encoded
-      faraday.response :logger
-      faraday.adapter Faraday.default_adapter
-    end
-
-    branches = ["master"]
-    branches.each do |branch|
-      connection.post("/api/v1/project/cityofaustin/austinconventioncenter.com/tree/#{branch}") do |request|
-        request.params["circle-token"] = ENV["CIRCLE_TOKEN"]
-      end
-    end
   end
 end
