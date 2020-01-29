@@ -1,8 +1,40 @@
 require 'bundler/setup'
 require 'jekyll'
 require 'jekyll-contentful-data-import'
+require 'contentful/management'
+require 'csv'
 
 Dir[File.expand_path("lib/**/*.rb")].each { |file| require file }
+
+task :import_events do
+  events = CSV.read('accd_events.csv', headers: true)
+  client = Contentful::Management::Client.new(ENV["CONTENTFUL_CONTENT_MANAGEMENT_TOKEN"])
+  acc_event = client.content_types(ENV["CONTENTFUL_ACC_SPACE_ID"], 'master').find('event')
+  pec_event = client.content_types(ENV["CONTENTFUL_PEC_SPACE_ID"], 'master').find('event')
+
+  events.each do |event|
+    event_params = {
+      'name': event["Event Name"],
+      'attendance': event["Attendance"],
+      'startDate': Date.strptime(event["Arrive Date"],'%m/%d/%Y'),
+      'endDate': Date.strptime(event["Depart Date"],'%m/%d/%Y'),
+      'website': event["Website"],
+      'location': event["Location"]
+    }
+    if event["Location"] == "Austin Convention Center"
+      entry = client.entries(ENV["CONTENTFUL_ACC_SPACE_ID"], 'master').create(
+        acc_event,
+        event_params
+      )
+    elsif event["Location"] == "Palmer Events Center"
+      entry = client.entries(ENV["CONTENTFUL_PEC_SPACE_ID"], 'master').create(
+        pec_event,
+        event_params
+      )
+    end
+    puts "Entry: #{entry}"
+  end
+end
 
 namespace :build do
   desc "Run `jekyll build` with ACC configuration (use `foreman start acc` for `jekyll serve`)"
