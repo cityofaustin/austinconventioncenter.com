@@ -109,7 +109,7 @@ GEM
       forwardable-extended (~> 2.6)
     public_suffix (3.0.3)
     rack (1.6.11)
-    rake (11.3.0)
+    rake (12.3.3)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
@@ -163,7 +163,7 @@ DEPENDENCIES
   jekyll-contentful-data-import (~> 1.3.0)
   jekyll-maps (~> 2.3.0)
   jekyll-redirect-from
-  rake (~> 11.3.0)
+  rake (~> 12.3.3)
   s3_website
   soda-ruby
   sprockets (~> 3.6.3)
