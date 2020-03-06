@@ -2,6 +2,7 @@ _site
 .asset-cache
 .sass-cache
 .jekyll-metadata
+_data/
 _data/contentful
 _data/socrata
 node_modules/
