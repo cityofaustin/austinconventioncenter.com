@@ -10,10 +10,5 @@ layout: default
     <h4 class="acc-press-byline">{{ page.contentful.byline }}</h4>
     {{ page.contentful.date | date: "%B %-d, %Y" }}
     {{ page.contentful.content | markdownify }}
-    <div class="acc-press-contact">
-      For more information, contact:<br>
-      {{ site.press_contact.name }}, {{ site.press_contact.title }}, {{ site.title }}<br>
-      {{ site.press_contact.phone | format_phone }} or <a href="mailto:{{ site.press_contact.email }}">{{ site.press_contact.email }}</a>
-    </div>
   </div>
 </div>
