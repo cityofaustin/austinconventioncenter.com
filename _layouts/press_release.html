@@ -10,5 +10,11 @@ layout: default
     <h4 class="acc-press-byline">{{ page.contentful.byline }}</h4>
     {{ page.contentful.date | date: "%B %-d, %Y" }}
     {{ page.contentful.content | markdownify }}
+    {% if page.contentful.contactInformation %}
+      <div class="acc-press-release-contact">
+        For more information contact:
+        {{ page.contentful.contactInformation | markdownify }}
+      </div>
+    {% endif %}
   </div>
 </div>
