@@ -7,14 +7,33 @@ contentful_id: 4S1U5bQghaQAaKQsqOKywe
 <div class="acc-full">
   <div class="acc-flex no-break">
     <div class="acc-flex-two-thirds">
+      {%- assign press_releases = site.press-room | sort: "date" | reverse -%}
+      {%- for press_release in press_releases limit:3 -%}
+      <div class="acc-side-by-side-container">
+        <div class="acc-flex break-medium">
+          <div class="acc-flex-one-half">
+            <div class="acc-side-by-side-component">
+              <a href="{{ press_release.url }}">
+                <img src="{{ press_release.photo_url }}?w=900&h=410" />
+              </a>
+            </div>
+          </div>
+          <div class="acc-flex-one-half">
+            <div class="acc-side-by-side-component">
+              <strong>{{ press_release.date | date: "%B %-d, %Y" }}</strong>
+              <h3><a href="{{ press_release.url }}">{{ press_release.title }}</a></h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      {%- endfor -%}
       <ul class="acc-unstyled-list acc-press-release-list">
-        {% assign press_releases = site.press-room | sort: "date" | reverse %}
-        {% for press_release in press_releases %}
-          <li>
-            <strong class="acc-press-release-date">{{ press_release.date | date: "%B %-d, %Y" }}</strong><br>
-            <a href="{{press_release.url}}">{{ press_release.title }}</a>
-          </li>
-        {% endfor %}
+        {%- for press_release in press_releases offset:3 -%}
+        <li>
+          <strong class="acc-press-release-date">{{ press_release.date | date: "%B %-d, %Y" }}</strong><br>
+          <a href="{{ press_release.url }}">{{ press_release.title }}</a>
+        </li>
+        {%- endfor -%}
       </ul>
     </div>
   </div>
