@@ -36,6 +36,8 @@ module Jekyll
           attributes["date"] = attributes["date"].utc # Undo implicit time zone conversion
           page = generate_page(site, press_releases_section, attributes)
           page.data["breadcrumbs"][-1]["title"] = attributes["date"].strftime("%B %-d, %Y")
+          page.data["photo_url"] = attributes["picture"]["url"] if attributes["picture"].present?
+          page.data["preview_text"] = attributes["previewText"] if attributes["previewText"].present?
         end
       end
     end
