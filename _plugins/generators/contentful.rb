@@ -31,7 +31,7 @@ module Jekyll
         generate_page(site, section, attributes)
       end
 
-      if press_releases_section = site.collections["press-room"]
+      if press_releases_section = site.collections["newsroom"]
         data.fetch("pressRelease", []).each do |attributes|
           attributes["date"] = attributes["date"].utc # Undo implicit time zone conversion
           page = generate_page(site, press_releases_section, attributes)

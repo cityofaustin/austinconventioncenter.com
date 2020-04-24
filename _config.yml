@@ -102,10 +102,10 @@ defaults:
       permalink: "/events/:year/:month/"
   -
     scope:
-      type: press-room
+      type: newsroom
     values:
       layout: press_release
-      permalink: "/press-room/:title/"
+      permalink: "/newsroom/:title/"
   -
     scope:
       type: "contact"
