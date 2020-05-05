@@ -102,10 +102,16 @@ defaults:
       permalink: "/events/:year/:month/"
   -
     scope:
-      type: newsroom
+      type: press-releases
     values:
       layout: press_release
-      permalink: "/newsroom/:title/"
+      permalink: "/press-releases/:title/"
+  -
+    scope:
+      type: "inTheNews"
+    values:
+      layout: accd-in-the-news
+      permalink: "/in_the_news/:title/"
   -
     scope:
       type: "contact"
