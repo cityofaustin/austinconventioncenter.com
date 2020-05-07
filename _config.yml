@@ -119,6 +119,11 @@ defaults:
       layout: contact
   -
     scope:
+      type: "meet-the-team"
+    values:
+      layout: meet_the_team
+  -
+    scope:
       type: "plans"
     values:
       layout: floor_plan
