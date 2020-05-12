@@ -1,0 +1,41 @@
+---
+layout: default
+---
+
+<main id="main-content">
+  {%- for banner in page.contentful.contentBlocks limit: 1 -%}
+    <div class="acc-page-banner">
+      <h1 style="background-image: url('{{ banner.backgroundImage.url }}?w=1200&fm=jpg&fl=progressive');">
+        <div class="acc-page-banner-overlay"></div>
+        <span>{{ banner.title }}</span>
+      </h1>
+    </div>
+  {%- endfor -%}
+
+  <div class="acc-flex break-medium">
+    <h2 class="acc-flex-one-half">Executive Team</h2>
+  </div>
+
+  <ul class="acc-flex break-large acc-meet-the-team">
+    {%- for employee in page.contentful.contentBlocks offset: 1 -%}
+      <li class="acc-flex-thirds acc-employee">
+        <div>
+          <img src="{{ employee.photo.url }}?w=330&h=220&fit=thumb" alt="{{ item.photo.title }}" />
+          <h3>{{ employee.name }}</h3>
+          <h4>{{ employee.title }}</h4>
+          <a href="#" class="acc-bio-toggle-button" aria-hidden="true">Read Biography</a>
+          <div class="acc-employee-bio" aria-hidden="false">
+            <div>
+              <div>
+                <div>
+                  {{ employee.biography | markdownify }}
+                </div>
+                <img src="{{site.baseurl}}/assets/icons/button-close.png" aria-hidden="true" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    {%- endfor -%}
+  </ul>
+</main>

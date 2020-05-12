@@ -1,6 +1,7 @@
 
 //= require photoswipe
 //= require click_tracking
+//= require meet_the_team
 
 var delegate = require("dom-delegate"), // https://github.com/ftlabs/ftdomdelegate
     folders = require("components/folders"),

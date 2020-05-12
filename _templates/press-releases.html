@@ -7,7 +7,7 @@ contentful_id: 4S1U5bQghaQAaKQsqOKywe
 <div class="acc-full">
   <div class="acc-flex no-break">
     <div class="acc-flex-two-thirds">
-      {%- assign press_releases = site.newsroom | sort: "date" | reverse -%}
+      {%- assign press_releases = site.press-releases | sort: "date" | reverse -%}
       {%- for press_release in press_releases limit:3 -%}
       <div class="acc-side-by-side-container">
         <div class="acc-flex break-medium">

@@ -190,6 +190,26 @@
       @include navigation-gradient($acc-color-exhibit);
     }
   }
+  .acc-mega-nav-newsroom {
+    button:hover,
+    button:active,
+    button[aria-expanded=true] {
+      background-color: black;
+    }
+    .acc-subnav {
+      @include navigation-gradient(black);
+    }
+  }
+  .acc-mega-nav-about {
+    button:hover,
+    button:active,
+    button[aria-expanded=true] {
+      background-color: $acc-color-attend;
+    }
+    .acc-subnav {
+      @include navigation-gradient($acc-color-attend);
+    }
+  }
 }
 
 .acc-menu-button {

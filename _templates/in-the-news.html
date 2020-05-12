@@ -1,0 +1,45 @@
+---
+layout: default
+---
+{% include components/content_blocks.html blocks=page.contentful.contentBlocks %}
+
+<div class="acc-full">
+  <div class="acc-flex no-break">
+    <div class="acc-flex-two-thirds">
+      {%- assign items = site.in-the-news | sort: "date" | reverse -%}
+      {%- for item in items limit:3 -%}
+      <div class="acc-side-by-side-container">
+        <div class="acc-flex break-medium">
+          <div class="acc-flex-one-half">
+            <div class="acc-side-by-side-component">
+              <a href="{{ item.publication_url }}">
+                <img src="{{ item.photo_url }}?w=900&h=410" />
+              </a>
+            </div>
+          </div>
+          <div class="acc-flex-one-half">
+            <div class="acc-side-by-side-component">
+              <strong>{{ press_release.date | date: "%B %-d, %Y" }}</strong>
+              <h3><a href="{{ item.publication_url }}">{{ item.title }}</a></h3>
+              {% if item.preview_text %}
+                {{ item.preview_text }}
+              {% endif %}
+              <p>
+                <a href="{{item.publication_url}}" class="acc-button">Read More</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {%- endfor -%}
+      <ul class="acc-unstyled-list acc-press-release-list">
+        {%- for item in items offset:3 -%}
+        <li>
+          <strong class="acc-press-release-date">{{ item.date | date: "%B %-d, %Y" }}</strong><br>
+          <a href="{{ item.url }}">{{ item.title }}</a>
+        </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </div>
+</div>
