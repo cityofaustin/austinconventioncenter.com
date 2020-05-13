@@ -31,17 +31,16 @@
   // collect and parse all Jekyll calendar dates
   var events = [];
   {% for event in site_events %}
-  {% for e in event.events %}
-  {% assign arrive = e.arrive_date | date: "%b %d" %}
-  {% assign depart = e.depart_date | date: "%b %d" %}
-  {% assign arrive = e.arrive_date | date: "%b %d" %}
-  events.push({
-    title: {{ e.event_name | jsonify }},
-    url: {{ e.website | jsonify }},
-    dateBeg: {{ arrive | jsonify }},
-    dateEnd: {{ depart | jsonify }}
-  });
-  {% endfor %}
+    {% for e in event.events %}
+      {% assign depart = e.depart_date | date: "%b %d %Y" %}
+      {% assign arrive = e.arrive_date | date: "%b %d %Y" %}
+      events.push({
+        title: {{ e.event_name | jsonify }},
+        url: {{ e.website | jsonify }},
+        dateBeg: {{ arrive | jsonify }},
+        dateEnd: {{ depart | jsonify }}
+      });
+    {% endfor %}
   {% endfor %}
 
   // add date "index" to each event so they can be compared to today's date index
@@ -49,7 +48,13 @@
     var dateParts = event.dateEnd.split(' ');
     var mo = dateParts[ 0 ];
     var dt = dateParts[ 1 ];
-    event.dateIndex = monthMap[ mo ] * 100 + parseInt(dt);
+    var yr = dateParts[ 2 ];
+    if (monthMap[ mo ].length == 1) {
+      indexPrefix = yr + '0' + monthMap[ mo ];
+    } else {
+      indexPrefix = yr + '' + monthMap [ mo ];
+    }
+    event.dateIndex = indexPrefix * 100 + parseInt(dt);
     return event;
   }).sort(function (a, b) {
     return a.dateIndex - b.dateIndex;
