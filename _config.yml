@@ -108,12 +108,6 @@ defaults:
       permalink: "/press-releases/:title/"
   -
     scope:
-      type: "inTheNews"
-    values:
-      layout: accd-in-the-news
-      permalink: "/in_the_news/:title/"
-  -
-    scope:
       type: "contact"
     values:
       layout: contact
