@@ -40,17 +40,6 @@ module Jekyll
           page.data["preview_text"] = attributes["previewText"] if attributes["previewText"].present?
         end
       end
-
-      if in_the_news_section = site.collections["in-the-news"]
-        data.fetch("inTheNews", []).each do |attributes|
-          attributes["date"] = attributes["date"].utc # Undo implicit time zone conversion
-          page = generate_page(site, in_the_news_section, attributes)
-          page.data["breadcrumbs"][-1]["title"] = attributes["date"].strftime("%B %-d, %Y")
-          page.data["photo_url"] = attributes["photo"]["url"] if attributes["photo"].present?
-          page.data["preview_text"] = attributes["previewText"] if attributes["previewText"].present?
-          page.data["publication_url"] = attributes["publicationUrl"]
-        end
-      end
     end
 
     private
