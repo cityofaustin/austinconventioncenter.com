@@ -23,14 +23,14 @@ layout: default
           <img src="{{ employee.photo.url }}?w=330&h=220&fit=thumb" alt="{{ item.photo.title }}" />
           <h3>{{ employee.name }}</h3>
           <h4>{{ employee.title }}</h4>
-          <a href="#" class="acc-bio-toggle-button" aria-hidden="true">Read Biography</a>
+          <a href="#" class="acc-bio-toggle-button" aria-hidden="true" onclick="return false;">Read Biography</a>
           <div class="acc-employee-bio" aria-hidden="false">
             <div>
               <div>
                 <div>
                   {{ employee.biography | markdownify }}
                 </div>
-                <img src="{{site.baseurl}}/assets/icons/button-close.png" aria-hidden="true" />
+                <img src="{% asset_path icons/button-close.png %}" aria-hidden="true" />
               </div>
             </div>
           </div>
