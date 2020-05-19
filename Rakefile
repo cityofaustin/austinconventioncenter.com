@@ -112,19 +112,27 @@ multitask :import => [:contentful, :calendar]
 
 namespace :deploy do
   task :acc do
-    exec "SITE=acc S3_BUCKET=www.austinconventioncenter.com s3_website push --site=_site/acc"
+    exec "aws s3 sync _site/acc s3://www.austinconventioncenter.com --delete && aws cloudfront create-invalidation \
+          --distribution-id #{ENV["CLOUDFRONT_ACC_DISTRIBUTION_ID"]} \
+          --paths /*"
   end
 
   task :pec do
-    exec "SITE=pec S3_BUCKET=www.palmereventscenter.com s3_website push --site=_site/pec"
+    exec "aws s3 sync _site/pec s3://www.palmereventscenter.com --delete && aws cloudfront create-invalidation \
+          --distribution-id #{ENV["CLOUDFRONT_PEC_DISTRIBUTION_ID"]} \
+          --paths /*"
   end
 
   task :acc_staging do
-    exec "SITE=acc_staging S3_BUCKET=staging.austinconventioncenter.com s3_website push --site=_site/acc_staging"
+    exec "aws s3 sync _site/acc_staging s3://staging.austinconventioncenter.com --delete && aws cloudfront create-invalidation \
+          --distribution-id #{ENV["CLOUDFRONT_ACC_STAGING_DISTRIBUTION_ID"]} \
+          --paths /*"
   end
 
   task :pec_staging do
-    exec "SITE=pec_staging S3_BUCKET=staging.palmereventscenter.com s3_website push --site=_site/pec_staging"
+    exec "aws s3 sync _site/pec_staging s3://staging.palmereventscenter.com --delete && aws cloudfront create-invalidation \
+          --distribution-id #{ENV["CLOUDFRONT_PEC_STAGING_DISTRIBUTION_ID"]} \
+          --paths /*"
   end
 end
 
