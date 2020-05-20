@@ -7,7 +7,7 @@ layout: default
   <div class="acc-flex no-break">
     <div class="acc-flex-two-thirds">
       {%- assign news_items = site.contentful.inTheNews | sort: "date" | reverse -%}
-      {%- for item in news_items limit:3 -%}
+      {%- for item in news_items -%}
       <div class="acc-side-by-side-container">
         <div class="acc-flex break-medium">
           <div class="acc-flex-one-half">
@@ -32,14 +32,6 @@ layout: default
         </div>
       </div>
       {%- endfor -%}
-      <ul class="acc-unstyled-list acc-press-release-list">
-        {%- for item in news_items offset:3 -%}
-        <li>
-          <strong class="acc-press-release-date">{{ item.date | date: "%B %-d, %Y" }}</strong><br>
-          <a href="{{ item.url }}">{{ item.title }}</a>
-        </li>
-        {%- endfor -%}
-      </ul>
     </div>
   </div>
 </div>
