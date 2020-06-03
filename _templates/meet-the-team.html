@@ -4,12 +4,7 @@ layout: default
 
 <main id="main-content">
   {%- for banner in page.contentful.contentBlocks limit: 1 -%}
-    <div class="acc-page-banner">
-      <h1 style="background-image: url('{{ banner.backgroundImage.url }}?w=1200&fm=jpg&fl=progressive');">
-        <div class="acc-page-banner-overlay"></div>
-        <span>{{ banner.title }}</span>
-      </h1>
-    </div>
+    {% include components/content_blocks/page_banner.html block=banner %}
   {%- endfor -%}
 
   <div class="acc-flex break-medium">
