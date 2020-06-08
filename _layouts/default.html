@@ -3,11 +3,6 @@
 <!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
   {% include head.html %}
   <body>
-    {% if site.environment == "staging" %}
-      <h3 class="staging-banner">
-        Mike Staging Environment
-      </h3>
-  {% endif %}
     {% include header.html %}
     <main id="main-content">
       {{ content }}
