@@ -1,4 +1,12 @@
 <a class="acc-skipnav" href="#main-content">Skip to main content</a>
+
+{%- assign alert_banner = site.contentful.textBlock | where_exp: "textBlock", "textBlock.name == 'Alert Banner'" | first -%}
+{%- if alert_banner -%}
+<div class="acc-alert-banner">
+  {{ alert_banner.text | markdownify }}
+</div>
+{%- endif -%}
+
 <header class="acc-header-content" role="banner">
   <div class="acc-logo">
     <a href="{{site.baseurl}}/" accesskey="1" title="Home" aria-label="Home">
