@@ -15,7 +15,22 @@
 }
 
 .acc-homepage-menu-container {
-  margin-top: -5rem;
+  margin-top: 5rem;
+}
+.acc-video-embed-mega-feature {
+  margin-top: -10rem;
+}
+.acc-homepage-youtube-embed {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+}
+.acc-homepage-youtube-embed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .acc-homepage-menu-container .acc-button-grid li {
