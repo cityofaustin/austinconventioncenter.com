@@ -141,10 +141,18 @@
   width: 100%;
   max-width: 100%;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
 
   > div {
     padding-top: 3rem;
     padding-bottom: 3rem;
+
+    img {
+      height: auto;
+    }
   }
 }
 
