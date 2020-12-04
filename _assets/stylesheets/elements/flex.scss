@@ -51,7 +51,7 @@
   }
   &.break-partners {
     @media screen and (min-width: $partners-width) {
-      display: flex;
+      flex-direction: row;
     }
   }
   &.wrap {
