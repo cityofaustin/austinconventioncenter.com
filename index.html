@@ -24,7 +24,7 @@ layout: default
   </h1>
   <div class="acc-page-banner-text-container">
     {{ banner.text | markdownify }}
-  </div>		
+  </div>
 </div>
 
 {%- if site.title == 'Austin Convention Center' -%}
@@ -33,7 +33,7 @@ layout: default
       <div class="acc-flex break-medium">
         <div class="acc-flex-one-half">
           <div class="acc-side-by-side-component acc-homepage-youtube-embed">
-            <iframe src="https://www.youtube.com/embed/le8J6w4uSIE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/9tzecTmxwJg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
         <div class="acc-flex-one-half">
@@ -46,6 +46,29 @@ layout: default
             </p>
             <p>
               When you're ready, rest assured the Austin Convention Center will be the most well prepared event space in the country.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{%- elsif site.title == 'Palmer Events Center' -%}
+  <div class="acc-mega-feature acc-color-theme-Default acc-video-embed-mega-feature">
+    <div class="acc-side-by-side-container">
+      <div class="acc-flex break-medium">
+        <div class="acc-flex-one-half">
+          <div class="acc-side-by-side-component acc-homepage-youtube-embed">
+            <iframe src="https://www.youtube.com/embed/OoeV6e9epXE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="acc-flex-one-half">
+          <div class="acc-side-by-side-component">
+            <h3>
+              Virtual and Hybrid Events
+            </h3>
+            <p>
+              Palmer Events Center provides industry-leading bandwidth to stream your event with an incredible backdrop of the Austin skyline at a fraction of the cost of similar venues. Contact our sales team to learn more about how you can stream your virtual or hybrid event from Palmer Events Center.
             </p>
           </div>
         </div>
@@ -74,7 +97,9 @@ layout: default
 </div>
 
 {% assign mega_feature = contentful.contentBlocks | last %}
-{% include components/content_blocks/mega_feature.html block=mega_feature %}
+{%- if site.title == 'Austin Convention Center' -%}
+  {% include components/content_blocks/mega_feature.html block=mega_feature %}
+{%- endif -%}
 
 <div class="acc-full acc-social-container">
   {% assign socialMediaHeader = contentful.contentBlocks | where: "title", "social-media-header" | first %}
