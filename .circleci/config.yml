@@ -113,3 +113,13 @@ workflows:
   commit-workflow:
     jobs:
       - build 
+  scheduled-workflow:
+    triggers:
+      - schedule:
+          cron: "0 0 16 * *"
+          filters:
+            branches:
+              only: master
+
+    jobs:
+      - build
