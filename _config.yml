@@ -59,6 +59,7 @@ contentful_options: &contentful_options
     pdfMenu: Mappers::ContentBlockMapper
     sideBySide: Mappers::ContentBlockMapper
     textBlock: Mappers::ContentBlockMapper
+    youTubeEmbed: Mappers::ContentBlockMapper
 
 contentful:
   spaces:
