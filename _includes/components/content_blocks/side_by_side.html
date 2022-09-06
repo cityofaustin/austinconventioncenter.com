@@ -10,6 +10,8 @@
               <img src="{{ item.image.url }}?h=270&w=430&fit=fill" alt="{{ item.title }}" />
             {% when 'textBlock' %}
               {{ item.text | markdownify }}
+            {% when 'youTubeEmbed' %}
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ item.videoId }}" frameborder="0" allowfullscreen></iframe>
           {% endcase %}
         </div>
       </div>
