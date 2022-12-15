@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-ruby "2.4.3"
+ruby "2.5.9"
 
 gem "activesupport"
 gem "autoprefixer-rails"
