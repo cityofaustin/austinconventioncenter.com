@@ -29,7 +29,7 @@ end
 desc "Build the sites"
 task :build do
   if ENV["CI"] || system("which parallel") # On macOS: `brew install parallel` (optional)
-    if ENV["CIRCLE_BRANCH"] == "master"
+    if ENV["CIRCLE_BRANCH"] == "main"
       exec("parallel bundle exec rake build:{} ::: acc pec")
     else
       exec("parallel bundle exec rake build:{} ::: acc_staging pec_staging")
@@ -95,7 +95,7 @@ end
 
 desc "Import all Contentful data"
 if ENV["CI"]
-  if ENV["CIRCLE_BRANCH"] == "master"
+  if ENV["CIRCLE_BRANCH"] == "main"
     multitask :contentful => ["contentful:acc", "contentful:pec"]
   else
     multitask :contentful => ["contentful:acc_staging", "contentful:pec_staging"]
@@ -137,7 +137,7 @@ namespace :deploy do
 end
 
 task :deploy do
-  if ENV["CIRCLE_BRANCH"] == "master"
+  if ENV["CIRCLE_BRANCH"] == "main"
     exec "parallel bundle exec rake deploy:{} ::: acc pec"
   elsif ENV["CIRCLE_BRANCH"] == "staging"
     exec "parallel bundle exec rake deploy:{} ::: acc_staging pec_staging"
@@ -173,7 +173,7 @@ namespace :ci do
       faraday.adapter Faraday.default_adapter
     end
 
-    branches = ["master"]
+    branches = ["main"]
     branches.each do |branch|
       connection.post("/api/v1/project/cityofaustin/austinconventioncenter.com/tree/#{branch}") do |request|
         request.params["circle-token"] = ENV["CIRCLE_TOKEN"]
