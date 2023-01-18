@@ -41,7 +41,7 @@ jobs:
     # This is based on your 1.0 configuration file or project settings
     - run:
         working_directory: ~/cityofaustin/austinconventioncenter.com
-        command: nvm install 6.1.0 && nvm alias default 6.1.0
+        command: nvm install 16.15.1 && nvm alias default 16.15.1
     # Dependencies
     #   This would typically go in either a build or a build-and-test job when using workflows
     # Restore the dependency cache
