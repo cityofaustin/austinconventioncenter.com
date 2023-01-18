@@ -30,13 +30,13 @@ module Jekyll
     private
 
     def filter_events_by_venue(events, location)
-      events.select { |event| event["location"].strip == location }
+      events.select { |event| event["Location"].strip == location }
     end
 
     def group_events_by_month(events)
       events.each do |event|
         DATE_KEYS.each do |key|
-          event["#{key}_date"] = date = Date.parse(event["#{key}_date"])
+          event["#{key}_date"] = date = Date.parse(event["#{key.capitalize}_Date"])
           event["#{key}_month"] = date.beginning_of_month
         end
       end

@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-ruby "2.4.3"
+ruby "2.6.2"
 
 gem "activesupport"
 gem "autoprefixer-rails"
@@ -13,6 +13,7 @@ gem "sprockets", "~> 3.6.3"
 gem "sprockets-commoner"
 gem "uglifier"
 gem 'jekyll-maps', "~> 2.3.0"
+gem 'httparty'
 
 group :jekyll_plugins do
   gem "jekyll-contentful-data-import", "~>1.3.0"
