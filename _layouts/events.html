@@ -47,16 +47,16 @@ layout: default
             {% for event in events %}
               <li>
 
-                <a href="{% if event.website %}
-                          {% if event.website contains 'http' or event.website contains 'https' %}
-                            {{ event.website }}
+                <a href="{% if event.Website != empty %}
+                          {% if event.Website contains 'http' or event.Website contains 'https' %}
+                            {{ event.Website }}
                           {% else %}
-                            {{ event.website | prepend: 'http://' }}
+                            {{ event.Website | prepend: 'http://' }}
                           {% endif %}
                         {% else %}
-                          #
+                          #_
                         {% endif %}"
-                  class="acc-calendar-event{% if event.website %} acc-calendar-event-link{% endif %}">
+                  class="acc-calendar-event{% if event.Website %} acc-calendar-event-link{% endif %}">
 
                   {% assign arrive_month = event.arrive_date | date: "%B" %}
                   {% assign depart_month = event.depart_date | date: "%B" %}
@@ -79,12 +79,12 @@ layout: default
                   </div>
                   <div class="acc-calendar-event-details">
                     <h3 class="acc-calendar-event-title">
-                      {{ event.event_name | default: "Private Event" }}
+                      {{ event.Event_Name | default: "Private Event" }}
                     </h3>
-                    {% if event.attendance %}
+                    {% if event.Attendance %}
                       <h4>Expected Attendance</h4>
-                      {{ event.attendance }}
-                      {% if event.website %}
+                      {{ event.Attendance }}
+                      {% if event.Website %}
                         <i class="fas fa-external-link-alt"></i>
                       {% endif %}
                     {% endif %}
