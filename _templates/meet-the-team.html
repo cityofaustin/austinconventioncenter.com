@@ -7,6 +7,11 @@ layout: default
     {% include components/content_blocks/page_banner.html block=banner %}
   {%- endfor -%}
 
+  {%- if page.contentful.file -%}
+    <div class="acc-flex break-large acc-meet-the-team-photo-wrapper">
+      <img src="{{ page.contentful.file.url }}?w=1200&fm=jpg&fl=progressive" alt="Photo of the ACCD executive team" />
+    </div>
+  {%- endif -%}
   <div class="acc-flex break-medium">
     <h2 class="acc-flex-one-half">Executive Team</h2>
   </div>
