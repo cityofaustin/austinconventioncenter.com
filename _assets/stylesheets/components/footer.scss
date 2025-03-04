@@ -135,23 +135,47 @@
   }
 }
 
+// .acc-partner-logos {
+//   background-color: white;
+//   padding: 2rem 1rem;
+//   width: 100%;
+//   max-width: 100%;
+//   text-align: center;
+//   display: flex;
+//   flex-direction: column;
+//   flex-wrap: wrap;
+//   align-content: center;
+
+//   > div {
+//     padding-top: 3rem;
+//     padding-bottom: 3rem;
+
+//     img {
+//       height: auto;
+//     }
+//   }
+// }
 .acc-partner-logos {
   background-color: white;
-  padding: 2rem 1rem;
+  padding: 2rem 3rem;
   width: 100%;
   max-width: 100%;
-  text-align: center;
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-content: center;
+  justify-content: space-evenly; /* Ensures equal spacing */
+  align-items: center;
 
   > div {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 0;
 
     img {
       height: auto;
+      max-width: 100%;
+      max-height: 80px;
+      object-fit: contain;
     }
   }
 }
