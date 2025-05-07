@@ -19,9 +19,11 @@ module Jekyll
       months = group_events_by_month(events)
       latest = months.keys.max
 
+      latestNew = ‘2026-12-31’.to_date
+
       # Uses `while` instead of `each` to generate a page even for 'empty' months
       date = Date.today.beginning_of_month
-      while date <= latest
+      while date <= latestNew
         section.docs << generate_month_page(site, section, date, months[date])
         date = date.next_month
       end
