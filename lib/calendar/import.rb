@@ -12,9 +12,9 @@ module Calendar
         path = File.join(config["source"], config["data_dir"], "socrata", "events", "events.yaml")
 
         FileUtils.mkdir_p(File.dirname(path))
-
+        
         File.open(path, "w") do |file|
-          file.write(YAML.dump(JSON.parse(results).map(&:to_hash)))
+          file.write(YAML.dump(JSON.parse(results.body).map(&:to_hash)))
         end
       end
 
