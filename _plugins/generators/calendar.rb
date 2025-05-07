@@ -1,4 +1,5 @@
 require "active_support/core_ext/date/calculations"
+require "date"
 require_relative "helpers"
 
 module Jekyll
@@ -19,7 +20,9 @@ module Jekyll
       months = group_events_by_month(events)
       latest = months.keys.max
 
-      latestNew = "2026-12-31".to_date
+      date_string = "2026-12-31"
+      date_obj = Date.parse(date_string)
+      latestNew = date_obj.to_date
 
       # Uses `while` instead of `each` to generate a page even for 'empty' months
       date = Date.today.beginning_of_month
