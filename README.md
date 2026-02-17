@@ -4,6 +4,8 @@
 
 [dti]: http://cityofaustin.github.io/innovation-fellows/
 
+
+
 ## Architecture
 
 This project implements a decoupled CMS, which you can read about in [our Medium post][medium]. It uses [Contentful][] as the content editor and [Jekyll][] as the static site generator. Content management capabilities are documented in the site's [content management guide][].
